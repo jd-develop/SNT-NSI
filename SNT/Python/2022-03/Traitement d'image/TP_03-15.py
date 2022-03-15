@@ -84,7 +84,7 @@ img8 = base_img.copy()
 for y in range(height):
     for x in range(width):
         r, b = img8.getpixel((x, y))[0], img8.getpixel((x, y))[-1]
-        g = b - 10
+        g = b
         img8.putpixel((x, y), (r, g, b))
 
 img8.save('./OUTPUT_TP_03-05/output8.png', 'PNG')
@@ -143,16 +143,26 @@ for y in range(height):
 
 img14.save('./OUTPUT_TP_03-05/output14.png', 'PNG')
 
+# Image random
+img15 = base_img.copy()
+for y in range(height):
+    for x in range(width):
+        r, g, b = img15.getpixel((x, y))
+        r, g, b = g+b if g+b <= 255 else 255-r, r+b if r+b <= 255 else 255-g, r+g if r+g <= 255 else 255-b
+        img15.putpixel((x, y), (r, g, b))
+
+img15.save('./OUTPUT_TP_03-05/output15.png', 'PNG')
+
 # image finale
-final_image = Image.new(base_img.mode, (500*7, 500*2))
-images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14]
+final_image = Image.new(base_img.mode, (500*5, 500*3))
+images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15]
 idx = 0
 
-for y in [0, 500]:
-    for x in range(0, 500*7, 500):
+for y in [0, 500, 1000]:
+    for x in range(0, 500*5, 500):
         final_image.paste(images[idx], (x, y))
         idx += 1
-        if idx > 13:
+        if idx > 14:
             break
 
 final_image.save('./OUTPUT_TP_03-05/output_final.png', "PNG")
