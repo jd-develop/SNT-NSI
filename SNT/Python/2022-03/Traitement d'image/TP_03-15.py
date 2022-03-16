@@ -143,12 +143,12 @@ for y in range(height):
 
 img14.save('./OUTPUT_TP_03-05/output14.png', 'PNG')
 
-# Image random
+# addition des deux autres couleurs pour chaque couleur
 img15 = base_img.copy()
 for y in range(height):
     for x in range(width):
         r, g, b = img15.getpixel((x, y))
-        r, g, b = g+b if g+b <= 255 else 255-r, r+b if r+b <= 255 else 255-g, r+g if r+g <= 255 else 255-b
+        r, g, b = g+b if g+b <= 255 else 255, r+b if r+b <= 255 else 255, r+g if r+g <= 255 else 255
         img15.putpixel((x, y), (r, g, b))
 
 img15.save('./OUTPUT_TP_03-05/output15.png', 'PNG')
