@@ -6,6 +6,7 @@ from os.path import realpath
 input_file = realpath('../pomme.jpg')
 
 with Image.open(input_file) as image:
+    image_copy = image.copy()
     image = image.convert("L")
     new_image = Image.new(image.mode, image.size)
     width, height = image.size
@@ -31,3 +32,11 @@ with Image.open(input_file) as image:
 
             new_image.putpixel((x, y), 255 if edge else 0)
     new_image.save('edge_detection_output.png', 'PNG')
+
+    for x in range(width):
+        for y in range(height):
+            p = new_image.getpixel((x, y))
+            if p == 255:
+                image_copy.putpixel((x, y), (0, 0, 0))
+
+    image_copy.save('edge_detection_output2.png', 'PNG')
