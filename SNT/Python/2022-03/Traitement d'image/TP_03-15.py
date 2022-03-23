@@ -153,16 +153,31 @@ for y in range(height):
 
 img15.save('./OUTPUT_TP_03-05/output15.png', 'PNG')
 
+# noir et blanc
+img16 = base_img.copy()
+for y in range(height):
+    for x in range(width):
+        r, g, b = img16.getpixel((x, y))
+        r, g, b = r*0.2125, g*0.7154, b*0.0721
+        grey = int(r+g+b)
+        if grey < 177:
+            grey = 0
+        else:
+            grey = 255
+        img16.putpixel((x, y), (grey, grey, grey))
+
+img16.save('./OUTPUT_TP_03-05/output16.png', 'PNG')
+
 # image finale
-final_image = Image.new(base_img.mode, (500*5, 500*3))
-images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15]
+final_image = Image.new(base_img.mode, (500*4, 500*4))
+images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16]
 idx = 0
 
-for y in [0, 500, 1000]:
-    for x in range(0, 500*5, 500):
+for y in [0, 500, 1000, 1500]:
+    for x in range(0, 500*4, 500):
         final_image.paste(images[idx], (x, y))
         idx += 1
-        if idx > 14:
+        if idx > 15:
             break
 
 final_image.save('./OUTPUT_TP_03-05/output_final.png', "PNG")
