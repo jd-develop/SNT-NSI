@@ -1,0 +1,5 @@
+size(600, 400)
+message = "Bonjour le monde !"  # it means "Hello world!" in French ;)
+textAlign(CENTER)
+textSize(40)
+text(message, 300, 200)
