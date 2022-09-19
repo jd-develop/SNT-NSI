@@ -11,8 +11,8 @@ def draw():
     if h==-100:
         h = 100
         l = 100
-    h -= 1
-    l -= 1
+    h -= 2
+    l -= 2
     clear()
     background(255)
     rect(mouseX - h/2, mouseY - l/2, h, l)
