@@ -118,6 +118,7 @@ def factorielle(n):
     return f_
 
 
+assert factorielle(0) == 1
 assert factorielle(5) == 120
 
 
