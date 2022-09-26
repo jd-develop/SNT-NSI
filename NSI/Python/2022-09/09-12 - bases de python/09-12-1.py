@@ -137,7 +137,7 @@ assert puissance(165, 234) == 165 ** 234
 # exercice 21
 def riz():
     """Retourne le nombre de grains de riz que le roi Belkib dû offrir à Sissa (inventeur du jeu d'échecs)
-    Sissa lui a demandé 1 grain sur la 1ere case, 2 sur la deuxième, 4 sur la troisième et ainsi de suite en doublant
+    Sissa lui a demandé 1 grain sur la 1ʳᵉ case, 2 sur la deuxième, 4 sur la troisième et ainsi de suite en doublant
     à chaque case."""
     grains = 0
     for i_ in range(64):
