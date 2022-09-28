@@ -1,6 +1,7 @@
 import os
 import os.path
 
+
 def setup():
     fullScreen()
     # size(800, 600)
@@ -10,6 +11,9 @@ def setup():
     
     
 r, g, b = 0, 0, 0
+userprofile = os.path.expanduser("~")
+print(os.path.abspath(userprofile + "\\Documents\\proc_notepad\\notepad-" + str(year()) + "-" + str(month()) + "-" + str(day()) + "-" + str(hour()) + "-" + str(minute()) + "-" + str(second()) + ".png"))
+
 
 def draw():
     global r, g, b
@@ -48,9 +52,9 @@ def draw():
             square(70, 10, 50)
             square(130, 10, 50)
             square(190, 10, 50)
-            if not os.path.exists(os.path.absolutepath("%userprofile%\Documents\proc_notepad")):
-                os.mkdir(os.path.absolutepath("%userprofile%\Documents\proc_notepad"))
-            save(os.path.absolutepath("%userprofile%\Documents\proc_notepad\notepad-" + str(year()) + "-" + str(month()) + "-" + str(day()) + "-" + str(hour()) + "-" + str(minute()) + "-" + str(second()) + ".png"))
+            if not os.path.exists(os.path.realpath(userprofile + "\\Documents\\proc_notepad")):
+                os.mkdir(os.path.realpath(userprofile + "\\Documents\\proc_notepad"))
+            save(os.path.abspath(userprofile + "\\Documents\\proc_notepad\\notepad-" + str(year()) + "-" + str(month()) + "-" + str(day()) + "-" + str(hour()) + "-" + str(minute()) + "-" + str(second()) + ".png"))
             strokeWeight(2)
     
     if mousePressed:
