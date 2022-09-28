@@ -1,23 +1,25 @@
 import os
 import os.path
+from time import sleep
 
 
 def setup():
     fullScreen()
     # size(800, 600)
     background(255)
-    r, g, b = 0, 0, 0
     strokeWeight(2)
     
     
 r, g, b = 0, 0, 0
+w = 2
 userprofile = os.path.expanduser("~")
 print(os.path.abspath(userprofile + "\\Documents\\proc_notepad\\notepad-" + str(year()) + "-" + str(month()) + "-" + str(day()) + "-" + str(hour()) + "-" + str(minute()) + "-" + str(second()) + ".png"))
 
 
 def draw():
-    global r, g, b
+    global r, g, b, w
     
+    strokeWeight(2)
     stroke(0, 0, 0)
     if r == 255:
         stroke(r, g, b)
@@ -47,7 +49,7 @@ def draw():
         if key == 's':
             fill(255)
             stroke(255, 255, 255)
-            strokeWeight(5)
+            strokeWeight(3)
             square(10, 10, 50)
             square(70, 10, 50)
             square(130, 10, 50)
@@ -59,17 +61,22 @@ def draw():
     
     if mousePressed:
         if mouseButton == LEFT:
+            strokeWeight(w)
             if 10 < mouseY < 60 and 10 < mouseX < 60:
-                r, g, b = 255, 0, 0
+                r = abs(r-255)
+                sleep(0.1)
             elif 10 < mouseY < 60 and 70 < mouseX < 120:
-                r, g, b = 0, 255, 0
+                g = abs(g-255)
+                sleep(0.1)
             elif 10 < mouseY < 60 and 130 < mouseX < 180:
-                r, g, b = 0, 0, 255
+                b = abs(b-255)
+                sleep(0.1)
             elif 10 < mouseY < 60 and 190 < mouseX < 240:
                 r, g, b = 0, 0, 0
             else:
                 stroke(r, g, b)
                 line(pmouseX, pmouseY, mouseX, mouseY)
+            strokeWeight(2)
         elif mouseButton == RIGHT:
             stroke(255, 255, 255)
             fill(255, 255, 255)
@@ -78,4 +85,10 @@ def draw():
             stroke(255, 255, 255)
             fill(255, 255, 255)
             circle(mouseX, mouseY, 200)
+            
+def mouseWheel(event):
+    global r, g, b, w
+    e = event.getCount()
+    if 2 <= w + e*10 <= 400:
+        w += e*10
         
