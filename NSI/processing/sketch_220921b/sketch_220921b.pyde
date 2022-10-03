@@ -23,7 +23,7 @@ def setup():
     
 r, g, b = 0, 0, 0
 w = 2  # la valeur de strokeWeight
-userprofile = os.path.expanduser("~")  # C:\users\user\ or /home/user/
+userprofile = os.path.expanduser("~")  # C:\users\user\ ou /home/user/ ou /Volumes/Machintosh HD/Utilisateurs/user/
 
 def draw():
     global r, g, b, w
