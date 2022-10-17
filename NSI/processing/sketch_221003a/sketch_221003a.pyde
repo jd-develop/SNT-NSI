@@ -18,6 +18,7 @@ player_left_score = 0
 player_right_score = 0
 
 botMode = False
+playerVersusBot = False
 start = False
 
 
@@ -34,7 +35,7 @@ def setup():
     
     
 def draw():
-    global rightPaddleY, leftPaddleY, ballX, ballY, ballDX, ballDY, start, player_left_score, player_right_score, leftPaddleMove, rightPaddleMove, botMode
+    global rightPaddleY, leftPaddleY, ballX, ballY, ballDX, ballDY, start, player_left_score, player_right_score, leftPaddleMove, rightPaddleMove, botMode, playerVersusBot
     background(0)
     
     stroke_color = 255
@@ -56,7 +57,13 @@ def draw():
             rightPaddleMove = 1
             
         if key == "b":
+            playerVersusBot = False
             botMode = not botMode
+            time.sleep(0.1)
+            
+        if key == 'n':
+            botMode = False
+            playerVersusBot = not playerVersusBot
             time.sleep(0.1)
 
     if mousePressed:
@@ -75,18 +82,25 @@ def draw():
     if start:
         drawBall()
         moveBall()
+        
+    mode = "BvB" if botMode else "PvB" if playerVersusBot else "PvP"
     
     text(str(player_left_score), displayWidth/3, 60)
     text(str(player_right_score), 2*displayWidth/3, 60)
     
-    if not botMode:
+    if mode == "PvP":
         leftPaddleY += leftPaddleMove*dy
         rightPaddleY += rightPaddleMove*dy
+    elif mode == "PvB":
+        leftPaddleY += leftPaddleMove*dy
+        rightPaddleY = ballY-paddleHeight/2
     else:
         leftPaddleY = rightPaddleY = ballY - paddleHeight/2
-        textAlign(LEFT)
-        text("botMode = True", 0, 40)
-        textAlign(CENTER)
+    
+    textAlign(LEFT)
+    text(mode, 0, 40)
+    textAlign(CENTER)
+    
     leftPaddleY = constrain(leftPaddleY, 0, displayHeight-paddleHeight)
     rightPaddleY = constrain(rightPaddleY, 0, displayHeight-paddleHeight)
     drawLeftPaddle()
