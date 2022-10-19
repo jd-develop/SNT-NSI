@@ -99,7 +99,16 @@ def draw():
             elif ballY-paddleHeight/2 < rightPaddleY:
                 rightPaddleY -= dy
     else:
-        leftPaddleY = rightPaddleY = ballY - paddleHeight/2
+        if not ballY-paddleHeight/2 in [leftPaddleY+a for a in range(-paddleHeight/2, paddleHeight/2)]:  # évite le tremblement de la raquette
+            if ballY-paddleHeight/2 > leftPaddleY:
+                leftPaddleY += dy
+            elif ballY-paddleHeight/2 < leftPaddleY:
+                leftPaddleY -= dy
+        if not ballY-paddleHeight/2 in [rightPaddleY+a for a in range(-paddleHeight/2, paddleHeight/2)]:  # évite le tremblement de la raquette
+            if ballY-paddleHeight/2 > rightPaddleY:
+                rightPaddleY += dy
+            elif ballY-paddleHeight/2 < rightPaddleY:
+                rightPaddleY -= dy
     
     textAlign(LEFT)
     text(mode, 0, 40)
