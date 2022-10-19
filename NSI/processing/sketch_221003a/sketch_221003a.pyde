@@ -93,7 +93,11 @@ def draw():
         rightPaddleY += rightPaddleMove*dy
     elif mode == "PvB":
         leftPaddleY += leftPaddleMove*dy
-        rightPaddleY = ballY-paddleHeight/2
+        if not ballY-paddleHeight/2 in [rightPaddleY+a for a in range(-paddleHeight/2, paddleHeight/2)]:  # évite le tremblement de la raquette
+            if ballY-paddleHeight/2 > rightPaddleY:
+                rightPaddleY += dy
+            elif ballY-paddleHeight/2 < rightPaddleY:
+                rightPaddleY -= dy
     else:
         leftPaddleY = rightPaddleY = ballY - paddleHeight/2
     
