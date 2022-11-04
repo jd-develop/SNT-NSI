@@ -6,6 +6,8 @@ def setup():
     
 
 def draw():
-    fill(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+    r, g, b = random.randint(0, 255), random.randint(0, 255), random.randint(0, 255)
+    fill(r, g, b)
+    stroke(r, g, b)
     ellipse(mouseX, mouseY, random.randint(30, 60), random.randint(30, 60))
     

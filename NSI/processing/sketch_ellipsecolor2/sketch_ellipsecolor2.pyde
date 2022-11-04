@@ -13,4 +13,5 @@ def draw():
     else:
         r, g, b = 0, 255, 255
     fill(r, g, b)
+    stroke(r, g, b)
     circle(mouseX, mouseY, 50)

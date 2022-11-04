@@ -26,10 +26,10 @@ def setup():
     fullScreen()
     background(0)
     global leftPaddleY, rightPaddleY, rightPaddleX, ballX, ballY
-    leftPaddleY = math.ceil((displayHeight / 2) - (paddleHeight / 2))
-    rightPaddleY = math.ceil((displayHeight / 2) - (paddleHeight / 2))
-    rightPaddleX = displayWidth - 60
-    ballX, ballY = math.ceil(displayWidth/2), math.ceil(displayHeight/2)
+    leftPaddleY = math.ceil((height / 2) - (paddleHeight / 2))
+    rightPaddleY = math.ceil((height / 2) - (paddleHeight / 2))
+    rightPaddleX = width - 60
+    ballX, ballY = math.ceil(width/2), math.ceil(height/2)
     textSize(50)
     textAlign(CENTER)
     
@@ -39,9 +39,9 @@ def draw():
     background(0)
     
     stroke_color = 255
-    for i in range(0, displayHeight, 30):
+    for i in range(0, height, 30):
         stroke(stroke_color)
-        line(displayWidth/2, i, displayWidth/2, i+30)
+        line(width/2, i, width/2, i+30)
         stroke_color = abs(stroke_color-255)
     stroke(255)
     
@@ -65,6 +65,10 @@ def draw():
             botMode = False
             playerVersusBot = not playerVersusBot
             time.sleep(0.1)
+        
+        if key == 'v':
+            botMode = playerVersusBot = False
+            time.sleep(0.1)
 
     if mousePressed:
         if not start:
@@ -74,7 +78,7 @@ def draw():
             ballX += ballDX
             ballY += ballDY
         else:
-            ballX, ballY = math.ceil(displayWidth/2), math.ceil(displayHeight/2)
+            ballX, ballY = math.ceil(width/2), math.ceil(height/2)
         start = (not start)
         player_left_score = player_right_score = 0
         time.sleep(0.1)
@@ -85,8 +89,8 @@ def draw():
         
     mode = "BvB" if botMode else "PvB" if playerVersusBot else "PvP"
     
-    text(str(player_left_score), displayWidth/3, 60)
-    text(str(player_right_score), 2*displayWidth/3, 60)
+    text(str(player_left_score), width/3, 60)
+    text(str(player_right_score), 2*width/3, 60)
     
     if mode == "PvP":
         leftPaddleY += leftPaddleMove*dy
@@ -112,19 +116,28 @@ def draw():
     
     textAlign(LEFT)
     text(mode, 0, 40)
+    if not start:
+        text("Change mode by using these keys:", 0, 100)
+        text("V: Player versus Player", 0, 150)
+        text("B: Bot versus Bot", 0, 200)
+        text("N: Player versus Bot", 0, 250)
     textAlign(CENTER)
+    if not start and player_left_score != 10 and player_right_score != 10:
+        text("Left click to start game.", width/2, height/2)
     
-    leftPaddleY = constrain(leftPaddleY, 0, displayHeight-paddleHeight)
-    rightPaddleY = constrain(rightPaddleY, 0, displayHeight-paddleHeight)
+    leftPaddleY = constrain(leftPaddleY, 0, height-paddleHeight)
+    rightPaddleY = constrain(rightPaddleY, 0, height-paddleHeight)
     drawLeftPaddle()
     drawRightPaddle()
     
     if player_left_score == 10:
         start = False
-        text("Left won!", displayWidth/2, displayHeight/2)
+        text("Left won!", width/2, height/2)
+        text("Left click to restart game.", width/2, height/2 + 60)
     if player_right_score == 10:
         start = False
-        text("Right won!", displayWidth/2, displayHeight/2)
+        text("Right won!", width/2, height/2)
+        text("Left click to restart game.", width/2, height/2 + 60)
         
         
 def keyReleased():
@@ -145,12 +158,12 @@ def moveBall():
     ballX += ballDX
     ballY += ballDY
     
-    if ballX+ballR >= displayWidth:  # player right missed: +1 for player left
-        ballX, ballY = math.ceil(displayWidth/2), math.ceil(displayHeight/2)
+    if ballX+ballR >= width:  # player right missed: +1 for player left
+        ballX, ballY = math.ceil(width/2), math.ceil(height/2)
         player_left_score += 1
         ballDX = ballDY = 5
     if ballX-ballR <= 0:  # player left missed: +1 for player right
-        ballX, ballY = math.ceil(displayWidth/2), math.ceil(displayHeight/2)
+        ballX, ballY = math.ceil(width/2), math.ceil(height/2)
         player_right_score += 1
         ballDX = ballDY = 5
     
@@ -171,7 +184,7 @@ def moveBall():
         ballDX *= -1.05
         ballDY *= ratio
         
-    if ballY+ballR >= displayHeight or ballY-ballR <= 0:
+    if ballY+ballR >= height or ballY-ballR <= 0:
         ballDY *= -1
  
        
