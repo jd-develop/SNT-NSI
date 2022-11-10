@@ -1,25 +1,45 @@
+# pong
+# joueur de droite : touches haut et bas
+# joueur de gauche : touches Z et S
+
 import math
 from random import randint
 import time
 
+# définition de la position du paddle de gauche
 leftPaddleX = 40
 leftPaddleY = 0
+
+# sera défini dans setup()
 rightPaddleX = rightPaddleY = 0
+
+# gère la valeur qui doit être ajouté au Y des paddles à chaque tick
 leftPaddleMove = rightPaddleMove = 0
+
+# vitesse des raquettes
 dy = 7
+
+# pour les bots: si la balle n'est pas dans le camp ou qu'on vient de la toucher, on ne bouge plus les raquettes (à peu près comme un joueur humain)
 do_not_move_paddles = False
 
 paddleHeight = 150
 
+# balle
 ballR = 30
 ballX, ballY = 0, 0
 ballDX = ballDY = 5
 
+# score
 player_left_score = 0
 player_right_score = 0
 
+# mode
+# si botMode est à True, le mode est Ordinateur contre Ordinateur
+# si playerVersusBot est à True, le mode est Joueur contre Ordinateur
+# si aucun des deux est à True, le mode est Joueur contre Joueur
 botMode = False
 playerVersusBot = False
+
 inMenu = True
 start = False
 
@@ -168,7 +188,7 @@ def draw():
         moveBall()
         
         # bouge les raquettes
-        # movePaddles()
+        movePaddles()
         
         leftPaddleY = constrain(leftPaddleY, 0, height-paddleHeight)
         rightPaddleY = constrain(rightPaddleY, 0, height-paddleHeight)
@@ -273,10 +293,7 @@ def drawRightPaddle():
     
 def movePaddles():
     global leftPaddleY, rightPaddleY
-    if mode == "PvP":
-        leftPaddleY += leftPaddleMove*dy
-        rightPaddleY += rightPaddleMove*dy
-    elif mode == "PvB":
+    if playerVersusBot:
         leftPaddleY += leftPaddleMove*dy
         if not do_not_move_paddles:
             if ballX > (width/2)+ballR:
@@ -285,7 +302,7 @@ def movePaddles():
                         rightPaddleY += dy
                     elif ballY-paddleHeight/2 < rightPaddleY:
                         rightPaddleY -= dy
-    else:
+    elif botMode:
         if not do_not_move_paddles:
             if ballX < (width/2)-ballR:
                 if not ballY-paddleHeight/2 in [leftPaddleY+a for a in range(-paddleHeight/2, paddleHeight/2)]:  # évite le tremblement de la raquette
@@ -299,3 +316,6 @@ def movePaddles():
                         rightPaddleY += dy
                     elif ballY-paddleHeight/2 < rightPaddleY:
                         rightPaddleY -= dy
+    else:
+        leftPaddleY += leftPaddleMove*dy
+        rightPaddleY += rightPaddleMove*dy
