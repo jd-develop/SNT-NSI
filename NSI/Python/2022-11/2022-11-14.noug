@@ -1,0 +1,24 @@
+def ascii_(str_)
+    for char in str_ then
+        print(ord(char))
+	end
+end
+
+
+ascii_("SALUT")
+
+
+def occurrences1(str_, char_)
+    if not char_ in str_ then return 0
+    var counter = 0
+    for char in str_ then
+        if char == char_ then
+            var counter += 1
+		end
+	end
+
+    return counter
+end
+
+
+print(occurrences1("llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch", 'l'))

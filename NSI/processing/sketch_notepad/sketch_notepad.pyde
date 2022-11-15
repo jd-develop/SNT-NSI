@@ -7,7 +7,7 @@
 # Clic molette : gomme de diamètre 200 pixels
 # Roue de la molette : changer la taille de la ligne (entre 2 et 402)
 # Touche 'e' : effacer l'écran
-# Touche 's' : sauvegarder l'image dans le dossier ~/Doccuments/processing_notepad/
+# Touche 's' : sauvegarder l'image dans le dossier ~/Documents/processing_notepad/
 
 import os
 import os.path
@@ -23,7 +23,7 @@ def setup():
     
 r, g, b = 0, 0, 0
 w = 2  # la valeur de strokeWeight
-userprofile = os.path.expanduser("~")  # C:\users\user\ ou /home/user/ ou /Volumes/Machintosh HD/Utilisateurs/user/
+userprofile = os.path.expanduser("~")  # C:\Users\user\ ou /home/user/ ou /Volumes/Machintosh HD/Utilisateurs/user/
 
 def draw():
     global r, g, b, w
@@ -69,7 +69,7 @@ def draw():
             square(70, 10, 50)
             square(130, 10, 50)
             square(190, 10, 50)
-            # on créée éventuellement un dossier pour sauver l'imageg
+            # on créée éventuellement un dossier pour sauver l'image
             if not os.path.exists(os.path.realpath(userprofile + "\\Documents\\processing_notepad")):
                 os.mkdir(os.path.realpath(userprofile + "\\Documents\\processing_notepad"))
             save(os.path.abspath(userprofile + "\\Documents\\processing_notepad\\notepad-" + str(year()) + "-" + str(month()) + "-" + str(day()) + "-" + str(hour()) + "-" + str(minute()) + "-" + str(second()) + ".png"))
