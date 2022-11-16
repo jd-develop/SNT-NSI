@@ -61,7 +61,7 @@ print(transcription1(gene))
 def rechercheGene(sequence):
     n = len(sequence)
     i = 0
-    while i < n:
+    while i < n-3:
         if sequence[i] == 'A' and sequence[i + 1] == 'T' and sequence[i + 2] == 'G':
             return i
         i += 1
