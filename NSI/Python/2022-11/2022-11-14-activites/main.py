@@ -62,7 +62,7 @@ def rechercheGene(sequence):
     n = len(sequence)
     i = 0
     while i < n:
-        if sequence[i] == 'A' and sequence[i+1] == 'T' and sequence[i+2] == 'G':
+        if sequence[i] == 'A' and sequence[i + 1] == 'T' and sequence[i + 2] == 'G':
             return i
         i += 1
     return -1
@@ -75,6 +75,22 @@ print(rechercheGene(seq))
 def recherche(gene_, sequence): return gene_ in sequence
 
 
+def recherche2(gene_, sequence):
+    n = len(sequence)
+    g = len(gene_)
+    i = 0
+    trouve = False
+    while i < n and not trouve:
+        j = 0
+        while j < g and gene_[j] == sequence[i + j]:
+            j += 1
+        if j == g:
+            trouve = True
+        i += 1
+    return trouve
+
+
 print(recherche("AATC", "GTACAAATCTTGCC"))
 print(recherche("AATC", "GTACAAATGTTGCC"))
-
+print(recherche2("AATC", "GTACAAATCTTGCC"))
+print(recherche2("AATC", "GTACAAATGTTGCC"))
