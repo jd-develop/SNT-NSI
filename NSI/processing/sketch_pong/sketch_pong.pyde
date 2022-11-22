@@ -4,7 +4,6 @@
 
 import math
 from random import random, randint
-import time
 
 # définition de la position du paddle de gauche
 leftPaddleX = 40
@@ -139,7 +138,7 @@ def draw():
                 ballDY *= (-1)**randint(0, 1)
                 start = True
                 inMenu = False
-                time.sleep(0.1)
+                delay(100)
             elif (width/2)-300 <= mouseX <= (width/2)+300 and secondButtonY <= mouseY <= secondButtonY+100:  # Joueur contre Ordinateur
                 playerVersusBot = True
                 botMode = False
@@ -150,7 +149,7 @@ def draw():
                 ballDY *= (-1)**randint(0, 1)
                 start = True
                 inMenu = False
-                time.sleep(0.1)
+                delay(100)
             elif (width/2)-300 <= mouseX <= (width/2)+300 and thirdButtonY <= mouseY <= thirdButtonY+100:  # Ordinateur contre Ordinateur
                 playerVersusBot = False
                 botMode = True
@@ -161,7 +160,7 @@ def draw():
                 ballDY *= (-1)**randint(0, 1)
                 start = True
                 inMenu = False
-                time.sleep(0.1)
+                delay(100)
     
     elif start:
         # ligne discontinue au centre de l'écran
@@ -193,15 +192,15 @@ def draw():
             # pendant la partie, switcher de mode
             if key == 'v':
                 botMode = playerVersusBot = False
-                time.sleep(0.1)
+                delay(100)
             if key == "b":
                 playerVersusBot = False
                 botMode = not botMode
-                time.sleep(0.1)
+                delay(100)
             if key == 'n':
                 botMode = False
                 playerVersusBot = not playerVersusBot
-                time.sleep(0.1)
+                delay(100)
         
         moveBall()  # bouger la balle
         drawBall()  # dessiner la balle
@@ -224,13 +223,13 @@ def draw():
         # gagné !!
         if player_left_score == 10 or player_right_score == 10:
             start = False
-            time.sleep(0.1)
+            delay(100)
         
         # fin de la partie au clic
         if mousePressed:
             start = False
             inMenu = True
-            time.sleep(0.1)
+            delay(100)
     else:  # ni dans le menu, ni dans le jeu
         if player_left_score != 10 and player_right_score != 10:
             text("Left click to start game.", width/2, height/2)
@@ -251,7 +250,7 @@ def draw():
             ballDY *= (-1)**randint(0, 1)
             inMenu = True
             player_left_score = player_right_score = 0
-            time.sleep(0.1)
+            delay(100)
         
         
 def keyReleased():  # une touche a été lâchée
