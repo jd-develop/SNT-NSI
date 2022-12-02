@@ -54,7 +54,7 @@ def setup():
     
     # on change le Y de la raquette gauche pour sa valeur par défaut (milieu de l'écran)
     leftPaddleY = math.ceil((height / 2) - (paddleHeight / 2))
-    
+
     # on met la raquette droite au milieu de l'écran en Y et à droite en X
     rightPaddleY = math.ceil((height / 2) - (paddleHeight / 2))
     rightPaddleX = width - 60
@@ -229,6 +229,7 @@ def draw():
         if mousePressed:
             start = False
             inMenu = True
+            player_right_score = player_left_score = 0
             delay(100)
     else:  # ni dans le menu, ni dans le jeu
         if player_left_score != 10 and player_right_score != 10:
