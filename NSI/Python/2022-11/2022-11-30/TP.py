@@ -54,10 +54,10 @@ def ligne(grille, joueur):
 def diagonale(grille, joueur):
     """Retourne True si le joueur a gagné dans une diagonale, False sinon"""
     produit_diagonale = grille[0][0] * grille[1][1] * grille[2][2]
-    if produit_diagonale == joueur**3:
-        return True
-    produit_diagonale = grille[0][2] * grille[1][1] * grille[2][0]
     if produit_diagonale == joueur ** 3:
+        return True
+    produit_diagonale2 = grille[0][2] * grille[1][1] * grille[2][0]
+    if produit_diagonale2 == joueur ** 3:
         return True
     return False
 
@@ -78,6 +78,19 @@ def reinitialiser(grille):
             grille[x][y] = 0
 
 
+def print_grille(grille):
+    #      0   1   2
+    # 0  | X | O | X |
+    # 1  | X | O | X |
+    # 2  | X | O | X |
+    print("      0   1   2")
+    for i, ligne_ in enumerate(grille):
+        print(" " + str(i) + "  ", end="|")
+        for colonne_ in ligne_:
+            print(" X " if colonne_ == 1 else " O " if colonne_ == 2 else "   ", end="|")
+        print()
+
+
 def main():
     """Main loop"""
     grille = grille_vide()
@@ -87,7 +100,8 @@ def main():
     tour_joueur = 1
 
     while True:
-        print(grille)
+        print_grille(grille)
+
         print(f"C'est à {nom_joueur1 if tour_joueur == 1 else nom_joueur2} de jouer.")
         try:
             x, y = eval(input("Jouer dans quelle case ? ligne, colonne : "))
@@ -101,7 +115,7 @@ def main():
             print("Vous ne pouvez pas jouer ici")
             continue
         jouer(grille, x, y, tour_joueur)
-        if colonne(grille, tour_joueur) or ligne(grille, tour_joueur) or colonne(grille, tour_joueur):
+        if colonne(grille, tour_joueur) or ligne(grille, tour_joueur) or diagonale(grille, tour_joueur):
             print(f"{nom_joueur1 if tour_joueur == 1 else nom_joueur2} a gagné !")
             print("Nouvelle partie.")
             reinitialiser(grille)
