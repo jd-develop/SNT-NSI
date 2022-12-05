@@ -14,6 +14,7 @@
 # └───────────────────┘▒
 #  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
 
+
 def grille_vide() -> list[list[int]]:
     """Retourne une grille vide taille 3x3"""
     return [[0] * 3 for _ in range(3)]
@@ -80,15 +81,24 @@ def reinitialiser(grille):
 
 def print_grille(grille):
     #      0   1   2
-    # 0  | X | O | X |
-    # 1  | X | O | X |
-    # 2  | X | O | X |
+    #    ┌───┬───┬───┐
+    # 0  │ X │ O │ X │
+    #    ├───┼───┼───┤
+    # 1  │ X │ O │ X │
+    #    ├───┼───┼───┤
+    # 2  │ X │ O │ X │
+    #    └───┴───┴───┘
+
     print("      0   1   2")
+    print("    ┌───┬───┬───┐")
     for i, ligne_ in enumerate(grille):
-        print(" " + str(i) + "  ", end="|")
+        print(" " + str(i) + "  ", end="│")
         for colonne_ in ligne_:
-            print(" X " if colonne_ == 1 else " O " if colonne_ == 2 else "   ", end="|")
-        print()
+            print(" X " if colonne_ == 1 else " O " if colonne_ == 2 else "   ", end="│")
+        print("▒")
+        if i != 2:
+            print("    ├───┼───┼───┤")
+    print("    └───┴───┴───┘")
 
 
 def main():
