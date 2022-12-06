@@ -1,20 +1,6 @@
 #!/usr/bin/env python3
 # coding:utf-8
 
-# ┌─┬┐  ╔═╦╗  ╓─╥╖  ╒═╤╕
-# │ ││  ║ ║║  ║ ║║  │ ││
-# ├─┼┤  ╠═╬╣  ╟─╫╢  ╞═╪╡
-# └─┴┘  ╚═╩╝  ╙─╨╜  ╘═╧╛
-# ┌───────────────────┐
-# │  ╔═══╗ Some Text  │▒
-# │  ╚═╦═╝ in the box │▒
-# ╞═╤══╩══╤═══════════╡▒
-# │ ├──┬──┤           │▒
-# │ └──┴──┘           │▒
-# └───────────────────┘▒
-#  ▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒
-
-
 def grille_vide() -> list[list[int]]:
     """Retourne une grille vide taille 3x3"""
     return [[0] * 3 for _ in range(3)]
@@ -95,7 +81,7 @@ def print_grille(grille):
         print(" " + str(i) + "  ", end="│")
         for colonne_ in ligne_:
             print(" X " if colonne_ == 1 else " O " if colonne_ == 2 else "   ", end="│")
-        print("▒")
+        print()
         if i != 2:
             print("    ├───┼───┼───┤")
     print("    └───┴───┴───┘")
