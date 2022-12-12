@@ -44,21 +44,49 @@ def draw():
         if gagne(1):
             fin = True
             winner = 1
-            
-        if gagne(2):
+            delay(100)
+        elif gagne(2):
             fin = True
             winner = 2
-            
-        if grille_pleine():
+            delay(100)
+        elif grille_pleine():
             fin = True
             winner = 0
+            delay(100)
     else:
         if winner == 1:
             text("Bravo joueur 1 !", 0, 30)
         elif winner == 2:
             text("Bravo joueur 2 !", 0, 30)
         else:
-            text("Partie nulle.", 0, 30)       
+            text("Partie nulle.", 0, 30)
+        
+        if mousePressed:
+            clear()
+            
+            background(0)
+            size(300, 340)
+            fill(0)
+            stroke(255)
+            textSize(40)
+            
+            rect(0, 40, 100, 140)
+            rect(100, 40, 200, 140)
+            rect(200, 40, 300, 140)
+            
+            rect(0, 140, 100, 240)
+            rect(100, 140, 200, 240)
+            rect(200, 140, 300, 240)
+            
+            rect(0, 240, 100, 340)
+            rect(100, 240, 200, 340)
+            rect(200, 240, 300, 340)
+            
+            fill(255)
+            
+            grille = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+            fin = False
+            delay(100)
             
             
     for i, ligne in enumerate(grille):
