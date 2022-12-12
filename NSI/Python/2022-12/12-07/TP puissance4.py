@@ -1,20 +1,25 @@
 #!/usr/bin/env python3
 # coding:utf-8
-# TODO: faire tomber la pièce en bas de la grille
 
 def grille_vide() -> list[list[int]]:
     """Retourne une grille vide taille 6x7"""
     return [[0] * 7 for _ in range(6)]
 
 
-def coup_possible(grille, ligne_, colonne_):
+def coup_possible(grille, colonne_):
     """Retourne True s'il est possible de jouer dans cette case"""
-    return grille[ligne_][colonne_] == 0
+    for ligne_ in range(5, -1, -1):
+        if grille[ligne_][colonne_] == 0:
+            return True
+    return False
 
 
-def jouer(grille, ligne_, colonne_, joueur):
+def jouer(grille, colonne_, joueur):
     """Joue avec le numéro du joueur"""
-    grille[ligne_][colonne_] = joueur
+    for ligne_ in range(5, -1, -1):
+        if grille[ligne_][colonne_] == 0:
+            grille[ligne_][colonne_] = joueur
+            break
 
 
 def colonne(grille, joueur):
@@ -25,11 +30,9 @@ def colonne(grille, joueur):
             tab_renverse[index_colonne][index_ligne] = grille[index_ligne][index_colonne]
 
     for colonne_ in tab_renverse:
-        n = len(colonne_)
-        if any([[joueur]*4 == colonne_[i:i+n] for i in range(len(colonne_)-n)]):
-            # pour chaque index entre 0 et len(colonne_)-n-1 :
-            # on vérifie si ligne[i:i+n] (c'est-à-dire quatre caractères de la colonne à partir de l'index)
-            # est égal à 4 fois le numéro du joueur.
+        if any([[joueur]*4 == colonne_[i:i+4] for i in range(len(colonne_))]):
+            # pour chaque index entre 0 et len(colonne_)-1, on vérifie si colonne_[i:i+4] (c'est-à-dire quatre
+            #   caractères de la colonne à partir de l'index) est égal à 4 fois le numéro du joueur.
             # any() renvoie True si l'un des éléments est True, False sinon.
             return True
     return False
@@ -38,11 +41,9 @@ def colonne(grille, joueur):
 def ligne(grille, joueur):
     """Retourne True si le joueur a gagné dans une ligne, False sinon"""
     for ligne_ in grille:
-        n = len(ligne_)
-        if any([[joueur]*4 == ligne_[i:i+n] for i in range(len(ligne_)-n)]):
-            # pour chaque index entre 0 et len(ligne_)-n-1 :
-            # on vérifie si ligne[i:i+n] (c'est-à-dire quatre caractères de la ligne à partir de l'index)
-            # est égal à 4 fois le numéro du joueur.
+        if any([[joueur] * 4 == ligne_[i:i + 4] for i in range(len(ligne_))]):
+            # pour chaque index entre 0 et len(ligne_)-1, on vérifie si ligne_[i:i+4] (c'est-à-dire quatre
+            #   caractères de la colonne à partir de l'index) est égal à 4 fois le numéro du joueur.
             # any() renvoie True si l'un des éléments est True, False sinon.
             return True
     return False
@@ -50,7 +51,40 @@ def ligne(grille, joueur):
 
 def diagonale(grille, joueur):
     """Retourne True si le joueur a gagné dans une diagonale, False sinon"""
-    return False  # TODO: implémenter ça
+    # 0 1 2 3 4 5 6
+    # 0 1 2 3 4 5 6
+    # 0 1 2 3 4 5 6
+    # 0 1 2 3 4 5 6
+    # 0 1 2 3 4 5 6
+    # 0 1 2 3 4 5 6
+    for i, ligne_ in enumerate(grille):
+        for j, colonne_ in enumerate(ligne_):
+            # attention : code très moche
+            try:
+                if [joueur]*4 == [grille[i+n][j+n] for n in range(4)]:
+                    return True
+            except IndexError:
+                pass
+
+            try:
+                if [joueur]*4 == [grille[i+n][j-n] for n in range(4)]:
+                    return True
+            except IndexError:
+                pass
+
+            try:
+                if [joueur]*4 == [grille[i-n][j+n] for n in range(4)]:
+                    return True
+            except IndexError:
+                pass
+
+            try:
+                if [joueur]*4 == [grille[i-n][j-n] for n in range(4)]:
+                    return True
+            except IndexError:
+                pass
+            # fin du code moche
+    return False
 
 
 def grille_pleine(grille):
@@ -72,6 +106,8 @@ def reinitialiser(grille):
 def print_grille(grille):
     #       0   1   2   3   4   5   6
     #     ┌───┬───┬───┬───┬───┬───┬───┐
+    # (0) │ R │ J │ R │ J │ R │ J │ R │
+    #     ├───┼───┼───┼───┼───┼───┼───┤
     # (1) │ R │ J │ R │ J │ R │ J │ R │
     #     ├───┼───┼───┼───┼───┼───┼───┤
     # (2) │ R │ J │ R │ J │ R │ J │ R │
@@ -81,8 +117,6 @@ def print_grille(grille):
     # (4) │ R │ J │ R │ J │ R │ J │ R │
     #     ├───┼───┼───┼───┼───┼───┼───┤
     # (5) │ R │ J │ R │ J │ R │ J │ R │
-    #     ├───┼───┼───┼───┼───┼───┼───┤
-    # (6) │ R │ J │ R │ J │ R │ J │ R │
     #     └───┴───┴───┴───┴───┴───┴───┘
 
     print("       0   1   2   3   4   5   6")
@@ -110,17 +144,20 @@ def main():
 
         print(f"C'est à {nom_joueur1 if tour_joueur == 1 else nom_joueur2} de jouer.")
         try:
-            x, y = eval(input("Jouer dans quelle case ? ligne, colonne : "))
+            x = input("Jouer dans quelle colonne ? ")
+            if x == "exit":
+                break
+            x = int(x)
         except Exception:
             print("Erreur")
             continue
-        if not 0 <= x <= 6 or not 0 <= y <= 6:
-            print("Veuillez entrer des entiers entre 0 et 6")
+        if not 0 <= x <= 6:
+            print("Veuillez entrer un entier entre 0 et 6")
             continue
-        if not coup_possible(grille, x, y):
+        if not coup_possible(grille, x):
             print("Vous ne pouvez pas jouer ici")
             continue
-        jouer(grille, x, y, tour_joueur)
+        jouer(grille, x, tour_joueur)
         if colonne(grille, tour_joueur) or ligne(grille, tour_joueur) or diagonale(grille, tour_joueur):
             print(f"{nom_joueur1 if tour_joueur == 1 else nom_joueur2} a gagné !")
             print("Nouvelle partie.")
