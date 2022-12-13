@@ -65,7 +65,6 @@ def draw():
             clear()
             
             background(0)
-            size(300, 340)
             fill(0)
             stroke(255)
             textSize(40)
@@ -90,7 +89,7 @@ def draw():
             
             
     for i, ligne in enumerate(grille):
-        for j, colonne in enumerate(grille):
+        for j, colonne in enumerate(ligne):
             if grille[i][j] == 1:
                 line((j+1)*100, i*100 + 40, j*100, (i+1)*100 + 40)
                 line(j*100, i*100 + 40, (j+1)*100, (i+1)*100 + 40) 
