@@ -32,7 +32,7 @@ def draw():
         if mousePressed:
             if 0 <= mouseX <= 700 and 40 <= mouseY <= 640:
                 jouer(player)
-                delay(100)
+                delay(200)
                 
         if gagne(1):
             fin = True
@@ -70,15 +70,17 @@ def draw():
             
             grille = [[0] * 7 for _ in range(6)]
             fin = False
-            delay(100)
-            
-            
+            delay(100)            
+          
     for i, ligne in enumerate(grille):
-        for j, colonne in enumerate(lignez):
+        for j, colonne in enumerate(ligne):
             if grille[i][j] == 1:
-                line((j+1)*100, i*100 + 40, j*100, (i+1)*100 + 40)
-                line(j*100, i*100 + 40, (j+1)*100, (i+1)*100 + 40) 
+                fill(255, 255, 0)
+                stroke(255, 255, 0)
+                circle(j*100 + 50, i*100 + 90, 95)
             elif grille[i][j] == 2:
+                fill(255, 0, 0)
+                stroke(255, 0, 0)
                 circle(j*100 + 50, i*100 + 90, 95)
             
 def jouer(joueur):
@@ -95,15 +97,51 @@ def jouer(joueur):
                     return
             
 def gagne(joueur):
-    return diagonale(joueur) or ligne(joueur) or colonne(joueur)
+    return diagonale(joueur) or colonne(joueur) or ligne(joueur)
 
 def diagonale(joueur):
+    for i, line_ in enumerate(grille):
+        for j, piece in enumerate(grille):
+            try:
+                if grille[i][j] * grille[i+1][j+1] * grille[i+2][j+2] * grille[i+3][j+3] == joueur**4:
+                    return True
+            except:
+                pass
+            try:
+                if grille[i][j] * grille[i+1][j-1] * grille[i+2][j-2] * grille[i+3][j-3] == joueur**4:
+                    return True
+            except:
+                pass
+            try:
+                if grille[i][j] * grille[i-1][j+1] * grille[i-2][j+2] * grille[i-3][j+3] == joueur**4:
+                    return True
+            except:
+                pass
+            try:
+                if grille[i][j] * grille[i-1][j-1] * grille[i-2][j-2] * grille[i-3][j-3] == joueur**4:
+                    return True
+            except:
+                pass
     return False
 
 def ligne(joueur):
-    return False 
+    for i, line_ in enumerate(grille):
+        for j, piece in enumerate(grille):
+            try:
+                if grille[i][j] * grille[i][j+1] * grille[i][j+2] * grille[i][j+3] == joueur**4:
+                    return True
+            except:
+                pass
+    return False
 
 def colonne(joueur):
+    for i, line_ in enumerate(grille):
+        for j, piece in enumerate(grille):
+            try:
+                if grille[i][j] * grille[i+1][j] * grille[i+2][j] * grille[i+3][j] == joueur**4:
+                    return True
+            except:
+                pass
     return False
 
 def grille_pleine():
