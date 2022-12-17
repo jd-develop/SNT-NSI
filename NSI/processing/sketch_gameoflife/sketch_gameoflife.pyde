@@ -1,7 +1,5 @@
 from random import randint
 
-CHOSEN_GRID = "glider_gun"
-
 global n, p
 cellSize = 15
 global currentGrid
