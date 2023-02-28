@@ -42,6 +42,7 @@ botMode = False
 playerVersusBot = False
 
 inMenu = True
+menu = "difficulty"
 start = False
 
 
@@ -70,97 +71,123 @@ def setup():
     
 def draw():
     global rightPaddleY, leftPaddleY, ballX, ballY, ballDX, ballDY, start, player_left_score, player_right_score, leftPaddleMove, rightPaddleMove, botMode, playerVersusBot, inMenu
+    global menu
     background(0)
     
-    if inMenu:  # dans le menu principal
-        # titre "PONG"
-        fill(255)
-        stroke(0);strokeWeight(1)
-        textSize(100)
-        text("PONG", width/2, 150)
-        textSize(50)
-        
-        # 3 boutons: joueur contre joueur, joueur contre ordinateur, ordinateur contre ordinateur
-        # bouton joueur contre joueur
-        firstButtonY = (height/2)-(height/5)
-        if (width/2)-300 <= mouseX <= (width/2)+300 and firstButtonY <= mouseY <= firstButtonY+100:  # hover
-            fill(0)
-            stroke(255);strokeWeight(5)
-            rect((width/2)-300, firstButtonY, 600, 100)
+    if inMenu:  # dans le menu
+        if menu == "main":  # menun principal
+            # titre "PONG"
+            fill(255)
             stroke(0);strokeWeight(1)
-            fill(255)
-            text("Player vs. Player", (width/2), firstButtonY+65)
-        else:
-            fill(255)
-            rect((width/2)-300, firstButtonY, 600, 100)
-            fill(0)
-            text("Player vs. Player", (width/2), firstButtonY+65)
-        
-        # bouton joueur contre ordinateur
-        secondButtonY = (height/2)
-        if (width/2)-300 <= mouseX <= (width/2)+300 and secondButtonY <= mouseY <= secondButtonY+100:  # hover
-            fill(0)
-            stroke(255);strokeWeight(5)
-            rect((width/2)-300, secondButtonY, 600, 100)
-            stroke(0);strokeWeight(1)
-            fill(255)
-            text("Player vs. Computer", (width/2), secondButtonY+65)
-        else:
-            fill(255)
-            rect((width/2)-300, secondButtonY, 600, 100)
-            fill(0)
-            text("Player vs. Computer", (width/2), secondButtonY+65)
+            textSize(100)
+            text("PONG", width/2, 150)
+            textSize(50)
             
-        # bouton ordinateur contre ordinateur
-        thirdButtonY = (height/2)+(height/5)
-        if (width/2)-300 <= mouseX <= (width/2)+300 and thirdButtonY <= mouseY <= thirdButtonY+100:  # hover
-            fill(0)
-            stroke(255);strokeWeight(5)
-            rect((width/2)-300, thirdButtonY, 600, 100)
+            # 3 boutons: joueur contre joueur, joueur contre ordinateur, ordinateur contre ordinateur
+            # bouton joueur contre joueur
+            firstButtonY = (height/2)-(height/5)
+            if (width/2)-300 <= mouseX <= (width/2)+300 and firstButtonY <= mouseY <= firstButtonY+100:  # hover
+                fill(0)
+                stroke(255);strokeWeight(5)
+                rect((width/2)-300, firstButtonY, 600, 100)
+                stroke(0);strokeWeight(1)
+                fill(255)
+                text("Player vs. Player", (width/2), firstButtonY+65)
+            else:
+                fill(255)
+                rect((width/2)-300, firstButtonY, 600, 100)
+                fill(0)
+                text("Player vs. Player", (width/2), firstButtonY+65)
+            
+            # bouton joueur contre ordinateur
+            secondButtonY = (height/2)
+            if (width/2)-300 <= mouseX <= (width/2)+300 and secondButtonY <= mouseY <= secondButtonY+100:  # hover
+                fill(0)
+                stroke(255);strokeWeight(5)
+                rect((width/2)-300, secondButtonY, 600, 100)
+                stroke(0);strokeWeight(1)
+                fill(255)
+                text("Player vs. Computer", (width/2), secondButtonY+65)
+            else:
+                fill(255)
+                rect((width/2)-300, secondButtonY, 600, 100)
+                fill(0)
+                text("Player vs. Computer", (width/2), secondButtonY+65)
+                
+            # bouton ordinateur contre ordinateur
+            thirdButtonY = (height/2)+(height/5)
+            if (width/2)-300 <= mouseX <= (width/2)+300 and thirdButtonY <= mouseY <= thirdButtonY+100:  # hover
+                fill(0)
+                stroke(255);strokeWeight(5)
+                rect((width/2)-300, thirdButtonY, 600, 100)
+                stroke(0);strokeWeight(1)
+                fill(255)
+                text("Computer vs. Computer", (width/2), thirdButtonY+65)
+            else:
+                fill(255)
+                rect((width/2)-300, thirdButtonY, 600, 100)
+                fill(0)
+                text("Computer vs. Computer", (width/2), thirdButtonY+65)
+            fill(255)
             stroke(0);strokeWeight(1)
-            fill(255)
-            text("Computer vs. Computer", (width/2), thirdButtonY+65)
-        else:
-            fill(255)
-            rect((width/2)-300, thirdButtonY, 600, 100)
-            fill(0)
-            text("Computer vs. Computer", (width/2), thirdButtonY+65)
-        fill(255)
-        stroke(0);strokeWeight(1)
-        
-        if mousePressed:
-            if (width/2)-300 <= mouseX <= (width/2)+300 and firstButtonY <= mouseY <= firstButtonY+100:  # Joueur contre Joueur
-                botMode = playerVersusBot = False
+            
+            if mousePressed:
+                if (width/2)-300 <= mouseX <= (width/2)+300 and firstButtonY <= mouseY <= firstButtonY+100:  # Joueur contre Joueur
+                    botMode = playerVersusBot = False
 
-                leftPaddleY = rightPaddleY = height/2 - paddleHeight/2
-                ballX, ballY = math.ceil(width/2), math.ceil(height/2)
-                ballDX *= (-1)**randint(0, 1)
-                ballDY *= (-1)**randint(0, 1)
-                start = True
-                inMenu = False
-                delay(100)
-            elif (width/2)-300 <= mouseX <= (width/2)+300 and secondButtonY <= mouseY <= secondButtonY+100:  # Joueur contre Ordinateur
-                playerVersusBot = True
-                botMode = False
-                
-                leftPaddleY = rightPaddleY = height/2 - paddleHeight/2
-                ballX, ballY = math.ceil(width/2), math.ceil(height/2)
-                ballDX *= (-1)**randint(0, 1)
-                ballDY *= (-1)**randint(0, 1)
-                start = True
-                inMenu = False
-                delay(100)
-            elif (width/2)-300 <= mouseX <= (width/2)+300 and thirdButtonY <= mouseY <= thirdButtonY+100:  # Ordinateur contre Ordinateur
-                playerVersusBot = False
-                botMode = True
-                
-                leftPaddleY = rightPaddleY = height/2 - paddleHeight/2
-                ballX, ballY = math.ceil(width/2), math.ceil(height/2)
-                ballDX *= (-1)**randint(0, 1)
-                ballDY *= (-1)**randint(0, 1)
-                start = True
-                inMenu = False
-                delay(100)
+                    leftPaddleY = rightPaddleY = height/2 - paddleHeight/2
+                    ballX, ballY = math.ceil(width/2), math.ceil(height/2)
+                    ballDX *= (-1)**randint(0, 1)
+                    ballDY *= (-1)**randint(0, 1)
+                    start = True
+                    inMenu = False
+                    delay(500)
+                elif (width/2)-300 <= mouseX <= (width/2)+300 and secondButtonY <= mouseY <= secondButtonY+100:  # Joueur contre Ordinateur
+                    playerVersusBot = True
+                    botMode = False
+                    
+                    leftPaddleY = rightPaddleY = height/2 - paddleHeight/2
+                    ballX, ballY = math.ceil(width/2), math.ceil(height/2)
+                    ballDX *= (-1)**randint(0, 1)
+                    ballDY *= (-1)**randint(0, 1)
+                    start = True
+                    inMenu = False
+                    delay(500)
+                elif (width/2)-300 <= mouseX <= (width/2)+300 and thirdButtonY <= mouseY <= thirdButtonY+100:  # Ordinateur contre Ordinateur
+                    playerVersusBot = False
+                    botMode = True
+                    
+                    leftPaddleY = rightPaddleY = height/2 - paddleHeight/2
+                    ballX, ballY = math.ceil(width/2), math.ceil(height/2)
+                    ballDX *= (-1)**randint(0, 1)
+                    ballDY *= (-1)**randint(0, 1)
+                    start = True
+                    inMenu = False
+                    delay(500)
+        elif menu == "difficulty":
+            # titre "difficulté"
+            fill(255)
+            stroke(0);strokeWeight(1)
+            textSize(100)
+            text("Chose bot difficulty:", width/2, 150)
+            textSize(50)
+
+            # 2 boutons : facile, difficile
+            # bouton facile
+            firstButtonY = (height/2)-(height/5)
+            if (width/2)-300 <= mouseX <= (width/2)+300 and firstButtonY <= mouseY <= firstButtonY+100:  # hover
+                fill(0)
+                stroke(255);strokeWeight(5)
+                rect((width/2)-300, firstButtonY, 600, 100)
+                stroke(0);strokeWeight(1)
+                fill(255)
+                text("Easy", (width/2), firstButtonY+65)
+            else:
+                fill(255)
+                rect((width/2)-300, firstButtonY, 600, 100)
+                fill(0)
+                text("Easy", (width/2), firstButtonY+65)
+            # todo: finish that
     
     elif start:
         # ligne discontinue au centre de l'écran
