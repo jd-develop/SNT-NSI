@@ -15,8 +15,8 @@ from time import sleep
 
 
 def setup():
-    fullScreen()
-    # size(800, 600)
+    # fullScreen()
+    size(800, 600)
     background(255)
     strokeWeight(2)
     
