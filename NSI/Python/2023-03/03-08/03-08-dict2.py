@@ -59,3 +59,17 @@ def plus_dense(frontaliers_):
 
 
 print(plus_dense(frontaliers))
+
+
+# question 7
+def affiche(frontaliers_: list[dict]):
+    for key in frontaliers_[0].keys():
+        print(f"{key:<15}", end='')
+    print()
+    for pays in frontaliers_:
+        for value in pays.values():
+            print(f"{value:<15}", end='')
+        print()
+
+
+affiche(frontaliers)
