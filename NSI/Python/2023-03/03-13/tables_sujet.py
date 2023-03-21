@@ -2,6 +2,7 @@ import csv
 
 # question 1
 
+# j'ai commenté ça car countries est défini plus tard
 # countries = [
 #     {'code':'AD', 'name':'Andorra', 'capital':'Andorra la Vella', 'demonym':'Andorrans', 'area':'468',
 #      'population':'77265', 'language':'Catalana'},
@@ -10,6 +11,7 @@ import csv
 # ]
 
 # question 2
+# Non testé sous Windows, mais ça devrait fonctionner
 with open("./countries.csv", encoding='UTF-8') as fichier_pays:
     # traitement des données
     countries = list(csv.DictReader(fichier_pays))
@@ -18,10 +20,10 @@ with open("./currencies.csv", encoding='UTF-8') as fichier_monnaies:
     # traitement des données
     currencies = list(csv.DictReader(fichier_monnaies))
 
+# tests
 print(currencies[4]["currency"])  # East Caribbean Dollar
 print(countries[41]['name'])  # Congo
-print(currencies[4]["code"])
-print(countries[4]["code"])
+assert currencies[4]["code"] == countries[4]["code"]
 
 
 # question 3
@@ -37,7 +39,7 @@ def schema(table: list[dict]) -> list[str]:
     return attributs
 
 
-print(schema(countries))
+# print(schema(countries))
 # test fonction schema
 assert schema(countries) == ['code', 'name', 'capital', 'demonym', 'area', 'population', 'language'], \
     'Erreur test fonction schema'
@@ -73,8 +75,8 @@ insert(countries, zimbabwe)
 insert(countries, andorre)
 insert(countries, moon)
 assert zimbabwe in countries, 'Erreur test fonction insert'
-assert andorre in countries
-assert moon in countries
+assert andorre in countries, 'Erreur test fonction insert'
+assert moon in countries, 'Erreur test fonction insert'
 
 
 # Question 5
@@ -142,8 +144,6 @@ def selection(table, condition):
     """
     selection_lignes = []
     for line in table:
-        print("pop", line["population"])
-        print("area", line["area"])
         if eval(condition):
             selection_lignes.append(line)
     return selection_lignes
@@ -183,10 +183,19 @@ def projection(table: list[dir], attributes: list[str]):
 
 
 # Tests fonction projection
+liste_noms_pays = projection(countries, ['name'])
 liste_codes_pays = projection(countries, ['code', 'name'])
+liste_noms_pays_francophones = projection(selection(countries, francophone), ['name'])
+# (la variable francophone est définie plus tôt)
+liste_pays_plus_grand_que_france = projection(selection(countries, "float(line['area']) > 643801"),
+                                              ['name', 'population'])
 
-assert liste_codes_pays[0] == {'code': 'AD', 'name': 'Andorra'}, 'Erreur test1 fonction projection'
-assert liste_codes_pays[-1] == {'code': 'ZW', 'name': 'Zimbabwe'}, 'Erreur test2 fonction projection'
+assert liste_noms_pays[0] == {'name': 'Andorra'}, "Erreur test1 projection"
+assert liste_codes_pays[0] == {'code': 'AD', 'name': 'Andorra'}, 'Erreur test2 fonction projection'
+assert liste_codes_pays[-1] == {'code': 'ZW', 'name': 'Zimbabwe'}, 'Erreur test3 fonction projection'
+assert {'name': 'French Southern Territories'} in liste_noms_pays_francophones, 'Erreur test 4 fonction projection'
+assert {'name': 'France', 'population': '65273511'} not in liste_pays_plus_grand_que_france, 'Erreur test 5 projection'
+assert {'name': 'Antarctica', 'population': '0'} in liste_pays_plus_grand_que_france, 'Erreur test 6 projection'
 
 
 # question 9
