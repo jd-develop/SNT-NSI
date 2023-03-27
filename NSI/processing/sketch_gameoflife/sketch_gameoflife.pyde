@@ -14,9 +14,9 @@ frame_rate = 20
 def setup():
     global n, p
     # fenêtre d'affichage pour les motifs de test
-    # size(600, 500) 
+    size(600, 500) 
     # plein écran pour la version définitive 
-    fullScreen() 
+    # fullScreen()
     background(0) # fond noir
     frameRate(frame_rate)
     
