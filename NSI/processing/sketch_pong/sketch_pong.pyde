@@ -48,8 +48,8 @@ start = False
 def setup():
     global leftPaddleY, rightPaddleY, rightPaddleX, ballX, ballY
     
-    fullScreen()
-    # size(600, 600)
+    # fullScreen()
+    size(900, 625)
     background(0)
     
     # on change le Y de la raquette gauche pour sa valeur par défaut (milieu de l'écran)
