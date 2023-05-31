@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: black;
+
+    transition: 0.3s;
+}
+
+body.on {
+    background-color: white;
+}
+
+button {
+    background-color: blueviolet;
+    color: white;
+    border: 0;
+    border-radius: 40px;
+    height: 40px;
+    width: 100px;
+    transition: 0.3s;
+    border: 2px solid blueviolet;
+}
+
+button:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+button.on:hover {
+    background-color: white;
+    color: black;
+}
+
+button.broken {
+    border: 2px solid gray;
+    background-color: gray;
+    color: white;
+    cursor: initial;
+}
+
+button.broken:hover {
+    border: 2px solid gray;
+    background-color: gray;
+    color: white;
+    cursor: initial;
+}
