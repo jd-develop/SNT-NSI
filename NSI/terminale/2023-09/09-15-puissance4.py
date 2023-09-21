@@ -92,9 +92,9 @@ class Game(tt.Turtle):
     def get_color(self):
         return "red" if self.joueur == 1 else "yellow"
 
-    type_check_winner_one_direction = tuple[int, int, int, int, int] | bool
+    # type_check_winner_one_direction = tuple[int, int, int, int, int] | bool
 
-    def check_winner_column(self) -> type_check_winner_one_direction:
+    def check_winner_column(self):  # -> type_check_winner_one_direction:
         """Vérifie s’il y a un gagnant en colonne"""
         for j, column in enumerate(self.tableau):
             for i in range(LIGNES - 3):
@@ -102,13 +102,13 @@ class Game(tt.Turtle):
                     return column[i], i, j, i + 3, j
         return False
 
-    def check_winner_line(self) -> type_check_winner_one_direction:
+    def check_winner_line(self):  # -> type_check_winner_one_direction:
         for i in range(LIGNES):
             for j in range(COLONNES-3):
                 if 0 != self.tableau[j][i] == self.tableau[j+1][i] == self.tableau[j+2][i] == self.tableau[j+3][i]:
                     return self.tableau[j][i], i, j, i, j+3
 
-    def check_winner_diagonal1(self) -> type_check_winner_one_direction:
+    def check_winner_diagonal1(self):  # -> type_check_winner_one_direction:
         for i in range(LIGNES-3):
             for j in range(COLONNES-3):
                 win = self.tableau[j][i] == self.tableau[j+1][i+1] == self.tableau[j+2][i+2] == self.tableau[j+3][i+3]
@@ -116,7 +116,7 @@ class Game(tt.Turtle):
                 if win and is_player:
                     return self.tableau[j][i], i, j, i+3, j+3
 
-    def check_winner_diagonal2(self) -> type_check_winner_one_direction:
+    def check_winner_diagonal2(self):  # -> type_check_winner_one_direction:
         for i in range(LIGNES-3):
             for j in range(3, COLONNES):
                 win = self.tableau[j][i] == self.tableau[j-1][i+1] == self.tableau[j-2][i+2] == self.tableau[j-3][i+3]
@@ -124,13 +124,19 @@ class Game(tt.Turtle):
                 if win and is_player:
                     return self.tableau[j][i], i, j, i+3, j-3
 
-    type_check_winner = tuple[type_check_winner_one_direction, type_check_winner_one_direction,
-                              type_check_winner_one_direction, type_check_winner_one_direction]
+    # type_check_winner = tuple[type_check_winner_one_direction, type_check_winner_one_direction,
+    #                           type_check_winner_one_direction, type_check_winner_one_direction]
 
-    def check_winner(self) -> type_check_winner:  # si ça ne marche pas, enlever le typing
-        # si c’est False or False or False,
+    def check_winner(self):  # -> type_check_winner:  # si ça ne marche pas, enlever le typing
         return (self.check_winner_column(), self.check_winner_line(), self.check_winner_diagonal1(),
                 self.check_winner_diagonal2())
+
+    def is_tab_full(self):
+        for i in self.tableau:
+            for j in i:
+                if j == 0:
+                    return False
+        return True
 
     def jouer(self):
         """Joue dans la colonne sélectionnée par la tortue."""
@@ -186,6 +192,10 @@ class Game(tt.Turtle):
                 self.penup()
 
             self.hideturtle()
+        elif self.is_tab_full():
+            # match nul
+            self.won = True
+            self.hideturtle()
 
     @staticmethod
     def close():
@@ -200,5 +210,5 @@ tt.onkey(game.close, "q")
 tt.onkey(game.jouer, "space")
 
 tt.listen()
-tt.exitonclick()
+# tt.exitonclick()
 tt.done()
