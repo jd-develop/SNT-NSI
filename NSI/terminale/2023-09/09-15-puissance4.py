@@ -22,7 +22,7 @@ class Game(tt.Turtle):
     def __init__(self):
         super().__init__()
         self.joueur = 1  # switches between 1 and 2
-        self.tableau = [[0 for i in range(LIGNES)] for j in range(COLONNES)]
+        self.tableau = [[0 for _ in range(LIGNES)] for __ in range(COLONNES)]
 
         self.speed(0)
         self.penup()
