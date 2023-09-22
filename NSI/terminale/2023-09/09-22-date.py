@@ -20,7 +20,7 @@ class Date:
 
     def __repr__(self):
         """Renvoie la date au format ISO, C.-à-d. : année-mois-jour. Exemple : « 1789-07-14 »."""
-        return f"{self.year}-{'0' if self.month < 10 else ''}{self.month}-{'0' if self.day < 10 else ''}{self.day}"
+        return f"{self.year:04}-{self.month:02}-{self.day:02}"
 
     def _get_french_month_name(self):
         """Renvoie le nom du mois en français. Méthode privée."""
