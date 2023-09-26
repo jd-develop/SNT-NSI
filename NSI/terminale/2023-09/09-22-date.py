@@ -31,8 +31,8 @@ class Date:
     def _check_date(self):
         """Vérifie que la date est valide. Méthode privée."""
         assert isinstance(self.year, int), "l’année doit être entière."
-        assert isinstance(self.month, int), "le mois doit être entière."
-        assert isinstance(self.day, int), "le jour doit être entière."
+        assert isinstance(self.month, int), "le mois doit être entier."
+        assert isinstance(self.day, int), "le jour doit être entier."
 
         assert self.year != 0, "l’année 0 n’existe pas."
         assert 1 <= self.month <= 12, "le mois doit être compris entre 1 et 12."
