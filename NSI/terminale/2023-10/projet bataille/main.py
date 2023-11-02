@@ -174,5 +174,70 @@ def create_shuffle_and_distribute_game():
     return p1, p2
 
 
+def main_loop(player1, player2, print_steps=True):
+    stack1, stack2 = Stack(), Stack()
+    while True:
+        if print_steps:
+            print(f"{player1=}")
+            print(f"{player2=}")
+        if player1.is_empty():
+            print("Joueur 2 a gagné\N{NBSP}!")
+            break
+        elif player2.is_empty():
+            print("Joueur 1 a gagné\N{NBSP}!")
+            break
+
+        # les deux joueurs jouent
+        stack1.push(player1.pop())
+        stack2.push(player2.pop())
+        should_break_main_loop = False
+        if print_steps:
+            print(f"{stack1=}")
+            print(f"{stack2=}")
+        while stack1.read() == stack2.read():
+            if print_steps:
+                print("Bataille\N{NBSP}!")
+            if player1.is_empty() or player2.is_empty():
+                print("Partie nulle…")
+                should_break_main_loop = True
+                break
+            stack1.push(player1.pop())
+            stack2.push(player2.pop())
+
+            if player1.is_empty() or player2.is_empty():
+                print("Partie nulle…")
+                should_break_main_loop = True
+                break
+            stack1.push(player1.pop())
+            stack2.push(player2.pop())
+
+            if print_steps:
+                print(f"{stack1=}")
+                print(f"{stack2=}")
+
+        if should_break_main_loop:
+            break
+
+        if stack1.read() > stack2.read():
+            winner_this_time = player1
+        else:
+            winner_this_time = player2
+
+        while not stack1.is_empty():
+            winner_this_time.push(stack1.pop())
+        while not stack2.is_empty():
+            winner_this_time.push(stack2.pop())
+
+        assert len(player1) + len(player2) == 52
+
+        if print_steps:
+            print()
+    return player1, player2
+
+
 if __name__ == '__main__':
-    player1, player2 = create_shuffle_and_distribute_game()
+    p1, p2 = create_shuffle_and_distribute_game()
+    main_loop(p1, p2)
+
+# NOTE : selon Wikipédia, les parties sont TRÈS LONGUES, et ça s’observe dans ce programme…
+# Cependant, après plusieurs essais, on peut tomber sur des configurations qui font gagner un joueur vite.

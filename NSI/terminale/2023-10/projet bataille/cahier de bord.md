@@ -26,7 +26,6 @@ une bataille, la partie est nulle.
 
 ## To-do list
 ### À faire
-* Créer la boucle de jeu
 * (s’il reste du temps) adapter pour plus de 2 joueurs
 * (s’il reste du temps) faire une interface graphique
 
@@ -38,4 +37,5 @@ une bataille, la partie est nulle.
 * Créer une classe `Card` pour représenter une carte. **Cette classe nous servira de chaînon.**
 * Créer une classe `Queue` pour le paquet du joueur
 * Créer une classe `Stack` pour la donne
-* Créer une fonction qui créée les cartes, les mélange puis les distribue entre les joueurs
+* Créer une fonction qui crée les cartes, les mélange puis les distribue entre les joueurs
+* Créer la boucle de jeu
