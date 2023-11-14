@@ -14,7 +14,13 @@ class Node:
     def add(self, value):
         if value == self.value:
             return
-        if value > self.value:
+        if isinstance(value, str) and isinstance(self.value, str):
+            if len(value) == 0:
+                return
+            greater = value.lower() > self.value.lower()
+        else:
+            greater = value > self.value
+        if greater:
             if self.right is None:
                 self.right = Node(value)
             else:
@@ -32,7 +38,13 @@ class Node:
     def __contains__(self, item):
         if self.value == item:
             return True
-        if item > self.value:
+
+        if isinstance(item, str) and isinstance(self.value, str):
+            greater = ord(item[0].lower()) > ord(self.value[0].lower())
+        else:
+            greater = item > self.value
+
+        if greater:
             return self.right is not None and item in self.right
         else:
             return self.left is not None and item in self.left
@@ -45,7 +57,7 @@ class Node:
         if self.right is None:
             right_path = ()
         else:
-            right_path = self.left.infix_path()
+            right_path = self.right.infix_path()
         return left_path + (self.value,) + right_path
 
     def prefix_path(self):
@@ -56,7 +68,7 @@ class Node:
         if self.right is None:
             right_path = ()
         else:
-            right_path = self.left.prefix_path()
+            right_path = self.right.prefix_path()
         return (self.value,) + left_path + right_path
 
     def postfix_path(self):
@@ -67,5 +79,5 @@ class Node:
         if self.right is None:
             right_path = ()
         else:
-            right_path = self.left.postfix_path()
+            right_path = self.right.postfix_path()
         return left_path + right_path + (self.value,)
