@@ -24,6 +24,7 @@ assert recherche_dichotomique([-1, 0, 6, 25], 6) == 2
 assert recherche_dichotomique([-1, 0, 6, 25], 25) == 3
 assert recherche_dichotomique([-1, 0, 6, 25, 60], 6) == 2
 assert recherche_dichotomique([-1, 0, 6, 25, 60], 25) == 3
+assert recherche_dichotomique([-1, 0, 6, 25, 60], 60) == 4
 assert recherche_dichotomique([], 123) == None
 assert recherche_dichotomique([1], 123) == None
 assert recherche_dichotomique([1], 1) == 0
@@ -49,6 +50,7 @@ assert recherche_dichotomique_récursive([-1, 0, 6, 25], 6) == 2
 assert recherche_dichotomique_récursive([-1, 0, 6, 25], 25) == 3
 assert recherche_dichotomique_récursive([-1, 0, 6, 25, 60], 6) == 2
 assert recherche_dichotomique_récursive([-1, 0, 6, 25, 60], 25) == 3
+assert recherche_dichotomique_récursive([-1, 0, 6, 25, 60], 60) == 4
 assert recherche_dichotomique_récursive([], 123) == None
 assert recherche_dichotomique_récursive([1], 123) == None
 assert recherche_dichotomique_récursive([1], 1) == 0
