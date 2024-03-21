@@ -79,6 +79,7 @@ def simulation_matplotlib(population: list[Individu], nb_jours: int = 100):
         plt.plot(x, y, linewidth=0.5)  # type: ignore
     plt.show()  # type: ignore
 
+
 pop = [Individu(400, [100]*2+[50]*4+[20]*5+[10]*10) for _ in range(1000)]
 pop10 = [Individu(400, [100]*2+[50]*4+[20]*5+[10]*10) for _ in range(10)]
 pop100 = [Individu(400, [100]*2+[50]*4+[20]*5+[10]*10) for _ in range(100)]
