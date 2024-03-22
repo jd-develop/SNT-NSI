@@ -153,15 +153,28 @@ class TicTacToe:
         return nouvelle_grille
     
     def petit_num(self, jeu: list[list[int]] | None = None):
-        """Renvoie le plus petit numéro des 8 équivalents du jeu"""
+        """Renvoie le tuple (numéro, nombre de fois qu’il a été tourné, symétrie)
+        du jeu parmi les 8 équivalents qui a le plus petit numéro"""
         if jeu is None:
             jeu = self.grille
-        liste_jeux: list[int] = []
-        for _ in range(4):
-            liste_jeux.append(self.jeu2num(jeu))
-            liste_jeux.append(self.jeu2num(self.symétrie(jeu)))
+        liste_jeux: list[tuple[int, int, bool]] = []
+        for tourné in range(4):
+            liste_jeux.append((self.jeu2num(jeu), tourné, False))
+            liste_jeux.append((self.jeu2num(self.symétrie(jeu)), tourné, True))
             jeu = self.tourne(jeu)
-        return min(liste_jeux), liste_jeux
+        return min(liste_jeux, key=lambda x: x[0])
+
+    def case_à_jouer(self, ligne: int, colonne: int, tourné: int, symétrie: bool):
+        """Renvoie la case à jouer dans le jeu original depuis la case à jouer dans
+        le jeu tourné `tourné` fois et éventuellement avec une symétrie"""
+        if symétrie:
+            colonne = 2-colonne
+        if tourné == 0:
+            return ligne, colonne
+        for _ in range(tourné):
+            ligne, colonne = colonne, 2-ligne
+        return ligne, colonne
+
 
 jeu = TicTacToe()
 display_next = True
