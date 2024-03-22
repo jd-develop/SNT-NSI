@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding=utf-8 -*-
+# python 3.11 au minimum
 import random
 
 
@@ -174,46 +175,66 @@ class TicTacToe:
         for _ in range(tourné):
             ligne, colonne = colonne, 2-ligne
         return ligne, colonne
-
-
-jeu = TicTacToe()
-display_next = True
-while True:
-    if display_next:
-        jeu.afficher()
-    else:
-        display_next = True
-    if jeu.partie_nulle():
-        print("Partie nulle.")
-        jeu.afficher()
-        break
-    gagné = jeu.gagné()
-    if gagné is not None:
-        if gagné == 2:
-            print("L’ordinateur a gagné !")
-        else:
-            print("Vous avez gagné !")
-        jeu.afficher()
-        break
-    if jeu.joueur == 1:
-        print("C’est à vous de jouer.")
-        display_next = False
-    else:
-        while jeu.jouer(random.randrange(3), random.randrange(3)) is not None:
-            continue
-        continue
-    ligne = input("Ligne : ")
-    colonne = input("Colonne : ")
-    try:
-        ligne = int(ligne)
-        colonne = int(colonne)
-    except ValueError:
-        print("Erreur, veuillez entrer une ligne et une colonne valides.")
-        display_next = False
-        continue
-    jouer = jeu.jouer(ligne, colonne)
-    if jouer is not None:
-        print(jouer)
-        display_next = False
-        continue
     
+
+class Ordinateur:
+    def __init__(self):
+        self.mémoire_scores: dict[int, int] = dict()
+
+    def mise_à_jour(self):
+        ...  # todo: à implémenter
+
+
+def partie():
+    """Exécute une partie. Note : l’ordinateur a toujours le signe O et est le joueur 2."""
+    je_commence = bool(random.randint(0, 1))
+    jeu = TicTacToe()
+    if not je_commence:
+        jeu.joueur = 2
+    display_next = True
+    while True:
+        old_display_next = display_next
+        if display_next:
+            jeu.afficher()
+        else:
+            display_next = True
+        if jeu.partie_nulle():
+            print("Partie nulle.")
+            if not old_display_next:
+                jeu.afficher()
+            break
+        gagné = jeu.gagné()
+        if gagné is not None:
+            if gagné == 2:
+                print("L’ordinateur a gagné !")
+            else:
+                print("Vous avez gagné !")
+            if not old_display_next:
+                jeu.afficher()
+            break
+        if jeu.joueur == 1:
+            print("C’est à vous de jouer.")
+            display_next = False
+        else:
+            print("C’est à l’ordinateur de jouer.")
+            while jeu.jouer(random.randrange(3), random.randrange(3)) is not None:
+                continue
+            continue
+        ligne = input("Ligne : ")
+        colonne = input("Colonne : ")
+        try:
+            ligne = int(ligne)
+            colonne = int(colonne)
+        except ValueError:
+            print("Erreur, veuillez entrer une ligne et une colonne valides.")
+            display_next = False
+            continue
+        jouer = jeu.jouer(ligne, colonne)
+        if jouer is not None:
+            print(jouer)
+            display_next = False
+            continue
+
+
+if __name__ == "__main__":
+    partie()
