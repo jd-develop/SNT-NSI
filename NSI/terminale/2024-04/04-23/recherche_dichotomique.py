@@ -11,20 +11,18 @@ def recherche_dichotomique(val: int, tab: list[int], verbose: bool = False):
     if len(tab) == 0:
         return -1
     début = 0
-    fin = len(tab)
+    fin = len(tab)-1
     milieu = (début + fin) // 2
-    if verbose: print(début, milieu, fin, fin - début)
-    while (fin - début) > 1:
+    if verbose: print(début, milieu, fin)
+    while début <= fin:
+        milieu = (début + fin) // 2
         if tab[milieu] == val:
             return milieu
         if tab[milieu] < val:
-            début = milieu
+            début = milieu + 1
         elif tab[milieu] > val:
-            fin = milieu
-        milieu = (début + fin) // 2
-        if verbose: print(début, milieu, fin, fin - début)
-    if tab[milieu] == val:
-        return milieu
+            fin = milieu - 1
+        if verbose: print(début, milieu, fin)
     return -1
 
 
