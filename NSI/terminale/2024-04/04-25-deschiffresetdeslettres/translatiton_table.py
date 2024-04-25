@@ -7,35 +7,33 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 _DIACRITICS_DICT: dict[str, str] = {
-    "â": "a",
-    "à": "a",
-    "á": "a",
-    "ä": "a",
-    "æ": "ae",
-    "ç": "c",
-    "è": "e",
-    "é": "e",
-    "ê": "e",
-    "ë": "e",
-    "î": "i",
-    "ï": "i",
-    "ô": "o",
-    "ö": "o",
-    "œ": "oe",
-    "ù": "u",
-    "û": "u",
-    "ü": "u",
-    "ÿ": "y"
+    "Â": "A",
+    "À": "A",
+    "Á": "A",
+    "Ä": "A",
+    "Æ": "AE",
+    "Ç": "C",
+    "È": "E",
+    "É": "E",
+    "Ê": "E",
+    "Ë": "E",
+    "Î": "I",
+    "Ï": "I",
+    "Ô": "O",
+    "Ö": "O",
+    "Œ": "OE",
+    "Ù": "U",
+    "Û": "U",
+    "Ü": "U",
+    "Ÿ": "Y",
+    "-": ""
 }
 _TRANSLATION_TABLE = str.maketrans(_DIACRITICS_DICT)
 
 
-def remove_diacritics(text: str, print_translated_not_sorted: bool = False):
-    text = text.lower().replace("\n", "").replace("-", "")
-    text = text.translate(_TRANSLATION_TABLE)
-    if print_translated_not_sorted:
-        print(text)
-    return "".join(sorted(text.upper()))
+def remove_diacritics(text: str):
+    text = text.upper().translate(_TRANSLATION_TABLE)
+    return "".join(sorted(text))
 
 
 assert remove_diacritics("âàáäçæœ") == "AAAAACEEO"
