@@ -24,7 +24,7 @@ def combinaisons_moins_n_lettres(text: str, n: int) -> list[str]:
     if n == 0:
         return [text]
     if n == 1:
-        return [text[:i] + text[i+1:] for i in range(len(text))]
+        return list(set([text[:i] + text[i+1:] for i in range(len(text))]))
     combinaisons_precedentes = combinaisons_moins_n_lettres(text, n-1)
     résultat: list[str] = []
     for c in combinaisons_precedentes:
@@ -46,9 +46,10 @@ def créer_tirage(nb_voyelles: int, nb_consonnes: int):
     return tirage
 
 
-def trouve_mot_le_plus_long(tirage: str, verbose: bool = False) -> str | None:
+def trouve_mot_le_plus_long(tirage: str, verbose: bool = False, print_every: int = 1) -> str | None:
     tirage_normalisé = anagramme(tirage)
-    if verbose: print(tirage_normalisé)
+    compteur = 1
+    if verbose: print(compteur, tirage_normalisé)
 
     if len(tirage_normalisé) == 0:
         return None
@@ -61,9 +62,15 @@ def trouve_mot_le_plus_long(tirage: str, verbose: bool = False) -> str | None:
 
     for i in range(1, len_tirage+1):
         for combination in combinaisons_moins_n_lettres(tirage_normalisé, i):
-            if verbose: print(combination)
+            compteur += 1
+            if verbose and compteur%print_every == 0:
+                print(compteur, combination)
             if combination in LISTE_MOTS_NORMALISÉS:
-                return LISTE_MOTS[LISTE_MOTS_NORMALISÉS.index(combination)]    
+                if verbose and print_every != 1:
+                    print(compteur)
+                return LISTE_MOTS[LISTE_MOTS_NORMALISÉS.index(combination)]
+    if verbose and print_every != 1:
+        print(compteur)
     return None
 
 
@@ -81,3 +88,29 @@ def test():
 # 26 letters: ~1s
 
 # print(trouve_mot_le_plus_long(créer_tirage(4, 6), True))
+
+
+def le_compte_est_bon(but: int, disponible: list[int], résultat: str = "") -> tuple[bool, str]:
+    """Le compte est bon"""
+    if len(disponible) == 1:
+        if disponible[0] == but:
+            return True, résultat
+        return False, ""
+    for i in range(len(disponible)):
+        for j in range(len(disponible)-1):
+            a = disponible[i]
+            nouveau_disponible = disponible[:i] + disponible[i+1:]
+            b = nouveau_disponible[j]
+            nouveau_disponible = nouveau_disponible[:j] + nouveau_disponible[j+1:]
+            a_tester = [(a+b, f"{a}+{b}={a+b}"), (a*b, f"{a}*{b}={a*b}")]
+            if a > b:
+                a_tester.append((a-b, f"{a}-{b}={a-b}"))
+            if a%b == 0:
+                a_tester.append((int(a/b), f"{a}:{b}={int(a/b)}"))
+            for value, nouveau_résultat in a_tester:
+                dispo = nouveau_disponible.copy()
+                dispo.append(value)
+                nouveau_compte, newnew_résultat = le_compte_est_bon(but, dispo, résultat+"\n"+nouveau_résultat)
+                if nouveau_compte:
+                    return True, newnew_résultat
+    return False, ""

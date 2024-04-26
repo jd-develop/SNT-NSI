@@ -26,7 +26,17 @@ _DIACRITICS_DICT: dict[str, str] = {
     "Û": "U",
     "Ü": "U",
     "Ÿ": "Y",
-    "-": ""
+    "-": "",
+    ",": "",
+    " ": "",
+    "\n": "",
+    "\t": "",
+    ";": "",
+    "’": "",
+    "'": "",
+    ":": "",
+    ".": "",
+    "&": "ET"
 }
 _TRANSLATION_TABLE = str.maketrans(_DIACRITICS_DICT)
 
@@ -39,4 +49,4 @@ def anagramme(text: str):
 assert anagramme("âàáäçæœ") == "AAAAACEEO"
 assert anagramme(
     "Dès Noël, où un zéphir haï me vêt de glaçons würmiens, je dîne d’exquis rôtis de bœuf au kir, à l’aÿ d’âge mûr, &cætera."
-) == "".join(sorted("DES NOEL, OU UN ZEPHIR HAI ME VET DE GLACONS WURMIENS, JE DINE D’EXQUIS ROTIS DE BOEUF AU KIR, A L’AY D’AGE MUR, &CAETERA."))
+) == "".join(sorted("DESNOELOUUNZEPHIRHAIMEVETDEGLACONSWURMIENSJEDINEDEXQUISROTISDEBOEUFAUKIRALAYDAGEMURETCAETERA"))
