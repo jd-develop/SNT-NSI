@@ -31,12 +31,12 @@ _DIACRITICS_DICT: dict[str, str] = {
 _TRANSLATION_TABLE = str.maketrans(_DIACRITICS_DICT)
 
 
-def remove_diacritics(text: str):
+def anagramme(text: str):
     text = text.upper().translate(_TRANSLATION_TABLE)
     return "".join(sorted(text))
 
 
-assert remove_diacritics("âàáäçæœ") == "AAAAACEEO"
-assert remove_diacritics(
+assert anagramme("âàáäçæœ") == "AAAAACEEO"
+assert anagramme(
     "Dès Noël, où un zéphir haï me vêt de glaçons würmiens, je dîne d’exquis rôtis de bœuf au kir, à l’aÿ d’âge mûr, &cætera."
 ) == "".join(sorted("DES NOEL, OU UN ZEPHIR HAI ME VET DE GLACONS WURMIENS, JE DINE D’EXQUIS ROTIS DE BOEUF AU KIR, A L’AY D’AGE MUR, &CAETERA."))
