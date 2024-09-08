@@ -1,0 +1,14 @@
+# This .gitignore aims to ignore every binary file
+
+# Ignore everything
+*
+
+# Except directories
+!*/
+
+# Except .py, .c, .txt, .gitignore files
+!*.py
+!*.c
+!*.txt
+!.gitignore
+

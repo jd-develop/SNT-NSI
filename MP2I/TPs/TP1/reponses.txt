@@ -1,0 +1,26 @@
+# Exercice 4
+
+5) En plus du fichier `blabla.txt`, il y a deux dossiers `.` et `..`. `-a` signifie « all ». `.` est le répertoire courant, tandis que `..` est le répertoire parent.
+
+# Exercice 10
+
+1) « J’ai acheté 15 t-shirts à 6.99 euros »
+2) Non, cela affiche « J’ai acheté 15 t-shirts à 6.990000 euros »
+
+# Exercice 11
+
+4) En effet, ça affiche 2.5
+5) On remarque que ça affiche 2
+
+# Exercice 12
+
+5) x vaut bien 3, y vaut bien 0.25, la somme flottante vaut 3.25, cependant la somme entière vaut 3.
+
+# Exercice 13
+
+3) x prend comme valeur 4096 et y prend comme valeur 0 (je croyais que ça serait aléatoire, mais c’était systématique)
+
+# Exercice 15
+
+Ce programme prend en entrée deux nombres x et y et affiche « oui » si x est strictement inférieur à y, ou « non » si ce n’est pas le cas.
+
