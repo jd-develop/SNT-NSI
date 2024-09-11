@@ -1,6 +1,8 @@
 # Exercice 4
 
-5) En plus du fichier `blabla.txt`, il y a deux dossiers `.` et `..`. `-a` signifie « all ». `.` est le répertoire courant, tandis que `..` est le répertoire parent.
+5) En plus du fichier `blabla.txt`, il y a deux dossiers `.` et `..`. `-a`
+signifie « all ». `.` est le répertoire courant, tandis que `..` est le
+répertoire parent.
 
 # Exercice 10
 
@@ -14,13 +16,36 @@
 
 # Exercice 12
 
-5) x vaut bien 3, y vaut bien 0.25, la somme flottante vaut 3.25, cependant la somme entière vaut 3.
+5) x vaut bien 3, y vaut bien 0.25, la somme flottante vaut 3.25, cependant la
+somme entière vaut 3.
 
 # Exercice 13
 
-3) x prend comme valeur 4096 et y prend comme valeur 0 (je croyais que ça serait aléatoire, mais c’était systématique)
+3) x prend comme valeur 4096 et y prend comme valeur 0 (je croyais que ça
+serait aléatoire, mais c’était systématique)
 
 # Exercice 15
 
-Ce programme prend en entrée deux nombres x et y et affiche « oui » si x est strictement inférieur à y, ou « non » si ce n’est pas le cas.
+Ce programme prend en entrée deux nombres x et y et affiche « oui » si x est
+strictement inférieur à y, ou « non » si ce n’est pas le cas.
+
+# Exercice 18
+
+1) Un entier int peut stocker des valeurs jusqu’à 2 147 483 647, ce qui
+correspond à 68 ans, 18 jours, 3 heures, 14 minutes et 7 secondes. Ainsi, le 18
+janvier 2038 à 3 heures, 14 minutes et 7 secondes UTC, le nombre renvoyé par
+time() ne rentrera plus dans un int.
+
+2) Avec des long int, on pourra stocker des dates jusqu’en 292 471 208 677
+environ
+
+# Exercice 19
+1) On observe que les valeurs de x et y changent à chaque exécution
+
+2) À l’aide de la commande watch en acualisant tout les dixièmes de secondes,
+on se rend compte que les valeurs sont différentes d’une seconde à l’autre,
+mais identiques lors des exécutions se déroulant dans la même seconde.
+
+3) En enlevant cette ligne, on se rend compte que les valeurs ne changent plus,
+même après recompilation.
 
