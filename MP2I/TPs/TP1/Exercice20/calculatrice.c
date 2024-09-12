@@ -7,6 +7,8 @@
  *
  * Par défaut, la calculatrice affiche la dernière valeur de la pile, mais
  * toute la pile peut être affichée en tapant « ps » (print stack)
+ *
+ * Pour quitter la calculatrice, il faut taper « exit » ou Ctlr+D
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,8 +21,8 @@
 #define STACK_SIZE 100
 // limite de 20 caractères aux nombres traités par le parser
 #define PARSER_VALUE_SIZE 20
-// marge d’erreur pour vérifier si un flottant est égal à 0 (en cas de division
-// par exemple)
+/* marge d’erreur pour vérifier si un flottant est égal à 0 (en cas de division
+ * par exemple) */
 #define EPSILON 0.001
 
 enum TokenType {
@@ -78,16 +80,14 @@ int is_empty() {
 
 int print_stack() {
     // affiche la pile
-    int index = 0;
     struct Token tok;
-    while (index < global_stack_index) {
+    for (int index = 0; index < global_stack_index; index++) {
         tok = stack[index];
         if (tok.type == integer_value) {
             printf("%ld ", tok.value);
         } else {
             printf("%f ", tok.float_value);
         }
-        index++;
     }
     printf("\n");
     return 0;
@@ -115,14 +115,15 @@ enum ParserState {
 };
 
 int parse(char input[INPUT_SIZE]) {
-    // découpe l’entrée en lexèmes, calcule et met à jour la pile
-    // Renvoie :
-    // * 0 si tout est OK
-    // * 1 en cas d’overflow de la valeur qu’on est en train d’enregistrer
-    // * 2 en cas de stackoverflow
-    // * 3 si la pile est vide alors qu’une valeur était attendue
-    // * 4 si la valeur a un type invalide
-    // * 5 en cas de division par zéro
+    /* découpe l’entrée en lexèmes, calcule et met à jour la pile
+     * Renvoie :
+     * * 0 si tout est OK
+     * * 1 en cas d’overflow de la valeur qu’on est en train d’enregistrer
+     * * 2 en cas de stackoverflow
+     * * 3 si la pile est vide alors qu’une valeur était attendue
+     * * 4 si la valeur a un type invalide
+     * * 5 en cas de division par zéro
+     */
     unsigned int current_index = 0;  // index courant dans l’entrée
     char current_char = input[current_index];
 
@@ -155,13 +156,16 @@ int parse(char input[INPUT_SIZE]) {
                     current_char = input[current_index];
                     continue;
                 } else {
-                    return 1;
+                    if (state == registering_an_integer) {
+                        return 1;
+                    } /* dans un float, ce n’est pas grave si on n’a pas assez
+                       * de précision */
                 }
             } else {
-                // le caractère n’est plus un chiffre, on doit arrêter
-                // ici, on doit convertir la chaîne en entier ou en flottant,
-                // mettre la longeur à zéro, changer l’état et ajouter le
-                // flottant à la pile
+                /* Le caractère n’est plus un chiffre, on doit arrêter.
+                 * Ici, on doit convertir la chaîne en entier ou en flottant,
+                 * mettre la longeur à zéro, changer l’état et ajouter le
+                 * flottant à la pile */
                 struct Token tok;
 
                 if (state == registering_an_integer) {
@@ -185,7 +189,6 @@ int parse(char input[INPUT_SIZE]) {
                 }
                 is_value_positive = 1;
 
-                //current_value_registered = "";
                 current_len_of_reg_val = 0;
                 state = default_state;
 
@@ -234,9 +237,9 @@ int parse(char input[INPUT_SIZE]) {
             current_index++;
             current_char = input[current_index];
         } else if (current_char == '-') {
-            // vérifier d’abord si le prochain caractère de l’entrée est un
-            // chiffre ou non, auquel cas il faudra prioriser la multiplication
-            // du prochain nombre par -1
+            /* vérifier d’abord si le prochain caractère de l’entrée est un
+             * chiffre ou non, auquel cas il faudra prioriser la multiplication
+             * du prochain nombre par -1 */
             if (
                 current_index+1 < INPUT_SIZE && input[current_index+1] != '\0'
             ) {
@@ -394,10 +397,10 @@ int parse(char input[INPUT_SIZE]) {
                 !(current_char == -30 ||
                   current_char == -128 ||
                   current_char == -81)
-                // je ne sais pas pourquoi, ces caractères aparaissent à la fin
-                // de certaines lignes. Ça doit être des codes spéciaux Unicode
-                // que l’on peut ignorer. Si ce n’est pas ces caractères, on
-                // affiche une erreur
+                /* je ne sais pas pourquoi, ces caractères aparaissent à la fin
+                 * de certaines lignes. Ça doit être des codes spéciaux Unicode
+                 * que l’on peut ignorer. Si ce n’est pas ces caractères, on
+                 * affiche une erreur */
             ) printf(
                 "Illegal character (%c, %d)\n", current_char, current_char
             );
@@ -423,9 +426,8 @@ int main() {
             break;  // sûrement un EOF
 
         // on vérifie si on doit arrêter le programme
-        if (strcmp(input, "exit\n") == 0) {
+        if (strcmp(input, "exit\n") == 0)
             break;
-        }
 
         // on vérifie si on doit afficher la pile
         if (strcmp(input, "ps\n") == 0) {
@@ -433,7 +435,6 @@ int main() {
             continue;
         }
 
-        // printf("%s", input);
         int parse_result = parse(input);
         switch (parse_result) {
             case 0:
