@@ -6,7 +6,7 @@
  * ou des flottants.
  *
  * Par défaut, la calculatrice affiche la dernière valeur de la pile, mais
- * toute la pile peut être afficher en tapant « ps » (print stack)
+ * toute la pile peut être affichée en tapant « ps » (print stack)
  */
 #include <stdio.h>
 #include <stdlib.h>
