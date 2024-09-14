@@ -1,0 +1,43 @@
+# TP2
+
+## Exercice 1
+
+Avec 0, le programme affiche « Non »
+Pour toutes les autres valeurs, il affiche « Oui »
+
+## Exercice 2
+
+2)
+|---|---|---------|
+| x | y | x && y  |
+|---|---|---------|
+| 0 | 0 |    0    |
+|---|---|---------|
+| 0 | 1 |    0    |
+|---|---|---------|
+| 1 | 0 |    0    |
+|---|---|---------|
+| 1 | 1 |    1    |
+|---|---|---------|
+
+|---|---|---------|
+| x | y | x || y  |
+|---|---|---------|
+| 0 | 0 |    0    |
+|---|---|---------|
+| 0 | 1 |    1    |
+|---|---|---------|
+| 1 | 0 |    1    |
+|---|---|---------|
+| 1 | 1 |    1    |
+|---|---|---------|
+
+# Exercice 4
+Avec n = 5, tout se passe bien. En revanche, avec n = -3, on obtient une
+erreur :
+
+```
+a.out: prog.c:6: factorielle: Assertion `n >= 0' failed.
+zsh: IOT instruction (core dumped)  ./a.out
+```
+
