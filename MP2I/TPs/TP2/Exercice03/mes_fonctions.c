@@ -1,25 +1,21 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <assert.h>
 
 /*
- * Renvoie true si a divise b, false sinon ou si a=0.
+ * Renvoie true si a divise b, false sinon. Plante si a = 0
  */
 bool divise(int a, int b) {
-    if (a==0) {
-        return false;
-    }
+    assert(a!=0);
     return (b%a == 0);
 }
 
 /*
  * Si x est non nul, affiche x puis affiche 1/x
- * Si x est nul, affiche x
+ * Plante si x est nul
  */
 void affiche_inverse(float x) {
-    if (x == 0) {
-        printf("%d\n", 0);
-        return;
-    }
+    assert(x != 0);
     printf("%f, %f\n", x, 1/x);
 }
 
@@ -36,11 +32,11 @@ int main() {
     printf("Tests de la fonction divise.\n");
     printf("2 divise 4 : %d\n", divise(2, 4));
     printf("4 divise 2 : %d\n", divise(4, 2));
-    printf("0 divise -24 : %d\n", divise(0, -24));
+    // printf("0 divise -24 : %d\n", divise(0, -24)); // plante
 
     printf("\nTests de la fonction affiche_inverse.\n");
     printf("Nombres testés : 0.0, 10.0, 1/π, -2.0.\n");
-    affiche_inverse(0.0);
+    // affiche_inverse(0.0); // plante
     affiche_inverse(10.0);
     affiche_inverse(1/3.14159265358979323846264338327950288419);
     affiche_inverse(-2.0);

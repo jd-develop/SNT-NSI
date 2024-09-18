@@ -41,3 +41,25 @@ a.out: prog.c:6: factorielle: Assertion `n >= 0' failed.
 zsh: IOT instruction (core dumped)  ./a.out
 ```
 
+# Exercice 8
+
+Une stratégie efficace est celle de la dichotomie : entrer la valeur pile au
+milieu entre la plus petite valeur possible et la plus grande.
+
+# Exercice 12
+
+Le programme met 14 secondes pour calculer la dernière valeur.
+
+Pour accélerer ce calcul, on peut repartir de la définition de la suite. On
+remarque que si u_n est impair, c’est-à-dire que u_n = 2k+1, la valeur suivante
+est 3(2k+1)+1, soit 6k+4 qui est pair. Ainsi, l’opération suivante sera
+forcément une division par deux. On peux donc diviser tout de suite par deux.
+
+Avec cette optimisation, j’ai mesuré 9 secondes d’exécution.
+
+Cependant, cela ne donnait pas les bonnes valeurs. Il suffit donc de déplacer
+le code de la fonction `suivant` dans `temps de vol`. En plus, cela fait moins
+d’appels et donc une exécution plus rapide.
+
+Au final, cela ne met plus que 6 secondes pour s’exécuter, soit une division
+du temps d’exécution par 2 !
