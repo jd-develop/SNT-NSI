@@ -7,75 +7,76 @@
 #define WIDTH 40
 #define COURBE_VERTE "\033[32m#\033[0m"
 #define COURBE_ROUGE "\033[91m*\033[0m"
-#define TRAIT "-"
+#define COURBE_VERTE2 "\033[92m*\033[0m"
+#define COURBE_ROUGE2 "\033[31m#\033[0m"
 #define DELTA_I 0.09 // valeur ajoutée à i à chaque tour de boucle (sachant qu’on dessine sin(i))
 #define DELTA_T 25 // temps, en millisecondes, entre chaque tour de boucle
-#define EPSILON 0.0010  // marge d’erreur pour comparer sinus à 1 et -1
-#define EPSILON2 0.039 // marge d’erreur pour comparer sinus à 0.5 et -0.5
-#define EPSILON3 0.065 // marge d’erreur pour comparer sinus à 0.55 et -0.55
 
 
-void print_sinus(double sinus, double last_sinus) {
+void print_un_caractere(double sinus, double sinus_precedent, bool premiere_courbe) {
+    bool courbe_verte = (premiere_courbe && sinus < 0) || (!premiere_courbe && sinus > 0);
+    bool courbe2 = (sinus_precedent < sinus);
+    if (courbe_verte) {
+        if (courbe2)
+            printf("%s", COURBE_VERTE);
+        else
+            printf("%s", COURBE_VERTE2);
+    } else {
+        if (courbe2)
+            printf("%s", COURBE_ROUGE);
+        else
+            printf("%s", COURBE_ROUGE2);
+    }
+}
+
+
+void print_une_courbe(double sinus, double sinus_precedent, int caracteres_a_afficher, bool premiere_courbe) {
+    for (int i = 0; i <= caracteres_a_afficher; i++) {
+        print_un_caractere(sinus, sinus_precedent, premiere_courbe);
+    }
+}
+
+
+void print_courbes(
+   int debut_gauche,
+    int caracteres_a_afficher,
+    int espacement,
+    double sinus,
+    double sinus_precedent
+) {
+    for (int i = 0; i < debut_gauche; i++) {
+        printf(" ");
+    }
+    print_une_courbe(sinus, sinus_precedent, caracteres_a_afficher, true);
+    for (int i = 0; i < espacement; i++) {
+        printf(" ");
+    }
+    print_une_courbe(sinus, sinus_precedent, caracteres_a_afficher, false);
+
+    printf("\n");
+}
+
+void print_sinus(double sinus, double sinus_precedent) {
     int debut_droite;
     int debut_gauche;
     int caracteres_a_afficher;
     int espacement;
 
-    bool devant_puis_derriere = sinus < 0;
-    //printf("\n");
-
-    if (fabs(last_sinus) < fabs(sinus)) {
-        debut_droite = (int)((fabs(last_sinus)+1) * WIDTH/2);
+    if (fabs(sinus_precedent) < fabs(sinus)) {
+        debut_droite = (int)((fabs(sinus_precedent)+1) * WIDTH/2);
         caracteres_a_afficher = (int)((fabs(sinus)+1) * WIDTH/2) - debut_droite;
     } else {
         debut_droite = (int)((fabs(sinus)+1) * WIDTH/2);
-        caracteres_a_afficher = (int)((fabs(last_sinus)+1) * WIDTH/2) - debut_droite;
+        caracteres_a_afficher = (int)((fabs(sinus_precedent)+1) * WIDTH/2) - debut_droite;
     }
     debut_gauche = WIDTH - debut_droite - caracteres_a_afficher;
     espacement = debut_droite - (WIDTH - debut_droite);
 
-    for (int i = 0; i < debut_gauche; i++) {
-        printf(" ");
-    }
-    for (int i = 0; i <= caracteres_a_afficher; i++) {
-        if (devant_puis_derriere)
-            printf("%s", COURBE_VERTE);
-        else
-            printf("%s", COURBE_ROUGE);
-    }
-    for (int i = 0; i < espacement; i++) {
-        if (espacement < 3) {
-            if (devant_puis_derriere)
-                printf("%s", COURBE_ROUGE);
-            else
-                printf("%s", COURBE_VERTE);
-        } else {
-            if ((sinus-EPSILON <= -1) || (1 <= sinus+EPSILON)) {
-                printf(TRAIT);
-            } else if ((-EPSILON2 <= sinus-0.5 && sinus-0.5 <= EPSILON2) ||
-                     (-EPSILON2 <= sinus+0.5 && sinus+0.5 <= EPSILON2)) {
-                if (i-1 <= espacement/2)
-                    printf(TRAIT);
-                else
-                    printf(" ");
-            } else if ((-EPSILON3 <= sinus-0.55 && sinus-0.55 <= EPSILON3) ||
-                     (-EPSILON3 <= sinus+0.55 && sinus+0.55 <= EPSILON3)) {
-                if (i < espacement/2)
-                    printf(" ");
-                else
-                    printf(TRAIT);
-            } else {
-                printf(" ");
-            }
-        }
-    }
-    for (int i = 0; i <= caracteres_a_afficher; i++) {
-        if (devant_puis_derriere)
-            printf("%s", COURBE_ROUGE);
-        else
-            printf("%s", COURBE_VERTE);
-    }
-    printf("\n");
+    caracteres_a_afficher += 1;
+    debut_droite -= 1;
+    espacement -= 2;
+
+    print_courbes(debut_gauche, caracteres_a_afficher, espacement, sinus, sinus_precedent);
 }
 
 int main() {
