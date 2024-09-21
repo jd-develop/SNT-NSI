@@ -13,7 +13,7 @@
 #define DELTA_T 25 // temps, en millisecondes, entre chaque tour de boucle
 
 
-void print_un_caractere(double sinus, double sinus_precedent, bool premiere_courbe) {
+void affiche_un_caractere(double sinus, double sinus_precedent, bool premiere_courbe) {
     bool courbe_verte = (premiere_courbe && sinus < 0) || (!premiere_courbe && sinus > 0);
     bool courbe2 = (sinus_precedent < sinus);
     if (courbe_verte) {
@@ -30,9 +30,9 @@ void print_un_caractere(double sinus, double sinus_precedent, bool premiere_cour
 }
 
 
-void print_une_courbe(double sinus, double sinus_precedent, int caracteres_a_afficher, bool premiere_courbe) {
+void affiche_une_courbe(double sinus, double sinus_precedent, int caracteres_a_afficher, bool premiere_courbe) {
     for (int i = 0; i <= caracteres_a_afficher; i++) {
-        print_un_caractere(sinus, sinus_precedent, premiere_courbe);
+        affiche_un_caractere(sinus, sinus_precedent, premiere_courbe);
     }
 }
 
@@ -47,16 +47,16 @@ void print_courbes(
     for (int i = 0; i < debut_gauche; i++) {
         printf(" ");
     }
-    print_une_courbe(sinus, sinus_precedent, caracteres_a_afficher, true);
+    affiche_une_courbe(sinus, sinus_precedent, caracteres_a_afficher, true);
     for (int i = 0; i < espacement; i++) {
         printf(" ");
     }
-    print_une_courbe(sinus, sinus_precedent, caracteres_a_afficher, false);
+    affiche_une_courbe(sinus, sinus_precedent, caracteres_a_afficher, false);
 
     printf("\n");
 }
 
-void print_sinus(double sinus, double sinus_precedent) {
+void affiche_sinus(double sinus, double sinus_precedent) {
     int debut_droite;
     int debut_gauche;
     int caracteres_a_afficher;
@@ -81,7 +81,7 @@ void print_sinus(double sinus, double sinus_precedent) {
 
 int main() {
     for (float i = 0; ; i += DELTA_I) {
-        print_sinus(sin(i), sin(i - DELTA_I));
+        affiche_sinus(sin(i), sin(i - DELTA_I));
         usleep(DELTA_T*1000);
     }
     return 0;
