@@ -1,0 +1,38 @@
+# Exercice 1
+
+* Le premier warning indique que le paramètre `z` de la fonction `est_pair`
+  n’est pas utilisé. On peut le supprimer, en n’oubliant pas de supprimer
+  l’argument supplémentaire lors de l’appel de la fonction dans `main`.
+* Le deuxième warning indique que la fonction `ligne` termine par `return 0;`
+  alors qu’elle doit renvoyer `void`. On peut supprimer cette ligne.
+* Le troisième warning concerne la variable `t` de la fonction `ligne` :
+  elle n’est pas utilisée. On peut la supprimer.
+* Le quatrième warning concerne le fait qu’on n’a pas spécifié le type de retour
+  de `main`. On peut mettre `int`.
+* Les quatrième et cinquième warnings indiquent qu’on n’a pas décraré
+  `srand` et `time`. On peut corriger ces warnings en incluant `<time.h>` et
+  `<stdlib.h>`
+* Le sixième warning concerne le `scanf` dans main : `%d` attend un pointeur
+  vers un entier, mais `n` est un entier. Il suffit d’ajouter une esperluette
+  avant le `n`.
+* Le dernier warning concerne le type de retour de `est_pair` : on a déclaré
+  que la fonction renvoyait `bool`, mais on ne fait qu’afficher ce qu’elle
+  doit renvoyer… On remplace les `printf` par des `return`.
+
+# Exercice 2
+
+Les adresses de `x` et `y` diffèrent de 4 octets, ce qui n’est pas étonnant :
+elles sont définies l’une juste après l’autre (donc fort probablement à côté
+dans la RAM), et elles ont des tailles de 32 bits, soit 4 octets.
+
+# Exercice 3
+
+Q1) `y` vaut bien 6
+Q2) `y` vaut toujours 6 : en effet, `y` est juste l’entier qui, tout à l’heure,
+    était à l’emplacement mémoire de `x`. En revanche, si on avait affiché
+    `*px`, on aurait vu la nouvelle valeur de `x`.
+
+# Exercice 4
+Q1) zsh: segmentation fault (core dumped)  ./a.out
+Q2) La même chose, en plus d’un warning indiquant qu’on a converti un entier
+    en pointeur sans le spécifier.
