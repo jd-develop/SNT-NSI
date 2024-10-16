@@ -35,4 +35,8 @@ Q2) `y` vaut toujours 6 : en effet, `y` est juste l’entier qui, tout à l’he
 # Exercice 4
 Q1) zsh: segmentation fault (core dumped)  ./a.out
 Q2) La même chose, en plus d’un warning indiquant qu’on a converti un entier
-    en pointeur sans le spécifier.
+    en pointeur sans le spécifier (on peut ajouter `(int *)` avant 25 pour
+    corriger ce warning.
+
+# Exercice 7
+Q1) On peut déduire que les tableaux sont des pointeurs.

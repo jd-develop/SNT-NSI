@@ -19,13 +19,29 @@ void echange(float* pa, float* pb) {
 
 /*
  * Résout l’équation quadratique aX² + bX + c = 0
- * et renvoie le nombre de solutions réelles (0, 1 ou 2).
+ * et renvoie le nombre de solutions réelles (0, 1, 2 ou -1 s’il y a une
+ * infinité de solutions (si a=b=c=0))
  * Stocke également la ou les racines réelles dans les zones pointées par
  * x1 et x2.
  */
 int quad_solve(float a, float b, float c, float* x1, float* x2) {
     assert(x1 != NULL);
     assert(x2 != NULL);
+    if (a == 0) {
+        // équation de degré 1
+        if (b == 0) {
+            // équation de degré 0
+            if (c == 0)
+                // 0=0 admet une infinité de solutions
+                return -1;
+            else
+                // c=0 avec c≠0 n’admet pas de solutions
+                return 0;
+        }
+        *x1 = -c/b;
+        *x2 = -c/b;
+        return 1;
+    }
     // calcule le discriminant
     float delta = b*b - 4*a*c;
     if (-1e-3 <= delta && delta <= 1e-3) {
@@ -64,6 +80,14 @@ int main() {
 
     assert(quad_solve(1, 0, 0, &x1, &x2) == 1);
     assert(x1 == x2 && x1 == 0);
+
+    assert(quad_solve(0, 5, 4, &x1, &x2) == 1);
+    printf("%f %f\n", x1, x2);
+    assert(x1 == x2 && -0.8 - 1e-3 <= x1 && x1 <= -0.8 + 1e-3);
+
+    assert(quad_solve(0, 0, 4, &x1, &x2) == 0);
+
+    assert(quad_solve(0, 0, 0, &x1, &x2) == -1);
 
     assert(quad_solve(1, 0, -1, &x1, &x2) == 2);
     assert(x1 == -1 && x2 == 1);
