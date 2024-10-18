@@ -117,6 +117,18 @@ char echange(int* tab, int i, int j, int n) {
     return 0;
 }
 
+/* teste la fonction echange */
+void test_echange() {
+    int tab[5] = {1, 2, 3, 5, 4};
+    assert(echange(tab, 3, 4, 5) == 0);
+    assert(tab[0] == 1);
+    assert(tab[1] == 2);
+    assert(tab[2] == 3);
+    assert(tab[3] == 4);
+    assert(tab[4] == 5);
+    assert(est_trie(tab, 5));
+}
+
 /* exécute le jeu */
 void jeu() {
     // boucle du jeu
@@ -173,6 +185,7 @@ int main() {
     // === exécution des tests avant le jeu ===
     test_remplir_tab_aleat();
     test_est_trie();
+    test_echange();
     // ========================================
 
     jeu();
