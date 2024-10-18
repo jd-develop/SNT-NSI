@@ -27,9 +27,16 @@ void test_remplir_tab_aleat() {
 
 /* affiche le tableau tab de longueur n sous la forme [a, b, c, d, …] */
 void affiche(int* tab, int n) {
+    int tab_i;
     printf("[");
     for (int i = 0; i < n; i++) {
-        printf("%d", tab[i]);
+        tab_i = tab[i];
+        if (10 <= tab_i && tab_i <= 99) {
+            printf(" ");
+        } else if (tab_i <= 9) {
+            printf("  ");
+        }
+        printf("%d", tab_i);
         // si ce n’est pas le dernier élément, on veut afficher une virgule
         if (i < n-1)
             printf(", ");
@@ -82,12 +89,42 @@ void test_est_trie() {
     assert(est_trie(&(tab8[9]), 1));
 }
 
+/* échange les cases i et j du tableau tab de taille n. Si l’échange n’est
+ * pas possible, affiche un message d’erreur et renvoie 1. Sinon, renvoie 0 */
+char echange(int* tab, int i, int j, int n) {
+    // les cases ne sont pas adjacentes
+    if (abs(i-j) != 1) {
+        printf("\033[31m"); // rouge
+        printf(
+            "Erreur : les indices doivent être adjacents."
+        );
+        printf("\033[0m\n"); // réinitialiser la couleur
+        return 1;
+    }
+    // les cases sont en-dehors du tableau
+    if (i >= n || j >= n || i < 0 || j < 0) {
+        printf("\033[31m"); // rouge
+        printf(
+            "Erreur : les indices doivent être compris dans le tableau"
+        );
+        printf("\033[0m\n"); // réinitialiser la couleur
+        return 1;
+    }
+    // tout va bien
+    int temp = tab[i];
+    tab[i] = tab[j];
+    tab[j] = temp;
+    return 0;
+}
+
 /* exécute le jeu */
 void jeu() {
     // boucle du jeu
     int coups = 0;
     int tab[TAILLE_MAXIMUM];
+    int tab_dindices[TAILLE_MAXIMUM];
     int taille;
+    int i, j;
 
     printf("Bienvenue au jeu du tri. ");
     printf("Choisissez la taille du tableau : ");
@@ -103,10 +140,26 @@ void jeu() {
     }
 
     remplir_tab_aleat(tab, taille);
-    printf("Voici votre tableau : ");
+    for (int idx = 0; idx < taille; idx++) {
+        tab_dindices[idx] = idx;
+    }
+
+    printf("Voici votre tableau :\n");
+    printf("\033[32m"); // vert
+    affiche(tab_dindices, taille);
+    printf("\033[0m"); // réinitialiser la couleur
     affiche(tab, taille);
+
     while (!est_trie(tab, taille)) {
-        printf("Rentrez les indices à échanger : ")
+        printf("Rentrez les indices à échanger : ");
+        assert(scanf("%d %d", &i, &j) != 0);
+        if (echange(tab, i, j, taille) == 0) {
+            printf("\033[32m"); // vert
+            affiche(tab_dindices, taille);
+            printf("\033[0m"); // réinitialiser la couleur
+            affiche(tab, taille);
+            coups++;
+        }
     }
     if (coups <= 1)
         printf("Bravo ! Vous avez gagné en %d coup !\n", coups);
