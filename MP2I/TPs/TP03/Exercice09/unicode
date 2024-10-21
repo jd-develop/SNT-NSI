@@ -54,3 +54,25 @@ exemples :
 2 0 65 : A
 2 0 191 : ¿
 2 0 9084 : ⍼
+
+Mémoire :
+Voici la représentation de la mémoire lors de l’exécution :
+| char | -0x7F | -0x7FF | -0xFFFF | (vide) | char-7F | char-7FF | char-FFF |
+|------|-------|--------|---------|--------|---------|----------|----------|
+|  0   |   1   |    2   |    3    |   4    |    5    |     6    |     7    |
+
+| (vide) | 128 | char%64 | char/64 | 0b11000000 | * | ** | \n | 64 |
+|--------|-----|---------|---------|------------|---|----|----|----|
+|    8   |  9  |    10   |    11   |     12     | 13| 14 | 15 | 16 |
+
+| (char/64)%64 | (char/64)/64 | 0b11100000 | * | ** | *** |
+|--------------|--------------|------------|---|----|-----|
+|     17       |       18     |     19     | 20| 21 | 22  |
+
+*, **, *** : caractères 8-bits 1, 2 et 3 de la représentation UTF-8. En 13 et
+14, pour les caractères de la plage 0x80-0x7FF et en 20, 21, 22 pour les
+caractères de la plage 0x800-0xFFFF.
+
+La mémoire est un beau bazar en raison de la difficulté aberrante de programmer
+comme ça, de ma fatigue et de ma flemme de tout recoder.
+
