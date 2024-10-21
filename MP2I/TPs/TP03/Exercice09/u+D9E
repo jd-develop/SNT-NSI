@@ -1,0 +1,12 @@
+1
+
+2 0 224 8 0
+2 0 182 8 0
+2 0 158 8 0
+2 0 10  8 0
+
+4
+
+(note : ce programme affiche U+D9E – Sinhala Letter Kantaja Naasikyaya —
+ en assumant que le terminal est en UTF-8)
+

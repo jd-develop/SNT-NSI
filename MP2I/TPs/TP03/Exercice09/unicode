@@ -1,0 +1,56 @@
+512
+
+2 0 65
+
+2 1 -127
+2 2 -2047
+2 3 -65535
+
+3 0 1 5
+3 0 2 6
+3 0 3 7
+
+2 9 128
+2 16 64
+9  0 16 10
+10 0 16 11
+
+9  11 16 17
+10 11 16 18
+
+2 12 192
+2 19 224
+2 15 10
+
+12 5    8 0
+12 5    8 15
+12 5    4
+
+12 6    3 11 12 13
+12 6    3  9 10 14
+12 6    8 13
+12 6    8 14
+12 6    8 15
+12 6    4
+
+12 7    3 18 19 20
+12 7    3  9 17 21
+12 7    3  9 10 22
+12 7    8 20
+12 7    8 21
+12 7    8 22
+12 7    8 15
+12 7    4
+
+4
+
+Indication : remplacer le nombre ligne 3 par le codepoint de n’importe quel
+caractère Unicode – le programme se chargera de le transformer en UTF-8 et
+de l’afficher. Attention : les caractères entre U+10000 et U+10FFFF ne
+sont pas supportés (wikipédia donnait fort peu de détails sur comment sont
+représentés les caractères de cette plage)
+
+exemples :
+2 0 65 : A
+2 0 191 : ¿
+2 0 9084 : ⍼

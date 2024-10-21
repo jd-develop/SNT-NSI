@@ -1,7 +1,8 @@
 /*
  * Simule une petite mémoire RAM. Ne peut stocker que des entiers. Permet
  * d’accéder à une valeur à partir de son adresse mémoire, de stocker une
- * valeur à une adresse mémoire, et de faire une addition.
+ * valeur à une adresse mémoire, de faire des additions, des multiplications,
+ * des modulos, mais aussi d’afficher des caractères ASCII, …
  *
  * Un mode silencieux est disponible en passant l’argument « quiet » dans la
  * ligne de commande : pratique pour écrire des programmes en « langage
@@ -71,6 +72,32 @@ void affiche_case_memoire_sans_retour_ligne(
 }
 
 /*
+ * Renvoie true si la case i de la mémoire (tableau ram), de taille taille, est
+ * égale à 0, false sinon ou si une erreur est survenue (par exemple si la
+ * valeur est en-dehors de la mémoire ou que l’utilisateur n’a jamais écrit
+ * dans cette case mémoire, i.e. l’élément correspondant dans deja_vu est à
+ * false).
+ */
+bool case_memoire_egale_zero(int i, int* ram, bool* deja_vu, int taille, bool quiet) {
+    if (verifie_case_memoire(i, deja_vu, taille, true, quiet) != 0)
+        return false;
+    return (ram[i] == 0);
+}
+
+/*
+ * Renvoie true si la case i de la mémoire (tableau ram), de taille taille, est
+ * ⩽ 0, false sinon ou si une erreur est survenue (par exemple si la
+ * valeur est en-dehors de la mémoire ou que l’utilisateur n’a jamais écrit
+ * dans cette case mémoire, i.e. l’élément correspondant dans deja_vu est à
+ * false).
+ */
+bool case_memoire_negative_ou_nulle(int i, int* ram, bool* deja_vu, int taille, bool quiet) {
+    if (verifie_case_memoire(i, deja_vu, taille, true, quiet) != 0)
+        return false;
+    return (ram[i] <= 0);
+}
+
+/*
  * Stocke la valeur n à l’adresse i de la mémoire (tableau ram) de taille
  * taille. Met à jour le tableau deja_vu des cases déjà modifiées. Si
  * l’adresse est en-dehors de la mémoire, affiche une erreur.
@@ -94,7 +121,7 @@ void stocke_dans_case_memoire(
  * correspondant dans deja_vu est à false)
  */
 void addition(
-    int a, int b, int c, int ram[], bool deja_vu[], int taille, int quiet
+    int a, int b, int c, int ram[], bool deja_vu[], int taille, bool quiet
 ) {
     if (verifie_case_memoire(a, deja_vu, taille, true, quiet) != 0)
         return;
@@ -115,7 +142,7 @@ void addition(
  * correspondant dans deja_vu est à false)
  */
 void multiplication(
-    int a, int b, int c, int ram[], bool deja_vu[], int taille, int quiet
+    int a, int b, int c, int ram[], bool deja_vu[], int taille, bool quiet
 ) {
     if (verifie_case_memoire(a, deja_vu, taille, true, quiet) != 0)
         return;
@@ -126,6 +153,49 @@ void multiplication(
 
     deja_vu[c] = true;
     ram[c] = ram[a] * ram[b];
+}
+
+/*
+ * Calcule le modulo des valeurs stockées dans les adresses mémoires a et b
+ * du tableau ram de taille taille, et stocke cette valeur dans la case c.
+ * Affiche une erreur si une de ces adresses est invalide (hors de la mémoire
+ * ou, dans le cas de a et b, n’a jamais été écrite ; i.e. l’élément
+ * correspondant dans deja_vu est à false)
+ */
+void modulo(
+    int a, int b, int c, int ram[], bool deja_vu[], int taille, bool quiet
+) {
+    if (verifie_case_memoire(a, deja_vu, taille, true, quiet) != 0)
+        return;
+    if (verifie_case_memoire(b, deja_vu, taille, true, quiet) != 0)
+        return;
+    if (verifie_case_memoire(c, deja_vu, taille, false, quiet) != 0)
+        return;
+
+    deja_vu[c] = true;
+    ram[c] = ram[a] % ram[b];
+}
+
+/*
+ * Calcule le quotient par division euclidienne des valeurs stockées dans les
+ * adresses mémoires a et b du tableau ram de taille taille, et stocke cette
+ * valeur dans la case c.
+ * Affiche une erreur si une de ces adresses est invalide (hors de la mémoire
+ * ou, dans le cas de a et b, n’a jamais été écrite ; i.e. l’élément
+ * correspondant dans deja_vu est à false)
+ */
+void quotient(
+    int a, int b, int c, int ram[], bool deja_vu[], int taille, bool quiet
+) {
+    if (verifie_case_memoire(a, deja_vu, taille, true, quiet) != 0)
+        return;
+    if (verifie_case_memoire(b, deja_vu, taille, true, quiet) != 0)
+        return;
+    if (verifie_case_memoire(c, deja_vu, taille, false, quiet) != 0)
+        return;
+
+    deja_vu[c] = true;
+    ram[c] = ram[a] / ram[b];
 }
 
 /*
@@ -148,6 +218,7 @@ int main(int argc, char *argv[]) {
     int adresse1;
     int adresse2;
     int adresse3;
+    bool executer_instruction = true;
 
     bool quiet = (argc > 1 && strcmp(argv[1], "quiet") == 0);
 
@@ -197,7 +268,8 @@ int main(int argc, char *argv[]) {
             if (scanf("%d", &adresse1) == 0)
                 break;
 
-            affiche_case_memoire(adresse1, ram, deja_vu, taille, quiet);
+            if (executer_instruction)
+                affiche_case_memoire(adresse1, ram, deja_vu, taille, quiet);
 
         } else if (choix == 2) {
             if (!quiet)
@@ -205,7 +277,8 @@ int main(int argc, char *argv[]) {
             if (scanf("%d %d", &adresse1, &adresse2) == 0)
                 break;
 
-            stocke_dans_case_memoire(adresse2, adresse1, ram, deja_vu, taille, quiet);
+            if (executer_instruction)
+                stocke_dans_case_memoire(adresse2, adresse1, ram, deja_vu, taille, quiet);
 
         } else if (choix == 3) {
             if (!quiet)
@@ -217,7 +290,8 @@ int main(int argc, char *argv[]) {
             if (scanf("%d", &adresse3) == 0)
                 break;
 
-            addition(adresse1, adresse2, adresse3, ram, deja_vu, taille, quiet);
+            if (executer_instruction)
+                addition(adresse1, adresse2, adresse3, ram, deja_vu, taille, quiet);
 
         } else if (choix == 5) {
             if (!quiet)
@@ -229,7 +303,8 @@ int main(int argc, char *argv[]) {
             if (scanf("%d", &adresse3) == 0)
                 break;
 
-            multiplication(adresse1, adresse2, adresse3, ram, deja_vu, taille, quiet);
+            if (executer_instruction)
+                multiplication(adresse1, adresse2, adresse3, ram, deja_vu, taille, quiet);
 
         } else if (choix == 6) {
             if (!quiet) {
@@ -237,6 +312,12 @@ int main(int argc, char *argv[]) {
                 printf("7. Afficher une valeur sans afficher de retour-ligne\n");
                 printf("8. Afficher le caractère ASCII représenté par les 8 ");
                 printf("derniers bits du nombre stocké à une certaine adresse\n");
+                printf("9. Calculer un modulo\n");
+                printf("10. Calculer un quotient par division euclidienne\n");
+                printf("11. Effectuer l’instruction suivante si une certaine ");
+                printf("adresse vaut 0\n");
+                printf("12. Effectuer l’instruction suivante si une certaine ");
+                printf("adresse est négative ou nulle\n");
             }
         } else if (choix == 7) {
             if (!quiet)
@@ -244,17 +325,69 @@ int main(int argc, char *argv[]) {
             if (scanf("%d", &adresse1) == 0)
                 break;
 
-            affiche_case_memoire_sans_retour_ligne(adresse1, ram, deja_vu, taille, quiet);
+            if (executer_instruction)
+                affiche_case_memoire_sans_retour_ligne(adresse1, ram, deja_vu, taille, quiet);
         } else if (choix == 8) {
             if (!quiet)
                 printf("Rentrez l’adresse mémoire : ");
             if (scanf("%d", &adresse1) == 0)
                 break;
 
-            affiche_ascii(adresse1, ram, deja_vu, taille, quiet);
+            if (executer_instruction)
+                affiche_ascii(adresse1, ram, deja_vu, taille, quiet);
+
+        } else if (choix == 9) {
+            if (!quiet)
+                printf("Rentrer les deux adresses mémoire dont vous souhaitez calculer le modulo : ");
+            if (scanf("%d %d", &adresse1, &adresse2) == 0)
+                break;
+            if (!quiet)
+                printf("Rentrer l’adresse mémoire à laquelle stocker le résultat : ");
+            if (scanf("%d", &adresse3) == 0)
+                break;
+
+            if (executer_instruction)
+                modulo(adresse1, adresse2, adresse3, ram, deja_vu, taille, quiet);
+
+        } else if (choix == 10) {
+            if (!quiet)
+                printf("Rentrer les deux adresses mémoire dont vous souhaitez calculer le quotient : ");
+            if (scanf("%d %d", &adresse1, &adresse2) == 0)
+                break;
+            if (!quiet)
+                printf("Rentrer l’adresse mémoire à laquelle stocker le résultat : ");
+            if (scanf("%d", &adresse3) == 0)
+                break;
+
+            if (executer_instruction)
+                quotient(adresse1, adresse2, adresse3, ram, deja_vu, taille, quiet);
+
+        } else if (choix == 11) {
+            if (!quiet)
+                printf("Rentrer la case mémoire condition (si =0, l’instruction suivante est exécutée) : ");
+            if (scanf("%d", &adresse1) == 0)
+                break;
+
+            if (executer_instruction)
+                executer_instruction = case_memoire_egale_zero(adresse1, ram, deja_vu, taille, quiet);
+
+            printf("%d\n", executer_instruction);
+        } else if (choix == 12) {
+            if (!quiet)
+                printf("Rentrer la case mémoire condition (si <=0, l’instruction suivante est exécutée) : ");
+            if (scanf("%d", &adresse1) == 0)
+                break;
+
+            if (executer_instruction)
+                executer_instruction = case_memoire_negative_ou_nulle(adresse1, ram, deja_vu, taille, quiet);
+        } else if (choix == 4) {
+            if (executer_instruction)
+                break;
         } else {
             break;
         }
+        if (choix != 11 && choix != 12)
+            executer_instruction = true;
     }
 
     return 0;
