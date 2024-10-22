@@ -16,14 +16,21 @@ bool read_int_and_flush(int* res){
     assert(res != NULL);
     int x;
     char non_int;
-    if (scanf("%d", &x) != 1)
-        return false;
+    bool value_to_return;
+
+    if (scanf("%d", &x) != 1) {
+        value_to_return = false;
+    } else {
+        value_to_return = true;
+        *res = x;
+    }
+
     do {
         if (scanf("%c", &non_int) != 1)
             break;
     } while (non_int != '\n');
-    *res = x;
-    return true;
+
+    return value_to_return;
 }
 
 int main(){
