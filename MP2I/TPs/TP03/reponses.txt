@@ -51,8 +51,23 @@ Q1) a) Les lettres majuscules de A à Z ont pour codes de 65 à 90
 Q2) a) Le caractère codé par 0x20 (32) est l’espace
     b) Le caractère codé par 0x28 (40) est '('
     c) Le caractère codé par 0x29 (41) est ')'
-    bonus) Le caractère codé par 0x7 (7) produit un son :)
 
 # Exercice 11
 Q1) Le programme devrait écrire SAULT, puis rencontrer U+0 (donc ne pas lire
     les caractères suivants)
+
+# Exercice 13
+Q1) Lorsqu’on écrit un mot de plus de 20 lettres, tel que Llanfairpwllgwyngyll-
+    gogerychwyrndrobwllllantysiliogogogoch, le programme se comporte
+    normalement… Cependant, à partir d’une certaine longueur, le mot est coupé
+    et seul les quelques (plusieurs centaines) premiers caractères sont
+    affichés. Cependant, cela écrase la mémoire qui se situe après `buf`. Ici,
+    puisque tout se passe bien, on peut déduire que la mémoire est vide. Mais
+    dans un programme plus complexe, cela pourrait permettre à l’utilisateur
+    d’écrire certaines données dans la mémoire, et donc de faire faire au
+    programme des choses inattendues ou de le faire planter.
+
+Q2) Le programme affiche d’abord BONJOUR, puis COUCOU BONJOUR. Comme on a
+    remplacé les \0 par des espaces, on peut en déduire que str1 est stocké
+    après str2 dans la mémoire.
+
