@@ -13,8 +13,8 @@
  * * 3 si une des lignes du fichier fait + de 100 caractères
  * * 4 en cas d’erreur de syntaxe
  *
- * Le langage compilé, inventé pour l’occasion un vrai langage, et nommé Yet
- * Another Stupid Language, est en notation préfixée
+ * Le langage compilé, inventé pour l’occasion et nommé Yet Another Stupid
+ * Language, est en notation préfixée
  *
  * Syntaxe du langage :
  *      Une seule instruction autorisée par ligne
