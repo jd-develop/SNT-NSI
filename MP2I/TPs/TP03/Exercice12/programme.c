@@ -78,10 +78,12 @@ int main() {
     assert(occurences("", 'i') == 0);
     assert(
         occurences("Llanfairpwllgwyngyllgogerychwyrndrobwllllantysiliogogogoch", 'l') == 10
-    ); /* non, ça veut dire bonjour dans aucune langue, et tant mieux ! C’est
+    ); /* non, ça ne veut dire bonjour dans aucune langue, et tant mieux ! C’est
         * le nom d’un village au Pays de Galles */
     assert(occurences(str, 'c') == 1);
-    assert(occurences("ඞථ", 224) == 2);
+    assert(occurences("ඞථ", 224) == 2); /* le caractère 224 apparaît dans la
+                                         * représentation UTF-8 des deux
+                                         * caractères */
 
     assert(strcmp_("god dag", "god dag") == 0);
     assert(strcmp_(str, str) == 0);

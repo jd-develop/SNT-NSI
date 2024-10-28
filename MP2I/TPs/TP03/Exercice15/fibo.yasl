@@ -1,0 +1,26 @@
+# Affiche 1 1 2 3 5 8 – un jour peut-être, j’implémenterai les boucles…
+= a 1
+= b 1
+
+.a;.b;
+
+=+ c a b
+= a b
+= b c
+.c;
+
+=+ c a b
+= a b
+= b c
+.c;
+
+=+ c a b
+= a b
+= b c
+.c;
+
+=+ c a b
+= a b
+= b c
+.c;
+
