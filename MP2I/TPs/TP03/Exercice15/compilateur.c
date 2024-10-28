@@ -520,6 +520,7 @@ int main(int argc, char* argv[]) {
             continue;
 
     }
+    printf("4\n");
     return 0;
 }
 
