@@ -200,13 +200,15 @@ int enregistrer_valeur(int* valeur, char* ligne, int len_ligne, int* c) {
     if (ligne[*c] == '-') {
         negatif = -1;
         pos_depart++;
+        (*c)++;
     }
     for (; *c < len_ligne && ligne[*c] != ' '; (*c)++) {
-        valeur_en_cours_denregistrement *= 10;
-        if ('0' <= ligne[*c] && ligne[*c] <= '9')
+        if ('0' <= ligne[*c] && ligne[*c] <= '9') {
+            valeur_en_cours_denregistrement *= 10;
             valeur_en_cours_denregistrement += ligne[*c]-0x30;
-        else
+        } else {
             break;
+        }
     }
     if (valeur_en_cours_denregistrement == 0 && *c == pos_depart) {
         return 1;
@@ -310,43 +312,65 @@ int egale(char* ligne, int numero_ligne, int* c, int len_ligne,
         if (adresse_id2 < 0) {
             return adresse_id2;
         }
-
         if (equal_type == 0) {
             printf("2 0 0 3 0 %d %d\n", adresse_id2, adresse_id);
             return 0;
         }
-
-        (*c)++;
-        if (*c == len_ligne) {
+    } else {
+        int valeur2;
+        if (enregistrer_valeur(&valeur2, ligne, len_ligne, c) == 1) {
             erreur_syntaxe(numero_ligne);
             return 4;
         }
 
-        if (('a' <= ligne[*c] && ligne[*c] <= 'z') ||
-            ('A' <= ligne[*c] && ligne[*c] <= 'Z') ||
-            (ligne[*c] == '_'))
-        {
-            char identifiant3[TAILLE_MAX_ID] = "";
-            if (enregistrer_identifiant(identifiant3, ligne, len_ligne, c) == 1) {
-                erreur_syntaxe(numero_ligne);
-                return 4;
-            }
-
-            adresse_id3 = id_vers_adresse(
-                identifiant3, tab_symboles, false, numero_ligne
-            );
-            if (adresse_id3 < 0) {
-                return adresse_id3;
-            }
-
-            printf("%d %d %d %d\n", equal_type, adresse_id2, adresse_id3,
-                   adresse_id);
+        if (equal_type == 0) {
+            printf("2 %d %d\n", adresse_id, valeur2);
             return 0;
         }
-        // TODO: else
-    }
-    // TODO: else
 
+        // on stocke la valeur à l’adresse 0, puis on additionne l’adresse 0
+        // avec l’adresse du premier identifiant
+        printf("2 0 %d\n", valeur2);
+        adresse_id2 = 0;
+    }
+
+    (*c)++;
+    if (*c == len_ligne) {
+        erreur_syntaxe(numero_ligne);
+        return 4;
+    }
+
+    if (('a' <= ligne[*c] && ligne[*c] <= 'z') ||
+        ('A' <= ligne[*c] && ligne[*c] <= 'Z') ||
+        (ligne[*c] == '_'))
+    {
+        char identifiant3[TAILLE_MAX_ID] = "";
+        if (enregistrer_identifiant(identifiant3, ligne, len_ligne, c) == 1) {
+            erreur_syntaxe(numero_ligne);
+            return 4;
+        }
+
+        adresse_id3 = id_vers_adresse(
+            identifiant3, tab_symboles, false, numero_ligne
+        );
+        if (adresse_id3 < 0) {
+            return adresse_id3;
+        }
+
+    } else {
+        // pas un identifiant : valeur
+        int valeur3;
+        if (enregistrer_valeur(&valeur3, ligne, len_ligne, c) == 1) {
+            erreur_syntaxe(numero_ligne);
+            return 4;
+        }
+        // on stocke la valeur à l’adresse 1, puis on additionne l’adresse 1
+        // avec l’adresse du premier identifiant
+        printf("2 1 %d\n", valeur3);
+        adresse_id3 = 1;
+    }
+    printf("%d %d %d %d\n", equal_type, adresse_id2, adresse_id3,
+            adresse_id);
     return 0;
 }
 
