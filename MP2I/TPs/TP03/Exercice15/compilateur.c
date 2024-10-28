@@ -17,7 +17,6 @@
  * Language, est en notation préfixée
  *
  * Syntaxe du langage :
- *      Une seule instruction autorisée par ligne
  *      Les commentaires commencent par # et terminent par un retour-ligne
  *      Les littéraux sont :
  *          * int : un nombre
@@ -374,6 +373,74 @@ int egale(char* ligne, int numero_ligne, int* c, int len_ligne,
     return 0;
 }
 
+/*
+ * Affiche la valeur ou l’identifiant se trouvant après le caractère d’indice
+ * la valeur pointée dar `c` sur la ligne `ligne` numéro `numero_ligne`
+ * de longueur `len_ligne`.
+ * Nécessite la table des symboles `tab_symboles`
+ * Renvoie :
+ * * 0 si tout s’est bien passé
+ * * -2 en cas d’identifiant non défini
+ * * 4 en cas d’erreur de syntaxe
+ */
+int affiche(char* ligne, int numero_ligne, int* c, int len_ligne,
+            char (*tab_symboles)[TAILLE_MAX_ID]) {
+    bool affiche_caractere;
+    int adresse_id;
+
+    if (ligne[*c] == '.') {
+        affiche_caractere = false;
+    } else if (ligne[*c] == ':') {
+        affiche_caractere = true;
+    } else {
+        erreur_syntaxe(numero_ligne);
+        return 4;
+    }
+
+    do {
+        (*c)++;
+        if (*c == len_ligne) {
+            erreur_syntaxe(numero_ligne);
+            return 4;
+        }
+    } while (ligne[*c] == ' ');
+
+    if (('a' <= ligne[*c] && ligne[*c] <= 'z') ||
+        ('A' <= ligne[*c] && ligne[*c] <= 'Z') ||
+        (ligne[*c] == '_'))
+    {
+        char identifiant[TAILLE_MAX_ID] = "";
+        if (enregistrer_identifiant(identifiant, ligne, len_ligne, c) == 1) {
+            erreur_syntaxe(numero_ligne);
+            return 4;
+        }
+
+        adresse_id = id_vers_adresse(
+            identifiant, tab_symboles, true, numero_ligne
+        );
+        if (adresse_id < 0) {
+            return adresse_id;
+        }
+    } else {
+        // pas un identifiant : valeur
+        int valeur;
+        if (enregistrer_valeur(&valeur, ligne, len_ligne, c) == 1) {
+            erreur_syntaxe(numero_ligne);
+            return 4;
+        }
+        // on stocke la valeur à l’adresse 0, puis on additionne l’adresse 0
+        // avec l’adresse du premier identifiant
+        printf("2 0 %d\n", valeur);
+        adresse_id = 0;
+    }
+    if (affiche_caractere) {
+        printf("8 %d\n", adresse_id);
+    } else {
+        printf("7 %d\n", adresse_id);
+    }
+    return 0;
+}
+
 int main(int argc, char* argv[]) {
     FILE *fptr;
     char tab_symboles[1023][TAILLE_MAX_ID];
@@ -422,20 +489,31 @@ int main(int argc, char* argv[]) {
                 printf("2 0 10 8 0\n");
             } else if (ligne[c] == '!') { // termine le programme : affiche '4'
                 printf("4\n");
+            } else if (ligne[c] == '.') {
+                resultat = affiche(ligne, numero_ligne, &c, len_ligne,
+                                   tab_symboles);
+                if (resultat != 0)
+                    return resultat;
+                c--;  // on a avancé d’un caractère de trop
+            } else if (ligne[c] == ':') {
+                resultat = affiche(ligne, numero_ligne, &c, len_ligne,
+                                   tab_symboles);
+                if (resultat != 0)
+                    return resultat;
+                c--;  // on a avancé d’un caractère de trop
             } else if (ligne[c] == '=') { // un signe égale
                 resultat = egale(ligne, numero_ligne, &c, len_ligne,
                                  tab_symboles);
                 if (resultat != 0)
                     return resultat;
+                c--;  // on a avancé d’un caractère de trop
             } else {
                 affiche_en_tete_erreur(numero_ligne);
                 fprintf(
                     stderr,
-                    "unknown char %c in this context, line %d ignored\n",
-                    ligne[c], numero_ligne
+                    "unknown char %c in this context\n", ligne[c]
                 );
-                comment = true;
-                break;
+                return 4;
             }
         }
         if (comment)
