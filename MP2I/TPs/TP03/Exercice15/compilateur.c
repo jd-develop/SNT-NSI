@@ -1,4 +1,12 @@
 /*
+ * Note : je n’ai pas eu le temps d’implémenter toutes les fonctionnalités
+ * que je voulais (mais toutes celles qui sont indiquées ci-dessous sont
+ * implémentées). Je vais sûrement continuer à l’étoffer après le 30, j’ai
+ * plusieurs idées de sucre syntaxique. Je vais peut-être aussi réécrire l’exo
+ * 9 pour pouvoir mettre des boucles, ou des go to.
+ */
+
+/*
  * Ce programme est un compilateur pour créer des programmes machines
  * exécutables par l’exercice 9
  *
@@ -81,6 +89,7 @@ void erreur_syntaxe(int numero_ligne) {
  *
  * En cas d’erreur, écrit l’erreur dans stderr : on a besoin du numéro de
  * la ligne dans numero_ligne pour afficher un message d’erreur utile.
+ * L’erreur n’est pas affichée si `quiet` est à `true`.
  *
  * Note : dans le tableau de symboles, un espace libre est signalé par la
  * chaîne "" ('\0'), et un espace réservé est signalé par la chaîne
@@ -88,7 +97,7 @@ void erreur_syntaxe(int numero_ligne) {
  */
 int id_vers_adresse(
         char* identifiant, char (*tab_symboles)[TAILLE_MAX_ID],
-        bool definition, int numero_ligne
+        bool definition, int numero_ligne, bool quiet
 ) {
     int i = 0;
     int premiere_case_vide = 1024;
@@ -102,13 +111,17 @@ int id_vers_adresse(
 
     if (i == 1024) {  // non défini
         if (!definition) {
-            affiche_en_tete_erreur(numero_ligne);
-            fprintf(stderr, "%s is undefined\n", identifiant);
+            if (!quiet) {
+                affiche_en_tete_erreur(numero_ligne);
+                fprintf(stderr, "%s is undefined\n", identifiant);
+            }
             return -2;
         }
         if (premiere_case_vide == 1024) {
-            affiche_en_tete_erreur(numero_ligne);
-            fprintf(stderr, "memory capacity exceeded\n");
+            if (!quiet) {
+                affiche_en_tete_erreur(numero_ligne);
+                fprintf(stderr, "memory capacity exceeded\n");
+            }
             return -1;
         }
         strcpy(tab_symboles[premiere_case_vide], identifiant);
@@ -137,6 +150,45 @@ void initialiser_tab_symboles(char (*tab_symboles)[TAILLE_MAX_ID]) {
 void reserver_espace_memoire(char (*tab_symboles)[TAILLE_MAX_ID], int i) {
     assert(0 <= i && i < 1024);
     strcpy(tab_symboles[i], "(reserve)");
+}
+
+/*
+ * teste les fonctions id_vers_adresse, initialiser_tab_symboles et
+ * reserver_espace_memoire
+ */
+void teste_id_vers_adresse_init_reserver() {
+    char tab_symboles[1024][TAILLE_MAX_ID];
+    int i;
+    initialiser_tab_symboles(tab_symboles);
+    for (i = 0; i <= 1023; i++) {
+        assert(strcmp(tab_symboles[i], "") == 0);
+    }
+    reserver_espace_memoire(tab_symboles, 12);
+    assert(strcmp(tab_symboles[12], "(reserve)") == 0);
+
+    assert(id_vers_adresse("a", tab_symboles, false, 1, true) == -2);
+    assert(id_vers_adresse("a", tab_symboles, true, 1, true) == 0);
+    assert(strcmp(tab_symboles[0], "a") == 0);
+    assert(id_vers_adresse("a", tab_symboles, true, 1, true) == 0);
+
+    assert(id_vers_adresse("b", tab_symboles, true, 1, true) == 1);
+    assert(id_vers_adresse("c", tab_symboles, true, 1, true) == 2);
+    assert(id_vers_adresse("d", tab_symboles, true, 1, true) == 3);
+    assert(id_vers_adresse("e", tab_symboles, true, 1, true) == 4);
+    assert(id_vers_adresse("f", tab_symboles, true, 1, true) == 5);
+    assert(id_vers_adresse("g", tab_symboles, true, 1, true) == 6);
+    assert(id_vers_adresse("h", tab_symboles, true, 1, true) == 7);
+    assert(id_vers_adresse("i", tab_symboles, true, 1, true) == 8);
+    assert(id_vers_adresse("j", tab_symboles, true, 1, true) == 9);
+    assert(id_vers_adresse("k", tab_symboles, true, 1, true) == 10);
+    assert(id_vers_adresse("l", tab_symboles, true, 1, true) == 11);
+    assert(id_vers_adresse("m", tab_symboles, true, 1, true) == 13);
+    for (i = 14; i <= 1022; i++) {
+        reserver_espace_memoire(tab_symboles, i);
+        assert(strcmp(tab_symboles[i], "(reserve)") == 0);
+    }
+    assert(id_vers_adresse("n", tab_symboles, true, 1, true) == 1023);
+    assert(id_vers_adresse("o", tab_symboles, true, 1, true) == -1);
 }
 
 /* Regarde s’il y a un identifiant sur la ligne `ligne` de longueur `len_ligne`
@@ -280,7 +332,8 @@ int egale(char* ligne, int numero_ligne, int* c, int len_ligne,
         return 4;
     }
 
-    adresse_id = id_vers_adresse(identifiant, tab_symboles, true, numero_ligne);
+    adresse_id = id_vers_adresse(identifiant, tab_symboles, true, numero_ligne,
+                                 false);
     if (adresse_id < 0) {
         return adresse_id;
     }
@@ -306,7 +359,7 @@ int egale(char* ligne, int numero_ligne, int* c, int len_ligne,
         }
 
         adresse_id2 = id_vers_adresse(
-            identifiant2, tab_symboles, false, numero_ligne
+            identifiant2, tab_symboles, false, numero_ligne, false
         );
         if (adresse_id2 < 0) {
             return adresse_id2;
@@ -350,7 +403,7 @@ int egale(char* ligne, int numero_ligne, int* c, int len_ligne,
         }
 
         adresse_id3 = id_vers_adresse(
-            identifiant3, tab_symboles, false, numero_ligne
+            identifiant3, tab_symboles, false, numero_ligne, false
         );
         if (adresse_id3 < 0) {
             return adresse_id3;
@@ -416,7 +469,7 @@ int affiche(char* ligne, int numero_ligne, int* c, int len_ligne,
         }
 
         adresse_id = id_vers_adresse(
-            identifiant, tab_symboles, true, numero_ligne
+            identifiant, tab_symboles, true, numero_ligne, false
         );
         if (adresse_id < 0) {
             return adresse_id;
@@ -442,8 +495,12 @@ int affiche(char* ligne, int numero_ligne, int* c, int len_ligne,
 }
 
 int main(int argc, char* argv[]) {
+    /* TESTS */
+    teste_id_vers_adresse_init_reserver();
+    /* ----- */
+
     FILE *fptr;
-    char tab_symboles[1023][TAILLE_MAX_ID];
+    char tab_symboles[1024][TAILLE_MAX_ID];
     char ligne[TAILLE_MAX_LIGNE];
     int numero_ligne = 0;
     int len_ligne;
