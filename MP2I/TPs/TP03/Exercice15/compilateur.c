@@ -1,9 +1,14 @@
 /*
  * Note : je n’ai pas eu le temps d’implémenter toutes les fonctionnalités
  * que je voulais (mais toutes celles qui sont indiquées ci-dessous sont
- * implémentées). Je vais sûrement continuer à l’étoffer après le 30, j’ai
- * plusieurs idées de sucre syntaxique. Je vais peut-être aussi réécrire l’exo
- * 9 pour pouvoir mettre des boucles, ou des go to.
+ * implémentées).
+ *
+ * Il manque également quelques tests.
+ *
+ * Je vais sûrement continuer à ajouter les tests manquants mais aussi
+ * l’étoffer après le 30 : j’ai plusieurs idées de sucre syntaxique à ajouter.
+ * Je vais peut-être aussi réécrire l’exo 9 pour pouvoir mettre des boucles, ou
+ * des go to.
  */
 
 /*
@@ -55,7 +60,7 @@
  *      ;
  *          affiche un retour-ligne
  *      !
- *          arrête le programme
+ *          arrête le programme (pas obligatoire en fin de fichier)
  */
 #include <stdio.h>
 #include <stdbool.h>
@@ -64,7 +69,6 @@
 
 #define TAILLE_MAX_ID 100  // limite de 100 caractères pour un identifiant
 #define TAILLE_MAX_LIGNE 100  // limite de 100 caractères pour une ligne
-#define CARACTERES_ID "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_"
 
 /* Affiche l’en-tête d’une erreur dans stderr */
 void affiche_en_tete_erreur(int numero_ligne) {
