@@ -1,0 +1,12 @@
+# Exercice 1
+Q1) 0x34 correspond au chiffre 4, 0x30 correspond au chiffre 0, et 0x0a
+    est le caractère de retour-ligne (line feed)
+Q2) La commande affiche
+
+    000000 28 00 00 00
+    000004
+
+    Ce fichier comporte donc 4 octets, à savoir 0x28, 0x0, 0x0 et 0x0.
+
+    0x28 correspond à 40, on voit donc la représentation petit-boutiste de
+    l’int 40.
