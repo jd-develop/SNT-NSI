@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <assert.h>
 
+/* Renvoie la somme des entiers lus dans le fichier `nom_fichier`.
+ * Précondition : `nom_fichier` ne doit contenir que des entiers.
+ */
 int somme(char* nom_fichier) {
     FILE* fp = fopen(nom_fichier, "r");
     assert(fp != NULL);

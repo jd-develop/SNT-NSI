@@ -10,3 +10,6 @@ Q2) La commande affiche
 
     0x28 correspond à 40, on voit donc la représentation petit-boutiste de
     l’int 40.
+
+# Exercice 6
+Q1) argv[0] correspond au nom de l’exécutable/de la commande
