@@ -116,3 +116,6 @@ dmypy.json
 # IDEs
 .idea/
 .vscode/
+
+# Valgrind
+vgcore.*
