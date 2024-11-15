@@ -103,6 +103,21 @@ int** somme_matrices(int** g1, int** g2, int n, int m) {
     return somme;
 }
 
+/* renvoie le produit de deux matrices g1 de taille l×m et g2 de taille m×n */
+int** produit_matrices(int** g1, int** g2, int l, int m, int n) {
+    int** produit = malloc(l * sizeof(int*));
+    for (int i = 0; i < l; i++) {
+        produit[i] = malloc(n*sizeof(int));
+        for (int j = 0; j < n; j++) {
+            produit[i][j] = 0;
+            for (int k = 0; k < m; k++) {
+                produit[i][j] += g1[i][k] * g2[k][j];
+            }
+        }
+    }
+    return produit;
+}
+
 int main() {
     srand(time(NULL));
     int** mat_rand = rand_mat(3, 4, -190, 19);
@@ -118,6 +133,22 @@ int main() {
     free_mat(mat_rand, 3);
     free_mat(mat_rand2, 3);
     free_mat(somme, 3);
+
+    printf("\n");
+
+    mat_rand = rand_mat(2, 5, -190, 19);
+    mat_rand2 = rand_mat(5, 3, 0, 100);
+    int** produit = produit_matrices(mat_rand, mat_rand2, 2, 5, 3);
+
+    print_mat(mat_rand, 2, 5);
+    printf("*\n");
+    print_mat(mat_rand2, 5, 3);
+    printf("=\n");
+    print_mat(produit, 2, 3);
+
+    free_mat(mat_rand, 2);
+    free_mat(mat_rand2, 5);
+    free_mat(produit, 2);
 
     return 0;
 }
