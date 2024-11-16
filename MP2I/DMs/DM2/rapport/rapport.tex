@@ -1,0 +1,81 @@
+% template des TP de physique, devrait faire l’affaire
+\documentclass[11pt]{article} % Font size
+\usepackage{amsmath, amsfonts, amssymb, amsthm, mathrsfs}
+\usepackage[french]{babel}
+\usepackage[french]{isodate}
+\usepackage{blindtext}
+\usepackage{zref-totpages}
+\usepackage{siunitx}
+\usepackage{array}
+\usepackage{pgf}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{babel} % j’ai passé du temps à comprendre d’ou venait l’erreur.
+                       % genre, sérieusement, BABEL fait crasher TIKZ ??? wtf
+\usetikzlibrary{trees}
+\usetikzlibrary{arrows}
+\usepackage{circuitikz}
+\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Use 8-bit encoding
+
+\usepackage{geometry} % Required for adjusting page dimensions and margins
+\geometry{
+    paper=a4paper, % Paper size, change to letterpaper for US letter size
+    top=2cm, % Top margin
+    bottom=2.5cm, % Bottom margin
+    left=2cm, % Left margin
+    right=2cm, % Right margin
+    headheight=0.75cm, % Header height
+    footskip=1cm, % Space from the bottom margin to the baseline of the footer
+    headsep=0.5cm, % Space from the top margin to the baseline of the header
+    %showframe, % Uncomment to show how the type block is set on the page
+}
+
+\setcounter{section}{-1}
+\hypersetup{colorlinks=true, urlcolor=blue}
+
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsubsection}{\alph{subsubsection})}
+\newcommand{\ol}{\overline}
+\newcommand{\nbsp}{\nobreakspace}
+\newcommand{\cm}{\si{\centi\meter}}
+\newcommand{\mm}{\si{\milli\meter}}
+
+\newcommand{\graph}[3]{
+    \begin{figure}[H]
+        \centering
+        \resizebox{#3\linewidth}{!}{\input{#1.pgf}}
+        \caption{#2}
+        \label{fig:#1}
+    \end{figure}
+}
+
+\newcommand{\statlink}[1]{\href{https://github.com/jd-develop/physic-and-chemistry/tree/main/MP2I/TP0#1/stats.py}{ce code}}
+\newcommand{\otherlink}[2]{\href{https://github.com/jd-develop/physic-and-chemistry/tree/main/MP2I/TP0#1/#2.py}{ce code}}
+
+%------------------------------------------------------------------------------
+%    TITLE SECTION
+%------------------------------------------------------------------------------
+
+\title{
+    \vspace{10pt} % Whitespace
+    \rule{\linewidth}{1pt}\\ % Thin top horizontal rule
+    \vspace{10pt} % Whitespace
+    {\huge Rapport de DM}\\ % The assignment title
+    % \vspace{1pt} % Whitespace
+    \rule{\linewidth}{1pt}\\ % Thick bottom horizontal rule
+    \vspace{5pt} % Whitespace
+}
+
+\date{\printdate{2024-12-29}}
+\author{TODO}
+
+\begin{document}
+\maketitle{}
+Hello world
+\end{document}

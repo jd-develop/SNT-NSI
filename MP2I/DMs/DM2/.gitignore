@@ -1,0 +1,6 @@
+rapport/*
+!rapport/rapport.tex
+!rapport/rapport.pdf
+build/*
+!build/.gitkeep
+
