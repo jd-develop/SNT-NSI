@@ -11,6 +11,7 @@
 \usepackage{graphicx}
 \usepackage{subcaption}
 \usepackage{float}
+\usepackage{listings}
 \usepackage{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{babel} % j’ai passé du temps à comprendre d’ou venait l’erreur.
@@ -34,6 +35,35 @@
     footskip=1cm, % Space from the bottom margin to the baseline of the footer
     headsep=0.5cm, % Space from the top margin to the baseline of the header
     %showframe, % Uncomment to show how the type block is set on the page
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4
+}
+
+\lstset{
+    style=mystyle,
+    inputencoding = utf8  % Input encoding
 }
 
 \setcounter{section}{-1}
@@ -77,5 +107,23 @@
 
 \begin{document}
 \maketitle{}
-Hello world
+
+\section{Questions}
+\paragraph{Q1.}
+La valeur de l’échantillon numéro $i$ du son sinusoïdal de fréquence $f$ et
+d’amplitude $A$ est\nbsp:
+\begin{align*}
+A \sin(2\pi f i \tau_\text{ech})
+\end{align*}
+
+\paragraph{Q3.}
+\nbsp
+
+\begin{lstlisting}
+000000 52 49 46 46 2e 00 00 00 57 41 56 45 66 6d 74 20
+000010 10 00 00 00 01 00 01 00 22 56 00 00 44 ac 00 00
+000020 02 00 10 00 64 61 74 61 0a 00 00 00 d2 03 5e 06
+000030 ff ff a2 f9 ff f7
+\end{lstlisting}
+
 \end{document}

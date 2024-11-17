@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.0)
 
 project(vlc++)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror --pedantic-errors")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror --pedantic-errors -lm")
 
 set(SRCS
     main.c
