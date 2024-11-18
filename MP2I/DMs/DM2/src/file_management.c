@@ -34,7 +34,6 @@ void test_write_int() {
     uchar current;
     for (int i = 0; i < 15; i++) {
         assert(fscanf(fp, "%c", &current) != EOF);
-        printf("c %d e %d\n", current, expected_bytes[i]);
         assert(current == expected_bytes[i]);
     }
     fclose(fp);
