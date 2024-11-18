@@ -10,11 +10,15 @@ set(SRCS
     main.c
     src/file_management.c
     src/run_tests.c
+    src/sound.c
+    src/wav.c
     )
 
 set (HEADERS
      src/file_management.h
      src/run_tests.h
+     src/sound.h
+     src/wav.h
      )
 
 add_executable(vlc++ ${SRCS} ${HEADERS})
