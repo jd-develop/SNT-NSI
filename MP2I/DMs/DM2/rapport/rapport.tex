@@ -126,12 +126,15 @@ A \sin(2\pi f i \tau_\text{ech})
 
 \section{Description}
 
-Pour mieux m’y retrouver, j’ai décidé de faire un projet multifichiers.
+\subsection{Description des fichiers}
 \begin{enumerate}
     \item \verb|src/file_management.c|\nbsp: tout ce qui est en rapport avec la
         lecture/l’écriture de fichiers (par ex. la fonction \verb|write_int|)
     \item \verb|src/run_tests.c|\nbsp: la fonction exécutant tous les tests
         du programme. Cette fonction est appelée par \verb|main.c|.
+    \item \verb|src/sound.c|\nbsp: fichier lié à la gestion des sons
+        (\verb|sound_t|)
+    \item \verb|src/wav.c|\nbsp: fichier chargé d’écrire les fichiers WAV.
 \end{enumerate}
 
 \end{document}
