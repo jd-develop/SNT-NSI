@@ -22,4 +22,5 @@ set (HEADERS
      )
 
 add_executable(vlc++ ${SRCS} ${HEADERS})
+target_link_libraries(vlc++ m)
 

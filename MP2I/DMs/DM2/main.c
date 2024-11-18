@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <math.h>
 #include <stdint.h>
 #include <stdlib.h>
 #include <time.h>
@@ -10,9 +9,6 @@
 
 int main() {
     srand(time(NULL));
-    printf("Hello, world!\n");
-    printf("%f\n", sin(2*3.14159265));
-
     run_tests();
 
     int16_t* samples = malloc(3*sizeof(int16_t));
@@ -29,9 +25,10 @@ int main() {
     free_sound(s_test);
 
     sound_t* s_white = white(5.0, 44100);
-
     save_sound("white.wav", s_white);
-
     free_sound(s_white);
 
+    sound_t* s_440 = sine(440, 8000, 5.0, 44100);
+    save_sound("la440.wav", s_440);
+    free_sound(s_440);
 }

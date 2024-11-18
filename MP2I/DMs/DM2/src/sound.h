@@ -12,8 +12,14 @@ typedef struct sound {
 void free_sound(sound_t* p);
 
 /* génère un son de durée T dont tous les échantillons ont une valeur aléatoire
+ * i.e. un bruit blanc
  */
 sound_t* white(float duree, int f_ech);
+
+/* crée et renvoie un son sinusoïdal de fréquence freq, d’amplitude amplitude,
+ * de durée duree, et de fréquence d’échantillonage f_ech
+ */
+sound_t* sine(float freq, int amplitude, float duree, int f_ech);
 
 #endif
 
