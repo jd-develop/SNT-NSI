@@ -29,7 +29,7 @@ void save_sound(char* filename, sound_t* s) {
     assert(fp != NULL);
     write_header(fp, s->n_samples);
     for (int i = 0; i < s->n_samples; i++) {
-        printf("i=%d samples[i]=%d\n", i, s->samples[i]);
+        // printf("i=%d samples[i]=%d\n", i, s->samples[i]);
         write_int(fp, s->samples[i], 2);
     }
     fclose(fp);

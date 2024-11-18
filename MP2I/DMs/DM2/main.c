@@ -2,12 +2,14 @@
 #include <math.h>
 #include <stdint.h>
 #include <stdlib.h>
+#include <time.h>
 #include "src/file_management.h"
 #include "src/run_tests.h"
 #include "src/sound.h"
 #include "src/wav.h"
 
 int main() {
+    srand(time(NULL));
     printf("Hello, world!\n");
     printf("%f\n", sin(2*3.14159265));
 
@@ -25,4 +27,11 @@ int main() {
     save_sound("test.wav", s_test);
 
     free_sound(s_test);
+
+    sound_t* s_white = white(5.0, 44100);
+
+    save_sound("white.wav", s_white);
+
+    free_sound(s_white);
+
 }
