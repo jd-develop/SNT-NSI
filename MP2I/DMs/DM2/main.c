@@ -43,4 +43,27 @@ int main() {
     sound_t* s_440sa = sawtooth(440, 8000, 5.0, 44100);
     save_sound("la440sa.wav", s_440sa);
     free_sound(s_440sa);
+
+    sound_t** lune_sounds = malloc(9*sizeof(sound_t));
+    lune_sounds[0] = sawtooth(440, 0,     0.5, 44100);
+    lune_sounds[1] = sawtooth(440, 16000, 0.4, 44100);
+    lune_sounds[2] = sawtooth(440, 0,     0.1, 44100);
+    lune_sounds[3] = sawtooth(440, 16000, 0.4, 44100);
+    lune_sounds[4] = sawtooth(440, 0,     0.1, 44100);
+    lune_sounds[5] = sawtooth(440, 16000, 0.5, 44100);
+
+    lune_sounds[6] = sawtooth(493.88, 16000, 0.5, 44100);
+    lune_sounds[7] = sawtooth(554.36, 16000, 1, 44100);
+    lune_sounds[8] = sawtooth(493.88, 16000, 1, 44100);
+
+    track_t* au_clair_de_la_lune = malloc(sizeof(track_t));
+
+    au_clair_de_la_lune->n_sounds = 9;
+    au_clair_de_la_lune->sounds = lune_sounds;
+
+    sound_t* au_clair_de_la_lune_one_sound = reduce_track(au_clair_de_la_lune);
+    save_sound("au_clair_de_la_lune.wav", au_clair_de_la_lune_one_sound);
+
+    free_track(au_clair_de_la_lune);
+    free_sound(au_clair_de_la_lune_one_sound);
 }

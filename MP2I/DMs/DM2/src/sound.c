@@ -12,6 +12,34 @@ void free_sound(sound_t* p) {
     free(p);
 }
 
+void free_track(track_t* p) {
+    for (int i = 0; i < p->n_sounds; i++) {
+        free_sound(p->sounds[i]);
+    }
+    free(p->sounds);
+    free(p);
+}
+
+sound_t* reduce_track(track_t* t) {
+    int total_size = 0;
+    for (int i = 0; i < t->n_sounds; i++) {
+        total_size += t->sounds[i]->n_samples;
+    }
+
+    sound_t* res = malloc(sizeof(sound_t));
+    res->n_samples = total_size;
+    res->samples = malloc(total_size * sizeof(int16_t));
+
+    int total_index = 0;
+    for (int i = 0; i < t->n_sounds; i++) {
+        for (int j = 0; j < t->sounds[i]->n_samples; j++) {
+            res->samples[total_index] = t->sounds[i]->samples[j];
+            total_index++;
+        }
+    }
+    return res;
+}
+
 sound_t* white(float duree, int f_ech) {
     int n = (int)f_ech*duree;
 

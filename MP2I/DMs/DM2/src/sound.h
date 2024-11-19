@@ -8,8 +8,20 @@ typedef struct sound {
     int16_t* samples;  // tableau des échantillons
 } sound_t;
 
+/* structure représentant une piste */
+typedef struct track {
+    int n_sounds;  // nombre de sons dans la piste
+    sound_t** sounds;  // liste des sons
+} track_t;
+
 /* libère la mémoire allouée pour un élément de type sound_t */
 void free_sound(sound_t* p);
+
+/* libère la mémoire allouée pour un élément de type track_t */
+void free_track(track_t* p);
+
+/* réduit un morceau en un seul son */
+sound_t* reduce_track(track_t* t);
 
 /* génère un son de durée T dont tous les échantillons ont une valeur aléatoire
  * i.e. un bruit blanc
