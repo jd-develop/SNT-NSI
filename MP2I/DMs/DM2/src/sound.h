@@ -21,5 +21,20 @@ sound_t* white(float duree, int f_ech);
  */
 sound_t* sine(float freq, int amplitude, float duree, int f_ech);
 
+/* crée et renvoie un son en créneau de fréquence freq, d’amplitude amplitude,
+ * de durée duree, et de fréquence d’échantillonage f_ech
+ */
+sound_t* square(float freq, int amplitude, float duree, int f_ech);
+
+/* crée et renvoie un son en triangle de fréquence freq, d’amplitude amplitude,
+ * de durée duree, et de fréquence d’échantillonage f_ech
+ */
+sound_t* triangle(float freq, int amplitude, float duree, int f_ech);
+
+/* crée et renvoie un son en dent de scie de fréquence freq, d’amplitude
+ * amplitude, de durée duree, et de fréquence d’échantillonage f_ech
+ */
+sound_t* sawtooth(float freq, int amplitude, float duree, int f_ech);
+
 #endif
 

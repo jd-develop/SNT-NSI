@@ -31,4 +31,16 @@ int main() {
     sound_t* s_440 = sine(440, 8000, 5.0, 44100);
     save_sound("la440.wav", s_440);
     free_sound(s_440);
+
+    sound_t* s_440s = square(440, 8000, 5.0, 44100);
+    save_sound("la440s.wav", s_440s);
+    free_sound(s_440s);
+
+    sound_t* s_440t = triangle(440, 8000, 5.0, 44100);
+    save_sound("la440t.wav", s_440t);
+    free_sound(s_440t);
+
+    sound_t* s_440sa = sawtooth(440, 8000, 5.0, 44100);
+    save_sound("la440sa.wav", s_440sa);
+    free_sound(s_440sa);
 }
