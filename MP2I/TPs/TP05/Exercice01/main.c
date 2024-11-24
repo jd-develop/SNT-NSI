@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include <stdlib.h>
 #include "menu.h"
 
 /* teste le programme */
@@ -35,6 +36,7 @@ void test() {
     affiche_elem(&e_2);
     */
 
+    /*
     menu_t menu;
     menu.nb_elems = 0;
     ajouter_element(
@@ -66,7 +68,7 @@ void test() {
         "Gloubi-boulga sans chocolat",
         14.59,
         false
-    );
+    ); */
     /* menu.nb_elems = 5,
     menu.elements[0] = e_1;
     menu.elements[1] = e_2;
@@ -74,6 +76,7 @@ void test() {
     menu.elements[3] = e_4;
     menu.elements[4] = e_5; */
 
+    /*
     affiche_menu(&menu);
 
     int commande[5];
@@ -88,16 +91,37 @@ void test() {
     float expected_tot = 19.99+15.99*2+14.59*4;
     assert(-0.01 <= tot-expected_tot && tot-expected_tot <= 0.01);
 
-    /*init_commande(commande, 5);
-    prendre_commande(commande, 5);*/
+    init_commande(commande, 5);
+    prendre_commande(commande, 5);
     resume_commande(commande, &menu);
     printf("Prix total : %.2f\n", total_commande(commande, &menu));
 
     menu_elem_t e_test;
     lire_element(stdin, &e_test);
     affiche_elem(&e_test);
-} 
+    */
+}
 
-int main() {
+int main(int argc, char* argv[]) {
     test();
+
+    if (argc <= 1) {
+        printf("Erreur : merci de donner au moins un argument "
+               "(le fichier du menu)\n");
+        return 1;
+    }
+
+    menu_t menu;
+
+    lire_menu(argv[1], &menu);
+    affiche_menu(&menu);
+
+    int* commande = malloc(menu.nb_elems*sizeof(int));
+    init_commande(commande, menu.nb_elems);
+    prendre_commande(commande, menu.nb_elems);
+    resume_commande(commande, &menu);
+
+    printf("Total: %.2f\n", total_commande(commande, &menu));
+
+    free(commande);
 }

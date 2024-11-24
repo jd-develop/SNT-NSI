@@ -16,15 +16,21 @@ void affiche_elem(menu_elem_t* e) {
 void lire_element(FILE* fp, menu_elem_t* e) {
     assert(fp != NULL);
     float prix;
-    bool vegan;
+    int vegan;
     char nom[50];
 
-    int lus = fscanf(fp, "%f %d %s", &prix, (int*)&vegan, nom);
-    assert(lus != EOF);
-    printf("%f\n", prix);
+    int lus = fscanf(fp, "%f %d ", &prix, &vegan);
+    if (lus == EOF) {
+        strcpy(e->nom, "Erreur");
+        e->prix_unite = -1;
+        return;
+    }
+
+    assert(fgets(nom, sizeof(nom), fp) != NULL);
+    nom[strlen(nom) - 1] = '\0';  // sinon le retour ligne est pris en compte
 
     strcpy(e->nom, nom);
-    e->vegan = vegan;
+    e->vegan = (bool)vegan;
     e->prix_unite = prix;
 }
 
@@ -50,6 +56,25 @@ void ajouter_element(menu_t* m, char* nom, float prix_unite, bool vegan) {
 
     m->elements[m->nb_elems] = res;
     m->nb_elems++;
+}
+
+void lire_menu(char* nom_fichier, menu_t* m) {
+    assert(m != NULL);
+    FILE* fp = fopen(nom_fichier, "r");
+    assert(fp != NULL);
+
+    m->nb_elems = 0;
+    menu_elem_t element;
+    for (int i = 0; i < MAX_ELEMS; i++) {
+        lire_element(fp, &element);
+        if (strcmp(element.nom, "Erreur") == 0 && element.prix_unite == -1) {
+            break;
+        }
+        m->nb_elems++;
+        m->elements[i] = element;
+    }
+
+    fclose(fp);
 }
 
 // COMMANDES
@@ -86,7 +111,7 @@ void resume_commande(int* commande, menu_t* m) {
 
 float total_commande(int* commande, menu_t* m) {
     assert(m != NULL);
-    float prix = 0; 
+    float prix = 0;
     for (int i = 0; i < m->nb_elems; i++) {
         prix += commande[i] * m->elements[i].prix_unite;
     }

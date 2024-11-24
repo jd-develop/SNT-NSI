@@ -1,0 +1,6 @@
+19.99 0 Gloubi-boulga
+15.99 1 Gloubi-boulga sans saucisse de Toulouse
+14.87 0 Gloubi-boulga sans confiture de fraises
+16.32 0 Gloubi-boulga sans banane écrasée
+14.59 0 Gloubi-boulga sans chocolat
+

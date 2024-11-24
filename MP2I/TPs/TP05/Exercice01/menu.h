@@ -7,9 +7,9 @@
 // ÉLÉMENTS DE MENUS
 
 struct menu_elem {
-	char nom[50];
-	float prix_unite;
-	bool vegan;
+    char nom[50];
+    float prix_unite;
+    bool vegan;
 };
 
 typedef struct menu_elem menu_elem_t;
@@ -18,7 +18,8 @@ typedef struct menu_elem menu_elem_t;
 void affiche_elem(menu_elem_t* e);
 
 /* Lit un élément dans le fichier `fp` et écrit les informations lues
- * dans l’élément de menu pointé par `e`
+ * dans l’élément de menu pointé par `e`. Écrit “Erreur” dans le nom et -1 dans
+ * le prix de l’élément si la fonction rencontre une fin de fichier.
  */
 void lire_element(FILE* fp, menu_elem_t* e);
 
@@ -40,6 +41,11 @@ void affiche_menu(menu_t* m);
  */
 void ajouter_element(menu_t* m, char* nom, float prix_unite, bool vegan);
 
+/* Lit les informations d’un menu dans le fichier `nom_fichier` et stocke les
+ * informations dans la structure pointée par `m`
+ */
+void lire_menu(char* nom_fichier, menu_t* m);
+
 // COMMANDES
 
 /* Initialise (=remplit de zéros) le tableau `commande` représentant une
@@ -49,7 +55,7 @@ void init_commande(int* commande, int nb_elements);
 
 /* Prend commande en mettant à jour les valeurs de `commande` (de taille
  * maximum `nb_elems`) en fonction de l’entrée utilisateur. Ignore
- * une entrée si 
+ * une entrée si l’entrée de menu n’existe pas
  */
 void prendre_commande(int* commande, int nb_elems);
 
