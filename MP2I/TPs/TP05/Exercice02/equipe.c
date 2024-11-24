@@ -122,41 +122,19 @@ int main() {
     e2->nb_membres = 13;
 
     char* noms[13] = {
-        "Bernadette", // elle est très chouette
-        // et sa cousine, elle est divine
-        // mais son cousin, il est malsain
-        // je dirai même, que c’est un bon à rien
-
-        "Noémie", // est très jolie
-        /* moins que */ "Zoé", /* mais plus que */ "Nathalie",
-        "Anatole", // il est frivole
-        /* Monsieur */ "Gaston", // s’occupe du téléfon
-
-        // Gaston ya l’téléfon qui son,
-        // et ya jamais person qui y répond !
-        // Gaston ya l’téléfon qui son,
-        // et ya jamais person qui y répond !
-
-        "Marie-Louise", // elle est exquise
-        "Marie-Thérèse", // elle est obèse
-        "Marie-Berthe", // elle est experte
-        /* par l’entremise, de sa tente */ "Artémise",
-
-        "Édouard", // fume le cigare
-        /* Et */ "Léonard", // porte une barbe noire
-        "Léontine", // fait la cuisine
-        // Monsieur Gaston, s’occupe du téléfon
-
-        // Gaston ya l’téléfon qui son,
-        // et ya jamais person qui y répond !
-        // Gaston ya l’téléfon qui son,
-        // et ya jamais person qui y répond !
-
-        // Non, non, non, non, non, non, non, non,
-        // Gaston, l’téléfon qui son,
-        // P’têt bien qu’c’est important
-
-        //  -- Nino Ferrer, 1967
+        "Bernadette",
+        "Noémie",
+        "Zoé",
+        "Nathalie",
+        "Anatole",
+        "Gaston",
+        "Marie-Louise",
+        "Marie-Thérèse",
+        "Marie-Berthe",
+        "Artémise",
+        "Édouard",
+        "Léonard",
+        "Léontine"
     };
     for (int i = 0; i < 13; i++) {
         e2->membres[i] = malloc(sizeof(etu_t));
