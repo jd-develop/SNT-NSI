@@ -1,0 +1,9 @@
+# Exercice 2
+
+Q4) Si seulement les pointeurs vers les structures sont copiés (et que les
+    structures ne sont pas dupliquées), les membres de l’équipe 1 copiés dans
+    l’équipe 2 ayant été free ligne 11, le print de la ligne 13 et le free de
+    la ligne 14 planteront.
+
+    Idem, si la structure est invalidée après l’agrandissement, alors les print
+    et free ligne 13 et 14 planteront.
