@@ -142,7 +142,7 @@ int main() {
         strcpy(e2->membres[i]->prenom, noms[i]);
         e2->membres[i]->age = 20+i;
     }
-    e2->indice_cpt = 5; // Gaston bien sûr
+    e2->indice_cpt = 5;
 
     printf("\nÉquipe 2 :\n");
     print_equipe(e2);
