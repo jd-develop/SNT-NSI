@@ -12,14 +12,16 @@ set(SRCS
     src/run_tests.c
     src/sound.c
     src/wav.c
-    )
+    src/melody.c
+)
 
 set (HEADERS
      src/file_management.h
      src/run_tests.h
      src/sound.h
      src/wav.h
-     )
+     src/melody.h
+)
 
 add_executable(vlc++ ${SRCS} ${HEADERS})
 target_link_libraries(vlc++ m)

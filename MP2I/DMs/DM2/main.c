@@ -6,6 +6,7 @@
 #include "src/run_tests.h"
 #include "src/sound.h"
 #include "src/wav.h"
+#include "src/melody.h"
 
 int main() {
     srand(time(NULL));
@@ -66,4 +67,11 @@ int main() {
 
     free_track(au_clair_de_la_lune);
     free_sound(au_clair_de_la_lune_one_sound);
+
+    FILE* sonata_fp = fopen("../examples/sonata_une_piste.txt", "r");
+    track_t* sonata = read_track(sonata_fp);
+    sound_t* sonata_s = reduce_track(sonata);
+    save_sound("sonata.wav", sonata_s);
+    free_track(sonata);
+    free_sound(sonata_s);
 }

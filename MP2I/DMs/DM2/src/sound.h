@@ -1,6 +1,6 @@
-#include <stdint.h>
 #ifndef SOUND
 #define SOUND
+#include <stdint.h>
 
 /* structure représentant un son */
 typedef struct sound {
