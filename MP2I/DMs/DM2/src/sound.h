@@ -14,11 +14,21 @@ typedef struct track {
     sound_t** sounds;  // liste des sons
 } track_t;
 
-/* libère la mémoire allouée pour un élément de type sound_t */
+/* structure représentant un morceau */
+typedef struct mix {
+    int n_tracks; // nombre de pistes
+    track_t** tracks; // liste des pistes
+    float* vols; // liste des volumes des pistes
+} mix_t;
+
+/* libère la mémoire allouée pour le son pointé par `p` */
 void free_sound(sound_t* p);
 
-/* libère la mémoire allouée pour un élément de type track_t */
+/* libère la mémoire allouée pour la piste pointée par `p` */
 void free_track(track_t* p);
+
+/* libère la mémoire allouée pour le morceau pointé par `p` */
+void free_mix(mix_t* p);
 
 /* réduit un morceau en un seul son */
 sound_t* reduce_track(track_t* t);

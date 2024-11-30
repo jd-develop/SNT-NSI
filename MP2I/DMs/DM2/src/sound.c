@@ -13,6 +13,7 @@ void free_sound(sound_t* p) {
 }
 
 void free_track(track_t* p) {
+    // on libère chaque son
     for (int i = 0; i < p->n_sounds; i++) {
         free_sound(p->sounds[i]);
     }
@@ -20,16 +21,29 @@ void free_track(track_t* p) {
     free(p);
 }
 
+void free_mix(mix_t* p) {
+    // on libère chaque piste
+    for (int i = 0; i < p->n_tracks; i++) {
+        free_track(p->tracks[i]);
+    }
+    free(p->tracks);
+    free(p->vols);
+    free(p);
+}
+
 sound_t* reduce_track(track_t* t) {
+    // on calcule la taille totale que fera le son final
     int total_size = 0;
     for (int i = 0; i < t->n_sounds; i++) {
         total_size += t->sounds[i]->n_samples;
     }
 
+    // on alloue la mémoire pour stocker le son final
     sound_t* res = malloc(sizeof(sound_t));
     res->n_samples = total_size;
     res->samples = malloc(total_size * sizeof(int16_t));
 
+    // on ajoute les sons les uns à la suite des autres
     int total_index = 0;
     for (int i = 0; i < t->n_sounds; i++) {
         for (int j = 0; j < t->sounds[i]->n_samples; j++) {
@@ -43,12 +57,14 @@ sound_t* reduce_track(track_t* t) {
 sound_t* white(float duree, int f_ech) {
     int n = (int)f_ech*duree;
 
+    // on alloue la mémoire pour stocker le son
     sound_t* res = malloc(sizeof(sound_t));
     res->n_samples = n;
     res->samples = malloc(n * sizeof(int16_t));
     int16_t r;
 
     for (int i = 0; i < n; i++) {
+        // valeurs aléatoires
         r = rand() % 65536 - 32768;
         //r = rand() % (8492) - 4096; // c’est moins fort :)
         res->samples[i] = r;
@@ -60,6 +76,7 @@ sound_t* white(float duree, int f_ech) {
 sound_t* sine(float freq, int amplitude, float duree, int f_ech) {
     int n = (int)f_ech*duree;
 
+    // on alloue la mémoire pour stocker le son
     sound_t* res = malloc(sizeof(sound_t));
     res->n_samples = n;
     res->samples = malloc(n * sizeof(int16_t));
@@ -78,6 +95,7 @@ sound_t* sine(float freq, int amplitude, float duree, int f_ech) {
 sound_t* square(float freq, int amplitude, float duree, int f_ech) {
     int n = (int)f_ech*duree;
 
+    // on alloue la mémoire pour stocker le son
     sound_t* res = malloc(sizeof(sound_t));
     res->n_samples = n;
     res->samples = malloc(n * sizeof(int16_t));
@@ -97,6 +115,7 @@ sound_t* square(float freq, int amplitude, float duree, int f_ech) {
 sound_t* triangle(float freq, int amplitude, float duree, int f_ech) {
     int n = (int)f_ech*duree;
 
+    // on alloue la mémoire pour stocker le son
     sound_t* res = malloc(sizeof(sound_t));
     res->n_samples = n;
     res->samples = malloc(n * sizeof(int16_t));
@@ -105,7 +124,7 @@ sound_t* triangle(float freq, int amplitude, float duree, int f_ech) {
     double w = 2*PI*freq*(1/(double)f_ech);
 
     for (int i = 0; i < n; i++) {
-        // d’après wikipédia, y(x) = 2a/π * arcsin(sin(i*w))…
+        // d’après wikipédia, y(x) = 2a/π * arcsin(sin(i×w))…
         u = DEUXSURPI * amplitude * asin(sin(i*w));
         res->samples[i] = u;
     }
@@ -116,6 +135,7 @@ sound_t* triangle(float freq, int amplitude, float duree, int f_ech) {
 sound_t* sawtooth(float freq, int amplitude, float duree, int f_ech) {
     int n = (int)f_ech*duree;
 
+    // on alloue la mémoire pour stocker le son
     sound_t* res = malloc(sizeof(sound_t));
     res->n_samples = n;
     res->samples = malloc(n * sizeof(int16_t));
@@ -124,7 +144,7 @@ sound_t* sawtooth(float freq, int amplitude, float duree, int f_ech) {
     double w = freq*(1/(double)f_ech);
 
     for (int i = 0; i < n; i++) {
-        // toujours d’après wikipédia, y(x) = 2a * (i*w - ent(1/2 + i*w))
+        // toujours d’après wikipédia, y(x) = 2a * (i*w - ⌊1/2 + i*w⌋)
         u = amplitude*2*(i*w - floor(0.5 + i*w));
         res->samples[i] = u;
     }
