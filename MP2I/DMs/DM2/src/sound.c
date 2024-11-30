@@ -60,15 +60,18 @@ sound_t* reduce_mix(mix_t* t) {
 
     /*
      * On en profite pour trouver la longueur totale du son final, qui n’est
-     * autre que la longueur maximale parmi tous les sons
+     * autre que la longueur maximale parmi tous les sons, et aussi pour
+     * trouver la somme des volumes
      */
     int total_size = 0;
+    float volume_sum = 0;
     // Cette boucle est en O(n)
     for (int i = 0; i < t->n_tracks; i++) {
         sounds[i] = reduce_track(t->tracks[i]);
 
         if (sounds[i]->n_samples > total_size)
             total_size = sounds[i]->n_samples;
+        volume_sum += t->vols[i];
     }
 
     // on alloue la mémoire du nouveau son
@@ -80,6 +83,7 @@ sound_t* reduce_mix(mix_t* t) {
     float volume;
     long int mean;
     // Cette boucle est en O(n*max(l₁, l₂, …))
+    // on parcourt pour chaque échantillon
     for (int i = 0; i < total_size; i++) {
         /*
          * On parcourt chaque son et on rajoute à la moyenne, mais il ne faut
@@ -88,11 +92,13 @@ sound_t* reduce_mix(mix_t* t) {
         // Cette boucle est en O(n)
         mean = 0;
         for (int j = 0; j < t->n_tracks; j++) {
-            if (sounds[i]->n_samples >= i)
+            if (sounds[j]->n_samples < i) {
                 continue;
+            }
             volume = t->vols[j];
             mean += volume*(sounds[j]->samples[i]);
         }
+        mean /= volume_sum;
         /*
          * on s’occupe maintenant des dépassements d’entiers : si ça dépasse,
          * on met juste à la valeur maximum

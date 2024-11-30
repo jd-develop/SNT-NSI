@@ -8,8 +8,22 @@
 #include "src/melody.h"
 
 int main() {
-    srand(time(NULL));
+    srand(time(NULL)); // au cas où on utilise la fonction « white »
     run_tests();
+
+    mix_t* sonata_2v = load_mix("../examples/Rick Astley - Never Gonna Give You Up.txt");
+    sound_t* sonata_2vs = reduce_mix(sonata_2v);
+    save_sound("sonata2v.wav", sonata_2vs);
+    free_mix(sonata_2v);
+    free_sound(sonata_2vs);
+
+    return 0;
+}
+
+    /* à partir d’ici, tous les petits tests avant l’implémentation de la
+     * lecture des arguments en ligne de commande (c’était dans la fonction
+     * main)
+     *
 
     int16_t* samples = malloc(3*sizeof(int16_t));
     samples[0] = 15387;
@@ -67,10 +81,18 @@ int main() {
     free_track(au_clair_de_la_lune);
     free_sound(au_clair_de_la_lune_one_sound);
 
-    FILE* sonata_fp = fopen("../examples/sonata_une_piste.txt", "r");
+    FILE* sonata_fp = fopen("../examples/sonata_1_piste.txt", "r");
     track_t* sonata = read_track(sonata_fp);
     sound_t* sonata_s = reduce_track(sonata);
     save_sound("sonata.wav", sonata_s);
     free_track(sonata);
     free_sound(sonata_s);
-}
+
+    mix_t* sonata_2v = load_mix("../examples/sonata_2_pistes.txt");
+    sound_t* sonata_2vs = reduce_mix(sonata_2v);
+    save_sound("sonata2v.wav", sonata_2vs);
+    free_mix(sonata_2v);
+    free_sound(sonata_2vs);
+
+    *
+    */

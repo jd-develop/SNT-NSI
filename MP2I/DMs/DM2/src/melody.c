@@ -25,7 +25,15 @@ track_t* read_track(FILE* file) {
     sound_t* sound;
 
     // on commence par lire la première ligne
-    assert(fscanf(file, "%d %s", &n_notes, instrument) != EOF);
+    if (fscanf(file, "%d %s", &n_notes, instrument) == EOF) {
+        fprintf(
+            stderr,
+            "Erreur de lecture du fichier : nombre de notes et instrument "
+            "attendus.\n"
+        );
+        free(res); // pas de free_track parce qu’on n’a pas malloc les sons
+        return NULL;
+    }
 
     res->n_sounds = n_notes;
     res->sounds = malloc(n_notes * sizeof(sound_t*));
@@ -45,12 +53,78 @@ track_t* read_track(FILE* file) {
         } else if (strcmp(instrument, "sawtooth") == 0) {
             sound = sawtooth(freq, amplitude, duree, 44100);
         } else {
-            printf("Erreur, l’instrument « %s » n’existe pas !", instrument);
-            assert(0);
+            fprintf(stderr, "Erreur, l’instrument « %s » n’existe pas !\n",
+                    instrument);
+            free_track(res);
+            return NULL;
         }
 
         res->sounds[i] = sound;
     }
 
     return res;
+}
+
+mix_t* load_mix(char* filename) {
+    FILE* fp = fopen(filename, "r");
+    if (fp == NULL) {
+        fprintf(stderr, "Erreur lors de l’ouverture du fichier %s.\n",
+                filename);
+        fprintf(stderr, "Assurez-vous que le fichier existe et que vous avez "
+                        "les permissions suffisantes pour le lire.\n");
+        return NULL;
+    }
+
+    // on lit le nombre de pistes
+    int n_tracks;
+    if (fscanf(fp, "%d", &n_tracks) == EOF) {
+        fprintf(stderr, "Erreur de lecture du fichier : la première ligne "
+                        "doit être constituée du nombre de pistes (voix) du"
+                        "morceau.\n");
+        fclose(fp);
+        return NULL;
+    }
+
+    float volume;
+    float* volumes = malloc(n_tracks*sizeof(float));
+
+    // on lit les volumes
+    for (int i = 0; i < n_tracks; i++) {
+        if (fscanf(fp, "%f", &volume) == EOF) {
+            fprintf(
+                stderr,
+                "Erreur de lecture du fichier : il doit y avoir autant de "
+                "volumes que de pistes (voix).\n"
+            );
+            fclose(fp);
+            free(volumes);
+            return NULL;
+        }
+        volumes[i] = volume;
+    }
+
+    track_t** tracks = malloc(n_tracks*sizeof(tracks));
+    track_t* trackp;
+
+    // on lit les pistes
+    for (int i = 0; i < n_tracks; i++) {
+        trackp = read_track(fp);
+        if (trackp == NULL) {
+            fclose(fp);
+            free(volumes);
+            for (int j = 0; j < i; j++)
+                free_track(tracks[j]);
+            free(tracks);
+            return NULL;
+        }
+        tracks[i] = trackp;
+    }
+
+    // on créée le mix
+    mix_t* mix = malloc(sizeof(mix_t));
+    mix->n_tracks = n_tracks;
+    mix->vols = volumes;
+    mix->tracks = tracks;
+
+    return mix;
 }
