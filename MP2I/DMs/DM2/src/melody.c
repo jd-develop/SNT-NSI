@@ -36,6 +36,25 @@ track_t* read_track(FILE* file) {
         return NULL;
     }
 
+    /*
+     * pour accélerer, on peut à chaque instrument associer un numéro (comme ça,
+     * on n’aura pas à appeller strcmp à chaque tour de boucle)
+     */
+    char instrument_n;
+    if (strcmp(instrument, "sine") == 0) {
+        instrument_n = 's'; // sinus
+    } else if (strcmp(instrument, "square") == 0) {
+        instrument_n = 'c'; // carré
+    } else if (strcmp(instrument, "triangle") == 0) {
+        instrument_n = 't'; // triangle
+    } else if (strcmp(instrument, "sawtooth") == 0) {
+        instrument_n = 'd'; // dent de scie
+    } else {
+        fprintf(stderr, "Erreur, l’instrument « %s » n’existe pas !\n",
+                instrument);
+        return NULL;
+    }
+
     // on initialise la piste à renvoyer
     track_t* res = malloc(sizeof(track_t));
     res->n_sounds = n_notes;
@@ -43,24 +62,31 @@ track_t* read_track(FILE* file) {
 
     for (int i = 0; i < n_notes; i++) {
         // on lit une ligne
-        assert(fscanf(file, "%d %f %f", &pitch, &duree, &volume) != EOF);
+        if (fscanf(file, "%d %f %f", &pitch, &duree, &volume) == EOF) {
+            fprintf(
+                stderr,
+                "Erreur : %d notes attendues, %d réellement lues\n",
+                n_notes, i
+            );
+            return NULL;
+        }
         freq = pitch_to_freq(pitch);
         amplitude = (int)(32767*volume);
 
         // on appelle la bonne fonction en fonction de l’instument
-        if (strcmp(instrument, "sine") == 0) {
-            sound = sine(freq, amplitude, duree, FREQ_ECH);
-        } else if (strcmp(instrument, "square") == 0) {
-            sound = square(freq, amplitude, duree, FREQ_ECH);
-        } else if (strcmp(instrument, "triangle") == 0) {
-            sound = triangle(freq, amplitude, duree, FREQ_ECH);
-        } else if (strcmp(instrument, "sawtooth") == 0) {
-            sound = sawtooth(freq, amplitude, duree, FREQ_ECH);
-        } else {
-            fprintf(stderr, "Erreur, l’instrument « %s » n’existe pas !\n",
-                    instrument);
-            free_track(res);
-            return NULL;
+        switch (instrument_n) {
+            case 's':
+                sound = sine(freq, amplitude, duree, FREQ_ECH);
+                break;
+            case 'c':
+                sound = square(freq, amplitude, duree, FREQ_ECH);
+                break;
+            case 't':
+                sound = triangle(freq, amplitude, duree, FREQ_ECH);
+                break;
+            case 'd':
+                sound = sawtooth(freq, amplitude, duree, FREQ_ECH);
+                break;
         }
 
         // on ajoute le son à la piste
