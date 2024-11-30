@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <assert.h>
-#include "file_management.h"
+#include "wav.h"
 
 void run_tests() {
-    // src/file_management
+    // src/wav
     test_write_int();
 }
