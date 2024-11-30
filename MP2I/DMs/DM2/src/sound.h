@@ -30,8 +30,17 @@ void free_track(track_t* p);
 /* libère la mémoire allouée pour le morceau pointé par `p` */
 void free_mix(mix_t* p);
 
-/* réduit un morceau en un seul son */
+/* réduit une piste en un seul son */
 sound_t* reduce_track(track_t* t);
+
+/*
+ * Réduit un morceau en un seul son, en faisant la moyenne pondérée de chaque
+ * échantillon en fonction du volume. Si un son est trop fort (autrement dit
+ * si un échantillon dépasse la limite des entiers signés 16 bits), alors
+ * l’échantillon sera égale à la valeur maximale (ou minimale s’il s’agit d’un
+ * dépassement par dessous) que peut prendre un entier 16 bits
+ */
+sound_t* reduce_mix(mix_t* m);
 
 /* génère un son de durée T dont tous les échantillons ont une valeur aléatoire
  * i.e. un bruit blanc

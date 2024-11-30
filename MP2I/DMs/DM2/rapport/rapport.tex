@@ -1,24 +1,23 @@
-% template des TP de physique, devrait faire l’affaire
 \documentclass[11pt]{article} % Font size
 \usepackage{amsmath, amsfonts, amssymb, amsthm, mathrsfs}
 \usepackage[french]{babel}
 \usepackage[french]{isodate}
-\usepackage{blindtext}
 \usepackage{zref-totpages}
-\usepackage{siunitx}
-\usepackage{array}
 \usepackage{pgf}
-\usepackage{graphicx}
-\usepackage{subcaption}
-\usepackage{float}
 \usepackage{listings}
 \usepackage{hyperref}
-\usepackage{tikz}
-\usetikzlibrary{babel}
-\usetikzlibrary{trees}
-\usetikzlibrary{arrows}
-\usepackage{circuitikz}
-\tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+
+% \usepackage{siunitx}
+%\usepackage{array}
+%\usepackage{graphicx}
+%\usepackage{subcaption}
+%\usepackage{float}
+% \usepackage{tikz}
+% \usetikzlibrary{babel}
+% \usetikzlibrary{trees}
+% \usetikzlibrary{arrows}
+% \usepackage{circuitikz}
+% \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Use 8-bit encoding
@@ -71,20 +70,6 @@
 \renewcommand{\thesubsubsection}{\alph{subsubsection})}
 \newcommand{\ol}{\overline}
 \newcommand{\nbsp}{\nobreakspace}
-\newcommand{\cm}{\si{\centi\meter}}
-\newcommand{\mm}{\si{\milli\meter}}
-
-\newcommand{\graph}[3]{
-    \begin{figure}[H]
-        \centering
-        \resizebox{#3\linewidth}{!}{\input{#1.pgf}}
-        \caption{#2}
-        \label{fig:#1}
-    \end{figure}
-}
-
-\newcommand{\statlink}[1]{\href{https://github.com/jd-develop/physic-and-chemistry/tree/main/MP2I/TP0#1/stats.py}{ce code}}
-\newcommand{\otherlink}[2]{\href{https://github.com/jd-develop/physic-and-chemistry/tree/main/MP2I/TP0#1/#2.py}{ce code}}
 
 %------------------------------------------------------------------------------
 %    TITLE SECTION
@@ -124,12 +109,21 @@ A \sin(2\pi f i \tau_\text{ech})
 000030 ff ff a2 f9 ff f7
 \end{lstlisting}
 
+\paragraph{Q18.}
+La complexité de la fonction \verb|reduce_mix| est de l’ordre de
+$\mathcal O(n+n\max(l_1, \dots, l_n))$ car elle contient trois boucles\nbsp:
+deux en $\mathcal O(n)$ et une en $\mathcal O(n\max(l_1, \dots, l_n))$.
+
 \section{Description}
 
 \subsection{Description des fichiers}
 \begin{enumerate}
     \item \verb|src/run_tests.c|\nbsp: la fonction exécutant tous les tests
         du programme. Cette fonction est appelée par \verb|main.c|.
+        Note au passage\nbsp: ce programme ne peut tourner que sur des machines
+        POSIX (Unix ou GNU\footnote{Indépendamment du noyau (Linux ou Hurd)}),
+        à cause du fait que \verb|src/run_tests.c| écrit des fichiers dans
+        \verb|/tmp|.
     \item \verb|src/sound.c|\nbsp: fichier lié à la gestion des sons
         (\verb|sound_t|)
     \item \verb|src/wav.c|\nbsp: fichier chargé d’écrire les fichiers WAV.

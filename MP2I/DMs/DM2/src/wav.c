@@ -17,7 +17,7 @@ void write_int(FILE* f, int a, int size) {
 }
 
 void test_write_int() {
-    FILE* fp = fopen("/tmp/vlc++tests.write_int", "w");
+    FILE* fp = fopen("/tmp/dm2tests.write_int", "w");
     assert(fp != NULL); // normalement on a toujours le droit d’écrire dans /tmp
 
     write_int(fp, 0x12345678, 4);
@@ -30,7 +30,7 @@ void test_write_int() {
 
     fclose(fp);
 
-    fp = fopen("/tmp/vlc++tests.write_int", "r");
+    fp = fopen("/tmp/dm2tests.write_int", "r");
     assert(fp != NULL);
 
     uchar expected_bytes[15] = {0x78, 0x56, 0x34, 0x12, 0xEF, 0xCD, 0xAB, 0x45,

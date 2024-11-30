@@ -54,6 +54,68 @@ sound_t* reduce_track(track_t* t) {
     return res;
 }
 
+sound_t* reduce_mix(mix_t* t) {
+    // il faut d’abord réduire chaque piste du morceau en un seul son
+    sound_t** sounds = malloc((t->n_tracks)*sizeof(sound_t*));
+
+    /*
+     * On en profite pour trouver la longueur totale du son final, qui n’est
+     * autre que la longueur maximale parmi tous les sons
+     */
+    int total_size = 0;
+    // Cette boucle est en O(n)
+    for (int i = 0; i < t->n_tracks; i++) {
+        sounds[i] = reduce_track(t->tracks[i]);
+
+        if (sounds[i]->n_samples > total_size)
+            total_size = sounds[i]->n_samples;
+    }
+
+    // on alloue la mémoire du nouveau son
+    sound_t* res = malloc(sizeof(sound_t));
+    res->n_samples = total_size;
+    res->samples = malloc(total_size * sizeof(int16_t));
+
+    // On fait la moyenne de chaque échantillon
+    float volume;
+    long int mean;
+    // Cette boucle est en O(n*max(l₁, l₂, …))
+    for (int i = 0; i < total_size; i++) {
+        /*
+         * On parcourt chaque son et on rajoute à la moyenne, mais il ne faut
+         * pas que la longueur totale excède celle du son !
+         */
+        // Cette boucle est en O(n)
+        mean = 0;
+        for (int j = 0; j < t->n_tracks; j++) {
+            if (sounds[i]->n_samples >= i)
+                continue;
+            volume = t->vols[j];
+            mean += volume*(sounds[j]->samples[i]);
+        }
+        /*
+         * on s’occupe maintenant des dépassements d’entiers : si ça dépasse,
+         * on met juste à la valeur maximum
+         */
+        if (!(-32768 <= mean && mean <= 32767)) {
+            if (mean < -32768)
+                mean = -32768;
+            else
+                mean = 32767;
+        }
+        res->samples[i] = mean;
+    }
+
+    // On libère toute la mémoire dont on n’a plus besoin.
+    // Cette boucle est en O(n).
+    for (int i = 0; i < t->n_tracks; i++) {
+        free_sound(sounds[i]);
+    }
+    free(sounds);
+
+    return res;
+}
+
 sound_t* white(float duree, int f_ech) {
     int n = (int)f_ech*duree;
 
