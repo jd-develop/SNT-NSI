@@ -131,5 +131,6 @@ mix_t* load_mix(char* filename) {
     mix->vols = volumes;
     mix->tracks = tracks;
 
+    fclose(fp);
     return mix;
 }

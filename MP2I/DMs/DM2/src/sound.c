@@ -92,7 +92,7 @@ sound_t* reduce_mix(mix_t* t) {
         // Cette boucle est en O(n)
         mean = 0;
         for (int j = 0; j < t->n_tracks; j++) {
-            if (sounds[j]->n_samples < i) {
+            if (sounds[j]->n_samples <= i) {
                 continue;
             }
             volume = t->vols[j];
