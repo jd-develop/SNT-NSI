@@ -6,6 +6,7 @@
 #include "src/sound.h"
 #include "src/wav.h"
 #include "src/melody.h"
+#include "src/constants.h"
 
 int main(int argc, char* argv[]) {
     srand(time(NULL)); // au cas où on utilise la fonction « white »
@@ -43,7 +44,7 @@ int main(int argc, char* argv[]) {
      * longueur du morceau en secondes :
      * nombre d’échantillons / fréquence d’échantillonage
      */
-    int secondes = sound->n_samples / 44100;
+    int secondes = sound->n_samples / FREQ_ECH;
     int minutes = secondes / 60;
     secondes %= 60;
     /*
@@ -86,37 +87,37 @@ int main(int argc, char* argv[]) {
 
     free_sound(s_test);
 
-    sound_t* s_white = white(5.0, 44100);
+    sound_t* s_white = white(5.0, FREQ_ECH);
     save_sound("white.wav", s_white);
     free_sound(s_white);
 
-    sound_t* s_440 = sine(440, 8000, 5.0, 44100);
+    sound_t* s_440 = sine(440, 8000, 5.0, FREQ_ECH);
     save_sound("la440.wav", s_440);
     free_sound(s_440);
 
-    sound_t* s_440s = square(440, 8000, 5.0, 44100);
+    sound_t* s_440s = square(440, 8000, 5.0, FREQ_ECH);
     save_sound("la440s.wav", s_440s);
     free_sound(s_440s);
 
-    sound_t* s_440t = triangle(440, 8000, 5.0, 44100);
+    sound_t* s_440t = triangle(440, 8000, 5.0, FREQ_ECH);
     save_sound("la440t.wav", s_440t);
     free_sound(s_440t);
 
-    sound_t* s_440sa = sawtooth(440, 8000, 5.0, 44100);
+    sound_t* s_440sa = sawtooth(440, 8000, 5.0, FREQ_ECH);
     save_sound("la440sa.wav", s_440sa);
     free_sound(s_440sa);
 
     sound_t** lune_sounds = malloc(9*sizeof(sound_t));
-    lune_sounds[0] = sawtooth(440, 0,     0.5, 44100);
-    lune_sounds[1] = sawtooth(440, 16000, 0.4, 44100);
-    lune_sounds[2] = sawtooth(440, 0,     0.1, 44100);
-    lune_sounds[3] = sawtooth(440, 16000, 0.4, 44100);
-    lune_sounds[4] = sawtooth(440, 0,     0.1, 44100);
-    lune_sounds[5] = sawtooth(440, 16000, 0.5, 44100);
+    lune_sounds[0] = sawtooth(440, 0,     0.5, FREQ_ECH);
+    lune_sounds[1] = sawtooth(440, 16000, 0.4, FREQ_ECH);
+    lune_sounds[2] = sawtooth(440, 0,     0.1, FREQ_ECH);
+    lune_sounds[3] = sawtooth(440, 16000, 0.4, FREQ_ECH);
+    lune_sounds[4] = sawtooth(440, 0,     0.1, FREQ_ECH);
+    lune_sounds[5] = sawtooth(440, 16000, 0.5, FREQ_ECH);
 
-    lune_sounds[6] = sawtooth(493.88, 16000, 0.5, 44100);
-    lune_sounds[7] = sawtooth(554.36, 16000, 1, 44100);
-    lune_sounds[8] = sawtooth(493.88, 16000, 1, 44100);
+    lune_sounds[6] = sawtooth(493.88, 16000, 0.5, FREQ_ECH);
+    lune_sounds[7] = sawtooth(554.36, 16000, 1, FREQ_ECH);
+    lune_sounds[8] = sawtooth(493.88, 16000, 1, FREQ_ECH);
 
     track_t* au_clair_de_la_lune = malloc(sizeof(track_t));
 

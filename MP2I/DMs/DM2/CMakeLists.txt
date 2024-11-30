@@ -19,6 +19,7 @@ set (HEADERS
      src/sound.h
      src/wav.h
      src/melody.h
+     src/constants.h
 )
 
 add_executable(dm2 ${SRCS} ${HEADERS})

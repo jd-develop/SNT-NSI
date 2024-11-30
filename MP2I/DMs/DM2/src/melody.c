@@ -5,6 +5,7 @@
 #include <math.h>
 #include "melody.h"
 #include "sound.h"
+#include "constants.h"
 
 float pitch_to_freq(int pitch) {
     return 440 * pow(2, ((float)pitch)/12);
@@ -13,10 +14,11 @@ float pitch_to_freq(int pitch) {
 track_t* read_track(FILE* file) {
     assert(file != NULL);
 
-    track_t* res = malloc(sizeof(track_t));
+    // on alloue la mémoire nécessaire
     int n_notes;
     char instrument[MAX_INSTRUMENT_NAME_SIZE];
 
+    // on initialise toutes les variables
     int pitch;
     float freq;
     float duree;
@@ -31,10 +33,11 @@ track_t* read_track(FILE* file) {
             "Erreur de lecture du fichier : nombre de notes et instrument "
             "attendus.\n"
         );
-        free(res); // pas de free_track parce qu’on n’a pas malloc les sons
         return NULL;
     }
 
+    // on initialise la piste à renvoyer
+    track_t* res = malloc(sizeof(track_t));
     res->n_sounds = n_notes;
     res->sounds = malloc(n_notes * sizeof(sound_t*));
 
@@ -44,14 +47,15 @@ track_t* read_track(FILE* file) {
         freq = pitch_to_freq(pitch);
         amplitude = (int)(32767*volume);
 
+        // on appelle la bonne fonction en fonction de l’instument
         if (strcmp(instrument, "sine") == 0) {
-            sound = sine(freq, amplitude, duree, 44100);
+            sound = sine(freq, amplitude, duree, FREQ_ECH);
         } else if (strcmp(instrument, "square") == 0) {
-            sound = square(freq, amplitude, duree, 44100);
+            sound = square(freq, amplitude, duree, FREQ_ECH);
         } else if (strcmp(instrument, "triangle") == 0) {
-            sound = triangle(freq, amplitude, duree, 44100);
+            sound = triangle(freq, amplitude, duree, FREQ_ECH);
         } else if (strcmp(instrument, "sawtooth") == 0) {
-            sound = sawtooth(freq, amplitude, duree, 44100);
+            sound = sawtooth(freq, amplitude, duree, FREQ_ECH);
         } else {
             fprintf(stderr, "Erreur, l’instrument « %s » n’existe pas !\n",
                     instrument);
@@ -59,6 +63,7 @@ track_t* read_track(FILE* file) {
             return NULL;
         }
 
+        // on ajoute le son à la piste
         res->sounds[i] = sound;
     }
 

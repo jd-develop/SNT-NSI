@@ -3,13 +3,18 @@
 #include <assert.h>
 #include <stdint.h>
 #include "sound.h"
-#define FREQ_ECH 44100
+#include "wav.h"
+#include "constants.h"
 
 typedef unsigned char uchar;
 
 void write_int(FILE* f, int a, int size) {
     assert(1 <= size && size <= 4);
 
+    /*
+     * il suffit d’écrire à chaque fois les 8 derniers bits, puis de décaler à
+     * droite
+     */
     for (int i = 0; i < size; i++) {
         fprintf(f, "%c", a%256);
         a = a >> 8;
@@ -44,20 +49,30 @@ void test_write_int() {
 }
 
 void write_header(FILE* f, int n) {
+    // RIFF
     fprintf(f, "%c%c%c%c", 'R', 'I', 'F', 'F');
 
+    // nombre d’octets dans le fichier après ce champ
     write_int(f, 36 + 2*n, 4);
+
+    // WAVEfmt[espace]
     fprintf(f, "%c%c%c%c%c%c%c%c", 'W', 'A', 'V', 'E', 'f', 'm', 't', ' ');
 
     write_int(f, 16, 4);
     write_int(f, 1, 2);
     write_int(f, 1, 2);
+    // fréquence d’échantillonage
     write_int(f, FREQ_ECH, 4);
+    // octets nécessaires par seconde de son
     write_int(f, FREQ_ECH*2, 4);
+    // octets par échantillon
     write_int(f, 2, 2);
+    // bits par échantillon
     write_int(f, 16, 2);
 
+    // data
     fprintf(f, "%c%c%c%c", 'd', 'a', 't', 'a');
+    // nombre d’octets dans le fichier après ce champ
     write_int(f, 2*n, 4);
 }
 
@@ -66,11 +81,14 @@ int save_sound(char* filename, sound_t* s) {
     if (fp == NULL) {
         return 1;
     }
+
+    // on écrit le header puis les valeurs
     write_header(fp, s->n_samples);
     for (int i = 0; i < s->n_samples; i++) {
         // printf("i=%d samples[i]=%d\n", i, s->samples[i]);
         write_int(fp, s->samples[i], 2);
     }
+
     fclose(fp);
     return 0;
 }
