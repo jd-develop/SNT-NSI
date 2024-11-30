@@ -2,7 +2,7 @@
 
 cmake_minimum_required(VERSION 3.10)
 
-project(vlc++)
+project(dm2)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -Werror --pedantic-errors -lm -g")
 
@@ -21,6 +21,6 @@ set (HEADERS
      src/melody.h
 )
 
-add_executable(vlc++ ${SRCS} ${HEADERS})
-target_link_libraries(vlc++ m)
+add_executable(dm2 ${SRCS} ${HEADERS})
+target_link_libraries(dm2 m)
 
