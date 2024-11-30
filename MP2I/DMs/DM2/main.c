@@ -9,6 +9,7 @@
 
 int main(int argc, char* argv[]) {
     srand(time(NULL)); // au cas où on utilise la fonction « white »
+
     run_tests();
 
     if (argc != 3) {
@@ -38,8 +39,31 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    /*
+     * longueur du morceau en secondes :
+     * nombre d’échantillons / fréquence d’échantillonage
+     */
+    int secondes = sound->n_samples / 44100;
+    int minutes = secondes / 60;
+    secondes %= 60;
+    /*
+     * taille du morceau en octets :
+     * taille du header + nombre d’échantillons * taille d’un échantillon
+     */
+    int octets = 44 + sound->n_samples * 2;
+    int mebioctets = octets / (1024*1024);
+    int megaoctets = octets / (1e6);
+
     free_mix(mix);
     free_sound(sound);
+
+    // la fonction clock() renvoie le nombre de ticks d’horloge écoulées depuis
+    // le début du programme
+    double elapsed = (double)clock() / CLOCKS_PER_SEC;
+    printf("Fichier %s généré (temps écoulé : %.2fs)\n", dst_file, elapsed);
+
+    printf("Durée du fichier : %dm%ds. Taille : %d Mio (%d Mo).\n",
+            minutes, secondes, mebioctets, megaoctets);
 
     return 0;
 }
