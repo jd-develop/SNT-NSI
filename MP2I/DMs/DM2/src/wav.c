@@ -61,14 +61,17 @@ void write_header(FILE* f, int n) {
     write_int(f, 2*n, 4);
 }
 
-void save_sound(char* filename, sound_t* s) {
+int save_sound(char* filename, sound_t* s) {
     FILE* fp = fopen(filename, "w");
-    assert(fp != NULL);
+    if (fp == NULL) {
+        return 1;
+    }
     write_header(fp, s->n_samples);
     for (int i = 0; i < s->n_samples; i++) {
         // printf("i=%d samples[i]=%d\n", i, s->samples[i]);
         write_int(fp, s->samples[i], 2);
     }
     fclose(fp);
+    return 0;
 }
 

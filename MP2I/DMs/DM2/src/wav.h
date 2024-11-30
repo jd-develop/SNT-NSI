@@ -18,7 +18,10 @@ void write_header(FILE* f, int n);
 /* Écrit dans `filename` le fichier WAV correspondant au son `s`, en écrasant
  * les données existantes. Plante si `filename` n’est pas accessible en
  * écriture.
+ *
+ * Modification par rapport à la spécification demandée : renvoie un int
+ * (0 si il n’y a pas eu d’erreur, 1 en cas d’erreur d’ouverture du fichier)
  */
-void save_sound(char* filename, sound_t* s);
+int save_sound(char* filename, sound_t* s);
 
 #endif

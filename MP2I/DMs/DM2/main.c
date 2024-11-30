@@ -7,15 +7,39 @@
 #include "src/wav.h"
 #include "src/melody.h"
 
-int main() {
+int main(int argc, char* argv[]) {
     srand(time(NULL)); // au cas où on utilise la fonction « white »
     run_tests();
 
-    mix_t* sonata_2v = load_mix("../examples/Rick Astley - Never Gonna Give You Up.txt");
-    sound_t* sonata_2vs = reduce_mix(sonata_2v);
-    save_sound("sonata2v.wav", sonata_2vs);
-    free_mix(sonata_2v);
-    free_sound(sonata_2vs);
+    if (argc != 3) {
+        fprintf(stderr, "Merci de donner exactement 2 paramètres (fichier "
+                        "source et fichier destination)\n");
+        return 1;
+    }
+    char* src_file = argv[1];
+    char* dst_file = argv[2];
+
+    mix_t* mix = load_mix(src_file);
+    if (mix == NULL) {
+        return 1;
+    }
+
+    sound_t* sound = reduce_mix(mix);
+
+    if (save_sound(dst_file, sound) == 1) {
+        fprintf(
+            stderr,
+            "Erreur d’ouverture de « %s » : assurez-vous que vous avez "
+            "les permissions d’écrire dans ce fichier.\n",
+            dst_file
+        );
+        free_mix(mix);
+        free_sound(sound);
+        return 1;
+    }
+
+    free_mix(mix);
+    free_sound(sound);
 
     return 0;
 }
