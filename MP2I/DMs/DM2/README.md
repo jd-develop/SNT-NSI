@@ -1,4 +1,4 @@
-# VLC++
+# Générateur de fichiers WAV
 
 ## Instructions de compilation
 
