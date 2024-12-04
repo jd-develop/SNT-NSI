@@ -1,6 +1,7 @@
 rapport/*
-!rapport/rapport.tex
+!rapport/rapport.lytex
 !rapport/rapport.pdf
+!rapport/build_pdf.sh
 build/*
 !build/.gitkeep
 
