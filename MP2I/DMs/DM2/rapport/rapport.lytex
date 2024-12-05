@@ -130,8 +130,10 @@ deux en $\mathcal O(n)$ et une en $\mathcal O(n\max(l_1, \dots, l_n))$.
         Contient aussi la fonction \verb|write_int|.
 \end{enumerate}
 
+\begin{center}
 \begin{lilypond}[quote,fragment,staffsize=26]
     c'4 d' e'
 \end{lilypond}
+\end{center}
 
 \end{document}

@@ -2,6 +2,7 @@ rapport/*
 !rapport/rapport.lytex
 !rapport/rapport.pdf
 !rapport/build_pdf.sh
+!rapport/clean_tex.py
 build/*
 !build/.gitkeep
 
