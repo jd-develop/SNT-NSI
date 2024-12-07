@@ -1,0 +1,61 @@
+-1
+tempo 150
+2
+1 1
+
+34 sine
+0 blanche 0
+-9 croche 0.7
+-2 croche 0.7
+-5 croche 0.7
+-2 croche 0.7
+-9 croche 0.7
+-2 croche 0.7
+-5 croche 0.7
+-2 croche 0.7
+-7 croche 0.7
+-2 croche 0.7
+-4 croche 0.7
+-2 croche 0.7
+-9 croche 0.7
+-2 croche 0.7
+-5 croche 0.7
+-2 croche 0.7
+-9 croche 0.7
+0 croche 0.7
+-4 croche 0.7
+0 croche 0.7
+-9 croche 0.7
+-2 croche 0.7
+-5 croche 0.7
+-2 croche 0.7
+-10 croche 0.7
+-2 croche 0.7
+-7 croche 0.7
+-2 croche 0.7
+-9 croche 0.7
+-2 croche 0.7
+-5 croche 0.7
+-2 croche 0.7
+0 blanche 0
+
+19 sawtooth
+0 blanche 0
+3 blanche 0.7
+7 noire 0.7
+10 noire 0.8
+2 noirepointee 0.65
+3 doublecroche 0.7
+5 doublecroche 0.7
+3 noire 0.7
+0 noire 0
+12 blanche 0.7
+10 noire 0.7
+15 noire 0.8
+10 noire 0.7
+8 croche 0.6
+7 doublecroche 0.6
+8 doublecroche 0.6
+7 noire 0.7
+0 noire 0
+0 blanche 0

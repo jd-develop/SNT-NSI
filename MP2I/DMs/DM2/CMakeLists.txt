@@ -12,6 +12,7 @@ set(SRCS
     src/sound.c
     src/wav.c
     src/melody.c
+    src/new_melody.c
 )
 
 set (HEADERS
@@ -20,6 +21,7 @@ set (HEADERS
      src/wav.h
      src/melody.h
      src/constants.h
+     src/new_melody.h
 )
 
 add_executable(dm2 ${SRCS} ${HEADERS})

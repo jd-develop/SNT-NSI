@@ -1,0 +1,25 @@
+-1
+tempo 60
+1
+1
+
+18 sine
+0 noire 1
+1 noire 1
+2 triolet 1
+3 triolet 1
+4 triolet 1
+5 croche 1
+6 croche 1
+7 noire 1
+8 noire 1
+9 doublecroche 1
+10 doublecroche 1
+11 doublecroche 1
+12 doublecroche 1
+0 croche 1
+1 croche 1
+2 noire 1
+3 blanche 1
+4 ronde 1
+

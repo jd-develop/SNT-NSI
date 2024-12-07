@@ -2,24 +2,12 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <string.h>
-#include <math.h>
 #include "melody.h"
 #include "new_melody.h"
-#include "sound.h"
 #include "constants.h"
 
-float pitch_to_freq(int pitch) {
-    return 440 * pow(2, ((float)pitch)/12);
-}
-
-void test_pitch_to_freq() {
-    assert(pitch_to_freq(-12) == 220);
-    assert(pitch_to_freq(0) == 440);
-    assert(pitch_to_freq(12) == 880);
-}
-
-track_t* read_track(FILE* file) {
-    assert(file != NULL);
+track_t* new_load_track(FILE* fp, int tempo) {
+    assert(fp != NULL);
 
     // on alloue la mémoire nécessaire
     int n_notes;
@@ -28,13 +16,14 @@ track_t* read_track(FILE* file) {
     // on initialise toutes les variables
     int pitch;
     float freq;
+    char duree_str[50];
     float duree;
     float volume;
     int amplitude;
     sound_t* sound;
 
     // on commence par lire la première ligne
-    if (fscanf(file, "%d %s", &n_notes, instrument) == EOF) {
+    if (fscanf(fp, "%d %s", &n_notes, instrument) == EOF) {
         fprintf(
             stderr,
             "Erreur de lecture du fichier : nombre de notes et instrument "
@@ -59,7 +48,7 @@ track_t* read_track(FILE* file) {
 
     for (int i = 0; i < n_notes; i++) {
         // on lit une ligne
-        if (fscanf(file, "%d %f %f", &pitch, &duree, &volume) == EOF) {
+        if (fscanf(fp, "%d %s %f", &pitch, duree_str, &volume) == EOF) {
             fprintf(
                 stderr,
                 "Erreur : %d notes attendues, %d réellement lues\n",
@@ -69,6 +58,11 @@ track_t* read_track(FILE* file) {
         }
         freq = pitch_to_freq(pitch);
         amplitude = (int)(32767*volume);
+        duree = note_to_duree(duree_str, tempo);
+        if (duree == -1) {
+            fprintf(stderr, "Erreur : la note %s n’existe pas\n", duree_str);
+            return NULL;
+        }
 
         // on appelle la bonne fonction en fonction de l’instument
         switch (instrument_n) {
@@ -93,46 +87,35 @@ track_t* read_track(FILE* file) {
     return res;
 }
 
-char instrument_to_byte(char* instrument) {
-    char instrument_n;
-    if (strcmp(instrument, "sine") == 0) {
-        instrument_n = 's'; // sinus
-    } else if (strcmp(instrument, "square") == 0) {
-        instrument_n = 'c'; // carré
-    } else if (strcmp(instrument, "triangle") == 0) {
-        instrument_n = 't'; // triangle
-    } else if (strcmp(instrument, "sawtooth") == 0) {
-        instrument_n = 'd'; // dent de scie
-    } else {
-        fprintf(stderr, "Erreur, l’instrument « %s » n’existe pas !\n",
-                instrument);
-        return 0;
-    }
-    return instrument_n;
-}
+mix_t* new_load_mix(FILE* fp) {
+    assert(fp != NULL);
 
-mix_t* load_mix(char* filename) {
-    FILE* fp = fopen(filename, "r");
-    if (fp == NULL) {
-        fprintf(stderr, "Erreur lors de l’ouverture du fichier %s.\n",
-                filename);
-        fprintf(stderr, "Assurez-vous que le fichier existe et que vous avez "
-                        "les permissions suffisantes pour le lire.\n");
-        return NULL;
+    int tempo;
+    char* expected = "\ntempo";
+    char current;
+    for (int i = 0; i < 6; i++) {
+        if (fscanf(fp, "%c", &current) == EOF || current != expected[i]) {
+            fprintf(stderr, "Erreur de lecture du fichier : merci d’écrire "
+                            "« tempo » et de spécifier le tempo du morceau.\n");
+            fclose(fp);
+            return NULL;
+        }
     }
 
-    // on lit le nombre de pistes
-    int n_tracks;
-    if (fscanf(fp, "%d", &n_tracks) == EOF) {
-        fprintf(stderr, "Erreur de lecture du fichier : la première ligne "
-                        "doit être constituée du nombre de pistes (voix) du"
-                        "morceau.\n");
+    if (fscanf(fp, "%d", &tempo) == EOF) {
+        fprintf(stderr, "Erreur de lecture du fichier : merci d’écrire "
+                        "« tempo » et de spécifier le tempo du morceau.\n");
         fclose(fp);
         return NULL;
     }
 
-    if (n_tracks < 0) { // nouveau format de fichier : on passe la main
-        return new_load_mix(fp);
+    int n_tracks;
+    if (fscanf(fp, "%d", &n_tracks) == EOF) {
+        fprintf(stderr, "Erreur de lecture du fichier : la troisième ligne "
+                        "doit être constituée du nombre de pistes (voix) du"
+                        "morceau.\n");
+        fclose(fp);
+        return NULL;
     }
 
     float volume;
@@ -158,7 +141,7 @@ mix_t* load_mix(char* filename) {
 
     // on lit les pistes
     for (int i = 0; i < n_tracks; i++) {
-        trackp = read_track(fp);
+        trackp = new_load_track(fp, tempo);
         if (trackp == NULL) {
             fclose(fp);
             free(volumes);
@@ -179,3 +162,43 @@ mix_t* load_mix(char* filename) {
     fclose(fp);
     return mix;
 }
+
+float note_to_duree(char* note, int tempo) {
+    float duree_temps = 60.0/((float)tempo);
+    float temps;
+    if (strcmp(note, "ronde") == 0)
+        temps = 4;
+    else if (strcmp(note, "rondepointee") == 0)
+        temps = 6;
+    else if (strcmp(note, "blanche") == 0)
+        temps = 2;
+    else if (strcmp(note, "blanchepointee") == 0)
+        temps = 3;
+    else if (strcmp(note, "noire") == 0)
+        temps = 1;
+    else if (strcmp(note, "noirepointee") == 0)
+        temps = 1.5;
+    else if (strcmp(note, "croche") == 0)
+        temps = 0.5;
+    else if (strcmp(note, "crochepointee") == 0)
+        temps = 0.75;
+    else if (strcmp(note, "triolet") == 0)
+        temps = 0.333333333333;
+    else if (strcmp(note, "doublecroche") == 0)
+        temps = 0.25;
+    else if (strcmp(note, "doublecrochepointee") == 0)
+        temps = 0.375;
+    else if (strcmp(note, "triplecroche") == 0)
+        temps = 0.125;
+    else if (strcmp(note, "triplecrochepointee") == 0)
+        temps = 0.1875;
+    else if (strcmp(note, "quadruplecroche") == 0)
+        temps = 0.0625;
+    else if (strcmp(note, "quadruplecrochepointee") == 0)
+        temps = 0.09375;
+    else
+        return -1;
+
+    return temps*duree_temps;
+}
+
