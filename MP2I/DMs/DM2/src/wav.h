@@ -15,6 +15,9 @@ void test_write_int();
  * suppose que le fichier est correctement ouvert (f != NULL) */
 void write_header(FILE* f, int n);
 
+/* Teste la fonction write_header */
+void test_write_header();
+
 /* Écrit dans `filename` le fichier WAV correspondant au son `s`, en écrasant
  * les données existantes. Plante si `filename` n’est pas accessible en
  * écriture.

@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include <math.h>
+#include <assert.h>
 #include "sound.h"
 
 #define PI 3.1415926535897932384626
@@ -52,6 +53,37 @@ sound_t* reduce_track(track_t* t) {
         }
     }
     return res;
+}
+
+void test_reduce_track() {
+    track_t* t = malloc(sizeof(track_t));
+    sound_t* sound1 = malloc(sizeof(sound_t));
+    sound_t* sound2 = malloc(sizeof(sound_t));
+
+    sound1->n_samples = 2;
+    sound1->samples = malloc(2*sizeof(int16_t));
+    sound1->samples[0] = 1;
+    sound1->samples[1] = 2;
+
+    sound2->n_samples = 3;
+    sound2->samples = malloc(3*sizeof(int16_t));
+    sound2->samples[0] = 3;
+    sound2->samples[1] = 4;
+    sound2->samples[2] = 5;
+
+    t->n_sounds = 2;
+    t->sounds = malloc(2*sizeof(sound_t*));
+    t->sounds[0] = sound1;
+    t->sounds[1] = sound2;
+
+    sound_t* reduced = reduce_track(t);
+
+    assert(reduced->n_samples == 5);
+    for (int i = 0; i < 5; i++) {
+        assert(reduced->samples[i] == i+1);
+    }
+    free_track(t);
+    free_sound(reduced);
 }
 
 sound_t* reduce_mix(mix_t* t) {
@@ -120,6 +152,69 @@ sound_t* reduce_mix(mix_t* t) {
     free(sounds);
 
     return res;
+}
+
+void test_reduce_mix() {
+    mix_t* m = malloc(sizeof(mix_t));
+
+    track_t* t1 = malloc(sizeof(track_t));
+    sound_t* sound1 = malloc(sizeof(sound_t));
+    sound_t* sound2 = malloc(sizeof(sound_t));
+
+    sound1->n_samples = 2;
+    sound1->samples = malloc(2*sizeof(int16_t));
+    sound1->samples[0] = 1;
+    sound1->samples[1] = 2;
+
+    sound2->n_samples = 3;
+    sound2->samples = malloc(3*sizeof(int16_t));
+    sound2->samples[0] = 3;
+    sound2->samples[1] = 4;
+    sound2->samples[2] = 5;
+
+    t1->n_sounds = 2;
+    t1->sounds = malloc(2*sizeof(sound_t*));
+    t1->sounds[0] = sound1;
+    t1->sounds[1] = sound2;
+
+    track_t* t2 = malloc(sizeof(track_t));
+    sound_t* sound3 = malloc(sizeof(sound_t));
+    sound_t* sound4 = malloc(sizeof(sound_t));
+
+    sound3->n_samples = 1;
+    sound3->samples = malloc(1*sizeof(int16_t));
+    sound3->samples[0] = 3;
+
+    sound4->n_samples = 2;
+    sound4->samples = malloc(2*sizeof(int16_t));
+    sound4->samples[0] = 3;
+    sound4->samples[1] = 4;
+
+    t2->n_sounds = 2;
+    t2->sounds = malloc(2*sizeof(sound_t*));
+    t2->sounds[0] = sound3;
+    t2->sounds[1] = sound4;
+
+    m->n_tracks = 2;
+    m->vols = malloc(2*sizeof(float));
+    m->vols[0] = 1;
+    m->vols[1] = 2;
+    m->tracks = malloc(2*sizeof(track_t*));
+
+    m->tracks[0] = t1;
+    m->tracks[1] = t2;
+
+    sound_t* reduced = reduce_mix(m);
+
+    assert(reduced->n_samples == 5);
+    assert(reduced->samples[0] == 2); // (1+2×3)/3
+    assert(reduced->samples[1] == 2); // (2+2×3)/3
+    assert(reduced->samples[2] == 3); // (3+2×4)/3
+    assert(reduced->samples[3] == 1); // (4+2×0)/3
+    assert(reduced->samples[4] == 1); // (5+2×0)/3
+
+    free_mix(m);
+    free_sound(reduced);
 }
 
 sound_t* white(float duree, int f_ech) {

@@ -76,6 +76,38 @@ void write_header(FILE* f, int n) {
     write_int(f, 2*n, 4);
 }
 
+void test_write_header() {
+    FILE* fp = fopen("/tmp/dm2tests.write_header", "w");
+    assert(fp != NULL); // normalement on a toujours le droit d’écrire dans /tmp
+
+    write_header(fp, 3);
+
+    fclose(fp);
+
+    fp = fopen("/tmp/dm2tests.write_header", "r");
+    assert(fp != NULL);
+
+    uchar expected_bytes[44] = {
+        'R', 'I', 'F', 'F', 42, 0, 0, 0,
+        'W', 'A', 'V', 'E', 'f', 'm', 't', ' ',
+        16, 0, 0, 0,
+        0x1, 0x0, 0x1, 0x0,
+        0x44, 0xac, 0x0, 0x0,
+        0x88, 0x58, 0x1, 0x0,
+        2, 0,
+        16, 0,
+        'd', 'a', 't', 'a',
+        6, 0, 0, 0
+    };
+    uchar current;
+    for (int i = 0; i < 44; i++) {
+        assert(fscanf(fp, "%c", &current) != EOF);
+        assert(current == expected_bytes[i]);
+    }
+
+    fclose(fp);
+}
+
 int save_sound(char* filename, sound_t* s) {
     FILE* fp = fopen(filename, "w");
     if (fp == NULL) {

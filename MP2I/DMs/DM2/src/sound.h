@@ -33,6 +33,9 @@ void free_mix(mix_t* p);
 /* réduit une piste en un seul son */
 sound_t* reduce_track(track_t* t);
 
+/* teste la fonction reduce_track */
+void test_reduce_track();
+
 /*
  * Réduit un morceau en un seul son, en faisant la moyenne pondérée de chaque
  * échantillon en fonction du volume. Si un son est trop fort (autrement dit
@@ -41,6 +44,9 @@ sound_t* reduce_track(track_t* t);
  * dépassement par dessous) que peut prendre un entier 16 bits
  */
 sound_t* reduce_mix(mix_t* m);
+
+/* teste la fonction reduce_mix */
+void test_reduce_mix();
 
 /* génère un son de durée T dont tous les échantillons ont une valeur aléatoire
  * i.e. un bruit blanc
