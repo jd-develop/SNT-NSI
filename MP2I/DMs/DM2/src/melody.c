@@ -11,6 +11,12 @@ float pitch_to_freq(int pitch) {
     return 440 * pow(2, ((float)pitch)/12);
 }
 
+void test_pitch_to_freq() {
+    assert(pitch_to_freq(-12) == 220);
+    assert(pitch_to_freq(0) == 440);
+    assert(pitch_to_freq(12) == 880);
+}
+
 track_t* read_track(FILE* file) {
     assert(file != NULL);
 

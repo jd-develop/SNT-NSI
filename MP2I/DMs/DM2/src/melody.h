@@ -7,6 +7,9 @@
 /* Calcule et renvoie la fréquence de la note de hauteur `pitch` */
 float pitch_to_freq(int pitch);
 
+/* Teste la fonction pitch_to_freq */
+void test_pitch_to_freq();
+
 /*
  * Lit une piste dans le fichier file et la renvoie. Plante avec un message
  * d’erreur et renvoie NULL si le fichier n’est pas au bon format
