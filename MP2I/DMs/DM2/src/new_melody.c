@@ -59,6 +59,10 @@ track_t* new_load_track(FILE* fp, int tempo) {
             return NULL;
         }
         pitch = note_to_pitch(nom_note);
+        if (pitch == -10000) {
+            fprintf(stderr, "Erreur : la note %s n’existe pas\n", nom_note);
+            return NULL;
+        }
         freq = pitch_to_freq(pitch);
         amplitude = (int)(32767*volume);
         duree = note_to_duree(duree_str, tempo);
@@ -208,7 +212,7 @@ float note_to_duree(char* note, int tempo) {
 int note_to_pitch(char* note) {
     int pitch_central;
     if (strlen(note) < 2) {
-        return -10000 ;
+        return -10000;
     }
     int oct_start_idx; // l’index à lire après le nom de la note
 
