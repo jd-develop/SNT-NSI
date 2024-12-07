@@ -39,4 +39,26 @@ mix_t* new_load_mix(FILE* fp);
  */
 float note_to_duree(char* note, int tempo);
 
+/*
+ * Convertit le nom d’une note en pitch
+ * Renvoie -10000 si la note n’existe pas
+ * Pour former une note, on écrit son nom ('do', 're', 'mi', 'fa', 'sol', 'la',
+ * 'si'), suivi éventuellement d’une altération ('b' pour bémol et '#' pour
+ * dièse), puis suivi de l’octave : 0 pour l’octave central du piano (et
+ * contenant notemment le la 440), 1 pour l’octave au-dessus, -1 pour celui
+ * en dessous, etc.
+ *
+ * Par exemple :
+ * * 'la0' correspond au la 440
+ * * 'do0' correspond au do central
+ * * 'dob1' correspond au si de l’octave central (do bémol = si de l’octave
+ *                                                d’avant !)
+ * * 'la#-2' correspond au la dièse du deuxième octave en-dessous de l’octave
+ *   central
+ */
+int note_to_pitch(char* note);
+
+/* teste la fonction note_to_pitch */
+void test_note_to_pitch();
+
 #endif

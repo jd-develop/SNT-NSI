@@ -4,22 +4,22 @@ tempo 60
 1
 
 18 sine
-0 noire 1
-1 noire 1
-2 triolet 1
-3 triolet 1
-4 triolet 1
-5 croche 1
-6 croche 1
-7 noire 1
-8 noire 1
-9 doublecroche 1
-10 doublecroche 1
-11 doublecroche 1
-12 doublecroche 1
-0 croche 1
-1 croche 1
-2 noire 1
-3 blanche 1
-4 ronde 1
+do noire 1
+re noire 1
+mi triolet 1
+fa triolet 1
+sol triolet 1
+la croche 1
+si croche 1
+do1 noire 1
+si noire 1
+la doublecroche 1
+sol doublecroche 1
+fa doublecroche 1
+mi doublecroche 1
+re croche 1
+do croche 1
+re noire 1
+reb blanche 1
+do ronde 1
 
