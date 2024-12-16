@@ -4,7 +4,7 @@ tempo 130
 1 1 1 1 1
 
 
-71 sine
+151 sine
 la blanche 0
 
 do croche 0.7
@@ -88,6 +88,90 @@ sol-1 noire 0.7
 sol-2 noire 0.7
 la noire 0
 
+do# doublecroche 0.7
+re doublecroche 0.7
+do# doublecroche 0.7
+re doublecroche 0.7
+do# doublecroche 0.7
+re doublecroche 0.7
+do# doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+
+do doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+la-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+la-1 doublecroche 0.7
+re doublecroche 0.7
+
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+
+do doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+la-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+la-1 doublecroche 0.7
+re doublecroche 0.7
 
 17 sine
 la blanche 0
@@ -145,7 +229,7 @@ sol noire 0.7
 la blanche 0
 
 
-121 sawtooth
+155 sawtooth
 la blanche 0
 do1 blanche 0.7
 mi1 noire 0.7
@@ -275,3 +359,44 @@ re1 noire 0.7
 re1 noire 0.7
 sol noire 0.7
 la noire 0
+
+la ronde 0
+
+re2 croche 0.7
+si1 croche 0.7
+sol1 noirepointee 0.7
+la1 doublecroche 0.7
+si1 doublecroche 0.7
+la1 croche 0.7
+sol1 croche 0.7
+
+sol1 crochepointee 0.7
+fa#1 doublecroche 0.7
+fa#1 noire 0.7
+la blanche 0
+
+re2 croche 0.7
+si1 croche 0.7
+sol1 noirepointee 0.7
+la1 doublecroche 0.7
+si1 doublecroche 0.7
+la1 croche 0.7
+sol1 croche 0.7
+
+sol1 crochepointee 0.7
+fa#1 doublecroche 0.7
+fa#1 noire 0.7
+la blanche 0
+
+re2 noire 0.7
+la doublecroche 0
+re2 doublecroche 0.7
+si1 doublecroche 0.7
+sol1 doublecroche 0.7
+mi1 noire 0.7
+la doublecroche 0
+mi1 doublecroche 0.7
+sol1 doublecroche 0.7
+mi1 doublecroche 0.7
+
+do2 noire 0.7
