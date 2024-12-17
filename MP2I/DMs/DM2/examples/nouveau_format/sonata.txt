@@ -386,7 +386,7 @@ la ronde 0
 
 
 
-15 sawtooth
+15 triangle
 la blanche 0
 la ronde 0
 la ronde 0
@@ -404,7 +404,7 @@ si noire 0.7
 la blanche 0
 
 
-34 sawtooth
+34 triangle
 la blanche 0
 la ronde 0
 la ronde 0
@@ -441,7 +441,7 @@ sol1 noire 0.7
 la noire 0
 
 
-267 sawtooth
+267 triangle
 la blanche 0
 do1 blanche 0.7
 mi1 noire 0.7
