@@ -1,0 +1,31 @@
+-1
+tempo 120
+2
+1 1
+
+11 triangle
+re# croche 0.7
+la# croche 0.7
+re# noire 0.7
+la blanche 0
+
+do1 croche 0.7
+fa croche 0.7
+fa noire 0.7
+la blanche 0
+
+fa croche 0.7
+fa croche 0.7
+re# noire 0.7
+
+8 triangle
+la noire 0
+fa# noire 0.7
+la blanche 0
+
+la noire 0
+do# noire 0.7
+la blanche 0
+
+la noire 0
+do noire 0.7
