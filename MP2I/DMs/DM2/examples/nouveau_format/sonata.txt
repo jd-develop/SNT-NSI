@@ -441,23 +441,30 @@ sol1 noire 0.7
 la noire 0
 
 
-267 triangle
+280 triangle
 la blanche 0
+
 do1 blanche 0.7
 mi1 noire 0.7
 sol1 noire 0.8
+
 si noirepointee 0.65
 do1 doublecroche 0.7
 re1 doublecroche 0.7
 do1 noire 0.7
 la noire 0
+
 la1 blanche 0.7
 sol1 noire 0.7
 do2 noire 0.8
+
 sol1 noire 0.7
-fa1 croche 0.6
-mi1 doublecroche 0.6
-fa1 doublecroche 0.6
+fa1 triplecroche 0.7
+sol1 triplecroche 0.7
+fa1 triplecroche 0.7
+sol1 triplecroche 0.7
+mi1 doublecroche 0.7
+fa1 doublecroche 0.7
 mi1 noire 0.7
 
 la noire 0
@@ -582,7 +589,12 @@ si1 doublecroche 0.7
 la1 croche 0.7
 sol1 croche 0.7
 
-sol1 crochepointee 0.7
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
 fa#1 doublecroche 0.7
 fa#1 noire 0.7
 la blanche 0
@@ -595,7 +607,12 @@ si1 doublecroche 0.7
 la1 croche 0.7
 sol1 croche 0.7
 
-sol1 crochepointee 0.7
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
 fa#1 doublecroche 0.7
 fa#1 noire 0.7
 la blanche 0
