@@ -79,13 +79,17 @@ track_t* new_load_track(FILE* fp, int tempo) {
             );
             return NULL;
         }
+        if (strcmp(token, "#") == 0) { // commentaire
+            i--;  // on ne veut pas compter le commentaire comme une note
+            continue;
+        }
 
         strcpy(nom_note, token);
 
         token = strtok(NULL, " ");
-        if (token == NULL) {
-            /* Dans le cas où le deuxième lexème est nul, on a simplement un
-             * silence sur la ligne */
+        if (token == NULL || strcmp(token, "#") == 0) {
+            /* Dans le cas où le deuxième lexème est nul ou est un début de
+             * commentaire, on a simplement un silence sur la ligne */
             duree = silence_to_duree(nom_note, tempo);
             if (duree == -1) {
                 fprintf(
@@ -127,12 +131,14 @@ track_t* new_load_track(FILE* fp, int tempo) {
 
         token = strtok(NULL, " ");
         if (token != NULL) {
-            /* Il y a plus de choses sur la ligne : ce n’est pas normal… */
-            fprintf(
-                stderr,
-                "Erreur de syntaxe : trop de données sur une même ligne\n"
-            );
-            return NULL;
+            if (strcmp(token, "#") != 0) { // si ce n’est pas un commentaire
+                /* Il y a plus de choses sur la ligne : ce n’est pas normal… */
+                fprintf(
+                    stderr,
+                    "Erreur de syntaxe : trop de données sur une même ligne\n"
+                );
+                return NULL;
+            }
         }
 
         // on convertit la note en pitch…
