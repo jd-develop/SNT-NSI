@@ -16,6 +16,8 @@ track_t* new_load_track(FILE* fp, int tempo) {
 
     // on initialise toutes les variables
     int pitch;
+    char ligne_lue[150];
+    char* token;
     char nom_note[50];
     float freq;
     char duree_str[50];
@@ -50,21 +52,103 @@ track_t* new_load_track(FILE* fp, int tempo) {
 
     for (int i = 0; i < n_notes; i++) {
         // on lit une ligne
-        if (fscanf(fp, "%s %s %f", nom_note, duree_str, &volume) < 3) {
+        fgets(ligne_lue, 150, fp);
+
+        // on retire le retour-ligne de fin
+        ligne_lue[strcspn(ligne_lue, "\n")] = 0;
+        /* si la ligne est vide, on la passe, mais on ne veut pas incrémenter
+         * le compteur de notes */
+        if (strcmp(ligne_lue, "") == 0) {
+            i--;
+            continue;
+        }
+
+        // on utilise la fonction strtok pour découper la ligne en lexèmes
+        token = strtok(ligne_lue, " ");
+        /* la condition atoi(token) != 0 permet de vérifier si on n’est pas
+         * dans le cas où on déclare une nouvelle piste (car cela commence
+         * par un nombre : le nombre de notes)
+         */
+        if (token == NULL || atoi(token) != 0) {
             fprintf(
                 stderr,
+                /* ce message d’erreur est TRÈS utile quand on ne sais pas
+                 * combien de notes on a écrit */
                 "Erreur : %d notes attendues, %d réellement lues\n",
                 n_notes, i
             );
             return NULL;
         }
+
+        strcpy(nom_note, token);
+
+        token = strtok(NULL, " ");
+        if (token == NULL) {
+            /* Dans le cas où le deuxième lexème est nul, on a simplement un
+             * silence sur la ligne */
+            duree = silence_to_duree(nom_note, tempo);
+            if (duree == -1) {
+                fprintf(
+                    stderr, "Erreur : le silence %s n’existe pas\n", nom_note
+                );
+                return NULL;
+            }
+
+            sound = sine(440, 0, duree, FREQ_ECH);
+            res->sounds[i] = sound;
+            continue;
+        }
+        strcpy(duree_str, token);
+
+        token = strtok(NULL, " ");
+        if (token == NULL) {
+            // pas de volume
+            fprintf(
+                stderr, "Erreur de syntaxe : merci de préciser le volume\n"
+            );
+            return NULL;
+        }
+        volume = atof(token);
+
+        if (volume == 0.0) {
+            /* si atof renvoie 0, alors c’est soit vraiment 0 (auquel cas il
+             * vaut mieux utiliser un silence), soit ce n’est pas un flottant
+             * valide : dans les deux cas il suffit juste d’avertir
+             * l’utilisateur
+             */
+            fprintf(
+                stderr,
+                "Avertissement : le volume '%s' a été lu en 0. Le format du "
+                "volume est-il correct ? Pour faire des notes de volume 0, "
+                "merci d’utiliser les silences.\n",
+                token
+            );
+        }
+
+        token = strtok(NULL, " ");
+        if (token != NULL) {
+            /* Il y a plus de choses sur la ligne : ce n’est pas normal… */
+            fprintf(
+                stderr,
+                "Erreur de syntaxe : trop de données sur une même ligne\n"
+            );
+            return NULL;
+        }
+
+        // on convertit la note en pitch…
         pitch = note_to_pitch(nom_note);
         if (pitch == -10000) {
             fprintf(stderr, "Erreur : la note %s n’existe pas\n", nom_note);
             return NULL;
         }
+
+        // …et le pitch en fréquence
         freq = pitch_to_freq(pitch);
+
+        // on convertit le volume en amplitude
         amplitude = (int)(32767*volume);
+
+        // et le nom de la note en durée
         duree = note_to_duree(duree_str, tempo);
         if (duree == -1) {
             fprintf(stderr, "Erreur : la note %s n’existe pas\n", duree_str);
@@ -189,8 +273,6 @@ float note_to_duree(char* note, int tempo) {
         temps = 0.5;
     else if (strcmp(note, "crochepointee") == 0)
         temps = 0.75;
-    else if (strcmp(note, "triolet") == 0)
-        temps = 0.333333333333;
     else if (strcmp(note, "doublecroche") == 0)
         temps = 0.25;
     else if (strcmp(note, "doublecrochepointee") == 0)
@@ -203,10 +285,90 @@ float note_to_duree(char* note, int tempo) {
         temps = 0.0625;
     else if (strcmp(note, "quadruplecrochepointee") == 0)
         temps = 0.09375;
+    else if (strcmp(note, "quintuplecroche") == 0)
+        temps = 0.03125;
+    else if (strcmp(note, "quintuplecrochepointee") == 0)
+        temps = 0.046875;
+    else if (strcmp(note, "trioletderonde") == 0)
+        temps = 2.6666666666666666;
+    else if (strcmp(note, "trioletdeblanche") == 0)
+        temps = 1.3333333333333333;
+    else if (strcmp(note, "trioletdenoire") == 0)
+        temps = 0.6666666666666666;
+    else if (strcmp(note, "trioletdecroche") == 0)
+        temps = 0.3333333333333333;
+    else if (strcmp(note, "triolet") == 0)
+        temps = 0.3333333333333333;
+    else if (strcmp(note, "trioletdedoublecroche") == 0)
+        temps = 0.1666666666666666;
+    else if (strcmp(note, "trioletdetriplecroche") == 0)
+        temps = 0.0833333333333333;
+    else if (strcmp(note, "trioletdequadruplecroche") == 0)
+        temps = 0.04166666666666666;
+    else if (strcmp(note, "trioletdequintuplecroche") == 0)
+        temps = 0.02083333333333333;
     else
         return -1;
 
     return temps*duree_temps;
+}
+
+float silence_to_duree(char* silence, int tempo) {
+    char note_correspondante[50];
+
+    if (strcmp(silence, "pause") == 0)
+        strcpy(note_correspondante, "ronde");
+    else if (strcmp(silence, "pausepointee") == 0)
+        strcpy(note_correspondante, "rondepointee");
+    else if (strcmp(silence, "demipause") == 0)
+        strcpy(note_correspondante, "blanche");
+    else if (strcmp(silence, "demipausepointee") == 0)
+        strcpy(note_correspondante, "blanchepointee");
+    else if (strcmp(silence, "soupir") == 0)
+        strcpy(note_correspondante, "noire");
+    else if (strcmp(silence, "soupirpointe") == 0)
+        strcpy(note_correspondante, "noirepointee");
+    else if (strcmp(silence, "demisoupir") == 0)
+        strcpy(note_correspondante, "croche");
+    else if (strcmp(silence, "demisoupirpointe") == 0)
+        strcpy(note_correspondante, "crochepointee");
+    else if (strcmp(silence, "quartdesoupir") == 0)
+        strcpy(note_correspondante, "doublecroche");
+    else if (strcmp(silence, "quartdesoupirpointe") == 0)
+        strcpy(note_correspondante, "doublecrochepointee");
+    else if (strcmp(silence, "huitiemedesoupir") == 0)
+        strcpy(note_correspondante, "triplecroche");
+    else if (strcmp(silence, "huitiemedesoupirpointe") == 0)
+        strcpy(note_correspondante, "triplecrochepointee");
+    else if (strcmp(silence, "seiziemedesoupir") == 0)
+        strcpy(note_correspondante, "quadruplecroche");
+    else if (strcmp(silence, "seiziemedesoupirpointe") == 0)
+        strcpy(note_correspondante, "quadruplecrochepointee");
+    else if (strcmp(silence, "trentedeuxiemedesoupir") == 0)
+        strcpy(note_correspondante, "quintuplecroche");
+    else if (strcmp(silence, "trentedeuxiemedesoupirpointe") == 0)
+        strcpy(note_correspondante, "quintuplecrochepointee");
+
+    else if (strcmp(silence, "trioletdepause") == 0)
+        strcpy(note_correspondante, "trioletderonde");
+    else if (strcmp(silence, "trioletdedemipause") == 0)
+        strcpy(note_correspondante, "trioletdeblanche");
+    else if (strcmp(silence, "trioletdesoupir") == 0)
+        strcpy(note_correspondante, "trioletdenoire");
+    else if (strcmp(silence, "trioletdedemisoupir") == 0)
+        strcpy(note_correspondante, "trioletdecroche");
+    else if (strcmp(silence, "trioletdequartdesoupir") == 0)
+        strcpy(note_correspondante, "trioletdedoublecroche");
+    else if (strcmp(silence, "trioletdehuitiemedesoupir") == 0)
+        strcpy(note_correspondante, "trioletdetriplecroche");
+    else if (strcmp(silence, "trioletdeseiziemedesoupir") == 0)
+        strcpy(note_correspondante, "trioletdequadruplecroche");
+    else if (strcmp(silence, "trioletdetrentedeuxiemedesoupir") == 0)
+        strcpy(note_correspondante, "trioletdequintuplecroche");
+    else
+        return -1;
+
+    return note_to_duree(note_correspondante, tempo);
 }
 
 int note_to_pitch(char* note) {

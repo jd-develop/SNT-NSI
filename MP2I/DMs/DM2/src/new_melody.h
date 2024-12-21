@@ -16,9 +16,11 @@ track_t* new_read_track(FILE* fp, int tempo);
  */
 mix_t* new_load_mix(FILE* fp);
 
+
 /*
- * Convertit une note str en durée en temps, d’après un certain tempo (à la
- * noire)
+ * Convertit une chaîne de caractère `note` représentant la longueur d’une note
+ * en durée (en temps), d’après un certain tempo (à la noire)
+ * La longueur maximale du nom d’une note est de 24 caractères
  * Renvoie -1 si la note n’existe pas
  * Supporte :
  * * 'ronde' : 4 temps
@@ -26,18 +28,63 @@ mix_t* new_load_mix(FILE* fp);
  * * 'blanche' : 2 temps
  * * 'blanchepointee' : 3 temps
  * * 'noire' : 1 temps
- * * 'noirepointee' : 2 temps
+ * * 'noirepointee' : 3/2 temps
  * * 'croche': 1/2 temps
  * * 'crochepointee' : 3/4 temps
- * * 'triolet' : 1/3 temps
  * * 'doublecroche' : 1/4 temps
  * * 'doublecrochepointee' : 3/8 temps
  * * 'triplecroche' : 1/8 temps
  * * 'triplecrochepointee' : 3/16 temps
  * * 'quadruplecroche' : 1/16 temps
  * * 'quadruplecrochepointee' : 3/32 temps
+ * * 'quintuplecroche' : 1/32 temps
+ * * 'quituplecrochepointee' : 3/64 temps
+ *
+ * * 'trioletderonde' : 8/3 de temps
+ * * 'trioletdeblanche' : 1/3 de ronde = 4/3 de temps
+ * * 'trioletdenoire' : 1/3 de blanche = 2/3 de temps
+ * * 'trioletdecroche' : 1/3 noire = 1/3 de temps
+ * * 'triolet' : alias de 'trioletdecroche'
+ * * 'trioletdedoublecroche' : 1/3 de croche = 1/6 de temps
+ * * 'trioletdetriplecroche' : 1/3 de double croche = 1/12 de temps
+ * * 'trioletdequadruplecroche' : 1/3 de triple croche = 1/24 de temps
+ * * 'trioletdequintuplecroche' : 1/3 de quadruple croche = 1/48 de temps
  */
 float note_to_duree(char* note, int tempo);
+
+/*
+ * Convertit une chaîne de caractère `silence` (représentant la longueur d’un
+ * silence) en durée (en temps), d’après un certain tempo (à la noire)
+ * La longueur maximale du nom d’un silence est de 31 caractères
+ * Renvoie -1 si le silence n’existe pas
+ * Supporte :
+ * * 'pause' : 4 temps
+ * * 'pausepoitee' : 6 temps
+ * * 'demipause' : 2 temps
+ * * 'demipausepointee' : 3 temps
+ * * 'soupir' : 1 temps
+ * * 'soupirpointe' : 3/2 temps
+ * * 'demisoupir': 1/2 temps
+ * * 'demisoupirpointe' : 3/4 temps
+ * * 'quartdesoupircroche' : 1/4 temps
+ * * 'quartdesoupirpointe' : 3/8 temps
+ * * 'huitiemedesoupir' : 1/8 temps
+ * * 'huitiemedesoupirpointe' : 3/16 temps
+ * * 'seiziemedesoupir' : 1/16 temps
+ * * 'seiziemedesoupirpointe' : 3/32 temps
+ * * 'trentedeuxiemedesoupir' : 1/32 temps
+ * * 'trentedeuxiemedesoupirpointe' : 3/64 temps
+ *
+ * * 'trioletdepause' : 8/3 de temps
+ * * 'trioletdedemipause' : 1/3 de ronde = 4/3 de temps
+ * * 'trioletdesoupir' : 1/3 de blanche = 2/3 de temps
+ * * 'trioletdedemisoupir' : 1/3 noire = 1/3 de temps
+ * * 'trioletdequartdesoupir' : 1/3 de croche = 1/6 de temps
+ * * 'trioletdehuitiemedesoupir' : 1/3 de double croche = 1/12 de temps
+ * * 'trioletdeseiziemedesoupir' : 1/3 de triple croche = 1/24 de temps
+ * * 'trioletdetrentedeuxiemedesoupir' : 1/3 de quadruple croche = 1/48 de temps
+ */
+float silence_to_duree(char* silence, int tempo);
 
 /*
  * Convertit le nom d’une note en pitch
