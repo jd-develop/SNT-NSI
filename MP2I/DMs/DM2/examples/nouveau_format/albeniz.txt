@@ -1,0 +1,119 @@
+-1
+tempo 100
+5
+1 1 1 1 1
+
+30 triangle
+la-2 triplecroche 1
+mi-1 triplecroche 1
+la-1 triplecroche 1
+do# triplecroche 1
+mi triplecroche 1
+la triplecroche 1
+do#1 triplecroche 1
+la1 blanche 0.4
+
+demisoupir
+do# trioletdedoublecroche 0.5
+mi trioletdedoublecroche 0.5
+la trioletdedoublecroche 0.5
+la-1 croche 0.5
+
+quartdesoupir
+re doublecroche 0.5
+quartdesoupir
+re doublecroche 0.5
+quartdesoupir
+re doublecroche 0.5
+
+demisoupir
+do# trioletdedoublecroche 0.5
+mi trioletdedoublecroche 0.5
+la trioletdedoublecroche 0.5
+la-1 croche 0.5
+
+quartdesoupir
+re doublecroche 0.5
+quartdesoupir
+re doublecroche 0.5
+quartdesoupir
+re doublecroche 0.5
+
+17 triangle
+demisoupirpointe
+huitiemedesoupir
+demipause
+soupirpointe
+
+quartdesoupir
+sib-1 doublecroche 0.5
+quartdesoupir
+sib-1 doublecroche 0.5
+quartdesoupir
+sib-1 doublecroche 0.5
+
+soupirpointe
+
+quartdesoupir
+sib-1 doublecroche 0.5
+quartdesoupir
+sib-1 doublecroche 0.5
+quartdesoupir
+sib-1 doublecroche 0.5
+
+11 triangle
+demisoupirpointe
+huitiemedesoupir
+demipause
+soupirpointe
+
+demisoupirpointe
+mi doublecroche 0.5
+demisoupir
+
+soupirpointe
+
+demisoupirpointe
+mi doublecroche 0.5
+demisoupir
+
+
+17 sine
+demisoupirpointe
+huitiemedesoupir
+demipause
+
+la-2 noirepointee 0.7
+
+fa-1 doublecroche 0.7
+quartdesoupir
+sol-1 doublecroche 0.7
+quartdesoupir
+mi-1 doublecroche 0.7
+quartdesoupir
+
+la-2 noirepointee 0.7
+
+fa-1 doublecroche 0.7
+quartdesoupir
+sol-1 doublecroche 0.7
+quartdesoupir
+mi-1 doublecroche 0.7
+quartdesoupir
+
+
+9 sine
+demisoupirpointe
+huitiemedesoupir
+demipause
+
+demisoupir
+mi-1 noire 0.7
+
+soupirpointe
+
+demisoupir
+mi-1 noire 0.7
+
+soupirpointe
+

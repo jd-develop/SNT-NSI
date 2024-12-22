@@ -52,7 +52,16 @@ track_t* new_load_track(FILE* fp, int tempo) {
 
     for (int i = 0; i < n_notes; i++) {
         // on lit une ligne
-        fgets(ligne_lue, 150, fp);
+        if (fgets(ligne_lue, 150, fp) == NULL) {
+            fprintf(
+                stderr,
+                /* ce message d’erreur est TRÈS utile quand on ne sais pas
+                 * combien de notes on a écrit */
+                "Erreur : %d notes attendues, %d réellement lues\n",
+                n_notes, i
+            );
+            return NULL;
+        }
 
         // on retire le retour-ligne de fin
         ligne_lue[strcspn(ligne_lue, "\n")] = 0;
