@@ -6,6 +6,9 @@
 \usepackage{pgf}
 \usepackage{listings}
 \usepackage{hyperref}
+%\usepackage{pdfpages}
+\usepackage{musicography}
+\usepackage{decimalcomma}  % package by Antoine Missier <3
 
 % \usepackage{siunitx}
 %\usepackage{array}
@@ -114,10 +117,20 @@ La complexité de la fonction \verb|reduce_mix| est de l’ordre de
 $\mathcal O(n+n\max(l_1, \dots, l_n))$ car elle contient trois boucles\nbsp:
 deux en $\mathcal O(n)$ et une en $\mathcal O(n\max(l_1, \dots, l_n))$.
 
-\section{Description}
+\section{Description des fichiers}
 
-\subsection{Description des fichiers}
+\subsection{Description des fichiers sans fonctionnalité supplémentaire}
+À part \verb|main.c| qui se situe à la racine, tous les fichiers \verb|.c| et
+\verb|.h| se situent dans \verb|src/|. Voici la description de la structure
+du projet\nbsp:
+
 \begin{enumerate}
+    \item \verb|src/constants.h|\nbsp: fichier de header contenant toutes les
+        constantes utilisées par plusieurs fichiers. En réalité, ce fichier ne
+        contient que la constante \verb|FREQ_ECH| contenant la valeur de la
+        fréquence d’échantillonage.
+    \item \verb|src/melody.c|\nbsp: permet de lire un fichier contenant une
+        musique.
     \item \verb|src/run_tests.c|\nbsp: la fonction exécutant tous les tests
         du programme. Cette fonction est appelée par \verb|main.c|.
         Note au passage\nbsp: ce programme ne peut tourner que sur des machines
@@ -125,15 +138,162 @@ deux en $\mathcal O(n)$ et une en $\mathcal O(n\max(l_1, \dots, l_n))$.
         à cause du fait que \verb|src/run_tests.c| écrit des fichiers dans
         \verb|/tmp|.
     \item \verb|src/sound.c|\nbsp: fichier lié à la gestion des sons
-        (\verb|sound_t|)
-    \item \verb|src/wav.c|\nbsp: fichier chargé d’écrire les fichiers WAV.
-        Contient aussi la fonction \verb|write_int|.
+        (\verb|sound_t|)\nbsp: de la création avec les fonctions des différents
+        signaux à la réduction de plusieurs sons en un seul.
+    \item \verb|src/wav.c|\nbsp: fichier chargé d’écrire les fichiers WAV\nbsp:
+        le header et chacun des échantillons d’un son. Contient aussi la
+        fonction \verb|write_int|.
 \end{enumerate}
+
+\subsection{Description des fichiers avec fonctionnalité supplémentaire}
+Par rapport à la version sans fonctionnalité supplémentaire, un seul fichier
+a été créé\nbsp: \verb|new_melody.c|, qui contient le code nécessaire pour la
+lecture du nouveau format (cf. plus loin). Le fichier \verb|melody.c| a été
+modifié pour détecter quel format est utilisé et donc quelle fonction appeler.
+
+\section{Description de la fonctionnalité supplémentaire}
+
+Ma fonctionnalité supplémentaire permet l’utilisation d’un nouveau format de
+fichier plus intuitif, permettant d’écrire le nom et la durée des notes en
+toutes lettres. L’ancien format est toujours compatible.
+
+\subsection{Nouveau format de fichier}
+\subsubsection{Header}
+Pour garantir la compatibilité avec l’ancien format et pour permettre de
+distinguer l’ancien et le nouveau format, \textbf{le nouveau format de fichier
+commence par une ligne contenant un nombre négatif} (ce nombre correspond au
+nombre de pistes de l’ancien format).
+
+La deuxième ligne correspond au \textbf{tempo du morceau}, en battement par
+minute (à la noire).
+Par exemple, un tempo de $\musQuarter{}=96$ sera transcrit par le header
+suivant\nbsp:
+
+\begin{lstlisting}
+-1
+tempo 96
+\end{lstlisting}
+
+La ligne suivante contient le nombre de pistes du morceau, et la ligne d’après
+contient le volume de chaque piste. Par exemple, le fichier \verb|sonata.txt|,
+de tempo $\musQuarter{} = 130$ et contenant six pistes, commence ainsi\nbsp:
+
+\begin{lstlisting}
+-1
+tempo 130
+6
+1 1 1 1 1 1
+\end{lstlisting}
+
+\subsubsection{Piste}
+Chaque piste commence, comme dans l’ancien format, avec le nombre de notes
+et l’instrument utilisé. Les instruments sont les mêmes que dans l’ancien
+format\nbsp: \verb|sine|, \verb|square|, \verb|sawtooth| et \verb|triangle|.
+
+Par exemple, une piste de signal carré comprenant 26 notes commence ainsi\nbsp:
+
+\begin{lstlisting}
+26 square
+\end{lstlisting}
+
+Cependant, contrairement à l’ancien format, les notes ne sont plus au format
+pitch, durée et volume.
+
+\subsubsection{Notes}
+Une ligne transcrivant une note est composé du \textbf{nom de la note}, de
+\textbf{sa durée par rapport au tempo} et de \textbf{son volume}.
+
+\paragraph{Nom de la note} Le nom d’une note est composé de 3 parties (dont deux
+optionnelles). D’abord, son nom à proprement parler, parmi \verb|do|, \verb|re|,
+\verb|mi|, \verb|fa|, \verb|sol|, \verb|la|, \verb|si|. Ensuite, il est possible
+d’indiquer une altération, parmi \verb|b| (pour bémol) et \verb|#| (pour dièse).
+Enfin, il convient d’indiquer l’octave de la note. L’octave 0 correspond au
+centre du piano (donc \verb|do0| correspond au do central), l’octave 1 à
+l’octave au-dessus, l’octave -1 à l’octave en-dessous, etc. \textit{Note\nbsp:
+en termes de} pitch\textit{, ajouter une octave correspond à ajouter 12. De
+plus, la note de} pitch \textit{0 est le la central, i.e. le la de l’octave 0}.
+Il n’est pas utile de préciser l’octave si l’octave est 0. Par exemple,
+la portée suivante\nbsp:
 
 \begin{center}
 \begin{lilypond}[quote,fragment,staffsize=26]
-    c'4 d' e'
+    a4 bis c' d' e' f' g' ais' b' ces'' d'' eis''
 \end{lilypond}
 \end{center}
+
+sera transcrite par les notes \verb|la-1|, \verb|si#-1|, \verb|do|, \verb|re|,
+\verb|mi|, \verb|fa|, \verb|sol|, \verb|la#|, \verb|si|, \verb|dob1|,
+\verb|re1|, \verb|mi#1|. Une remarque au passage\nbsp: une note dièse correspond
+à la note suivante bémol, excepté le mi dièse qui correspond au fa (donc le fa
+bémol correspond au mi), et de même pour de si dièse qui correspond au do.
+Ainsi, la portée précédente pouvait aussi, de façon équivalente, être transcrite
+par les notes \verb|la-1|, \verb|do|, \verb|do|, \verb|re|, \verb|mi|,
+\verb|fa|, \verb|sol|, \verb|sib|, \verb|si|, \verb|si|, \verb|re1|,
+\verb|fa1|.
+En termes de \textit{pitch}, altérer une note correspond à ajouter (dièse) ou
+soustraire (bémol) 1 au \textit{pitch}.
+
+\paragraph{Durée de la note} La durée d’une note est écrite en toutes lettres et
+est dépendante du tempo. Les notes disponibles sont\nbsp:
+
+\begin{enumerate}
+    \item \verb|ronde| (\musWhole{}). Durée\nbsp: $4$ temps.
+    \item \verb|blanche| (\musHalf{}). Durée\nbsp: $2$ temps.
+    \item \verb|noire| (\musQuarter{}). Durée\nbsp: $1$ temps.
+    \item \verb|croche| (\musCorchea{}). Durée\nbsp: $\frac12$ temps.
+    \item \verb|doublecroche| (\musSixteenth{}). Durée\nbsp: $\frac14$ temps.
+    \item \verb|triplecroche| (\musThirtySecond{}). Durée\nbsp: $\frac18$ temps.
+    \item \verb|quadruplecroche| (\musSixtyFourth{}). Durée\nbsp: $\frac1{16}$ temps.
+    \item \verb|quintuplecroche| ({\musFlaggedNote{\symbol{7}}{\symbol{44}}}). Durée\nbsp: $\frac1{32}$ temps.
+\end{enumerate}
+
+Les variantes pointées sont également disponibles. Pointer une note lui ajoute
+la moitié de sa durée ($\times 1,5$). Voici la liste des variantes
+pointées\nbsp:
+
+\begin{enumerate}
+    \setcounter{enumi}{8}
+    \item \verb|rondepointee| (\musWholeDotted{}). Durée\nbsp: $6$ temps.
+    \item \verb|blanchepointee| (\musHalfDotted{}). Durée\nbsp: $3$ temps.
+    \item \verb|noirepointee| (\musQuarterDotted{}). Durée\nbsp: $\frac32$ temps.
+    \item \verb|crochepointee| (\musCorcheaDotted{}). Durée\nbsp: $\frac34$ temps.
+    \item \verb|doublecrochepointee| (\musSixteenthDotted{}). Durée\nbsp: $\frac38$ temps.
+    \item \verb|triplecrochepointee| (\musThirtySecondDotted{}). Durée\nbsp: $\frac3{16}$ temps.
+    \item \verb|quadruplecrochepointee| (\musSixtyFourthDotted{}). Durée\nbsp: $\frac3{32}$ temps.
+    \item \verb|quintuplecrochepointee| ({\musDottedNote{\musFlaggedNote{\symbol{7}}{\symbol{44}}}}). Durée\nbsp: $\frac3{64}$ temps.
+\end{enumerate}
+
+Enfin, les triolets sont égalements disponibles. Un triolet d’une
+certaine note vaut un tiers de la note directement supérieure (par exemple un
+triolet de croche vaut un tiers de noire). En voici la liste\nbsp:
+
+\begin{enumerate}
+    \setcounter{enumi}{16}
+    \item \verb|trioletderonde|. Durée\nbsp: $\frac83$ temps.
+    \item \verb|trioletdeblanche|. Durée\nbsp: $\frac43$ temps.
+    \item \verb|trioletdenoire|. Durée\nbsp: $\frac23$ temps.
+    \item \verb|trioletdecroche|. Durée\nbsp: $\frac13$ temps.
+    \item \verb|triolet|. Alias de \verb|trioletdecroche|.
+    \item \verb|trioletdedoublecroche|. Durée\nbsp: $\frac16$ temps.
+    \item \verb|trioletdetriplecroche|. Durée\nbsp: $\frac1{12}$ temps.
+    \item \verb|trioletdequadruplecroche|. Durée\nbsp: $\frac1{24}$ temps.
+    \item \verb|trioletdequintuplecroche|. Durée\nbsp: $\frac1{48}$ temps.
+\end{enumerate}
+
+\paragraph{Volume} Enfin, la note est suivie de son volume, comme dans l’ancien
+format. Le volume est un flottant entre 0 et 1.
+
+\paragraph{Exemple} Par exemple, la portée suivante\nbsp:
+
+\begin{center}
+\begin{lilypond}[quote,fragment,staffsize=26]
+    \cadenzaOn
+    \autoBeamOn
+    c'1 d'2 \tuplet 3/2 {e'2 eis' ees'} \tuplet 3/2 {f'4 4 4}
+    \tuplet 3/2 {a'8[ 8 8]}
+\end{lilypond}
+\end{center}
+
+% \includepdf[pages={1-2},scale=1]{/home/jddev/Bureau/KV545.pdf}
 
 \end{document}
