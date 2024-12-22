@@ -132,7 +132,7 @@ track_t* new_load_track(FILE* fp, int tempo) {
             /* le volume doit être compris entre 0 et 1 */
             fprintf(
                 stderr,
-                "Erreur : le volume '%s' est invalide, car il n’est pas "
+                "Erreur : le volume '%f' est invalide, car il n’est pas "
                 "compris entre 0 et 1.\n",
                 volume
             );
