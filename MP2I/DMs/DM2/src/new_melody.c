@@ -128,6 +128,16 @@ track_t* new_load_track(FILE* fp, int tempo) {
                 token
             );
         }
+        if (volume < 0 || volume > 1) {
+            /* le volume doit être compris entre 0 et 1 */
+            fprintf(
+                stderr,
+                "Erreur : le volume '%s' est invalide, car il n’est pas "
+                "compris entre 0 et 1.\n",
+                volume
+            );
+            return NULL;
+        }
 
         token = strtok(NULL, " ");
         if (token != NULL) {
