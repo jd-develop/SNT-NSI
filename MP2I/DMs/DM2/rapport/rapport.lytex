@@ -6,24 +6,16 @@
 \usepackage{pgf}
 \usepackage{listings}
 \usepackage{hyperref}
-%\usepackage{pdfpages}
 \usepackage{musicography}
 \usepackage{decimalcomma}  % package by Antoine Missier <3
 
-% \usepackage{siunitx}
-%\usepackage{array}
-%\usepackage{graphicx}
-%\usepackage{subcaption}
-%\usepackage{float}
-% \usepackage{tikz}
-% \usetikzlibrary{babel}
-% \usetikzlibrary{trees}
-% \usetikzlibrary{arrows}
-% \usepackage{circuitikz}
-% \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt
+\usepackage{graphicx}
+\usepackage{float}
 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage{lmodern}
 \usepackage[T1]{fontenc} % Use 8-bit encoding
+\usepackage[babel=true]{microtype}
 
 \usepackage{geometry} % Required for adjusting page dimensions and margins
 \geometry{
@@ -151,14 +143,14 @@ a été créé\nbsp: \verb|new_melody.c|, qui contient le code nécessaire pour 
 lecture du nouveau format (cf. plus loin). Le fichier \verb|melody.c| a été
 modifié pour détecter quel format est utilisé et donc quelle fonction appeler.
 
-\section{Description de la fonctionnalité supplémentaire}
+\section{Description de la fonctionnalité supplémentaire\nbsp: nouveau format
+de fichier}
 
 Ma fonctionnalité supplémentaire permet l’utilisation d’un nouveau format de
 fichier plus intuitif, permettant d’écrire le nom et la durée des notes en
 toutes lettres. L’ancien format est toujours compatible.
 
-\subsection{Nouveau format de fichier}
-\subsubsection{Header}
+\subsection{Header}
 Pour garantir la compatibilité avec l’ancien format et pour permettre de
 distinguer l’ancien et le nouveau format, \textbf{le nouveau format de fichier
 commence par une ligne contenant un nombre négatif} (ce nombre correspond au
@@ -175,8 +167,9 @@ tempo 96
 \end{lstlisting}
 
 La ligne suivante contient le nombre de pistes du morceau, et la ligne d’après
-contient le volume de chaque piste. Par exemple, le fichier \verb|sonata.txt|,
-de tempo $\musQuarter{} = 130$ et contenant six pistes, commence ainsi\nbsp:
+contient le volume de chaque piste. Par exemple, le fichier
+\verb|examples/nouveau_format/sonata.txt|, de tempo $\musQuarter{} = 130$ et
+contenant six pistes, commence ainsi\nbsp:
 
 \begin{lstlisting}
 -1
@@ -185,7 +178,7 @@ tempo 130
 1 1 1 1 1 1
 \end{lstlisting}
 
-\subsubsection{Piste}
+\subsection{Piste}
 Chaque piste commence, comme dans l’ancien format, avec le nombre de notes
 et l’instrument utilisé. Les instruments sont les mêmes que dans l’ancien
 format\nbsp: \verb|sine|, \verb|square|, \verb|sawtooth| et \verb|triangle|.
@@ -290,10 +283,306 @@ format. Le volume est un flottant entre 0 et 1.
     \cadenzaOn
     \autoBeamOn
     c'1 d'2 \tuplet 3/2 {e'2 eis' ees'} \tuplet 3/2 {f'4 4 4}
-    \tuplet 3/2 {a'8[ 8 8]}
+    \tuplet 3/2 {a'8[ 8 8]} b'128.
 \end{lilypond}
 \end{center}
 
-% \includepdf[pages={1-2},scale=1]{/home/jddev/Bureau/KV545.pdf}
+sera transcrite par les notes suivantes (avec un volume de 1 à chaque
+fois)\nbsp:
+\begin{lstlisting}
+do ronde 1
+re blanche 1
+mi trioletdeblanche 1
+mi# trioletdeblanche 1
+mib trioletdeblanche 1
+fa trioletdenoire 1
+fa trioletdenoire 1
+fa trioletdenoire 1
+la triolet 1
+la triolet 1
+la triolet 1
+si quintuplecrochepointee 1
+\end{lstlisting}
+
+\subsubsection{Silences}
+Dans l’ancien format, pour faire un silence, on devait créer une note de volume
+0. Dans le nouveau format, il suffit simplement d’écrire le nom du silence
+sur une ligne. Voici les noms disponibles\nbsp:
+
+\begin{enumerate}
+    \item \verb|pause| (\musSymbol{0.05em}{0.5ex}{1.35em}{\symbol{10}}). Durée\nbsp: $4$ temps.
+    \item \verb|demipause| (\musSymbol{0.05em}{0.5ex}{1.35em}{\symbol{11}}). Durée\nbsp: $2$ temps.
+    \item \verb|soupir| (\musSymbol{0.05em}{-1ex}{1em}{\symbol{62}}). Durée\nbsp: $1$ temps.
+    \item \verb|demisoupir| (\musSymbol{0.05em}{-1ex}{1em}{\symbol{63}}). Durée\nbsp: $\frac12$ temps.
+    \item \verb|quartdesoupir| (\musSymbol{0.05em}{-1ex}{1em}{\symbol{64}}). Durée\nbsp: $\frac14$ temps.
+    \item \verb|huitiemedesoupir| (\musSymbol{0.05em}{-1ex}{1em}{\symbol{65}}). Durée\nbsp: $\frac18$ temps.
+    \item \verb|seiziemedesoupir| (\musSymbol{0.05em}{-1ex}{1em}{\symbol{66}}). Durée\nbsp: $\frac1{16}$ temps.
+    \item \verb|trentedeuxiemedesoupir| (j’atteint les limites de mon package de musique en termes de symboles). Durée\nbsp: $\frac1{32}$ temps.
+\end{enumerate}
+
+Les versions pointées sont également disponibles\nbsp:
+
+\begin{enumerate}
+    \setcounter{enumi}{8}
+    \item \verb|pausepointee| (\musDottedNote{\musSymbol{0.05em}{0.5ex}{1.35em}{\symbol{10}}}). Durée\nbsp: $6$ temps.
+    \item \verb|demipausepointee| (\musDottedNote{\musSymbol{0.05em}{0.5ex}{1.35em}{\symbol{11}}}). Durée\nbsp: $3$ temps.
+    \item \verb|soupirpointe| (\musDottedNote{\musSymbol{0.05em}{-1ex}{1em}{\symbol{62}}}). Durée\nbsp: $\frac32$ temps.
+    \item \verb|demisoupirpointe| (\musDottedNote{\musSymbol{0.05em}{-1ex}{1em}{\symbol{63}}}). Durée\nbsp: $\frac34$ temps.
+    \item \verb|quartdesoupirpointe| (\musDottedNote{\musSymbol{0.05em}{-1ex}{1em}{\symbol{64}}}). Durée\nbsp: $\frac38$ temps.
+    \item \verb|huitiemedesoupirpointe| (\musDottedNote{\musSymbol{0.05em}{-1ex}{1em}{\symbol{65}}}). Durée\nbsp: $\frac3{16}$ temps.
+    \item \verb|seiziemedesoupirpointe| (\musDottedNote{\musSymbol{0.05em}{-1ex}{1em}{\symbol{66}}}). Durée\nbsp: $\frac3{32}$ temps.
+    \item \verb|trentedeuxiemedesoupirpointe| (\verb|\insererIciUnTrenteDeuxiemeDeSoupirPointe{}|). Durée\nbsp: $\frac3{64}$ temps.
+\end{enumerate}
+
+Les triolets sont encore et toujours disponibles\nbsp:
+
+\begin{enumerate}
+    \setcounter{enumi}{16}
+    \item \verb|trioletdepause|. Durée\nbsp: $\frac83$ temps.
+    \item \verb|trioletdedemipause|. Durée\nbsp: $\frac43$ temps.
+    \item \verb|trioletdesoupir|. Durée\nbsp: $\frac23$ temps.
+    \item \verb|trioletdedemisoupir|. Durée\nbsp: $\frac13$ temps.
+    \item \verb|trioletdequartdesoupir|. Durée\nbsp: $\frac16$ temps.
+    \item \verb|trioletdehuitiemedesoupir|. Durée\nbsp: $\frac1{12}$ temps.
+    \item \verb|trioletdeseiziemedesoupir|. Durée\nbsp: $\frac1{24}$ temps.
+    \item \verb|trioletdetrentedeuxiemedesoupir|. Durée\nbsp: $\frac1{48}$ temps.
+\end{enumerate}
+
+\subsubsection{Commentaires}
+Dans le nouveau format, il est possible d’insérer des commentaires à l’intérieur
+des pistes (attention, \textbf{il n’est pas possible d’en mettre à
+l’extérieur}\nbsp!). Les commentaires commencent par un \verb|#| suivi d’une
+espace. Par exemple\nbsp:
+
+\begin{lstlisting}
+2 sine
+# commentaire
+trioletdedemisoupir  # autre commentaire
+do-1 quadruplecrochepointee  # encore un autre commentaire
+\end{lstlisting}
+
+\subsection{Accords}
+Pour faire des accords, il faut recourir à la méthode des pistes
+supplémentaires. Par exemple, la portée suivante\nbsp:
+
+\begin{center}
+\begin{lilypond}[quote,fragment,staffsize=26]
+    \tempo 4 = 120
+    c'4 <c' e'> <c' e' g'> <c' e' g' c''>
+\end{lilypond}
+\end{center}
+
+devra être retranscrite comme suit\nbsp:
+
+\begin{lstlisting}
+-1
+tempo 120
+4
+1 1 1 1
+
+4 sine
+do noire 1
+do noire 1
+do noire 1
+do noire 1
+
+4 sine
+soupir
+mi noire 1
+mi noire 1
+mi noire 1
+
+3 sine
+demipause
+sol noire 1
+sol noire 1
+
+2 sine
+demipausepointee
+do1 noire 1
+\end{lstlisting}
+
+\subsection{Exemple récapitulatif}
+À titre d’illustration, voici une petite partition\footnote{Isaac Albéniz,
+\textit{Rumores de la Caleta}, Op. 71, No. 6, 1887}\nbsp:
+
+\begin{figure}[H]
+    \centering
+        \includegraphics[width=1\textwidth]{../albeniz.png}
+\end{figure}
+
+Et voici sa rentranscription (approximative)\nbsp:
+\begin{lstlisting}
+-1
+tempo 100
+5
+1 1 1 1 1
+
+41 triangle
+la-2 triplecroche 1
+mi-1 triplecroche 1
+la-1 triplecroche 1
+do# triplecroche 1
+mi triplecroche 1
+la triplecroche 1
+do#1 triplecroche 1
+la1 noire 0.4  # une blanche ne sonnait pas tres bien, j'ai prefere mettre une
+               # noire et un soupir
+soupir
+
+demisoupir
+do# trioletdedoublecroche 0.5
+mi trioletdedoublecroche 0.5
+la trioletdedoublecroche 0.5
+la-1 croche 0.5
+
+quartdesoupir
+re doublecroche 0.5
+quartdesoupir
+re doublecroche 0.5
+quartdesoupir
+re doublecroche 0.5
+
+demisoupir
+do# trioletdedoublecroche 0.5
+mi trioletdedoublecroche 0.5
+la trioletdedoublecroche 0.5
+la-1 croche 0.5
+
+quartdesoupir
+re doublecroche 0.5
+quartdesoupir
+re doublecroche 0.5
+quartdesoupir
+re doublecroche 0.5
+
+demisoupir
+do# trioletdedoublecroche 0.5
+mi trioletdedoublecroche 0.5
+la trioletdedoublecroche 0.5
+la-1 croche 0.5
+
+# les notes sont censees etre piquees, donc je les raccourcis
+demisoupir
+re doublecrochepointee 0.5
+huitiemedesoupir
+re doublecrochepointee 0.5
+huitiemedesoupir
+
+
+
+21 triangle
+demisoupirpointe
+huitiemedesoupir
+demipause
+soupirpointe
+
+quartdesoupir
+sib-1 doublecroche 0.5
+quartdesoupir
+sib-1 doublecroche 0.5
+quartdesoupir
+sib-1 doublecroche 0.5
+
+soupirpointe
+
+quartdesoupir
+sib-1 doublecroche 0.5
+quartdesoupir
+sib-1 doublecroche 0.5
+quartdesoupir
+sib-1 doublecroche 0.5
+
+soupirpointe
+
+demisoupir
+sib-1 croche 0.5
+mi croche 0.5
+
+
+13 triangle
+demisoupirpointe
+huitiemedesoupir
+demipause
+soupirpointe
+
+demisoupirpointe
+mi doublecroche 0.5
+demisoupir
+
+soupirpointe
+
+demisoupirpointe
+mi doublecroche 0.5
+demisoupir
+
+soupirpointe
+soupirpointe
+
+
+
+27 triangle
+demisoupirpointe
+huitiemedesoupir
+demipause
+
+la-2 noirepointee 0.5
+
+fa-1 doublecroche 0.5
+quartdesoupir
+sol-1 doublecroche 0.5
+quartdesoupir
+mi-1 doublecroche 0.5
+quartdesoupir
+
+la-2 noirepointee 0.5
+
+fa-1 doublecroche 0.5
+quartdesoupir
+sol-1 doublecroche 0.5
+quartdesoupir
+mi-1 doublecroche 0.5
+quartdesoupir
+
+la-2 noirepointee 0.5
+
+# creshendo
+re-1 trioletdedoublecroche 0.5
+mi-1 trioletdedoublecroche 0.6
+fa-1 trioletdedoublecroche 0.7
+sol-1 trioletdedoublecroche 0.75
+la-1 trioletdedoublecroche 0.8
+sib-1 trioletdedoublecroche 0.9
+# decreshendo
+do trioletdedoublecroche 0.8
+sib-1 trioletdedoublecroche 0.7
+la-1 trioletdedoublecroche 0.5
+
+
+11 triangle
+demisoupirpointe
+huitiemedesoupir
+demipause
+
+demisoupir
+mi-1 noire 0.5
+
+soupirpointe
+
+demisoupir
+mi-1 noire 0.5
+
+soupirpointe
+
+demisoupir
+mi-1 noire 0.5
+\end{lstlisting}
+
+\subsection{Autres exemples}
+Le dossier \verb|examples/nouveau_format/| contient également d’autres
+exemples\nbsp: \verb|tests.txt| contenant quelques tests basiques,
+\verb|sbbcffffs.txt| contenant le jingle des CFF (Chemins de Fers Fédéraux
+suisses), et enfin \verb|sonata.txt|, contenant une version plus longue de la
+sonate KV545 de Mozart.
 
 \end{document}

@@ -3,7 +3,7 @@ tempo 100
 5
 1 1 1 1 1
 
-30 triangle
+41 triangle
 la-2 triplecroche 1
 mi-1 triplecroche 1
 la-1 triplecroche 1
@@ -11,7 +11,9 @@ do# triplecroche 1
 mi triplecroche 1
 la triplecroche 1
 do#1 triplecroche 1
-la1 blanche 0.4
+la1 noire 0.4  # une blanche ne sonnait pas très bien, j’ai préféré mettre une
+               # noire et un soupir
+soupir
 
 demisoupir
 do# trioletdedoublecroche 0.5
@@ -39,7 +41,22 @@ re doublecroche 0.5
 quartdesoupir
 re doublecroche 0.5
 
-17 triangle
+demisoupir
+do# trioletdedoublecroche 0.5
+mi trioletdedoublecroche 0.5
+la trioletdedoublecroche 0.5
+la-1 croche 0.5
+
+# les notes sont censées être piquées, donc je les raccourcis
+demisoupir
+re doublecrochepointee 0.5
+huitiemedesoupir
+re doublecrochepointee 0.5
+huitiemedesoupir
+
+
+
+21 triangle
 demisoupirpointe
 huitiemedesoupir
 demipause
@@ -60,60 +77,88 @@ quartdesoupir
 sib-1 doublecroche 0.5
 quartdesoupir
 sib-1 doublecroche 0.5
+
+soupirpointe
+
+demisoupir
+sib-1 croche 0.5
+mi croche 0.5
+
+
+13 triangle
+demisoupirpointe
+huitiemedesoupir
+demipause
+soupirpointe
+
+demisoupirpointe
+mi doublecroche 0.5
+demisoupir
+
+soupirpointe
+
+demisoupirpointe
+mi doublecroche 0.5
+demisoupir
+
+soupirpointe
+soupirpointe
+
+
+
+27 triangle
+demisoupirpointe
+huitiemedesoupir
+demipause
+
+la-2 noirepointee 0.5
+
+fa-1 doublecroche 0.5
+quartdesoupir
+sol-1 doublecroche 0.5
+quartdesoupir
+mi-1 doublecroche 0.5
+quartdesoupir
+
+la-2 noirepointee 0.5
+
+fa-1 doublecroche 0.5
+quartdesoupir
+sol-1 doublecroche 0.5
+quartdesoupir
+mi-1 doublecroche 0.5
+quartdesoupir
+
+la-2 noirepointee 0.5
+
+# creshendo
+re-1 trioletdedoublecroche 0.5
+mi-1 trioletdedoublecroche 0.6
+fa-1 trioletdedoublecroche 0.7
+sol-1 trioletdedoublecroche 0.75
+la-1 trioletdedoublecroche 0.8
+sib-1 trioletdedoublecroche 0.9
+# decreshendo
+do trioletdedoublecroche 0.8
+sib-1 trioletdedoublecroche 0.7
+la-1 trioletdedoublecroche 0.5
+
 
 11 triangle
 demisoupirpointe
 huitiemedesoupir
 demipause
-soupirpointe
-
-demisoupirpointe
-mi doublecroche 0.5
-demisoupir
-
-soupirpointe
-
-demisoupirpointe
-mi doublecroche 0.5
-demisoupir
-
-
-17 sine
-demisoupirpointe
-huitiemedesoupir
-demipause
-
-la-2 noirepointee 0.7
-
-fa-1 doublecroche 0.7
-quartdesoupir
-sol-1 doublecroche 0.7
-quartdesoupir
-mi-1 doublecroche 0.7
-quartdesoupir
-
-la-2 noirepointee 0.7
-
-fa-1 doublecroche 0.7
-quartdesoupir
-sol-1 doublecroche 0.7
-quartdesoupir
-mi-1 doublecroche 0.7
-quartdesoupir
-
-
-9 sine
-demisoupirpointe
-huitiemedesoupir
-demipause
 
 demisoupir
-mi-1 noire 0.7
+mi-1 noire 0.5
 
 soupirpointe
 
 demisoupir
-mi-1 noire 0.7
+mi-1 noire 0.5
 
 soupirpointe
+
+demisoupir
+mi-1 noire 0.5
 

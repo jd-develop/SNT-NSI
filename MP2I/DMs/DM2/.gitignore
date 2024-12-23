@@ -3,6 +3,7 @@ rapport/*
 !rapport/rapport.pdf
 !rapport/build_pdf.sh
 !rapport/clean_tex.py
+!rapport/albeniz.png
 build/*
 !build/.gitkeep
 
