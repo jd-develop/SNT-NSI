@@ -5,9 +5,10 @@
 \usepackage{zref-totpages}
 \usepackage{pgf}
 \usepackage{listings}
-\usepackage{hyperref}
+\usepackage[hyperfootnotes=false]{hyperref}
 \usepackage{musicography}
 \usepackage{decimalcomma}  % package by Antoine Missier <3
+\usepackage{titlesec}
 
 \usepackage{graphicx}
 \usepackage{float}
@@ -51,15 +52,18 @@
     showspaces=false,
     showstringspaces=false,
     showtabs=false,
-    tabsize=4
+    tabsize=4,
 }
 
+%\usepackage{inconsolata}
 \lstset{
     style=mystyle,
-    inputencoding = utf8  % Input encoding
+    inputencoding = utf8,
+    extendedchars=true,
+    literate={ê}{{\^e}}1 {é}{{\'e}}1 {à}{{\`a}}1,
 }
 
-\hypersetup{colorlinks=true, urlcolor=blue}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=black}
 
 \renewcommand{\thesection}{\Roman{section}}
 \renewcommand{\thesubsubsection}{\alph{subsubsection})}
@@ -85,6 +89,7 @@
 
 \begin{document}
 \maketitle{}
+\tableofcontents
 
 \section{Questions}
 \paragraph{Q1.}
@@ -361,6 +366,24 @@ trioletdedemisoupir  # autre commentaire
 do-1 quadruplecrochepointee  # encore un autre commentaire
 \end{lstlisting}
 
+En revanche, ceci n’est pas valide\nbsp:
+\begin{lstlisting}
+-1
+tempo 120  # ce commentaire est en-dehors d'une piste
+1
+1
+
+# ce commentaire également
+
+2 sine
+# ce commentaire est valide
+trioletdedemisoupir  # celui-ci aussi
+do-1 quadruplecrochepointee  # de même pour celui-là
+
+# mais pas lui (le programme a lu les deux notes de la piste, donc la piste est
+# finie à ce stade du fichier)
+\end{lstlisting}
+
 \subsection{Accords}
 Pour faire des accords, il faut recourir à la méthode des pistes
 supplémentaires. Par exemple, la portée suivante\nbsp:
@@ -403,12 +426,12 @@ do1 noire 1
 \end{lstlisting}
 
 \subsection{Exemple récapitulatif}
-À titre d’illustration, voici une petite partition\footnote{Isaac Albéniz,
-\textit{Rumores de la Caleta}, Op. 71, No. 6, 1887}\nbsp:
+À titre d’illustration, voici une petite partition\footnote{Extrait de Isaac
+Albéniz, \textit{Rumores de la Caleta}, Op. 71, No. 6, 1887}\nbsp:
 
 \begin{figure}[H]
     \centering
-        \includegraphics[width=1\textwidth]{../albeniz.png}
+        \includegraphics[width=0.8\textwidth]{../albeniz.png}
 \end{figure}
 
 Et voici sa rentranscription (approximative)\nbsp:
@@ -426,7 +449,7 @@ do# triplecroche 1
 mi triplecroche 1
 la triplecroche 1
 do#1 triplecroche 1
-la1 noire 0.4  # une blanche ne sonnait pas tres bien, j'ai prefere mettre une
+la1 noire 0.4  # une blanche ne sonnait pas tres bien, j'ai préféré mettre une
                # noire et un soupir
 soupir
 
@@ -462,7 +485,7 @@ mi trioletdedoublecroche 0.5
 la trioletdedoublecroche 0.5
 la-1 croche 0.5
 
-# les notes sont censees etre piquees, donc je les raccourcis
+# les notes sont censées etre piquées, donc je les raccourcis
 demisoupir
 re doublecrochepointee 0.5
 huitiemedesoupir
@@ -579,10 +602,58 @@ mi-1 noire 0.5
 \end{lstlisting}
 
 \subsection{Autres exemples}
-Le dossier \verb|examples/nouveau_format/| contient également d’autres
-exemples\nbsp: \verb|tests.txt| contenant quelques tests basiques,
-\verb|sbbcffffs.txt| contenant le jingle des CFF (Chemins de Fers Fédéraux
-suisses), et enfin \verb|sonata.txt|, contenant une version plus longue de la
-sonate KV545 de Mozart.
+Le dossier \verb|examples/nouveau_format/|, en plus de \verb|albeniz.txt|
+qui est l’exemple ci-dessus, contient également d’autres exemples\nbsp:
+\verb|tests.txt| contenant quelques tests basiques, \verb|sbbcffffs.txt|
+contenant le jingle des CFF (Chemins de Fers Fédéraux suisses), et enfin
+\verb|sonata.txt|, contenant une version plus longue de la sonate KV545 de
+Mozart.
+
+\subsection{Limitations}
+Cette fonctionnalité supplémentaire souffre de quelques défauts.
+Entre autres, il est impossible de faire des notes de durée non conventionelle
+(comme des notes liées). Par exemple, dans la sonata, on peut lire à la mesure
+23, sur la portée de la main droite\nbsp:
+
+\begin{center}
+\begin{lilypond}[quote,fragment,staffsize=26]
+    \override Tie.color = "red"
+    gis''16( a''8.)~ a''8 b''32( a'' gis'' a'' c'''8 a'') c'''( a'')
+\end{lilypond}
+\end{center}
+
+Ici, la liaison de tenue (en rouge) impose une note durant autant qu’une croche
+pointée et une croche combinées, soit un temps et quart. Cette durée n’étant pas
+disponible dans le nouveau format, on est obligés de faire deux notes séparées,
+comme suit\nbsp:
+
+\begin{lstlisting}
+sol#1 doublecroche 0.7
+# ici, la note est censée durer autant que une croche pointée + une croche
+# (liaison), ce qui est impossible à faire avec mon programme...
+la1 crochepointee 0.7
+la1 croche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+sol#1 triplecroche 0.7
+la1 triplecroche 0.7
+do2 croche 0.7
+la1 croche 0.7
+do2 croche 0.7
+la1 croche 0.7
+\end{lstlisting}
+
+Cela ne pose pas de problème tel quel, mais peut commencer à être un problème
+si le programme est modifié pour permettre l’ADSR (car la note doublée
+s’entendra).
+
+\section{Fioritures}
+Le dossier contient également le fichier \verb|morse_to_dm2.py|, qui, comme
+son nom l’indique, convertit une phrase en morse puis dans (l’ancien) format
+de fichier (toujours compatible). Deux exemples de phrases se trouvent dans
+\verb|examples/|, sous les noms \verb|morse.txt| et \verb|morse2.txt|
+\footnote{Pour les déchiffrer, il existe des outils en ligne, par exemple
+\href{https://morsecode.world/international/decoder/audio-decoder-adaptive.html}
+{ce site web}.}.
 
 \end{document}

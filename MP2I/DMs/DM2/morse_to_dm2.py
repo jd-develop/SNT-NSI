@@ -39,8 +39,24 @@ ALPHABET_MORSE_INTERNATIONAL = {
     "7": "--...",
     "8": "---..",
     "9": "----.",
+    ".": ".-.-.-",
+    "&": ".-...",
+    "'": ".----.",
+    "’": ".----.",
+    "@": ".--.-.",
+    ")": "-.--.-",
+    "(": "-.--.",
+    ":": "---...",
+    ",": "--..--",
+    "=": "-...-",
+    "-": "-....-",
+    "×": "-..-",
+    "+": ".-.-.",
+    "\"": ".-..-.",
+    "?": "..--..",
+    "/": "-..-."
 }
-DUREE_POINT = 0.1
+DUREE_POINT = 0.06
 
 def main():
     if len(sys.argv) != 2:
@@ -48,7 +64,7 @@ def main():
         return
 
     phrase = input("Phrase à coder en morse : ")
-    phrase = phrase.upper()
+    phrase = phrase.upper().replace("%", "0/0")  # en morse, % est codé par 0/0…
 
     notes: list[tuple[int, int]] = []  # (0|1, durée par rapport à la durée d’un point)
     for c in phrase:

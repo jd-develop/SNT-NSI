@@ -674,7 +674,10 @@ si doublecroche 0.7
 do1 crochepointee 0.7
 re#1 doublecroche 0.7
 mi1 crochepointee 0.7
+
 sol#1 doublecroche 0.7
+# ici, la note est censée durer autant que une croche pointée + une croche
+# (liaison), ce qui est impossible à faire avec mon programme…
 la1 crochepointee 0.7
 la1 croche 0.7
 si1 triplecroche 0.7
