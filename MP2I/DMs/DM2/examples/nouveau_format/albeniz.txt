@@ -3,7 +3,7 @@ tempo 100
 5
 1 1 1 1 1
 
-41 triangle
+41 triangleadsr
 la-2 triplecroche 1
 mi-1 triplecroche 1
 la-1 triplecroche 1
@@ -56,7 +56,7 @@ huitiemedesoupir
 
 
 
-21 triangle
+21 triangleadsr
 demisoupirpointe
 huitiemedesoupir
 demipause
@@ -85,7 +85,8 @@ sib-1 croche 0.5
 mi croche 0.5
 
 
-13 triangle
+
+13 triangleadsr
 demisoupirpointe
 huitiemedesoupir
 demipause
@@ -106,7 +107,7 @@ soupirpointe
 
 
 
-27 triangle
+27 triangleadsr
 demisoupirpointe
 huitiemedesoupir
 demipause
@@ -144,7 +145,7 @@ sib-1 trioletdedoublecroche 0.7
 la-1 trioletdedoublecroche 0.5
 
 
-11 triangle
+11 triangleadsr
 demisoupirpointe
 huitiemedesoupir
 demipause

@@ -1,6 +1,7 @@
 #ifndef SOUND
 #define SOUND
 #include <stdint.h>
+#include <stdbool.h>
 
 /* structure représentant un son */
 typedef struct sound {
@@ -53,25 +54,33 @@ void test_reduce_mix();
  */
 sound_t* white(float duree, int f_ech);
 
-/* crée et renvoie un son sinusoïdal de fréquence freq, d’amplitude amplitude,
- * de durée duree, et de fréquence d’échantillonage f_ech
- */
-sound_t* sine(float freq, int amplitude, float duree, int f_ech);
+/* Renvoit la valeur de l’enveloppe ADSR entre 0 et 1 au temps i pour un son
+ * de durnée totale n et de fréquence d’échantillonage f_ech */
+float enveloppe_adsr(int i, int n, int f_ech);
 
-/* crée et renvoie un son en créneau de fréquence freq, d’amplitude amplitude,
- * de durée duree, et de fréquence d’échantillonage f_ech
+/* crée et renvoit un son sinusoïdal de fréquence freq, d’amplitude amplitude,
+ * de durée duree, et de fréquence d’échantillonage f_ech. Si adsr est à true,
+ * crée une enveloppe ADSR
  */
-sound_t* square(float freq, int amplitude, float duree, int f_ech);
+sound_t* sine(float freq, int amplitude, float duree, int f_ech, bool adsr);
 
-/* crée et renvoie un son en triangle de fréquence freq, d’amplitude amplitude,
- * de durée duree, et de fréquence d’échantillonage f_ech
+/* crée et renvoit un son en créneau de fréquence freq, d’amplitude amplitude,
+ * de durée duree, et de fréquence d’échantillonage f_ech. Si adsr est à true,
+ * crée une enveloppe ADSR
  */
-sound_t* triangle(float freq, int amplitude, float duree, int f_ech);
+sound_t* square(float freq, int amplitude, float duree, int f_ech, bool adsr);
 
-/* crée et renvoie un son en dent de scie de fréquence freq, d’amplitude
- * amplitude, de durée duree, et de fréquence d’échantillonage f_ech
+/* crée et renvoit un son en triangle de fréquence freq, d’amplitude amplitude,
+ * de durée duree, et de fréquence d’échantillonage f_ech. Si adsr est à true,
+ * crée une enveloppe ADSR
  */
-sound_t* sawtooth(float freq, int amplitude, float duree, int f_ech);
+sound_t* triangle(float freq, int amplitude, float duree, int f_ech, bool adsr);
+
+/* crée et renvoit un son en dent de scie de fréquence freq, d’amplitude
+ * amplitude, de durée duree, et de fréquence d’échantillonage f_ech. Si adsr
+ * est à true, crée une enveloppe ADSR
+ */
+sound_t* sawtooth(float freq, int amplitude, float duree, int f_ech, bool adsr);
 
 #endif
 

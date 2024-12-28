@@ -3,31 +3,33 @@ tempo 120
 2
 1 1
 
-12 triangle
+
+12 triangleadsr
 soupir
 
 re# croche 0.7
 la# croche 0.7
-re# noire 0.7
-demipause
+re# blanche 0.7
+soupir
 
 do1 croche 0.7
 fa croche 0.7
-fa noire 0.7
-demipause
+fa blanche 0.7
+soupir
 
 fa croche 0.7
 fa croche 0.7
-re# noire 0.7
+re# blanche 0.7
 
-8 triangle
+
+8 triangleadsr
 demipause
-fa# noire 0.7
-demipause
+fa# blanche 0.7
+soupir
 
 soupir
-do# noire 0.7
-demipause
+do# blanche 0.7
+soupir
 
 soupir
-do noire 0.7
+do blanche 0.7

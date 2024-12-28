@@ -13,10 +13,14 @@ void test_pitch_to_freq();
 /* Convertit un nom d’instrument en octet. Renvoie 0 et affiche un message
  * d’erreur si l’instrument n’existe pas.
  * Renvoie :
- * * 's' pour un sinus
- * * 'c' pour un carré
- * * 't' pour un triangle
- * * 'd' pour un signal en dents de scie
+ * * 's' pour un sinus (sinus)
+ * * 'S' pour un sinus avec enveloppe ADSR (sinusadsr)
+ * * 'c' pour un carré (square)
+ * * 'C' pour un carré avec enveloppe ADSR (squareadsr)
+ * * 't' pour un triangle (triangle)
+ * * 'T' pour un triangle avec enveloppe ADSR (triangleadsr)
+ * * 'd' pour un signal en dents de scie (sawtooth)
+ * * 'D' pour un signal en dents de scie avec enveloppe ADSR (sawtoothadsr)
  */
 char instrument_to_byte(char* instrument);
 

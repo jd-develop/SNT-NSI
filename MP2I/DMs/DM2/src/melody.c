@@ -73,16 +73,28 @@ track_t* read_track(FILE* file) {
         // on appelle la bonne fonction en fonction de l’instument
         switch (instrument_n) {
             case 's':
-                sound = sine(freq, amplitude, duree, FREQ_ECH);
+                sound = sine(freq, amplitude, duree, FREQ_ECH, false);
                 break;
             case 'c':
-                sound = square(freq, amplitude, duree, FREQ_ECH);
+                sound = square(freq, amplitude, duree, FREQ_ECH, false);
                 break;
             case 't':
-                sound = triangle(freq, amplitude, duree, FREQ_ECH);
+                sound = triangle(freq, amplitude, duree, FREQ_ECH, false);
                 break;
             case 'd':
-                sound = sawtooth(freq, amplitude, duree, FREQ_ECH);
+                sound = sawtooth(freq, amplitude, duree, FREQ_ECH, false);
+                break;
+            case 'S':
+                sound = sine(freq, amplitude, duree, FREQ_ECH, true);
+                break;
+            case 'C':
+                sound = square(freq, amplitude, duree, FREQ_ECH, true);
+                break;
+            case 'T':
+                sound = triangle(freq, amplitude, duree, FREQ_ECH, true);
+                break;
+            case 'D':
+                sound = sawtooth(freq, amplitude, duree, FREQ_ECH, true);
                 break;
         }
 
@@ -103,6 +115,14 @@ char instrument_to_byte(char* instrument) {
         instrument_n = 't'; // triangle
     } else if (strcmp(instrument, "sawtooth") == 0) {
         instrument_n = 'd'; // dent de scie
+    } else if (strcmp(instrument, "sineadsr") == 0) {
+        instrument_n = 'S'; // sinus ADSR
+    } else if (strcmp(instrument, "squareadsr") == 0) {
+        instrument_n = 'C'; // carré ADSR
+    } else if (strcmp(instrument, "triangleadsr") == 0) {
+        instrument_n = 'T'; // triangle ADSR
+    } else if (strcmp(instrument, "sawtoothadsr") == 0) {
+        instrument_n = 'D'; // dent de scie ADSR
     } else {
         fprintf(stderr, "Erreur, l’instrument « %s » n’existe pas !\n",
                 instrument);

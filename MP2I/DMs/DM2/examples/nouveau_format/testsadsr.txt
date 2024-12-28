@@ -3,7 +3,7 @@ tempo 60
 1
 1
 
-18 sine
+18 sineadsr
 do noire 1
 re noire 1
 mi triolet 1

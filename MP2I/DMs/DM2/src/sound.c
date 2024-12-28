@@ -236,7 +236,56 @@ sound_t* white(float duree, int f_ech) {
     return res;
 }
 
-sound_t* sine(float freq, int amplitude, float duree, int f_ech) {
+float enveloppe_adsr(int i, int n, int f_ech) {
+    float duree_ecoulee = ((float)i)/f_ech;
+    float temps_attack = 0.05;
+    float temps_decay = 0.1;
+    float temps_sustain;
+    /* enlever 0.5 à un son court ou 0.05 à un son long sonne bizarre, donc
+     * c’est en fonction de la durée du son
+     */
+    if (((float)n)/f_ech < 1) {
+        temps_sustain = ((float)n)/f_ech - 0.05;
+    } else {
+        temps_sustain = ((float)n)/f_ech - 0.5;
+    }
+    float temps_release = ((float)n)/f_ech;
+    if (duree_ecoulee < temps_attack) {  // attack
+        /* on souhaite qu’entre le temps 0 et temps_attack×f_ech, l’enveloppe
+         * varie entre 0 et 1, c’est-à-dire une pente de 1/(temps_attack×f_ech).
+         */
+        return ((float)i/(temps_attack*f_ech));
+    } else if (duree_ecoulee < temps_decay) {  // decay
+        /* on soite qu’entre le temps temps_attack×f_ech et temps_decay×f_ech,
+         * l’enveloppe varie entre 1 et 0.8, c’est-à-dire une pente de
+         * -0.2/(temps_decay-temps_attack)×f_ech.
+         * L’ordonnée à l’origine est, quand à elle, de -temps_decay×f_ech
+         * multipliée par la pente plus 0.8.
+         */
+        return (
+            -(0.2*i)/((temps_decay-temps_attack)*f_ech) +
+            0.2*(temps_decay/(temps_decay-temps_attack)) +
+            0.8
+        );
+    } else if (duree_ecoulee < temps_sustain) {  // sustain
+        return 0.8;
+    } else if (duree_ecoulee < temps_release) {  // release
+        /* on souhaite qu’entre le temps temps_sustain*f_ech et
+         * temps_release×f_ech, l’enveloppe varie entre 0.8 et 0, c’est-à-dire
+         * une pente de -0.8/((temps_release-temps_sustain)*f_ech). L’ordonnée à
+         * l’origine est, quand à elle, de -temps_release*f_ech multipliée par
+         * la pente.
+         */
+        return (
+            -(0.8*i)/((temps_release-temps_sustain)*f_ech) +
+            0.8*(temps_release/(temps_release-temps_sustain))
+        );
+    } else {
+        return 0;
+    }
+}
+
+sound_t* sine(float freq, int amplitude, float duree, int f_ech, bool adsr) {
     int n = (int)f_ech*duree;
 
     // on alloue la mémoire pour stocker le son
@@ -249,13 +298,16 @@ sound_t* sine(float freq, int amplitude, float duree, int f_ech) {
 
     for (int i = 0; i < n; i++) {
         u = amplitude * sin(i*w);
-        res->samples[i] = u;
+        if (adsr)
+            res->samples[i] = u * enveloppe_adsr(i, n, f_ech);
+        else
+            res->samples[i] = u;
     }
 
     return res;
 }
 
-sound_t* square(float freq, int amplitude, float duree, int f_ech) {
+sound_t* square(float freq, int amplitude, float duree, int f_ech, bool adsr) {
     int n = (int)f_ech*duree;
 
     // on alloue la mémoire pour stocker le son
@@ -269,13 +321,17 @@ sound_t* square(float freq, int amplitude, float duree, int f_ech) {
     for (int i = 0; i < n; i++) {
         // on prend le signe du sinus, i.e. le sinus sur sa valeur absolue
         u = amplitude * (sin(i*w)/fabs(sin(i*w)));
-        res->samples[i] = u;
+        if (adsr)
+            res->samples[i] = u * enveloppe_adsr(i, n, f_ech);
+        else
+            res->samples[i] = u;
     }
 
     return res;
 }
 
-sound_t* triangle(float freq, int amplitude, float duree, int f_ech) {
+sound_t* triangle(float freq, int amplitude, float duree, int f_ech, bool adsr)
+{
     int n = (int)f_ech*duree;
 
     // on alloue la mémoire pour stocker le son
@@ -289,13 +345,17 @@ sound_t* triangle(float freq, int amplitude, float duree, int f_ech) {
     for (int i = 0; i < n; i++) {
         // d’après wikipédia, y(x) = 2a/π * arcsin(sin(i×w))…
         u = DEUXSURPI * amplitude * asin(sin(i*w));
-        res->samples[i] = u;
+        if (adsr)
+            res->samples[i] = u * enveloppe_adsr(i, n, f_ech);
+        else
+            res->samples[i] = u;
     }
 
     return res;
 }
 
-sound_t* sawtooth(float freq, int amplitude, float duree, int f_ech) {
+sound_t* sawtooth(float freq, int amplitude, float duree, int f_ech, bool adsr)
+{
     int n = (int)f_ech*duree;
 
     // on alloue la mémoire pour stocker le son
@@ -309,7 +369,10 @@ sound_t* sawtooth(float freq, int amplitude, float duree, int f_ech) {
     for (int i = 0; i < n; i++) {
         // toujours d’après wikipédia, y(x) = 2a * (i*w - ⌊1/2 + i*w⌋)
         u = amplitude*2*(i*w - floor(0.5 + i*w));
-        res->samples[i] = u;
+        if (adsr)
+            res->samples[i] = u * enveloppe_adsr(i, n, f_ech);
+        else
+            res->samples[i] = u;
     }
 
     return res;

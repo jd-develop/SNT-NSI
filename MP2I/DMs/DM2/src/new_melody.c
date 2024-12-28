@@ -107,7 +107,7 @@ track_t* new_load_track(FILE* fp, int tempo) {
                 return NULL;
             }
 
-            sound = sine(440, 0, duree, FREQ_ECH);
+            sound = sine(440, 0, duree, FREQ_ECH, false);
             res->sounds[i] = sound;
             continue;
         }
@@ -183,16 +183,28 @@ track_t* new_load_track(FILE* fp, int tempo) {
         // on appelle la bonne fonction en fonction de l’instument
         switch (instrument_n) {
             case 's':
-                sound = sine(freq, amplitude, duree, FREQ_ECH);
+                sound = sine(freq, amplitude, duree, FREQ_ECH, false);
                 break;
             case 'c':
-                sound = square(freq, amplitude, duree, FREQ_ECH);
+                sound = square(freq, amplitude, duree, FREQ_ECH, false);
                 break;
             case 't':
-                sound = triangle(freq, amplitude, duree, FREQ_ECH);
+                sound = triangle(freq, amplitude, duree, FREQ_ECH, false);
                 break;
             case 'd':
-                sound = sawtooth(freq, amplitude, duree, FREQ_ECH);
+                sound = sawtooth(freq, amplitude, duree, FREQ_ECH, false);
+                break;
+            case 'S':
+                sound = sine(freq, amplitude, duree, FREQ_ECH, true);
+                break;
+            case 'C':
+                sound = square(freq, amplitude, duree, FREQ_ECH, true);
+                break;
+            case 'T':
+                sound = triangle(freq, amplitude, duree, FREQ_ECH, true);
+                break;
+            case 'D':
+                sound = sawtooth(freq, amplitude, duree, FREQ_ECH, true);
                 break;
         }
 

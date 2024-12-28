@@ -1,0 +1,763 @@
+-1
+tempo 130
+6
+1 1 1 1 1 1
+
+
+248 sineadsr
+# main gauche
+demipause  # toutes les voix commencent par une demi-pause
+
+do croche 0.7
+sol croche 0.7
+mi croche 0.7
+sol croche 0.7
+do croche 0.7
+sol croche 0.7
+mi croche 0.7
+sol croche 0.7
+
+re croche 0.7
+sol croche 0.7
+fa croche 0.7
+sol croche 0.7
+do croche 0.7
+sol croche 0.7
+mi croche 0.7
+sol croche 0.7
+
+do croche 0.7
+la croche 0.7
+fa croche 0.7
+la croche 0.7
+do croche 0.7
+sol croche 0.7
+mi croche 0.7
+sol croche 0.7
+
+si-1 croche 0.7
+sol croche 0.7
+re croche 0.7
+sol croche 0.7
+do croche 0.7
+sol croche 0.7
+mi croche 0.7
+sol croche 0.7
+
+fa noire 0.7
+demipause
+fa-1 noire 0.7
+mi-1 noire 0.7
+demipause
+mi-1 noire 0.7
+re-1 noire 0.7
+demipause
+re-1 noire 0.7
+do-1 noire 0.7
+demipause
+do-1 noire 0.7
+fa-1 ronde 0.7
+
+fa-1 noirepointee 0.7
+sol-1 croche 0.7
+la-1 noirepointee 0.7
+fa#-1 croche 0.7
+
+sol-2 doublecroche 0.7
+si-2 doublecroche 0.7
+re-1 doublecroche 0.7
+sol-1 doublecroche 0.7
+
+sol-2 doublecroche 0.7
+do-1 doublecroche 0.7
+mi-1 doublecroche 0.7
+sol-1 doublecroche 0.7
+
+sol-2 doublecroche 0.7
+si-2 doublecroche 0.7
+re-1 doublecroche 0.7
+sol-1 doublecroche 0.7
+
+sol-2 doublecroche 0.7
+do-1 doublecroche 0.7
+mi-1 doublecroche 0.7
+sol-1 doublecroche 0.7
+
+sol-2 noire 0.7
+sol-1 noire 0.7
+sol-2 noire 0.7
+soupir
+
+do# doublecroche 0.7
+re doublecroche 0.7
+do# doublecroche 0.7
+re doublecroche 0.7
+do# doublecroche 0.7
+re doublecroche 0.7
+do# doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+
+do doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+la-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+la-1 doublecroche 0.7
+re doublecroche 0.7
+
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+
+do doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+la-1 doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+do doublecroche 0.7
+re doublecroche 0.7
+la-1 doublecroche 0.7
+re doublecroche 0.7
+
+quartdesoupir
+si-1 doublecroche 0.7
+re doublecroche 0.7
+sol doublecroche 0.7
+si noire 0.7
+quartdesoupir
+do doublecroche 0.7
+mi doublecroche 0.7
+sol doublecroche 0.7
+do1 noire 0.7
+
+quartdesoupir
+la-1 doublecroche 0.7
+do doublecroche 0.7
+fa# doublecroche 0.7
+la noire 0.7
+quartdesoupir
+si-1 doublecroche 0.7
+re doublecroche 0.7
+fa# doublecroche 0.7
+si noire 0.7
+
+quartdesoupir
+sol-1 doublecroche 0.7
+si-1 doublecroche 0.7
+mi doublecroche 0.7
+sol noire 0.7
+quartdesoupir
+la-1 doublecroche 0.7
+do doublecroche 0.7
+mi doublecroche 0.7
+la noire 0.7
+
+quartdesoupir
+fa#-1 doublecroche 0.7
+la-1 doublecroche 0.7
+re doublecroche 0.7
+fa# noire 0.7
+quartdesoupir
+sol-1 doublecroche 0.7
+si-1 doublecroche 0.7
+re doublecroche 0.7
+sol noire 0.7
+
+do croche 0.7
+do croche 0.7
+do croche 0.7
+do croche 0.7
+do croche 0.7
+do croche 0.7
+do croche 0.7
+do croche 0.7
+
+do croche 0.7
+do croche 0.7
+do croche 0.7
+do croche 0.7
+do croche 0.7
+do croche 0.7
+do croche 0.7
+do croche 0.7
+
+re doublecroche 0.7
+si doublecroche 0.7
+sol doublecroche 0.7
+si doublecroche 0.7
+re doublecroche 0.7
+si doublecroche 0.7
+sol doublecroche 0.7
+si doublecroche 0.7
+re doublecroche 0.7
+si doublecroche 0.7
+sol doublecroche 0.7
+si doublecroche 0.7
+re doublecroche 0.7
+si doublecroche 0.7
+sol doublecroche 0.7
+si doublecroche 0.7
+
+re doublecroche 0.7
+do1 doublecroche 0.7
+fa# doublecroche 0.7
+do1 doublecroche 0.7
+re doublecroche 0.7
+do1 doublecroche 0.7
+fa# doublecroche 0.7
+do1 doublecroche 0.7
+re doublecroche 0.7
+do1 doublecroche 0.7
+fa# doublecroche 0.7
+do1 doublecroche 0.7
+re doublecroche 0.7
+do1 doublecroche 0.7
+fa# doublecroche 0.7
+do1 doublecroche 0.7
+
+sol noire 0.7
+demipause
+re noire 0.7
+
+sol noire 0.7
+demipause
+re-1 noire 0.7
+
+sol-1 noire 0.7
+sol-1 noire 0.7
+sol-1 noire 0.7
+soupir
+
+
+
+57 sineadsr
+# main gauche : deuxième voix pour les accords
+demipause
+pause
+pause
+pause
+pause
+demipausepointee
+do noire 0.7
+do noire 0.7
+demipause
+do noire 0.7
+do noire 0.7
+demipause
+si-1 noire 0.7
+do noire 0.7
+demipause
+mi-1 noire 0.7
+la-1 ronde 0.7
+
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+mi croche 0.7
+
+pause
+pause
+
+si noire 0.7
+demipause
+la noire 0.7
+
+si noire 0.7
+demipause
+la-1 noire 0.7
+
+si-1 noire 0.7
+sol-2 noire 0.7
+sol-2 noire 0.7
+soupir
+
+
+
+30 sineadsr
+# main gauche : troisième voix pour les accords (en fait, il n’y a qu’une
+# seule note)
+demipause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+demipausepointee
+do noire 0.7
+pause
+
+
+
+15 triangleadsr
+# main droite : voix supplémentaire pour les accords
+demipause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+soupir
+si noire 0.7
+demipause
+
+
+34 triangleadsr
+# main droite : voix supplémentaire pour les accords
+demipause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+soupir
+sol noire 0.7
+demipause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+pause
+soupir
+si1 noire 0.7
+sol1 noire 0.7
+soupir
+
+
+280 triangleadsr
+# main droite
+demipause
+
+do1 blanche 0.7
+mi1 noire 0.7
+sol1 noire 0.8
+
+si noirepointee 0.65
+do1 doublecroche 0.7
+re1 doublecroche 0.7
+do1 noire 0.7
+soupir
+
+la1 blanche 0.7
+sol1 noire 0.7
+do2 noire 0.8
+
+sol1 noire 0.7
+# je n’ai pas encore mis de moyen correct de faire des trilles
+# en attendant, un petit système D de triples croches suffira
+fa1 triplecroche 0.7
+sol1 triplecroche 0.7
+fa1 triplecroche 0.7
+sol1 triplecroche 0.7
+mi1 doublecroche 0.7
+fa1 doublecroche 0.7
+mi1 noire 0.7
+
+soupir
+la croche 0.7
+si doublecroche 0.7
+do1 doublecroche 0.7
+re1 doublecroche 0.7
+mi1 doublecroche 0.7
+fa1 doublecroche 0.7
+sol1 doublecroche 0.7
+la1 doublecroche 0.7
+sol1 doublecroche 0.7
+fa1 doublecroche 0.7
+mi1 doublecroche 0.7
+re1 doublecroche 0.7
+do1 doublecroche 0.7
+si doublecroche 0.7
+la doublecroche 0.7
+
+sol croche 0.7
+la doublecroche 0.7
+si doublecroche 0.7
+do1 doublecroche 0.7
+re1 doublecroche 0.7
+mi1 doublecroche 0.7
+fa1 doublecroche 0.7
+sol1 doublecroche 0.7
+fa1 doublecroche 0.7
+mi1 doublecroche 0.7
+re1 doublecroche 0.7
+do1 doublecroche 0.7
+si doublecroche 0.7
+la doublecroche 0.7
+sol doublecroche 0.7
+
+fa croche 0.7
+sol doublecroche 0.7
+la doublecroche 0.7
+si doublecroche 0.7
+do1 doublecroche 0.7
+re1 doublecroche 0.7
+mi1 doublecroche 0.7
+fa1 doublecroche 0.7
+mi1 doublecroche 0.7
+re1 doublecroche 0.7
+do1 doublecroche 0.7
+si doublecroche 0.7
+la doublecroche 0.7
+sol doublecroche 0.7
+fa doublecroche 0.7
+
+mi croche 0.7
+fa doublecroche 0.7
+sol doublecroche 0.7
+la doublecroche 0.7
+si doublecroche 0.7
+do1 doublecroche 0.7
+re1 doublecroche 0.7
+mi1 doublecroche 0.7
+re1 doublecroche 0.7
+do1 doublecroche 0.7
+si doublecroche 0.7
+la doublecroche 0.7
+sol doublecroche 0.7
+fa doublecroche 0.7
+mi doublecroche 0.7
+
+re croche 0.7
+mi doublecroche 0.7
+fa doublecroche 0.7
+sol doublecroche 0.7
+la doublecroche 0.7
+si doublecroche 0.7
+do#1 doublecroche 0.7
+re1 doublecroche 0.7
+la doublecroche 0.7
+si doublecroche 0.7
+do#1 doublecroche 0.7
+re1 doublecroche 0.7
+mi1 doublecroche 0.7
+fa1 doublecroche 0.7
+sol1 doublecroche 0.7
+
+la1 doublecroche 0.7
+si1 doublecroche 0.7
+do2 doublecroche 0.7
+si1 doublecroche 0.7
+la1 doublecroche 0.7
+sol1 doublecroche 0.7
+fa1 doublecroche 0.7
+mi1 doublecroche 0.7
+fa1 doublecroche 0.7
+sol1 doublecroche 0.7
+la1 doublecroche 0.7
+sol1 doublecroche 0.7
+fa1 doublecroche 0.7
+mi1 doublecroche 0.7
+re1 doublecroche 0.7
+do1 doublecroche 0.7
+
+si croche 0.7
+sol1 croche 0.7
+mi1 croche 0.7
+do1 croche 0.7
+re1 croche 0.7
+sol1 croche 0.7
+mi1 croche 0.7
+do1 croche 0.7
+
+re1 noire 0.7
+re1 noire 0.7
+sol noire 0.7
+soupir
+
+pause
+
+re2 croche 0.7
+si1 croche 0.7
+sol1 noirepointee 0.7
+la1 doublecroche 0.7
+si1 doublecroche 0.7
+la1 croche 0.7
+sol1 croche 0.7
+
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
+fa#1 doublecroche 0.7
+fa#1 noire 0.7
+demipause
+
+re2 croche 0.7
+si1 croche 0.7
+sol1 noirepointee 0.7
+la1 doublecroche 0.7
+si1 doublecroche 0.7
+la1 croche 0.7
+sol1 croche 0.7
+
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
+la1 triplecroche 0.7
+sol1 triplecroche 0.7
+fa#1 doublecroche 0.7
+fa#1 noire 0.7
+demipause
+
+re2 noire 0.7
+quartdesoupir
+re2 doublecroche 0.7
+si1 doublecroche 0.7
+sol1 doublecroche 0.7
+mi1 noire 0.7
+quartdesoupir
+mi1 doublecroche 0.7
+sol1 doublecroche 0.7
+mi1 doublecroche 0.7
+
+do2 noire 0.7
+quartdesoupir
+do2 doublecroche 0.7
+la1 doublecroche 0.7
+fa#1 doublecroche 0.7
+re1 noire 0.7
+quartdesoupir
+re1 doublecroche 0.7
+fa#1 doublecroche 0.7
+re1 doublecroche 0.7
+
+si1 noire 0.7
+quartdesoupir
+si1 doublecroche 0.7
+sol1 doublecroche 0.7
+mi1 doublecroche 0.7
+do1 noire 0.7
+quartdesoupir
+do1 doublecroche 0.7
+mi1 doublecroche 0.7
+do1 doublecroche 0.7
+
+la1 noire 0.7
+quartdesoupir
+la1 doublecroche 0.7
+fa#1 doublecroche 0.7
+re1 doublecroche 0.7
+si noire 0.7
+quartdesoupir
+sol1 doublecroche 0.7
+re1 doublecroche 0.7
+si doublecroche 0.7
+
+la blanche 0.7
+si doublecroche 0.7
+do1 crochepointee 0.7
+re#1 doublecroche 0.7
+mi1 crochepointee 0.7
+
+sol#1 doublecroche 0.7
+# ici, la note est censée durer autant que une croche pointée + une croche
+# (liaison), ce qui est impossible à faire avec mon programme…
+la1 crochepointee 0.7
+la1 croche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+sol#1 triplecroche 0.7
+la1 triplecroche 0.7
+do2 croche 0.7
+la1 croche 0.7
+do2 croche 0.7
+la1 croche 0.7
+
+si1 croche 0.7
+sol1 croche 0.7
+re2 blanche 0.7
+do2 doublecroche 0.7
+si1 doublecroche 0.7
+la1 doublecroche 0.7
+sol1 doublecroche 0.7
+
+# trille
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+si1 triplecroche 0.7
+sol1 doublecroche 0.7
+la1 doublecroche 0.7
+
+sol1 noire 0.7
+sol1 doublecroche 0.7
+re1 doublecroche 0.7
+sol1 doublecroche 0.7
+si1 doublecroche 0.7
+re2 doublecroche 0.7
+si1 doublecroche 0.7
+sol1 doublecroche 0.7
+si1 doublecroche 0.7
+do2 doublecroche 0.7
+la1 doublecroche 0.7
+fa#1 doublecroche 0.7
+la1 doublecroche 0.7
+
+sol1 noire 0.7
+sol doublecroche 0.7
+re doublecroche 0.7
+sol doublecroche 0.7
+si doublecroche 0.7
+re1 doublecroche 0.7
+si doublecroche 0.7
+sol doublecroche 0.7
+si doublecroche 0.7
+do1 doublecroche 0.7
+la doublecroche 0.7
+fa# doublecroche 0.7
+la doublecroche 0.7
+
+sol noire 0.7
+re1 noire 0.7
+si noire 0.7
+soupir
