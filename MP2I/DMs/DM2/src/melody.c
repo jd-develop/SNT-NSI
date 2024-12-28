@@ -76,6 +76,16 @@ track_t* read_track(FILE* file) {
             );
             return NULL;
         }
+        if (volume < 0 || volume > 1) {
+            /* le volume doit être compris entre 0 et 1 */
+            fprintf(
+                stderr,
+                "Erreur : le volume '%s' est invalide, car il n’est pas "
+                "compris entre 0 et 1.\n",
+                volume
+            );
+            return NULL;
+        }
         freq = pitch_to_freq(pitch);
         amplitude = (int)(32767*volume);
 
