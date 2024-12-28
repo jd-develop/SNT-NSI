@@ -353,6 +353,44 @@ Les triolets sont encore et toujours disponibles\nbsp:
     \item \verb|trioletdetrentedeuxiemedesoupir|. Durée\nbsp: $\frac1{48}$ temps.
 \end{enumerate}
 
+Par exemple, les portées suivantes\nbsp:
+\begin{center}
+\begin{lilypond}[quote,fragment,staffsize=26]
+    r1
+    c'4 r2.
+    gis'8 r4. \tuplet 3/2 {d'4 r e'}
+    r128 a[ r64 b r32 c' r16 d' r8 e'] r4 f' r64
+\end{lilypond}
+\end{center}
+
+seront retranscrites ainsi\nbsp:
+\begin{lstlisting}
+pause
+
+do noire 1
+demipausepointee
+
+sol# croche 1
+soupirpointe
+re trioletdenoire 1
+trioletdesoupir
+mi trioletdenoire 1
+
+trentedeuxiemedesoupir
+la-1 quintuplecroche 1
+seiziemedesoupir
+si-1 quadruplecroche 1
+huitiemedesoupir
+do triplecroche 1
+quartdesoupir
+re doublecroche 1
+demisoupir
+mi croche 1
+soupir
+la noire
+seiziemedesoupir
+\end{lstlisting}
+
 \subsubsection{Commentaires}
 Dans le nouveau format, il est possible d’insérer des commentaires à l’intérieur
 des pistes (attention, \textbf{il n’est pas possible d’en mettre à
@@ -384,7 +422,47 @@ do-1 quadruplecrochepointee  # de même pour celui-là
 # finie à ce stade du fichier)
 \end{lstlisting}
 
-\subsection{Accords}
+\subsection{Limitations}
+Cette fonctionnalité supplémentaire souffre de quelques défauts.
+
+\subsubsection{Autres durées de notes}
+Entre autres, il est impossible de faire des notes de durée non conventionelle
+(comme des notes liées). Par exemple, dans la sonata, on peut lire à la mesure
+23, sur la portée de la main droite\nbsp:
+
+\begin{center}
+\begin{lilypond}[quote,fragment,staffsize=26]
+    \override Tie.color = "red"
+    gis''16( a''8.)~ a''8 b''32( a'' gis'' a'' c'''8 a'') c'''( a'')
+\end{lilypond}
+\end{center}
+
+Ici, la liaison de tenue (en rouge) impose une note durant autant qu’une croche
+pointée et une croche combinées, soit un temps et quart. Cette durée n’étant pas
+disponible dans le nouveau format, on est obligés de faire deux notes séparées,
+comme suit\nbsp:
+
+\begin{lstlisting}
+sol#1 doublecroche 0.7
+# ici, la note est censée durer autant que une croche pointée + une croche
+# (liaison), ce qui est impossible à faire avec mon programme...
+la1 crochepointee 0.7
+la1 croche 0.7
+si1 triplecroche 0.7
+la1 triplecroche 0.7
+sol#1 triplecroche 0.7
+la1 triplecroche 0.7
+do2 croche 0.7
+la1 croche 0.7
+do2 croche 0.7
+la1 croche 0.7
+\end{lstlisting}
+
+Cela ne pose pas de problème tel quel, mais peut commencer à être un problème
+si le programme est modifié pour permettre l’ADSR (car la note doublée
+s’entendra).
+
+\subsubsection{Accords}
 Pour faire des accords, il faut recourir à la méthode des pistes
 supplémentaires. Par exemple, la portée suivante\nbsp:
 
@@ -431,7 +509,7 @@ Albéniz, \textit{Rumores de la Caleta}, Op. 71, No. 6, 1887}\nbsp:
 
 \begin{figure}[H]
     \centering
-        \includegraphics[width=0.8\textwidth]{../albeniz.png}
+        \includegraphics[width=1\textwidth]{../albeniz.png}
 \end{figure}
 
 Et voici sa rentranscription (approximative)\nbsp:
@@ -608,44 +686,6 @@ qui est l’exemple ci-dessus, contient également d’autres exemples\nbsp:
 contenant le jingle des CFF (Chemins de Fers Fédéraux suisses), et enfin
 \verb|sonata.txt|, contenant une version plus longue de la sonate KV545 de
 Mozart.
-
-\subsection{Limitations}
-Cette fonctionnalité supplémentaire souffre de quelques défauts.
-Entre autres, il est impossible de faire des notes de durée non conventionelle
-(comme des notes liées). Par exemple, dans la sonata, on peut lire à la mesure
-23, sur la portée de la main droite\nbsp:
-
-\begin{center}
-\begin{lilypond}[quote,fragment,staffsize=26]
-    \override Tie.color = "red"
-    gis''16( a''8.)~ a''8 b''32( a'' gis'' a'' c'''8 a'') c'''( a'')
-\end{lilypond}
-\end{center}
-
-Ici, la liaison de tenue (en rouge) impose une note durant autant qu’une croche
-pointée et une croche combinées, soit un temps et quart. Cette durée n’étant pas
-disponible dans le nouveau format, on est obligés de faire deux notes séparées,
-comme suit\nbsp:
-
-\begin{lstlisting}
-sol#1 doublecroche 0.7
-# ici, la note est censée durer autant que une croche pointée + une croche
-# (liaison), ce qui est impossible à faire avec mon programme...
-la1 crochepointee 0.7
-la1 croche 0.7
-si1 triplecroche 0.7
-la1 triplecroche 0.7
-sol#1 triplecroche 0.7
-la1 triplecroche 0.7
-do2 croche 0.7
-la1 croche 0.7
-do2 croche 0.7
-la1 croche 0.7
-\end{lstlisting}
-
-Cela ne pose pas de problème tel quel, mais peut commencer à être un problème
-si le programme est modifié pour permettre l’ADSR (car la note doublée
-s’entendra).
 
 \section{Fioritures}
 Le dossier contient également le fichier \verb|morse_to_dm2.py|, qui, comme
