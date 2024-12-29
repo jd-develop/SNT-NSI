@@ -250,15 +250,16 @@ float enveloppe_adsr(int i, int n, int f_ech) {
         temps_sustain = ((float)n)/f_ech - 0.5;
     }
     float temps_release = ((float)n)/f_ech;
+
     if (duree_ecoulee < temps_attack) {  // attack
         /* on souhaite qu’entre le temps 0 et temps_attack×f_ech, l’enveloppe
          * varie entre 0 et 1, c’est-à-dire une pente de 1/(temps_attack×f_ech).
          */
         return ((float)i/(temps_attack*f_ech));
     } else if (duree_ecoulee < temps_decay) {  // decay
-        /* on soite qu’entre le temps temps_attack×f_ech et temps_decay×f_ech,
-         * l’enveloppe varie entre 1 et 0.8, c’est-à-dire une pente de
-         * -0.2/(temps_decay-temps_attack)×f_ech.
+        /* on souhaite qu’entre le temps temps_attack×f_ech et
+         * temps_decay×f_ech, l’enveloppe varie entre 1 et 0.8, c’est-à-dire une
+         * pente de 0.2/(temps_decay-temps_attack)×f_ech.
          * L’ordonnée à l’origine est, quand à elle, de -temps_decay×f_ech
          * multipliée par la pente plus 0.8.
          */

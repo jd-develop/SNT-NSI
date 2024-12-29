@@ -15,8 +15,12 @@
 
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage{lmodern}
-\usepackage[T1]{fontenc} % Use 8-bit encoding
+\usepackage[T1]{fontenc}
 \usepackage[babel=true]{microtype}
+
+% fix bad spacing in tableofcontents
+\usepackage{tocloft}
+\addtolength{\cftsecnumwidth}{10pt}
 
 \usepackage{geometry} % Required for adjusting page dimensions and margins
 \geometry{
@@ -55,12 +59,11 @@
     tabsize=4,
 }
 
-%\usepackage{inconsolata}
 \lstset{
     style=mystyle,
     inputencoding = utf8,
     extendedchars=true,
-    literate={ê}{{\^e}}1 {é}{{\'e}}1 {à}{{\`a}}1,
+    literate={ê}{{\^e}}1 {é}{{\'e}}1 {à}{{\`a}}1 {è}{{\`e}}1,
 }
 
 \hypersetup{colorlinks=true, urlcolor=blue, linkcolor=black}
@@ -147,13 +150,14 @@ Par rapport à la version sans fonctionnalité supplémentaire, un seul fichier
 a été créé\nbsp: \verb|new_melody.c|, qui contient le code nécessaire pour la
 lecture du nouveau format (cf. plus loin). Le fichier \verb|melody.c| a été
 modifié pour détecter quel format est utilisé et donc quelle fonction appeler.
+Les fichiers \verb|sound.c| et \verb|medoly.c| ont également été modifiés
+pour permettre l’utilisation d’une enveloppe ADSR.
 
-\section{Description de la fonctionnalité supplémentaire\nbsp: nouveau format
-de fichier}
+\section{Description du nouveau format de fichier}
 
-Ma fonctionnalité supplémentaire permet l’utilisation d’un nouveau format de
-fichier plus intuitif, permettant d’écrire le nom et la durée des notes en
-toutes lettres. L’ancien format est toujours compatible.
+Ma première fonctionnalité supplémentaire permet l’utilisation d’un nouveau
+format de fichier plus intuitif, permettant d’écrire le nom et la durée des
+notes en toutes lettres. \textbf{L’ancien format est toujours compatible.}
 
 \subsection{Header}
 Pour garantir la compatibilité avec l’ancien format et pour permettre de
@@ -185,8 +189,10 @@ tempo 130
 
 \subsection{Piste}
 Chaque piste commence, comme dans l’ancien format, avec le nombre de notes
-et l’instrument utilisé. Les instruments sont les mêmes que dans l’ancien
-format\nbsp: \verb|sine|, \verb|square|, \verb|sawtooth| et \verb|triangle|.
+et l’instrument utilisé. Les instruments sont\nbsp: \verb|sine|, \verb|square|,
+\verb|sawtooth|, \verb|triangle|, \verb|sineadsr|, \verb|squareadsr|,
+\verb|sawtoothadsr| et \verb|triangleadsr| (cf. plus loin pour la description
+de l’ADSR).
 
 Par exemple, une piste de signal carré comprenant 26 notes commence ainsi\nbsp:
 
@@ -458,8 +464,7 @@ do2 croche 0.7
 la1 croche 0.7
 \end{lstlisting}
 
-Cela ne pose pas de problème tel quel, mais peut commencer à être un problème
-si le programme est modifié pour permettre l’ADSR (car la note doublée
+Cela pose un problème lorsque l’on utilise l’ADSR (car la note doublée
 s’entendra).
 
 \subsubsection{Accords}
@@ -503,7 +508,30 @@ demipausepointee
 do1 noire 1
 \end{lstlisting}
 
-\subsection{Exemple récapitulatif}
+\section{Description de l’ADSR}
+Ma deuxième fonctionnalité supplémentaire est l’implémentation de l’enveloppe
+ADSR (Attack, Decay, Sustain, Release). Elle ajoute quatre instruments aux
+instruments disponibles\nbsp: \verb|sineadsr|, \verb|squareadsr|,
+\verb|triangleadsr| et \verb|sawtoothadsr|, versions avec enveloppe ADSR de,
+respectivement, \verb|sine|, \verb|square|, \verb|triangle| et \verb|sawtooth|.
+
+Cette implémentation de l’enveloppe ADSR est relativement basique. Pendant les
+50 premières millisecondes, c’est l’attaque (attack)\nbsp: l’enveloppe varie
+entre 0 et 1 de façon linéaire. De la cinquantième milleseconde jusqu’à la
+centième milliseconde, c’est la chute (decay)\nbsp: l’enveloppe varie entre 1 et
+0,8 de façon linéaire. Ensuite, pendant l’entretien (sustain), l’enveloppe
+vaut 0,8. À partir d’un certain moment déterminé selon la durée de la note,
+et jusqu’à la fin de la note, c’est l’extinction (release)\nbsp: l’enveloppe
+varie entre 0,8 et 0 de façon linéaire.
+
+Ces valeurs de durée ont été déterminées \textit{a vista de nas}\footnote{En
+respectant bien entendu la norme
+\href{https://www.la-rache.com/img/unites.ca6165dfed957810.pdf}{UNM 00-001}
+de l’Union de Normalisation de la Mécanique.}, en fonction de ce qui sonnait
+bien, mais ça reste à améliorer (je me suis surtout concentré sur le nouveau
+format de fichier, je n’ai pas pu beaucoup travailler sur l’ADSR).
+
+\section{Exemple récapitulatif}
 À titre d’illustration, voici une petite partition\footnote{Extrait de Isaac
 Albéniz, \textit{Rumores de la Caleta}, Op. 71, No. 6, 1887}\nbsp:
 
@@ -519,7 +547,7 @@ tempo 100
 5
 1 1 1 1 1
 
-41 triangle
+41 triangleadsr
 la-2 triplecroche 1
 mi-1 triplecroche 1
 la-1 triplecroche 1
@@ -527,7 +555,7 @@ do# triplecroche 1
 mi triplecroche 1
 la triplecroche 1
 do#1 triplecroche 1
-la1 noire 0.4  # une blanche ne sonnait pas tres bien, j'ai préféré mettre une
+la1 noire 0.4  # une blanche ne sonnait pas très bien, j'ai préféré mettre une
                # noire et un soupir
 soupir
 
@@ -563,7 +591,7 @@ mi trioletdedoublecroche 0.5
 la trioletdedoublecroche 0.5
 la-1 croche 0.5
 
-# les notes sont censées etre piquées, donc je les raccourcis
+# les notes sont censées être piquées, donc je les raccourcis
 demisoupir
 re doublecrochepointee 0.5
 huitiemedesoupir
@@ -572,7 +600,7 @@ huitiemedesoupir
 
 
 
-21 triangle
+21 triangleadsr
 demisoupirpointe
 huitiemedesoupir
 demipause
@@ -601,7 +629,8 @@ sib-1 croche 0.5
 mi croche 0.5
 
 
-13 triangle
+
+13 triangleadsr
 demisoupirpointe
 huitiemedesoupir
 demipause
@@ -622,7 +651,7 @@ soupirpointe
 
 
 
-27 triangle
+27 triangleadsr
 demisoupirpointe
 huitiemedesoupir
 demipause
@@ -660,7 +689,7 @@ sib-1 trioletdedoublecroche 0.7
 la-1 trioletdedoublecroche 0.5
 
 
-11 triangle
+11 triangleadsr
 demisoupirpointe
 huitiemedesoupir
 demipause
@@ -679,13 +708,13 @@ demisoupir
 mi-1 noire 0.5
 \end{lstlisting}
 
-\subsection{Autres exemples}
+\section{Autres exemples}
 Le dossier \verb|examples/nouveau_format/|, en plus de \verb|albeniz.txt|
 qui est l’exemple ci-dessus, contient également d’autres exemples\nbsp:
-\verb|tests.txt| contenant quelques tests basiques, \verb|sbbcffffs.txt|
-contenant le jingle des CFF (Chemins de Fers Fédéraux suisses), et enfin
-\verb|sonata.txt|, contenant une version plus longue de la sonate KV545 de
-Mozart.
+\verb|tests.txt| et \verb|testsadsr.txt| contenant quelques tests basiques,
+\verb|sbbcffffs.txt| contenant le jingle des CFF (Chemins de Fers Fédéraux
+suisses), et enfin \verb|sonata.txt| et \verb|sonataadsr.txt|, contenant une
+version plus longue de la sonate KV545 de Mozart.
 
 \section{Fioritures}
 Le dossier contient également le fichier \verb|morse_to_dm2.py|, qui, comme
