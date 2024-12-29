@@ -720,8 +720,9 @@ version plus longue de la sonate KV545 de Mozart.
 Le dossier contient également le fichier \verb|morse_to_dm2.py|, qui, comme
 son nom l’indique, convertit une phrase en morse puis dans (l’ancien) format
 de fichier (toujours compatible). Deux exemples de phrases se trouvent dans
-\verb|examples/|, sous les noms \verb|morse.txt| et \verb|morse2.txt|
-\footnote{Pour les déchiffrer, il existe des outils en ligne, par exemple
+\verb|examples/|, sous les noms \verb|morse.txt|, \verb|morse2.txt| et
+\verb|morse3.txt|\footnote{Pour les déchiffrer, il existe des outils en ligne,
+par exemple
 \href{https://morsecode.world/international/decoder/audio-decoder-adaptive.html}
 {ce site web}.}.
 
