@@ -162,8 +162,8 @@ notes en toutes lettres. \textbf{L’ancien format est toujours compatible.}
 \subsection{Header}
 Pour garantir la compatibilité avec l’ancien format et pour permettre de
 distinguer l’ancien et le nouveau format, \textbf{le nouveau format de fichier
-commence par une ligne contenant un nombre négatif} (ce nombre correspond au
-nombre de pistes de l’ancien format).
+commence par une ligne contenant un nombre négatif} (n’importe lequel) (ce
+nombre était le nombre de pistes dans l’ancien format).
 
 La deuxième ligne correspond au \textbf{tempo du morceau}, en battement par
 minute (à la noire).
@@ -465,7 +465,8 @@ la1 croche 0.7
 \end{lstlisting}
 
 Cela pose un problème lorsque l’on utilise l’ADSR (car la note doublée
-s’entendra).
+s’entend). Vous pouvez l’écouter à la 42\textsuperscript{e} seconde de la sonata
+générée depuis \verb|examples/nouveau_format/sonataadsr.txt|.
 
 \subsubsection{Accords}
 Pour faire des accords, il faut recourir à la méthode des pistes
@@ -712,17 +713,16 @@ mi-1 noire 0.5
 Le dossier \verb|examples/nouveau_format/|, en plus de \verb|albeniz.txt|
 qui est l’exemple ci-dessus, contient également d’autres exemples\nbsp:
 \verb|tests.txt| et \verb|testsadsr.txt| contenant quelques tests basiques,
-\verb|sbbcffffs.txt| contenant le jingle des CFF (Chemins de Fers Fédéraux
+\verb|sbbcffffs.txt| contenant le jingle des CFF (Chemins de Fer Fédéraux
 suisses), et enfin \verb|sonata.txt| et \verb|sonataadsr.txt|, contenant une
 version plus longue de la sonate KV545 de Mozart.
 
 \section{Fioritures}
-Le dossier contient également le fichier \verb|morse_to_dm2.py|, qui, comme
-son nom l’indique, convertit une phrase en morse puis dans (l’ancien) format
-de fichier (toujours compatible). Deux exemples de phrases se trouvent dans
-\verb|examples/|, sous les noms \verb|morse.txt|, \verb|morse2.txt| et
-\verb|morse3.txt|\footnote{Pour les déchiffrer, il existe des outils en ligne,
-par exemple
+Le dossier contient également le fichier \verb|morse_to_dm2.py|, qui convertit
+une phrase en morse dans (l’ancien) format de fichier (toujours compatible).
+Trois exemples de phrases se trouvent dans \verb|examples/|, sous les noms
+\verb|morse.txt|, \verb|morse2.txt| et \verb|morse3.txt|\footnote{Pour les
+déchiffrer, il existe des outils en ligne, par exemple
 \href{https://morsecode.world/international/decoder/audio-decoder-adaptive.html}
 {ce site web}.}.
 
