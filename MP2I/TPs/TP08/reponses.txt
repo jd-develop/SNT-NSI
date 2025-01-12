@@ -1,0 +1,8 @@
+Q1) On remarque que les deux pointeurs pointent vers la même case mémoire.
+Q2) Si on fait ça, une erreur de segmentation est renvoyée.
+Q3) Ici, `free(l)` ne libèrerai que la liste, pas les chaînes. En renvanche,
+    `free_string_list(l)` essayerait de libérer l[0], qui est dans le segment de
+    données, et l[2] qui est un pointeur vers la valeur pointée par l[1] et qui
+    aurait donc déjà été libérée… Il ne faut donc utiliser ni l’une, ni l’autre.
+    Dans le cas de valeurs parfois allouées dans le tas et parfois pas, on ne
+    pourrait utiliser ni l’une ni l’autre non plus.
