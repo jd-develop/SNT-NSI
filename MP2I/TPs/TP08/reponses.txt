@@ -6,3 +6,6 @@ Q3) Ici, `free(l)` ne libèrerai que la liste, pas les chaînes. En renvanche,
     aurait donc déjà été libérée… Il ne faut donc utiliser ni l’une, ni l’autre.
     Dans le cas de valeurs parfois allouées dans le tas et parfois pas, on ne
     pourrait utiliser ni l’une ni l’autre non plus.
+Q12) Les opérations étant en O(1), on a une complexité à l’intérieur de la
+    boucle de O(1), soit une complexité totale de la boucle de O(n).
+    On parcourt ensuite chaque clé en O(n), donc un total de O(n).
