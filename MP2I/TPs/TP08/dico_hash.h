@@ -1,4 +1,4 @@
-/* DICTIONNAIRE: TABLE DE HACHAGE 
+/* DICTIONNAIRE: TABLE DE HACHAGE
 Interface de dictionnaire.*/
 
 #ifndef HASH_H
@@ -47,4 +47,10 @@ clé n_1 -> valeur n_1
 ...
  */
 void hash_debug(hashtable_t* d);
+
+/* Renvoie la liste des clés du dictionnaire d, stockée dans le tas */
+KEY* hash_keys(hashtable_t* d);
+
+/* Renvoie le nombre de couples clés/valeurs du dictionnaire d */
+int hash_taille(hashtable_t* d);
 #endif

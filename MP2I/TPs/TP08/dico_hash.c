@@ -14,7 +14,7 @@ stockant les différentes clés hashés vers cette alvéole.
 #include <assert.h>
 #include <string.h>
 
-#define MIN_SIZE 4 // nombre minimale d'alvéoles 
+#define MIN_SIZE 4 // nombre minimale d'alvéoles
 
 // ALPHA_LOW et ALPHA_HIGH sont les bornes sur le taux de remplissage
 // Lorsque le taux de remplissage est hors des bornes, on redimensionne
@@ -33,8 +33,8 @@ struct hashtable{
 };
 
 
-/* Remplace *d par une nouvelle table contenant les mêmes éléments, de façon 
-   à ce que le taux de remplissage reste entre ALPHA_LOW et ALPHA_HIGH, sans 
+/* Remplace *d par une nouvelle table contenant les mêmes éléments, de façon
+   à ce que le taux de remplissage reste entre ALPHA_LOW et ALPHA_HIGH, sans
    que le nombre d'alvéoles passe en dessous de MIN_SIZE */
 void resize(hashtable_t* d){
     // Si le taux de remplissage est déjà correct, ne rien faire
@@ -86,7 +86,55 @@ void resize(hashtable_t* d){
     d->m = new_m;
 }
 
+hashtable_t* hash_create() {
+    hashtable_t* ht = malloc(sizeof(hashtable_t));
+    ht->m = MIN_SIZE;
+    ht->n = 0;
+    ht->t = malloc((ht->m)*sizeof(chain_t*));
+    for (int i = 0; i < ht->m; i++) {
+        ht->t[i] = chain_create();
+    }
+    return ht;
+}
 
+/* Renvoie true si k est une clé de d, false sinon.
+ * Si k est une clé de d, stocke la valeur associée
+ * dans *v */
+bool hash_get(hashtable_t* d, KEY k, VAL* v) {
+    int idx = hash(k)%(d->m);
+    chain_t* alveole = (d->t)[idx];
+    return chain_get(alveole, k, v);
+}
+
+void hash_set(hashtable_t* d, KEY k, VAL v) {
+    int idx = hash(k)%(d->m);
+    chain_t* alveole = (d->t)[idx];
+    if (!chain_set(alveole, k, v)) { // si l’élément n’était pas déjà dans la liste
+        d->n++;
+        resize(d);
+    }
+}
+
+/* Supprime la clé k de d. Renvoie true si la clé était bien dans d
+ * et false sinon */
+bool hash_delete(hashtable_t* d, KEY k) {
+    int idx = hash(k)%(d->m);
+    chain_t* alveole = (d->t)[idx];
+    bool result = chain_delete(alveole, k);
+    if (result) {
+        resize(d);
+        d->n--;
+    }
+    return result;
+}
+
+void hash_free(hashtable_t* d) {
+    for (int i = 0; i < d->m; i++) {
+        chain_free(d->t[i]);
+    }
+    free(d->t);
+    free(d);
+}
 
 void hash_print(hashtable_t* d){
     for (int i = 0; i < d->m; ++i)
@@ -102,4 +150,23 @@ void hash_debug(hashtable_t* d){
         chain_print(d->t[i]);
     }
     printf("===================\n");
+}
+
+int hash_taille(hashtable_t* d) {
+    return d->n;
+}
+
+KEY* hash_keys(hashtable_t* d) {
+    int n_elems = d->n;
+    int n_alveoles = d->m;
+    KEY* keys = malloc(n_elems*sizeof(KEY));
+    int taille_tot = 0;
+    for (int i = 0; i < n_alveoles; i++) {
+        chain_print(d->t[i]);
+        for (maillon_t* m = d->t[i]->head; m != NULL; m = m->next) {
+            keys[taille_tot++] = strdup(m->key);
+        }
+    }
+    assert(taille_tot == d->n);
+    return keys;
 }

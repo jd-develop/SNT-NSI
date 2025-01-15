@@ -2,8 +2,6 @@
 #define KVGUARD
 #include "keyval.h"
 
-typedef struct chain chain_t;
-
 typedef struct maillon{
     KEY key;
     VAL val;
@@ -11,10 +9,10 @@ typedef struct maillon{
     struct maillon* prev; // maillon précédent
 } maillon_t;
 
-struct chain{
+typedef struct chain{
     maillon_t* head; // 1er maillon
     int n;  // nombre total de couples (clé, valeur)
-};
+} chain_t;
 
 
 chain_t* chain_create();
@@ -27,8 +25,9 @@ int taille(chain_t* d);
 bool chain_get(chain_t* d, KEY k, VAL* v);
 
 /* Associe la valeur v à la clé k dans d. Si k est déjà associée à une valeur
-   v' dans d, remplace v' par v */
-void chain_set(chain_t* d, KEY k, VAL v);
+ * v' dans d, remplace v' par v et renvoie true. Si k n’était pas déjà associée
+ * à une valeur, renvoie false */
+bool chain_set(chain_t* d, KEY k, VAL v);
 
 /* Supprime la clé k de d. Renvoie true si la clé était bien dans d
    et false sinon */
@@ -46,4 +45,7 @@ void chain_print(chain_t* d);
 
 /* Libère la mémoire allouée pour d, clés et valeurs comprises. */
 void chain_free(chain_t* d);
+
+/* Renvoie la liste des clés du dictionnaire d, stockée dans le tas */
+KEY* chain_keys(chain_t* d);
 #endif

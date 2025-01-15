@@ -18,19 +18,17 @@ int taille(chain_t* d){
 
 bool chain_get(chain_t* d, KEY k, VAL* v){
     maillon_t* m = d->head;
-    while(m != NULL && !equal(m->key, k)){
+    while (m != NULL){
+        if (equal(m->key, k)) {
+            strcpy(*v, m->val);
+            return true;
+        }
         m = m->next;
-    }
-    // en sortie de boucle: soit m est NULL, auquel cas aucun maillon ne contient k
-    // soit m est tel que m->key et k sont égales
-    if (m != NULL) {
-        strcpy(*v, m->val);
-        return true; //1
     }
     return false;
 }
 
-void chain_set(chain_t* d, KEY k, VAL v){
+bool chain_set(chain_t* d, KEY k, VAL v){
     maillon_t* m = d->head;
     while(m != NULL && !equal(m->key, k)){
         m = m->next;
@@ -45,10 +43,8 @@ void chain_set(chain_t* d, KEY k, VAL v){
         m = malloc(sizeof(maillon_t));
         // si on exécute test.c sans les deux lignes suivantes, on a un double
         // free
-        char* k_copy = strdup(k);
-        char* v_copy = strdup(v);
-        m->key = k_copy; //2
-        m->val = v_copy;
+        m->key = k;
+        m->val = v;
 
         // ajout de m en tête de liste: deux liens à créer
         // entre m et la tête actuelle (qui peut être NULL)
@@ -58,10 +54,12 @@ void chain_set(chain_t* d, KEY k, VAL v){
             d->head->prev = m;
         }
         d->head = m;
-
+        return false;
     } else {
         val_free(m->val);
-        m->val = strdup(v);
+        m->val = v;
+        key_free(k);
+        return true;
     }
 }
 
@@ -78,6 +76,7 @@ bool chain_delete(chain_t* d, KEY k){
     maillon_t* prev = m->prev;
     maillon_t* next = m->next;
 
+    // Lier les deux maillons autour du maillon supprimé
     if (prev != NULL){
         prev->next = next;
     } else {
@@ -121,4 +120,15 @@ void free_maillon(maillon_t* m){
 void chain_free(chain_t* d){
     free_maillon(d->head);
     free(d);
+}
+
+KEY* chain_keys(chain_t* d) {
+    int len = taille(d);
+    KEY* keys = malloc(len*sizeof(KEY));
+    maillon_t* m = d->head;
+    for (int i = 0; i < len; i++) {
+        keys[i] = strdup(m->key);
+        m = m->next;
+    }
+    return keys;
 }
