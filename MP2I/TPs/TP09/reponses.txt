@@ -1,0 +1,18 @@
+# Réponses aux questions
+## Exercice 1
+Q2) `fst` et `snd` sont les versions builtin des fonctions `first` et `second`
+    que l’on vient d’implémenter
+
+Q3) On peut écrire `divise 2` : il s’agit d’une autre façon d’écrire la fonction
+    `est_pair`
+
+Q6) Cette fonction est de type `val id : 'a -> 'a`, ce qu’il signifie que cette
+    fonction prend un élément de n’importe quel type en entrée, et renvoie
+    un élément de même type.
+
+## Exercice 2
+Q3) Si x=1 et y=0, cette fonction renvoie 0. Si x=1 et y≠0, elle renvoie y+1.
+    Si x≠1 et y=0, elle renvoie x+99. Sinon, elle renvoie x×y.
+
+## Exercice 3
+Q2) L’expression a pour type `unit`
