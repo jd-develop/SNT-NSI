@@ -20,7 +20,8 @@ let rec selection_sort l = match l with
  *)
 let rec separer l pivot = match l with
     | [] -> ([], [])
-    | x::q -> let linf, lsup = (separer q pivot) in if x < pivot then (x::linf, lsup) else (linf, x::lsup)
+    | x::q -> let linf, lsup = (separer q pivot) in
+        if x < pivot then (x::linf, lsup) else (linf, x::lsup)
 
 (*
  * Tri rapide : on choisit un pivot (par ex. le premier élément), on construit
@@ -31,4 +32,5 @@ let rec separer l pivot = match l with
 let rec quicksort l = match l with
     | [] -> []
     | x::[] -> x::[]
-    | x::q -> let (linf, lsup) = separer q x in (quicksort linf)@(x::(quicksort lsup))
+    | x::q -> let (linf, lsup) = separer q x in
+        (quicksort linf)@(x::(quicksort lsup))
