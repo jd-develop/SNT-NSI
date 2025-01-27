@@ -1,4 +1,4 @@
-#!/usr/bin/ocaml
+#!/usr/bin/env ocaml
 
 let rec puiss x n =
     if n < 0 then failwith "Puissance à un entier négatif"

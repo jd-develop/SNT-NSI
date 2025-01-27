@@ -1,4 +1,4 @@
-#!/usr/bin/ocaml
+#!/usr/bin/env ocaml
 
 let double a = a*2
 

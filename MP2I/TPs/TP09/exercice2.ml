@@ -1,4 +1,4 @@
-#!/usr/bin/ocaml
+#!/usr/bin/env ocaml
 
 (* on part du principe que a≠0 *)
 let n_roots (a, b, c) =

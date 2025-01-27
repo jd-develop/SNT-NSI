@@ -1,4 +1,4 @@
-#!/usr/bin/ocaml
+#!/usr/bin/env ocaml
 
 let print_pair n = match n mod 2 with
     | 0 -> print_int n ; print_newline ()

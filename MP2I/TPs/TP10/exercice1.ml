@@ -1,3 +1,5 @@
+#!/usr/bin/env ocaml
+
 (* renvoie la somme des éléments de `liste` *)
 let rec somme (l: int list) : int = match l with
     | [] -> 0
