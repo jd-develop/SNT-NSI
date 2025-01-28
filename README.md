@@ -1,5 +1,5 @@
-# SNT/NSI code
- All my code written in SNT and NSI classes in all my schooling, as well as MP2I computer science classes.
+# SNT/NSI/MP2I code
+ All the code I wrote in SNT, NSI and MP2I computer science classes.
 
 # Languages and dependencies
 ## Python
@@ -11,4 +11,4 @@ All code in [SNT/Python/2022-03/](SNT/Python/2022-03/) needs `pillow` (`pip inst
 Some code (`*.pyde` files, in the `sketch_*` folders in [NSI/première/processing](NSI/première/processing)) is written in [Python](https://py.processing.org), but needs [Processing 4](https://processing.org) to be executed.
 
 ## C and Ocaml
-Some code will require C and [Ocaml](https://ocaml.org/)
+Some parts (in the [MP2I/](MP2I/) folder) require C and [Ocaml](https://ocaml.org/)
