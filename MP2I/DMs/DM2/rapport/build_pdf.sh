@@ -7,5 +7,7 @@ cd out
 pdflatex rapport.tex
 cp rapport.pdf ..
 cd ..
+rm tmp*.pdf
+rm tmp*.out
 xdg-open rapport.pdf
 

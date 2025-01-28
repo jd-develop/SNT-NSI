@@ -229,7 +229,7 @@ sera transcrite par les notes \verb|la-1|, \verb|si#-1|, \verb|do|, \verb|re|,
 \verb|mi|, \verb|fa|, \verb|sol|, \verb|la#|, \verb|si|, \verb|dob1|,
 \verb|re1|, \verb|mi#1|. Une remarque au passage\nbsp: une note dièse correspond
 à la note suivante bémol, excepté le mi dièse qui correspond au fa (donc le fa
-bémol correspond au mi), et de même pour de si dièse qui correspond au do.
+bémol correspond au mi), et de même pour le si dièse qui correspond au do.
 Ainsi, la portée précédente pouvait aussi, de façon équivalente, être transcrite
 par les notes \verb|la-1|, \verb|do|, \verb|do|, \verb|re|, \verb|mi|,
 \verb|fa|, \verb|sol|, \verb|sib|, \verb|si|, \verb|si|, \verb|re1|,
