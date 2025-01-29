@@ -4,7 +4,7 @@
  * Voir exercice4compat.ml pour une version du fichier fonctionnant sur les
  * versions plus anciennes.
  * (c’est dû au fait que j’utilise des caractères comme œ dans les noms de
- * variable)
+ * variables)
  *)
 
 type couleur = Cœur | Pique | Carreau | Trèfle
