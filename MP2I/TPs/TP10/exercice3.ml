@@ -46,3 +46,4 @@ let test () =
     assert (split "toto,tata,tutu" ',' = ["toto"; "tata"; "tutu"]);
     assert (split "Lorem ipsum dolor sit amet" ' ' = ["Lorem"; "ipsum"; "dolor"; "sit"; "amet"]);
     print_endline "Tous les tests de l’exercice 3 ont réussi."
+
