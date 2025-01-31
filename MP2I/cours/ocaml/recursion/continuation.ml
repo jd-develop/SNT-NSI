@@ -9,7 +9,7 @@ let rec mult_non_cps (x: int) (y: int) =
 (* Renvoie k(x*y) *)
 let rec mult_cont (x: int) (y: int) (k: int->int) =
     (* mult x y k = k(x*y)
-                  = k((x-1)×y + y
+                  = k((x-1)×y + y)
                   = (r |-> k(r+y))((x-1)×y)
                   = mult (x-1) y (k')
      *)
