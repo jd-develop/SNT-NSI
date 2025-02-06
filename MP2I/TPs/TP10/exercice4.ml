@@ -53,17 +53,21 @@ let compare_carte (c1: carte) (c2: carte) : int = match c1 with
         | Nombre (nb2, couleur2) ->
             if couleur1 < couleur2 then -1
             else if couleur1 > couleur2 then 1
+            else if nb1 = nb2 then 0
+            else if nb1 = 1 then 1
+            else if nb2 = 1 then -1
             else if nb1 < nb2 then -1
-            else if nb1 > nb2 then 1
-            else 0
+            else 1
         | Tête (tête2, couleur2) ->
             if couleur2 < couleur1 then 1
+            else if couleur2 = couleur1 && nb1 = 1 then 1 (* As *)
             else -1) (* Couleur inférieure ou même couleur mais c1 nombre et c2
                       * tête *)
     | Tête (tête1, couleur1) -> (match c2 with
         | Joker -> 1
         | Nombre (nb2, couleur2) ->
             if couleur1 < couleur2 then -1
+            else if couleur2 = couleur1 && nb2 = 1 then -1 (* As *)
             else 1 (* couleur inféreure ou même couleur mais c1 tête et c2
                      * nombre *)
         | Tête (tête2, couleur2) ->
@@ -84,6 +88,22 @@ let rec insert (c: carte) (jeu: carte list) : carte list = match jeu with
 let rec insert_sort (jeu: carte list) : carte list = match jeu with
     | [] -> []
     | x::q -> insert x (insert_sort q)
+
+(* Renvoie la liste de toutes les cartes de la couleur `c`, dont on connaît la
+ * fin de la liste `l`, dans l’ordre de l’as au dix puis valet, dame, roi *)
+let rec carte_prec (c: couleur) (l: carte list) = match l with
+    | [] -> carte_prec c [Tête (Roi, c)]
+    | x::q -> (match x with
+        | Joker -> failwith "Il y a un joker dans la liste"
+        | Tête (t, c) -> (match t with
+            | Roi -> carte_prec c (Tête (Dame, c)::l)
+            | Dame -> carte_prec c (Tête (Valet, c)::l)
+            | Valet -> carte_prec c (Nombre (10, c)::l))
+        | Nombre (n, c) -> if n = 1 then l
+                           else carte_prec c (Nombre (n-1, c)::l))
+
+(* Renvoie la liste des 13 cartes de la couleur `c` *)
+let gen_couleur (c: couleur) : carte list = carte_prec c []
 
 
 let test () =
@@ -108,8 +128,10 @@ let test () =
     assert (compare_carte Joker (Tête (Valet, Trèfle)) = -1);
 
     assert (compare_carte (Nombre (1, Cœur)) (Nombre (1, Cœur)) = 0);
-    assert (compare_carte (Nombre (1, Cœur)) (Nombre (2, Cœur)) = -1);
-    assert (compare_carte (Nombre (2, Cœur)) (Nombre (1, Cœur)) = 1);
+    assert (compare_carte (Nombre (1, Cœur)) (Nombre (2, Cœur)) = 1);
+    assert (compare_carte (Nombre (2, Cœur)) (Nombre (1, Cœur)) = -1);
+    assert (compare_carte (Nombre (3, Cœur)) (Nombre (2, Cœur)) = 1);
+    assert (compare_carte (Nombre (2, Cœur)) (Nombre (3, Cœur)) = -1);
 
     assert (compare_carte (Nombre (1, Carreau)) (Nombre (1, Cœur)) = 1);
     assert (compare_carte (Nombre (1, Cœur)) (Nombre (1, Carreau)) = -1);
@@ -131,6 +153,8 @@ let test () =
     assert (compare_carte (Nombre (10, Carreau)) (Tête (Dame, Pique)) = -1);
     assert (compare_carte (Nombre (10, Trèfle)) (Tête (Valet, Pique)) = 1);
     assert (compare_carte (Nombre (10, Pique)) (Tête (Valet, Trèfle)) = -1);
+    assert (compare_carte (Nombre (1, Pique)) (Tête (Valet, Pique)) = 1);
+    assert (compare_carte (Tête (Valet, Pique)) (Nombre (1, Pique)) = -1);
 
     assert (compare_carte (Nombre (1, Cœur)) Joker = 1);
     assert (compare_carte (Nombre (10, Pique)) Joker = 1);
@@ -165,17 +189,17 @@ let test () =
 
     assert (insert (Tête (Dame, Carreau)) [] = [Tête (Dame, Carreau)]);
     assert (insert (Nombre (5, Pique)) [
-        Nombre (1, Cœur);
         Nombre (2, Cœur);
         Tête (Valet, Cœur);
+        Nombre (1, Cœur);
         Nombre (4, Pique);
         Nombre (6, Pique);
         Tête (Dame, Pique);
         Tête (Roi, Trèfle);
     ] = [
-        Nombre (1, Cœur);
         Nombre (2, Cœur);
         Tête (Valet, Cœur);
+        Nombre (1, Cœur);
         Nombre (4, Pique);
         Nombre (5, Pique);
         Nombre (6, Pique);
@@ -183,18 +207,18 @@ let test () =
         Tête (Roi, Trèfle);
     ]);
     assert (insert (Nombre (5, Pique)) [
-        Nombre (1, Cœur);
         Nombre (2, Cœur);
         Tête (Valet, Cœur);
+        Nombre (1, Cœur);
         Nombre (4, Pique);
         Nombre (5, Pique);
         Nombre (6, Pique);
         Tête (Dame, Pique);
         Tête (Roi, Trèfle);
     ] = [
-        Nombre (1, Cœur);
         Nombre (2, Cœur);
         Tête (Valet, Cœur);
+        Nombre (1, Cœur);
         Nombre (4, Pique);
         Nombre (5, Pique);
         Nombre (5, Pique);
@@ -222,9 +246,9 @@ let test () =
     ] = [
         Joker;
         Joker;
-        Nombre (1, Cœur);
         Nombre (2, Cœur);
         Tête (Valet, Cœur);
+        Nombre (1, Cœur);
         Nombre (4, Pique);
         Nombre (5, Pique);
         Nombre (6, Pique);
@@ -233,5 +257,44 @@ let test () =
         Tête (Roi, Trèfle);
         Tête (Roi, Trèfle);
     ]);
+
+    assert (
+        insert_sort (carte_prec Cœur [Nombre (3, Cœur)]) =
+            [Nombre (2, Cœur); Nombre (3, Cœur); Nombre (1, Cœur)]
+    );
+
+    assert (
+        insert_sort (carte_prec Carreau [Tête (Valet, Carreau)]) = [
+            Nombre (2, Carreau);
+            Nombre (3, Carreau);
+            Nombre (4, Carreau);
+            Nombre (5, Carreau);
+            Nombre (6, Carreau);
+            Nombre (7, Carreau);
+            Nombre (8, Carreau);
+            Nombre (9, Carreau);
+            Nombre (10, Carreau);
+            Tête (Valet, Carreau);
+            Nombre (1, Carreau);
+        ]
+    );
+
+    assert (
+        insert_sort (gen_couleur Pique) = [
+            Nombre (2, Pique);
+            Nombre (3, Pique);
+            Nombre (4, Pique);
+            Nombre (5, Pique);
+            Nombre (6, Pique);
+            Nombre (7, Pique);
+            Nombre (8, Pique);
+            Nombre (9, Pique);
+            Nombre (10, Pique);
+            Tête (Valet, Pique);
+            Tête (Dame, Pique);
+            Tête (Roi, Pique);
+            Nombre (1, Pique);
+        ]
+    );
 
     print_endline "Tous les tests de l’exercice 4 ont réussi."
