@@ -1,5 +1,3 @@
-#!/usr/bin/env ocaml
-
 (* Décompose la chaîne de caractères s en une liste de caractères, mais
  * uniquement à partir de l’indice i inclus *)
 let rec list_of_substring (s: string) (i: int) : char list =

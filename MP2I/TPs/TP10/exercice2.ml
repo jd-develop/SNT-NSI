@@ -1,5 +1,3 @@
-#!/usr/bin/env ocaml
-
 (*
  * Renvoie la concaténation de toutes les chaînes de caractères contenues dans
  * l.

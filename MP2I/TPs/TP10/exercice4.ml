@@ -1,4 +1,3 @@
-#!/usr/bin/env ocaml
 (*
  * Cette version de exercice4.ml requiert OCaml version 5.3.0 ou ultérieure.
  * Voir exercice4compat.ml pour une version du fichier fonctionnant sur les
@@ -38,44 +37,58 @@ let string_of_carte (ca: carte) : string = match ca with
     | Tête (t, c) -> (string_of_tête t) ^ " de " ^ (string_of_couleur c)
     | Joker -> "Joker"
 
+(*
+ * Renvoie la couleur d’une carte, en supposant que la carte n’est pas un joker
+ *)
+let couleur_carte (ca: carte) : couleur = match ca with
+    | Joker -> failwith "Les Joker n’ont pas de couleur"
+    | Nombre (_, c) -> c
+    | Tête (_, c) -> c
+
+(*
+ * Compare c1, c2 avec la même spécification que compare_carte, mais
+ * sans se soucier des couleurs.
+ *)
+let compare_cartes_meme_couleur (c1: carte) (c2: carte) : int = match c1 with
+    | Joker -> -1
+    | Nombre (nb1, _) -> (match c2 with
+        | Joker -> -1
+        | Nombre (nb2, _) ->
+            if nb1 = nb2 then 0
+            else if nb2 = 1 then -1
+            else if nb1 > nb2 || nb1 = 1 then 1
+            else -1
+        | Tête (t2, _) -> if nb1 = 1 then 1 else -1
+    )
+    | Tête (t1, _) -> (match c2 with
+        | Joker -> -1
+        | Nombre (nb2, _) ->
+            if nb2 = 1 then -1
+            else 1
+        | Tête (t2, _) ->
+            if t1 > t2 then 1
+            else if t1 = t2 then 0
+            else -1
+    )
+
+
 (* Compare deux cartes. Renvoie -1 si la carte c1 est inférieure à la carte c2,
  * 0 si elle est égale et 1 si elle est supérieure.
  * L’ordre est le suivant :
  *   * Les cœurs sont plus petits que les carreaux qui sont plus petits que les
  *     piques qui sont plus petits que les trèfles.
  *   * Au sein d’une couleur, l’ordre est 2, 3, …, 10, valet, dame, roi, as.
- *   * Un joker est inférieur à tout
+ *   * Un joker est inférieur à tout (comme l’Excuse au Tarot)
  *)
-let compare_carte (c1: carte) (c2: carte) : int = match c1 with
-    | Joker -> if c2 = Joker then 0 else -1
-    | Nombre (nb1, couleur1) -> (match c2 with
-        | Joker -> 1
-        | Nombre (nb2, couleur2) ->
-            if couleur1 < couleur2 then -1
-            else if couleur1 > couleur2 then 1
-            else if nb1 = nb2 then 0
-            else if nb1 = 1 then 1
-            else if nb2 = 1 then -1
-            else if nb1 < nb2 then -1
-            else 1
-        | Tête (tête2, couleur2) ->
-            if couleur2 < couleur1 then 1
-            else if couleur2 = couleur1 && nb1 = 1 then 1 (* As *)
-            else -1) (* Couleur inférieure ou même couleur mais c1 nombre et c2
-                      * tête *)
-    | Tête (tête1, couleur1) -> (match c2 with
-        | Joker -> 1
-        | Nombre (nb2, couleur2) ->
-            if couleur1 < couleur2 then -1
-            else if couleur2 = couleur1 && nb2 = 1 then -1 (* As *)
-            else 1 (* couleur inféreure ou même couleur mais c1 tête et c2
-                     * nombre *)
-        | Tête (tête2, couleur2) ->
-            if couleur1 < couleur2 then -1
-            else if couleur1 > couleur2 then 1
-            else if tête1 < tête2 then -1
-            else if tête1 > tête2 then 1
-            else 0)
+let compare_carte (c1: carte) (c2: carte) : int =
+    if c1 = Joker then (if (c2 = Joker) then 0 else -1)
+    else if c2 = Joker then 1
+    else
+        let coul1 = couleur_carte c1 in
+        let coul2 = couleur_carte c2 in
+        if coul1 = coul2 then compare_cartes_meme_couleur c1 c2
+        else if coul1 < coul2 then -1
+        else 1
 
 
 (* Insère la carte c dans le jeu de cartes jeu supposé trié *)
