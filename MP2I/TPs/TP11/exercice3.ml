@@ -1,5 +1,43 @@
 #!/usr/bin/env ocaml
 
+(* DÉBUT SDC file *)
+type 'a file = 'a list * 'a list
+
+(* Renvoie une file vide *)
+let file_vide () : 'a file = [], []
+
+(* Enfile elt dans f *)
+let enfiler (f: 'a file) (elt: 'a) : 'a file =
+  let t, q = f in
+  t, elt::q
+
+(* Défile un élément de f, et renvoie cet élément ainsi que f sans cet
+ * élément. Si la pile est vide, lève une erreur
+ * Fait au maximum un appel récursif
+ *)
+let rec defiler (f: 'a file) : 'a * 'a file =
+  let t, q = f in
+  match t, q with
+  | [], [] -> failwith "File vide"
+  | [], q -> defiler (List.rev q, [])
+  | x::t', q -> x, (t', q)
+
+
+(* Renvoie true si la liste est vide, false sinon *)
+let est_vide (f: 'a file) : bool = f = ([], [])
+
+let test_files () =
+  assert (est_vide (file_vide ()));
+  assert (enfiler (enfiler (file_vide ()) 1) 2 = ([], [2;1]));
+  assert (defiler (enfiler (enfiler (file_vide ()) 1) 2) = (1, ([2], [])));
+  assert (enfiler (enfiler ([2], []) 3) 4 = ([2], [4; 3]));
+  assert (defiler ([2], [4; 3]) = (2, ([], [4; 3])));
+  assert (enfiler ([], [4; 3]) 5 = ([], [5; 4; 3]));
+  assert (defiler ([], [5; 4; 3]) = (3, ([4; 5], [])));
+  assert (defiler ([4; 5], []) = (4, ([5], [])));
+  assert (defiler ([5], []) = (5, file_vide ()))
+(* FIN SDC file *)
+
 type 'a tree =
   Node of 'a * ('a tree list)
 
@@ -124,11 +162,48 @@ let test_liste_postfixe (postfixe_func: 'a tree -> 'a list) =
   assert (postfixe_func t = [2; 4; 5; 7; 6; 3; 9; 12; 13; 14; 11; 10; 8; 1])
 
 
+(* Enfile chaque élément de l dans f et renvoie la file obtenue *)
+let rec enfiler_liste (f: 'a file) (l: 'a list) : 'a file = match l with
+  | [] -> f
+  | x::q -> enfiler_liste (enfiler f x) q
+
+
+let test_enfiler_liste () =
+  assert (enfiler_liste (file_vide ()) ([]) = file_vide ());
+  assert (enfiler_liste (file_vide ()) ([1; 2; 3; 4; 5]) = ([], [5; 4; 3; 2; 1]))
+
+
+(* Renvoie la liste des étiquettes de a de(x, l) dans l’ordre du parcours
+ * en largeur
+ *)
+let liste_largeur (a: 'a tree) : 'a list =
+  (* Applique la boucle du parcours en largeur de a, à partir
+   * de la file de nœuds f. Renvoie la liste des éléments visités
+   *)
+  let rec liste_largeur_file (f: 'a tree file) : 'a list =
+    if est_vide f then []
+    else let x, f' = defiler f in
+    match x with
+    | Node(e, []) -> e::(liste_largeur_file f')
+    | Node(e, q) -> e::(liste_largeur_file (enfiler_liste f' q))
+  in
+  let file_depart = enfiler (file_vide ()) a in
+  liste_largeur_file file_depart
+
+
+let test_liste_largeur () =
+  assert (liste_largeur (Node(1, [])) = [1]);
+  assert (liste_largeur t = [1;2;3;8;4;5;6;9;10;7;11;12;13;14])
+
+
 let test () =
+  test_files ();
   test_hauteur ();
   test_etiquette ();
   test_liste_prefixe (liste_prefixe);
   test_liste_prefixe (liste_prefixe2);
   test_liste_postfixe (liste_postfixe);
-  test_liste_postfixe (liste_postfixe2)
+  test_liste_postfixe (liste_postfixe2);
+  test_enfiler_liste ();
+  test_liste_largeur ()
 
