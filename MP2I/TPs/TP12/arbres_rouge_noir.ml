@@ -167,9 +167,60 @@ let test_insertionARN () =
       N (Noir, 25, N (Rouge, 24, Feuille 24, Feuille 25), Feuille 30)))))
 
 
+let rec b (n: int) : int arn =
+  if n < 0 then failwith "n doit être positif"
+  else if n = 0 then Some(Feuille(0))
+  else insertionARN (n) (b (n-1))
+
+
+(* Renvoie la hauteur de l’arbre a *)
+let rec hauteur (a: 'a arn) : int = match a with
+  | None -> -1
+  | Some Feuille _ -> 0
+  | Some N(_, _, g, d) -> 1 + (max (hauteur (Some g)) (hauteur (Some d)))
+
+
+let test_b () =
+  (* Teste b avec tout entier ⩽ n *)
+  let rec test_b_n (n: int) =
+    if n < 0 then ()
+    else
+      let bn = (match b n with
+        | None -> failwith "b n est vide"
+        | Some(a) -> a)
+      in
+      assert (arn_valide (Some bn));
+      assert (float_of_int (hauteur (Some bn)) <= 2. *. (log (float_of_int (2*n + 1)))/.(log 2.));
+      test_b_n (n-1)
+  in
+  test_b_n 100
+
+
+
+let time_b (n: int) : float =
+  let time_start = Sys.time () in
+  let _ = b n in
+  Sys.time () -. time_start
+
+
+(* Renvoie la liste des résultats de time_b sur 0, 100, 200, …, (n-1)×100 *)
+let time_b_n_times (n: int) : float list =
+  List.map time_b (List.init n (fun x -> x*100))
+
+
+(* Renvoie une liste de flottants sous forme de liste Python *)
+let list_to_python_list (l: float list) : string =
+  (* Pareil mais sans [ et ] *)
+  let rec list_to_interior_python_list (l: float list) : string = match l with
+    | [] -> ""
+    | x::[] -> string_of_float x
+    | x::q -> (string_of_float x)^", "^(list_to_interior_python_list q)
+  in "["^(list_to_interior_python_list l)^"]"
+
 let test () =
   test_couleur_racine ();
   test_contient_deux_noeuds_rouges ();
   test_hauteur_noire ();
   test_arn_valide ();
-  test_insertionARN ()
+  test_insertionARN ();
+  test_b ()
