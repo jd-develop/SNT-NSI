@@ -129,6 +129,21 @@ let time_a (n: int) : float =
   Sys.time () -. time_start
 
 
+(* Renvoie la liste des résultats de time_a sur 0, 100, 200, …, (n-1)×100 *)
+let time_a_n_times (n: int) : float list =
+  List.map time_a (List.init n (fun x -> x*100))
+
+
+(* Renvoie une liste de flottants sous forme de liste Python *)
+let list_to_python_list (l: float list) : string =
+  (* Pareil mais sans [ et ] *)
+  let rec list_to_interior_python_list (l: float list) : string = match l with
+    | [] -> ""
+    | x::[] -> string_of_float x
+    | x::q -> (string_of_float x)^", "^(list_to_interior_python_list q)
+  in "["^(list_to_interior_python_list l)^"]"
+
+
 let test () =
   test_valider ();
   test_recherche ();
