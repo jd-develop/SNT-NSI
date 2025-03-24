@@ -26,7 +26,8 @@ type 'a arbre =
  *)
 let rec recherche (x: 'a) (a: 'a arbre) : bool = match a with
   | V -> false
-  | N(g, e, d) -> if x=e then true else (recherche x g) || (recherche x d)
+  | N(g, e, d) when x=e -> true
+  | N(g, e, d) -> (recherche x g) || (recherche x d)
 
 
 let test_recherche () =
@@ -47,9 +48,9 @@ let test_recherche () =
  *)
 let rec ajoute (x: 'a) (a: 'a arbre) : 'a arbre = match a with
   | V -> N(V, x, V)
-  | N(g, y, d) -> if x = y then a
-                  else if x < y then N((ajoute x g), y, d)
-                  else N(g, y, (ajoute x d))
+  | N(g, y, d) when x = y -> a
+  | N(g, y, d) when x < y -> N((ajoute x g), y, d)
+  | N(g, y, d) -> N(g, y, (ajoute x d))
 
 
 let test_ajoute () =
@@ -86,12 +87,10 @@ let test_extraire_max () =
  *)
 let rec supprimer (x: int) (a: int arbre) : int arbre = match a with
   | V -> (failwith ("L’arbre dans `supprimer` ne contient pas "^(string_of_int x)))
-  | N(g, e, d) ->
-      if x=e then
-        if g = V then d else
-        let m, g' = extraire_max g in N(g', m, d)
-      else if x<e then N(supprimer x g, e, d)
-      else N(g, e, supprimer x d)
+  | N(g, e, d) when x=e && g=V -> d
+  | N(g, e, d) when x=e -> let m, g' = extraire_max g in N(g', m, d)
+  | N(g, e, d) when x<e -> N(supprimer x g, e, d)
+  | N(g, e, d) -> N(g, e, supprimer x d)
 
 
 let test_supprimer () =
