@@ -56,7 +56,7 @@ let rec hauteur_noire (a: 'a n_arn) : int = match a with
   | N(c, _, g, d) ->
       let hg = hauteur_noire g in
       let hd = hauteur_noire d in
-      if hd != hg then raise Erreur_hauteur_noire
+      if hd <> hg then raise Erreur_hauteur_noire
       else if c = Noir then 1+hg
       else hg
 
@@ -78,7 +78,7 @@ let arn_valide (a: 'a arn) : bool = match a with
   | Some n -> begin
     (not (contient_deux_noeuds_rouges n)) &&
     couleur_racine n = Noir &&
-    (try (hauteur_noire n >= 0) with | Erreur_hauteur_noire -> false) end
+    (try ignore (hauteur_noire n); true with | Erreur_hauteur_noire -> false) end
 
 
 let test_arn_valide () =

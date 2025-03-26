@@ -1,3 +1,8 @@
 # Arbres rouge-noir
 
 Q12) B₁₄ est bien un ARN, de hauteur noire 3.
+
+Q19) `tri_arn` est en O(n log n + n) =  O(n log n). En effet, on arbrifie la
+     liste, en faisant n insertions dans l’arbre. Comme une insertion est
+     en O(log n) (avec n le nombre d’éléments dans l’arbre), `arbrifier` est
+     en O(n log n). De plus, `lister` est en O(n).
