@@ -137,11 +137,6 @@ let test_parse () =
   print_string "Tests parser OK\n"
 
 
-let test () =
-  test_parse ();
-  print_string "Tous les tests ont réussi !\n"
-
-
 (*
  * Renvoie le contenu du fichier fn sous forme de chaîne de caractères.
  * Le fichier ne doit contenir qu’une seule ligne
@@ -150,6 +145,54 @@ let read_file (fn: string) : string =
   let ic = open_in fn in
   let res = input_line ic in
   close_in ic; res
+
+
+(* Compte_ops f renvoie le nombre d’opérateurs utilisés dans f *)
+let rec compte_ops (f: formule) : int = match f with
+  | Top | Bot | Var _ -> 0
+  | And (f1, f2)
+  | Or (f1, f2) -> 1 + compte_ops f1 + compte_ops f2
+  | Not f1 -> 1 + compte_ops f1
+
+
+let test_compte_ops () =
+  assert (compte_ops (parse "x | (y & ~z)") = 3);
+  assert (compte_ops (parse "~(x | (x & ~z) | y)") = 5);
+  assert (compte_ops (from_file "tests/test1") = 7);
+  assert (compte_ops (from_file "tests/test2") = 15);
+  assert (compte_ops (from_file "tests/zerowidthspace") = 0);
+  print_string "Tests compte_ops OK\n"
+
+
+(* Renvoie true si l est triée et sans doublon, false sinon *)
+let est_strictement_croissante (l: 'a list) =
+  (* Renvoie true si l est triée, sans doublon et que le premier élément est
+   * strictement supérieur à previous *)
+  let rec est_strictement_croissante_prev (l: 'a list) (previous: 'a) =
+    match l with
+    | [] -> true
+    | x::q -> (x > previous) && est_strictement_croissante_prev q x
+  in
+  match l with
+  | [] -> true
+  | x::q -> est_strictement_croissante_prev q x
+
+
+let test_est_strictement_croissante () =
+  assert (est_strictement_croissante []);
+  assert (est_strictement_croissante [1]);
+  assert (est_strictement_croissante [1; 2; 3; 7; 10; 90]);
+  assert (not (est_strictement_croissante [1; 2; 3; 3; 7; 10; 90]));
+  assert (not (est_strictement_croissante [1; 1]));
+  assert (not (est_strictement_croissante [1; 2; 3; -7; 7; 10; 90]));
+  print_string "Tests est_strictement_croissante OK\n"
+
+
+let test () =
+  test_parse ();
+  test_compte_ops ();
+  test_est_strictement_croissante ();
+  print_string "Tous les tests ont réussi !\n"
 
 
 let main () =
