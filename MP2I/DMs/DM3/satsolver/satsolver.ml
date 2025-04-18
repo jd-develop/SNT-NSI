@@ -263,6 +263,64 @@ let test_evaluer () =
   print_string "Tests evaluer OK\n"
 
 
+(* « Ajoute 1 » à une liste de booléens représentant un entier en binaire
+ * (représenté avec le bit de poids faible à gauche *)
+let rec add_one (entier: bool list) : bool list =
+  match entier with
+  | [] -> [true]
+  | x::q -> if not x then true::q
+            else false::(add_one q)
+
+
+let test_add_one () =
+  assert (add_one [] = [true]);
+  assert (add_one [false] = [true]);
+  assert (add_one [false; false; false] = [true; false; false]);
+  assert (add_one [false; true; false; false; true; true] = [true; true; false; false; true; true]);
+  assert (add_one [true; true; false; false; true; true] = [false; false; true; false; true; true]);
+  assert (add_one [false; false; true; false; true; true] = [true; false; true; false; true; true]);
+  assert (add_one [true; true; true; true; true; true] = [false; false; false; false; false; false; true]);
+  print_string "Tests add_one OK\n"
+
+
+(* Idem que add_one avec des valuations. Si on est à la valuation maximum,
+ * n’ajoute pas d’élément. *)
+let rec add_one_val (v: valuation) : valuation =
+  match v with
+  | [] -> []
+  | (var, x)::q -> if not x then (var, true)::q
+                   else (var, false)::(add_one_val q)
+
+
+(* Renvoie la valuation suivante selon l’ordre 000, 100, 010, 110, 001, etc.,
+ * et None si c’est la valuation maximum *)
+let valuation_next (v: valuation) : valuation option =
+  if List.for_all snd v then None
+  else Some(add_one_val v)
+
+
+let test_valuation_next () =
+  assert (valuation_next [] = None);
+  assert (valuation_next ["a", true; "b", false] = Some ["a", false; "b", true]);
+  assert (valuation_next ["a", false; "b", true] = Some ["a", true; "b", true]);
+  assert (valuation_next ["a", true; "b", true] = None);
+  print_string "Tests valuation_next OK\n"
+
+
+(* Renvoie la valuation pour laquelle toutes les variables contenues dans l sont
+ * fausses. *)
+let rec valuation_init (l: string list) : valuation =
+  match l with
+  | [] -> []
+  | x::q -> (x, false)::(valuation_init q)
+
+
+let test_valuation_init () =
+  assert (valuation_init [] = []);
+  assert (valuation_init ["a"; "b"; "d"; "z"] = ["a", false; "b", false; "d", false; "z", false]);
+  print_string "Tests valuation_init OK\n"
+
+
 let test () =
   test_parse ();
   test_compte_ops ();
@@ -270,6 +328,9 @@ let test () =
   test_union ();
   test_liste_variables ();
   test_evaluer ();
+  test_add_one ();
+  test_valuation_next ();
+  test_valuation_init ();
   print_string "Tous les tests ont réussi !\n"
 
 
