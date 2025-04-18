@@ -8,6 +8,9 @@ type formule =
   | Not of formule
 
 
+type valuation = (string * bool) list
+
+
 let implique (f1, f2) = Or(Not f1, f2)
 let equivalence (f1, f2) = And(implique (f1, f2), implique (f2, f1))
 
@@ -166,7 +169,7 @@ let test_compte_ops () =
 
 (* Renvoie true si l est triée et sans doublon, false sinon *)
 let est_strictement_croissante (l: 'a list) =
-  (* Renvoie true si l est triée, sans doublon et que le premier élément est
+  (* Renvoie true si l est triée sans doublon et que le premier élément est
    * strictement supérieur à previous *)
   let rec est_strictement_croissante_prev (l: 'a list) (previous: 'a) =
     match l with
@@ -188,10 +191,85 @@ let test_est_strictement_croissante () =
   print_string "Tests est_strictement_croissante OK\n"
 
 
+(* si l1 et l2 sont des listes triées sans doublons, `union l1 l2` est une liste
+ * triée sans doublons contenant les éléments de l1 et ceux de l2 *)
+let rec union (l1: 'a list) (l2: 'a list) : 'a list =
+  match l1, l2 with
+  | l, []
+  | [], l -> l
+  | x1::q1, x2::q2 when x1 = x2 -> x1::(union q1 q2)
+  | x1::q1, x2::q2 when x1 < x2 -> x1::(union q1 l2)
+  | x1::q1, x2::q2  (* x2<x1 *) -> x2::(union l1 q2)
+
+
+let test_union () =
+  assert (union [] [] = []);
+  assert (union [] [1] = [1]);
+  assert (union [1; 4; 78] [] = [1; 4; 78]);
+  assert (union [1; 4; 42] [3; 7; 9; 50] = [1; 3; 4; 7; 9; 42; 50]);
+  assert (union ["Bonjour"; "Guten tag"] ["Chocolatine"; "Pain au chocolat"]
+    = ["Bonjour"; "Chocolatine"; "Guten tag"; "Pain au chocolat"]);
+  print_string "Tests union OK \n"
+
+
+(* Renvoie la liste des variables contenues dans la formule, sans doublons et
+ * dans l’ordre croissant *)
+let rec liste_variables (f: formule) : string list =
+  match f with
+  | Top
+  | Bot -> []
+  | Var v -> [v]
+  | And(a, b)
+  | Or(a, b) -> union (liste_variables a) (liste_variables b)
+  | Not f' -> liste_variables f'
+
+
+let test_liste_variables () =
+  assert (liste_variables Top = []);
+  assert (liste_variables Bot = []);
+  assert (liste_variables (Var "A") = ["A"]);
+  assert (liste_variables (parse "x | (y & ~z)") = ["x"; "y"; "z"]);
+  assert (liste_variables (from_file "tests/test2") = ["1"; "12"; "4"; "j’♥️_unicode"; "…"; "ﷺ"]);
+  assert (liste_variables (from_file "tests/zerowidthspace") = ["​"]);
+  print_string "Tests liste_variables OK\n"
+
+
+(* Évalue la formule f avec la valuation v. Si une variable apparaît dans f
+ * mais pas dans v, par défaut cette variable est considérée comme fausse *)
+let rec evaluer (f: formule) (v: valuation) : bool =
+  match f with
+  | Top -> true
+  | Bot -> false
+  | Var x ->
+      begin try (List.assoc x v) with
+      | Not_found -> false
+      end
+  | And(a, b) -> (evaluer a v) && (evaluer b v)
+  | Or(a, b) -> (evaluer a v) || (evaluer b v)
+  | Not f' -> not (evaluer f' v)
+
+
+let test_evaluer () =
+  assert (evaluer Top [] = true);
+  assert (evaluer Bot [] = false);
+  assert (evaluer (parse "x | (y & ~z)") [] = false);
+  assert (evaluer (parse "x | (y & ~z)") [("x", true)] = true);
+  assert (evaluer (parse "x | (y & ~z)") [("x", false); ("y", true); ("z", false)] = true);
+  assert (evaluer (parse "x | (y & ~z)") [("x", false); ("y", true); ("z", true)] = false);
+  assert (evaluer (parse "x | (y & ~z)") [("x", true); ("y", true); ("z", true)] = true);
+  assert (evaluer (parse "x | (y & ~z)") [("y", true); ("z", true)] = false);
+  assert (evaluer (parse "x | (y & ~z)") [("y", false); ("z", true)] = false);
+  assert (evaluer (parse "x | (y & ~z)") [("y", true)] = true);
+  print_string "Tests evaluer OK\n"
+
+
 let test () =
   test_parse ();
   test_compte_ops ();
   test_est_strictement_croissante ();
+  test_union ();
+  test_liste_variables ();
+  test_evaluer ();
   print_string "Tous les tests ont réussi !\n"
 
 
