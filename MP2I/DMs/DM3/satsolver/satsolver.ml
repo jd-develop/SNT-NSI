@@ -10,6 +10,8 @@ type formule =
 
 type valuation = (string * bool) list
 
+type sat_result = valuation option
+
 
 let implique (f1, f2) = Or(Not f1, f2)
 let equivalence (f1, f2) = And(implique (f1, f2), implique (f2, f1))
@@ -321,6 +323,106 @@ let test_valuation_init () =
   print_string "Tests valuation_init OK\n"
 
 
+(* Renvoie une valuation satisfiant f, ou None si f est insatisfiable *)
+let satsolver_naif (f: formule) : sat_result =
+  (* Renvoie une valuation (supérieure à v) satisfiant f, ou None si f est
+   * insatisfiable avec des valuations supérieures à v *)
+  let rec satsolver_a_partir_de_la_valuation (f: formule) (v: valuation)
+      : sat_result =
+    let result = evaluer f v in
+    if result then Some v
+    else begin
+      let next_val_option = valuation_next v in
+      match next_val_option with
+      | None -> None
+      | Some next_val -> satsolver_a_partir_de_la_valuation f next_val
+    end
+  in
+  satsolver_a_partir_de_la_valuation f (valuation_init (liste_variables f))
+
+
+let test_satsolver_naif () =
+  assert (satsolver_naif Top = Some []);
+  assert (satsolver_naif Bot = None);
+  let res1 = satsolver_naif (from_file "tests/test1") in
+  match res1 with
+  | None -> failwith "Échec : pas de valuation trouvée pour tests/test1"
+  | Some v -> assert (evaluer (from_file "tests/test1") v);
+  assert (satsolver_naif (parse "(a | b) & (~a | c) & (~c | ~b)") = Some ["a", false; "b", true; "c", false]);
+  assert (satsolver_naif (parse "(a | b) & (~a | ~b)") = Some ["a", true; "b", false]);
+  assert (satsolver_naif (parse "x & (y > (~z | (x & w))) & (y | ~z) & (z | ~x) & ~w") = None);
+  print_string "Tests satsolver_naif OK\n"
+
+
+(********* algorithme de Quine *********)
+
+(*
+ * Applique une étape de simplification de la formule f et renvoie
+ * la formule simplifée. Renvoie également un booléen qui indique si une
+ * simplification a réellement été effectuée (true dans ce cas) ou si on a
+ * atteint un point fixe (false)
+ *)
+let rec simpl_step (f: formule) : formule * bool =
+  match f with
+  | And(Top, phi) | And(phi, Top) -> phi, true
+  | And(Bot, phi) | And(phi, Bot) -> Bot, true
+  | Or (Bot, phi) | Or (phi, Bot) -> phi, true
+  | Or (Top, phi) | Or (phi, Top) -> Top, true
+  | Not(Not(phi)) -> phi, true
+  | Not(Top) -> Bot, true
+  | Not(Bot) -> Top, true
+  | And(phi, psi) ->
+      let phi_simpl, simpl_done_phi = simpl_step phi in
+      let psi_simpl, simpl_done_psi = simpl_step psi in
+      And(phi_simpl, psi_simpl), (simpl_done_phi || simpl_done_psi)
+  | Or (phi, psi) ->
+      let phi_simpl, simpl_done_phi = simpl_step phi in
+      let psi_simpl, simpl_done_psi = simpl_step psi in
+      Or (phi_simpl, psi_simpl), (simpl_done_phi || simpl_done_psi)
+  | Not(phi) ->
+      let phi_simpl, simpl_done_phi = simpl_step phi in
+      Not(phi_simpl), simpl_done_phi
+  | phi -> phi, false
+
+
+(* Simplifie la formule f *)
+let rec simpl_full (f: formule) : formule =
+  match simpl_step f with
+  | phi, true -> simpl_full phi
+  | phi, false -> phi
+
+
+let test_simpl () =
+  assert (
+    simpl_step (parse "x & (y > (~z | (x & w))) & (y | ~z) & (z | ~x) & ~w")
+    = (parse "x & (~y | (~z | (x&w))) & (y | ~z) & (z | ~x) & ~w", false)
+   (* ça ne se simplifie pas… *)
+  );
+  assert (
+    simpl_step (parse "~~(x & ~(~F | x))") = (parse "x & ~(~F | x)", true)
+  );
+  assert ( simpl_step (parse "x & ~(~F | x)") = (parse "x & ~(T | x)", true));
+  assert ( simpl_step (parse "x & ~(T | x)") = (parse "x & ~T", true));
+  assert ( simpl_step (parse "x & ~T") = (parse "x & F", true));
+  assert ( simpl_step (parse "x & F") = (parse "F", true));
+  assert ( simpl_step (parse "F") = (parse "F", false));
+  assert ( simpl_full (parse "~~(x & ~(~F | x))") = Bot);
+  print_string "Tests test_simpl OK\n"
+
+
+(* Remplace toutes les occurences de x par g dans la formule f *)
+let rec subst (f: formule) (x: string) (g: formule) =
+  match f with
+  | Var(s) when s=x -> g
+  | Top | Bot | Var(_) -> f
+  | Or(f1, f2) -> Or(subst f1 x g, subst f2 x g)
+  | And(f1, f2) -> And(subst f1 x g, subst f2 x g)
+  | Not(f') -> Not(subst f' x g)
+
+
+let test_subst () = ()  (* TODO *)
+
+
 let test () =
   test_parse ();
   test_compte_ops ();
@@ -331,6 +433,8 @@ let test () =
   test_add_one ();
   test_valuation_next ();
   test_valuation_init ();
+  test_satsolver_naif ();
+  test_simpl ();
   print_string "Tous les tests ont réussi !\n"
 
 
