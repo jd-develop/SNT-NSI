@@ -401,12 +401,12 @@ let test_simpl () =
   assert (
     simpl_step (parse "~~(x & ~(~F | x))") = (parse "x & ~(~F | x)", true)
   );
-  assert ( simpl_step (parse "x & ~(~F | x)") = (parse "x & ~(T | x)", true));
-  assert ( simpl_step (parse "x & ~(T | x)") = (parse "x & ~T", true));
-  assert ( simpl_step (parse "x & ~T") = (parse "x & F", true));
-  assert ( simpl_step (parse "x & F") = (parse "F", true));
-  assert ( simpl_step (parse "F") = (parse "F", false));
-  assert ( simpl_full (parse "~~(x & ~(~F | x))") = Bot);
+  assert (simpl_step (parse "x & ~(~F | x)") = (parse "x & ~(T | x)", true));
+  assert (simpl_step (parse "x & ~(T | x)") = (parse "x & ~T", true));
+  assert (simpl_step (parse "x & ~T") = (parse "x & F", true));
+  assert (simpl_step (parse "x & F") = (parse "F", true));
+  assert (simpl_step (parse "F") = (parse "F", false));
+  assert (simpl_full (parse "~~(x & ~(~F | x))") = Bot);
   print_string "Tests test_simpl OK\n"
 
 
@@ -420,7 +420,54 @@ let rec subst (f: formule) (x: string) (g: formule) =
   | Not(f') -> Not(subst f' x g)
 
 
-let test_subst () = ()  (* TODO *)
+let test_subst () =
+  assert (subst (parse "a & (b | c) & (c > a)") "c" (parse "a > d") = parse "a & (b | (a > d)) & ((a > d) > a)");
+  assert (subst (parse "a & (b | c) & (c > a)") "a" (parse "b & d") = parse "(b & d) & (b | c) & (c > (b & d))");
+  assert (subst Top "x" Bot = Top);
+  assert (subst (parse "T & x") "x" Bot = (parse "T & F"));
+  print_string "Tests subst OK\n"
+
+
+(* Renvoie une valuation satisfiant f, ou None si f est insatisfiable *)
+let rec quine (f: formule) : sat_result =
+  if f = Top then Some []
+  else if f = Bot then None
+  else
+
+  let vars = liste_variables f in
+  match vars with
+  | [] -> if evaluer f [] then Some [] else None
+  | x::_ -> begin
+
+    let f_t = subst f x Top in
+    let f_tsimpl = simpl_full f_t in
+
+    match quine f_tsimpl with
+    | Some v -> Some ((x, true)::v)
+    | None -> begin
+
+      let f_b = subst f x Bot in
+      let f_bsimpl = simpl_full f_b in
+
+      match quine f_bsimpl with
+      | Some v -> Some ((x, false)::v)
+      | None -> None
+
+    end
+  end
+
+
+let test_quine () =
+  assert (quine Top = Some []);
+  assert (quine Bot = None);
+  let res1 = quine (from_file "tests/test1") in
+  match res1 with
+  | None -> failwith "Échec : pas de valuation trouvée pour tests/test1"
+  | Some v -> assert (evaluer (from_file "tests/test1") v);
+  assert (quine (parse "(a | b) & (~a | c) & (~c | ~b)") = Some ["a", true; "b", false; "c", true]);
+  assert (quine (parse "(a | b) & (~a | ~b)") = Some ["a", true; "b", false]);
+  assert (quine (parse "x & (y > (~z | (x & w))) & (y | ~z) & (z | ~x) & ~w") = None);
+  print_string "Tests quine OK\n"
 
 
 let test () =
@@ -435,6 +482,8 @@ let test () =
   test_valuation_init ();
   test_satsolver_naif ();
   test_simpl ();
+  test_subst ();
+  test_quine ();
   print_string "Tous les tests ont réussi !\n"
 
 
