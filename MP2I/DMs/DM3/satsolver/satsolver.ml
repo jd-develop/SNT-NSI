@@ -470,7 +470,19 @@ let test_quine () =
   print_string "Tests quine OK\n"
 
 
+(*
+ * Affiche toutes les variables de v qui sont à `true` à raison d’une variable
+ * par ligne.
+ *)
+let rec print_true (v: valuation) : unit =
+  match v with
+  | [] -> ()
+  | (x, true)::q -> print_string x; print_newline (); print_true q
+  | (_, false)::q -> print_true q
+
+
 let test () =
+  print_string "Exécution des tests…\n";
   test_parse ();
   test_compte_ops ();
   test_est_strictement_croissante ();
@@ -494,7 +506,16 @@ let main () =
   else if Sys.argv.(1) = "test" then
     test()
   else
-    (print_string Sys.argv.(1); print_string "\n")
+    try begin
+    let f = from_file Sys.argv.(1) in
+    let v = quine f in
+    match v with
+    | Some v' -> print_string "La formule est satisfiable en assignant 1 aux ";
+                 print_string "variables suivantes et 0 aux autres :\n";
+                 print_true v'
+    | None    -> print_string "La formule est insatisfiable.\n"
+    end with
+    | Sys_error(no_such_file) -> print_string no_such_file; print_newline ()
 
 
 let _ = main ()
