@@ -46,6 +46,7 @@ char* au_plus_une(char** l, int n) {
 }
 
 
+/*
 int main () {
     char* forms[3] = {"(x & ~y)", "y", "z"};
     char* phi = au_moins_une(forms, 3);
@@ -56,3 +57,4 @@ int main () {
     printf("%s\n", khi);
     return 0;
 }
+*/
