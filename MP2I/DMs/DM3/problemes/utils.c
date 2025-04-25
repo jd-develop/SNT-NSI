@@ -7,7 +7,7 @@
 
 char* join(char** l, int n, char* s, int j) {
     char* res = strdup("(");
-    bool not = (0 <= j) && (j < n);
+    bool not = (0 <= j) && (j <= n);
     for (int i = 0; i < n; i++) {
         if (not && i != j) {
             res = realloc(res, strlen(res)+2);
@@ -38,23 +38,34 @@ char* toutes(char** l, int n, int j) {
 
 
 char* au_plus_une(char** l, int n) {
-    char** l2 = malloc(sizeof(l));
+    char** l2 = malloc((n+1)*sizeof(char*));
+    for (int i = 0; i <= n; i++) {
+        l2[i] = toutes(l, n, i);
+    }
+    char* res = au_moins_une(l2, n+1);
+    for (int i = 0; i <= n; i++) {
+        free(l2[i]);
+    }
+    free(l2);
+    return res;
+}
+
+
+char* exactement_une(char** l, int n) {
+    char** l2 = malloc(n*sizeof(char*));
     for (int i = 0; i < n; i++) {
         l2[i] = toutes(l, n, i);
     }
-    return au_moins_une(l2, n);
+    char* res = au_moins_une(l2, n);
+    for (int i = 0; i < n; i++) {
+        free(l2[i]);
+    }
+    free(l2);
+    return res;
 }
 
-
-/*
-int main () {
-    char* forms[3] = {"(x & ~y)", "y", "z"};
-    char* phi = au_moins_une(forms, 3);
-    printf("%s\n", phi);
-    char* psi = toutes(forms, 3, -1);
-    printf("%s\n", psi);
-    char* khi = au_plus_une(forms, 3);
-    printf("%s\n", khi);
-    return 0;
+void printfree(char* s) {
+    printf("%s\n", s);
+    free(s);
 }
-*/
+
