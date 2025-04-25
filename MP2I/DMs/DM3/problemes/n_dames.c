@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include "utils.h"
 
 /* Renvoie la chaîne X_i_j */
@@ -155,44 +156,58 @@ char* contrainte_toutes_diagonales(int n) {
 }
 
 
-int main() {
-    printfree(contrainte_toutes_lignes(3));
+/*
+ * Génère la formule unique modélisant le problème à n dames et le stock dans le
+ * fichier `filename`.
+ * Renvoie 0 en cas de succès, 1 en cas d’échec.
+ */
+int gen_formule_n_dames(int n, char* filename) {
+    char** l = malloc(3*sizeof(char*));
+    l[0] = contrainte_toutes_lignes(n);
+    l[1] = contrainte_toutes_colonnes(n);
+    l[2] = contrainte_toutes_diagonales(n);
+    char* res = toutes(l, 3, -1);
+    for (int i = 0; i < 3; i++)
+        free(l[i]);
+    free(l);
 
-    printfree(contrainte_toutes_colonnes(3));
+    int octets = strlen(res);
 
-    printfree(contrainte_toutes_diagonales(3));
+    FILE* fp = fopen(filename, "w");
+    if (fp == NULL)
+        return 1;
 
-    /*
-    printf("\n");
+    fprintf(fp, "%s\n", res);
+    free(res);
+    fclose(fp);
 
-    for (int i = 0; i <= 2*2-2; i++) {
-        printfree(contrainte_une_diagonale(i, 2, true));
+    printf("Fichier %s créé (%d octets).\n", filename, octets+1);
+    return 0;
+}
+
+
+int main(int argc, char** argv) {
+    if (argc != 2) {
+        fprintf(stderr, "Merci de donner exactement un argument : n\n");
+        return 1;
+    }
+    char* n_str = argv[1];
+    char* endptr;
+
+    long n = strtol(n_str, &endptr, 10);
+
+    if (n <= 0 || strlen(endptr) != 0) {
+        fprintf(stderr, "Erreur : n doit être un entier strictement positif\n");
+        return 2;
     }
 
-    printf("\n");
-
-    for (int i = 0; i <= 2*3-2; i++) {
-        printfree(contrainte_une_diagonale(i, 3, true));
+    char* filename = malloc((strlen(n_str)+11)*sizeof(char));
+    sprintf(filename, "%ld_dames.txt", n);
+    int res = gen_formule_n_dames(n, filename);
+    if (res != 0) {
+        fprintf(stderr, "Erreur d’ouverture du fichier %s\n", filename);
+        return 3;
     }
-
-    printf("\n");
-
-    for (int i = 0; i <= 2*4-2; i++) {
-        printfree(contrainte_une_diagonale(i, 4, true));
-    }
-
-    printf("\n");
-
-    for (int i = 0; i <= 2*5-2; i++) {
-        printfree(contrainte_une_diagonale(i, 5, true));
-    }
-
-    printf("\n");
-
-    for (int i = 0; i <= 2*6-2; i++) {
-        printfree(contrainte_une_diagonale(i, 6, true));
-    }
-    */
 
     return 0;
 }
