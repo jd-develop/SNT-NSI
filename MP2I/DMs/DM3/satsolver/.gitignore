@@ -1,3 +1,5 @@
 satsolver
 *.cmi
 *.cmo
+*.cmx
+*.o
