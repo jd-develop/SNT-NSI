@@ -1,6 +1,14 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+
+/*
+ * Concatène src à la fin de la chaîne pointée par dest, en arrêtant le
+ * programme si ce n’est pas possible. S’occupe de réallouer à la bonne taille.
+ */
+void safe_strcat(char** dest, const char* src);
+
+
 /*
  * Renvoie la concaténation des chaînes de l (tableau de taille n) avec pour
  * séparateur la chaîne s, avec une parenthèse ouvrante et une parenthèse

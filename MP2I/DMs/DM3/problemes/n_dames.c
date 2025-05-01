@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <assert.h>
 #include "utils.h"
 
 /* Renvoie la chaîne X_i_j */
@@ -17,15 +18,15 @@ char* variable(int i, int j) {
  * des n dames
  */
 char* contrainte_une_ligne(int i, int n) {
-    char** l = malloc(n*sizeof(char*));
+    char** var_list = malloc(n*sizeof(char*));
     for (int j = 0; j < n; j++) {
-        l[j] = variable(i, j);
+        var_list[j] = variable(i, j);
     }
-    char* res = exactement_une(l, n);
+    char* res = exactement_une(var_list, n);
     for (int j = 0; j < n; j++) {
-        free(l[j]);
+        free(var_list[j]);
     }
-    free(l);
+    free(var_list);
     return res;
 }
 
@@ -211,3 +212,4 @@ int main(int argc, char** argv) {
 
     return 0;
 }
+

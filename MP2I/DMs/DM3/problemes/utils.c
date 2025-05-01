@@ -5,24 +5,31 @@
 #include "utils.h"
 
 
+void safe_strcat(char** dest, const char* src) {
+    size_t size = strlen(src) + strlen(*dest) + 1;
+    *dest = realloc(*dest, size*sizeof(char));
+    if (*dest == NULL) {
+        fprintf(stderr, "Erreur : impossible de réallouer la mémoire\n");
+        exit(EXIT_FAILURE);
+    }
+    strcat(*dest, src);
+}
+
+
 char* join(char** l, int n, char* s, int j) {
     char* res = strdup("(");
     bool not = (0 <= j) && (j <= n);
     for (int i = 0; i < n; i++) {
         if (not && i != j) {
-            res = realloc(res, strlen(res)+2);
-            strcat(res, "~");
+            safe_strcat(&res, "~");
         }
-        res = realloc(res, strlen(res)+strlen(l[i])+1);
-        strcat(res, l[i]);
+        safe_strcat(&res, l[i]);
 
         if (i+1 != n) {
-            res = realloc(res, strlen(res)+strlen(s)+1);
-            strcat(res, s);
+            safe_strcat(&res, s);
         }
     }
-    res = realloc(res, strlen(res)+2);
-    strcat(res, ")");
+    safe_strcat(&res, ")");
     return res;
 }
 

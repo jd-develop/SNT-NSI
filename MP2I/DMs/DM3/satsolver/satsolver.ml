@@ -1,4 +1,3 @@
-
 type formule =
   | Top
   | Bot
@@ -12,12 +11,12 @@ type valuation = (string * bool) list
 
 type sat_result = valuation option
 
-
 let implique (f1, f2) = Or(Not f1, f2)
 let equivalence (f1, f2) = And(implique (f1, f2), implique (f2, f1))
 
 (*** PARSER ***)
 
+exception Erreur_arguments of string  (* todo *)
 exception Erreur_syntaxe
 exception Fichier_invalide
 
@@ -136,10 +135,14 @@ let test_parse () =
   assert (parse "ŵềδ€ß⍼" = Var "ŵềδ€ß⍼");
   assert (parse "a = b" = And(Or(Not(Var "a"), Var "b"), Or(Not(Var "b"), Var "a")));
   assert (parse "T & F" = And(Top, Bot));
+
   assert (from_file "tests/test1" = Or(Not(Or(Var "a", Or(Var "b", And(Var "c", Not(Var "d"))))), And(Var "a", Var "ceci_est_un_nom_de_variable_très_long_qui_contient_même_une_espace_insécable_fine ici")));
   assert (from_file "tests/test2" = Or(Or(Top, Or(Var "…", Or(Var "ﷺ", Var "j’♥️_unicode"))), Or(And(Or(Not(Bot), Var "4"), Or(Not(Var "4"), Bot)), And(Or(Not(Var "1"), Var "12"), Or(Not(Var "12"), Var "1")))));
+  assert (from_file "tests/test3" = Or(Var "a", And(Var "b", Not(Var "c"))));
+  assert (from_file "tests/test4" = And(Or(Var "a", Var "b"), Not(Var "c")));
+  assert (from_file "tests/test5" = Or(Var "a", And(Var "b", Not(Var "c"))));
   assert (from_file "tests/zerowidthspace" = Var "​");  (* (Neo)Vim affiche <200b>, mais pas emacs (ce qui prouve bien que Vim est supérieur (même si ed est le standard)) *)
-  print_string "Tests parser OK\n"
+  print_string "Tests parse et from_file         OK\n"
 
 
 (*
@@ -166,21 +169,15 @@ let test_compte_ops () =
   assert (compte_ops (from_file "tests/test1") = 7);
   assert (compte_ops (from_file "tests/test2") = 15);
   assert (compte_ops (from_file "tests/zerowidthspace") = 0);
-  print_string "Tests compte_ops OK\n"
+  print_string "Tests compte_ops                 OK\n"
 
 
 (* Renvoie true si l est triée et sans doublon, false sinon *)
-let est_strictement_croissante (l: 'a list) =
-  (* Renvoie true si l est triée sans doublon et que le premier élément est
-   * strictement supérieur à previous *)
-  let rec est_strictement_croissante_prev (l: 'a list) (previous: 'a) =
-    match l with
-    | [] -> true
-    | x::q -> (x > previous) && est_strictement_croissante_prev q x
-  in
+let rec est_strictement_croissante (l: 'a list) =
   match l with
-  | [] -> true
-  | x::q -> est_strictement_croissante_prev q x
+  | [] | _::[] -> true
+  | x::y::q when x < y -> est_strictement_croissante (y::q)
+  | x::y::q -> false
 
 
 let test_est_strictement_croissante () =
@@ -211,9 +208,10 @@ let test_union () =
   assert (union [1; 4; 42] [3; 7; 9; 50] = [1; 3; 4; 7; 9; 42; 50]);
   assert (union ["Bonjour"; "Guten tag"] ["Chocolatine"; "Pain au chocolat"]
     = ["Bonjour"; "Chocolatine"; "Guten tag"; "Pain au chocolat"]);
-  print_string "Tests union OK \n"
+  print_string "Tests union                      OK\n"
 
 
+(*
 (* Renvoie la liste des variables contenues dans la formule, sans doublons et
  * dans l’ordre croissant *)
 let rec liste_variables (f: formule) : string list =
@@ -224,6 +222,19 @@ let rec liste_variables (f: formule) : string list =
   | And(a, b)
   | Or(a, b) -> union (liste_variables a) (liste_variables b)
   | Not f' -> liste_variables f'
+*)
+
+
+(* Renvoie la liste des variables contenues dans la formule, sans doublons et
+ * dans l’ordre croissant. Récursif terminal *)
+let liste_variables (f: formule) : string list =
+  let rec list_var_rec (f': formule) (l: string list) : string list =
+    match f' with
+    | Top | Bot -> l
+    | Var s -> s::l
+    | And (a, b) | Or (a, b) -> list_var_rec a (list_var_rec b l)
+    | Not a -> list_var_rec a l
+  in List.sort_uniq compare (list_var_rec f [])
 
 
 let test_liste_variables () =
@@ -233,7 +244,7 @@ let test_liste_variables () =
   assert (liste_variables (parse "x | (y & ~z)") = ["x"; "y"; "z"]);
   assert (liste_variables (from_file "tests/test2") = ["1"; "12"; "4"; "j’♥️_unicode"; "…"; "ﷺ"]);
   assert (liste_variables (from_file "tests/zerowidthspace") = ["​"]);
-  print_string "Tests liste_variables OK\n"
+  print_string "Tests liste_variables            OK\n"
 
 
 (* Évalue la formule f avec la valuation v. Si une variable apparaît dans f
@@ -262,7 +273,7 @@ let test_evaluer () =
   assert (evaluer (parse "x | (y & ~z)") [("y", true); ("z", true)] = false);
   assert (evaluer (parse "x | (y & ~z)") [("y", false); ("z", true)] = false);
   assert (evaluer (parse "x | (y & ~z)") [("y", true)] = true);
-  print_string "Tests evaluer OK\n"
+  print_string "Tests evaluer                    OK\n"
 
 
 (* « Ajoute 1 » à une liste de booléens représentant un entier en binaire
@@ -282,23 +293,13 @@ let test_add_one () =
   assert (add_one [true; true; false; false; true; true] = [false; false; true; false; true; true]);
   assert (add_one [false; false; true; false; true; true] = [true; false; true; false; true; true]);
   assert (add_one [true; true; true; true; true; true] = [false; false; false; false; false; false; true]);
-  print_string "Tests add_one OK\n"
+  print_string "Tests add_one                    OK\n"
 
 
-(* Idem que add_one avec des valuations. Si on est à la valuation maximum,
- * n’ajoute pas d’élément. *)
-let rec add_one_val (v: valuation) : valuation =
-  match v with
-  | [] -> []
-  | (var, x)::q -> if not x then (var, true)::q
-                   else (var, false)::(add_one_val q)
-
-
-(* Renvoie la valuation suivante selon l’ordre 000, 100, 010, 110, 001, etc.,
- * et None si c’est la valuation maximum *)
 let valuation_next (v: valuation) : valuation option =
-  if List.for_all snd v then None
-  else Some(add_one_val v)
+  let s, l = List.split v in
+  if (List.for_all Fun.id l) then None
+  else Some (List.combine s (add_one l))
 
 
 let test_valuation_next () =
@@ -306,39 +307,31 @@ let test_valuation_next () =
   assert (valuation_next ["a", true; "b", false] = Some ["a", false; "b", true]);
   assert (valuation_next ["a", false; "b", true] = Some ["a", true; "b", true]);
   assert (valuation_next ["a", true; "b", true] = None);
-  print_string "Tests valuation_next OK\n"
+  print_string "Tests valuation_next             OK\n"
 
 
 (* Renvoie la valuation pour laquelle toutes les variables contenues dans l sont
  * fausses. *)
 let rec valuation_init (l: string list) : valuation =
-  match l with
-  | [] -> []
-  | x::q -> (x, false)::(valuation_init q)
+  List.map (fun x -> (x, false)) l
 
 
 let test_valuation_init () =
   assert (valuation_init [] = []);
   assert (valuation_init ["a"; "b"; "d"; "z"] = ["a", false; "b", false; "d", false; "z", false]);
-  print_string "Tests valuation_init OK\n"
+  print_string "Tests valuation_init             OK\n"
 
 
 (* Renvoie une valuation satisfiant f, ou None si f est insatisfiable *)
 let satsolver_naif (f: formule) : sat_result =
   (* Renvoie une valuation (supérieure à v) satisfiant f, ou None si f est
    * insatisfiable avec des valuations supérieures à v *)
-  let rec satsolver_a_partir_de_la_valuation (f: formule) (v: valuation)
-      : sat_result =
-    let result = evaluer f v in
-    if result then Some v
-    else begin
-      let next_val_option = valuation_next v in
-      match next_val_option with
-      | None -> None
-      | Some next_val -> satsolver_a_partir_de_la_valuation f next_val
-    end
-  in
-  satsolver_a_partir_de_la_valuation f (valuation_init (liste_variables f))
+  let rec satsolver_rec (f': formule) (v: valuation option) : sat_result =
+    match v with
+    | None -> None
+    | Some v' when evaluer f' v' -> Some v'
+    | Some v' -> satsolver_rec f' (valuation_next v')
+  in satsolver_rec f (Some (valuation_init (liste_variables f)))
 
 
 let test_satsolver_naif () =
@@ -351,7 +344,11 @@ let test_satsolver_naif () =
   assert (satsolver_naif (parse "(a | b) & (~a | c) & (~c | ~b)") = Some ["a", false; "b", true; "c", false]);
   assert (satsolver_naif (parse "(a | b) & (~a | ~b)") = Some ["a", true; "b", false]);
   assert (satsolver_naif (parse "x & (y > (~z | (x & w))) & (y | ~z) & (z | ~x) & ~w") = None);
-  print_string "Tests satsolver_naif OK\n"
+  assert (satsolver_naif (parse "x | (y & ~z)") = Some [("x",true);("y",false);("z",false)]);
+  assert (satsolver_naif (parse "x & (y & ~z)") = Some [("x",true);("y",true);("z",false)]);
+  assert (satsolver_naif (parse "x | (y & ~x)") = Some [("x",true);("y",false)]);
+  assert (satsolver_naif (parse "x & (y & ~x)") = None);
+  print_string "Tests satsolver_naif             OK\n"
 
 
 (********* algorithme de Quine *********)
@@ -372,25 +369,41 @@ let rec simpl_step (f: formule) : formule * bool =
   | Not(Top) -> Bot, true
   | Not(Bot) -> Top, true
   | And(phi, psi) ->
-      let phi_simpl, simpl_done_phi = simpl_step phi in
-      let psi_simpl, simpl_done_psi = simpl_step psi in
-      And(phi_simpl, psi_simpl), (simpl_done_phi || simpl_done_psi)
+      let phi', simpl_done_phi = simpl_step phi in
+      let psi', simpl_done_psi = simpl_step psi in
+      And(phi', psi'), (simpl_done_phi || simpl_done_psi)
   | Or (phi, psi) ->
-      let phi_simpl, simpl_done_phi = simpl_step phi in
-      let psi_simpl, simpl_done_psi = simpl_step psi in
-      Or (phi_simpl, psi_simpl), (simpl_done_phi || simpl_done_psi)
+      let phi', simpl_done_phi = simpl_step phi in
+      let psi', simpl_done_psi = simpl_step psi in
+      Or (phi', psi'), (simpl_done_phi || simpl_done_psi)
   | Not(phi) ->
-      let phi_simpl, simpl_done_phi = simpl_step phi in
-      Not(phi_simpl), simpl_done_phi
+      let phi', simpl_done_phi = simpl_step phi in
+      Not(phi'), simpl_done_phi
   | phi -> phi, false
 
 
 (* Simplifie la formule f *)
-let rec simpl_full (f: formule) : formule =
+let rec simpl_full_bad (f: formule) : formule =
   match simpl_step f with
-  | phi, true -> simpl_full phi
+  | phi, true -> simpl_full_bad phi
   | phi, false -> phi
 
+(* Simplifier la formule f (mais en mieux) *)
+let rec simpl_full (f: formule) : formule =
+  let f' = match f with
+  | And (a, b) -> And (simpl_full a, simpl_full b)
+  | Or  (a, b) -> Or  (simpl_full a, simpl_full b)
+  | Not a      -> Not (simpl_full a)
+  | _ -> f
+  in match f' with
+  | And (a, Top) | And (Top, a) -> a
+  | And (a, Bot) | And (Bot, a) -> Bot
+  | Or  (a, Top) | Or  (Top, a) -> Top
+  | Or  (a, Bot) | Or  (Bot, a) -> a
+  | Not (Not a) -> a
+  | Not Top -> Bot
+  | Not Bot -> Top
+  | _ -> f'
 
 let test_simpl () =
   assert (
@@ -407,17 +420,17 @@ let test_simpl () =
   assert (simpl_step (parse "x & F") = (parse "F", true));
   assert (simpl_step (parse "F") = (parse "F", false));
   assert (simpl_full (parse "~~(x & ~(~F | x))") = Bot);
-  print_string "Tests test_simpl OK\n"
+  print_string "Tests test_simpl                 OK\n"
 
 
 (* Remplace toutes les occurences de x par g dans la formule f *)
 let rec subst (f: formule) (x: string) (g: formule) =
   match f with
-  | Var(s) when s=x -> g
-  | Top | Bot | Var(_) -> f
-  | Or(f1, f2) -> Or(subst f1 x g, subst f2 x g)
-  | And(f1, f2) -> And(subst f1 x g, subst f2 x g)
-  | Not(f') -> Not(subst f' x g)
+  | Var (s) when s = x -> g
+  | Top | Bot | Var (_) -> f
+  | Or  (f1, f2) -> Or  (subst f1 x g, subst f2 x g)
+  | And (f1, f2) -> And (subst f1 x g, subst f2 x g)
+  | Not (f') -> Not(subst f' x g)
 
 
 let test_subst () =
@@ -425,36 +438,29 @@ let test_subst () =
   assert (subst (parse "a & (b | c) & (c > a)") "a" (parse "b & d") = parse "(b & d) & (b | c) & (c > (b & d))");
   assert (subst Top "x" Bot = Top);
   assert (subst (parse "T & x") "x" Bot = (parse "T & F"));
-  print_string "Tests subst OK\n"
+  print_string "Tests subst                      OK\n"
+
+
+(* Renvoie une variable quelconque présente dans f une formule simplifiée *)
+let rec var_in_formule (f: formule) : string = match f with
+  | Top | Bot -> failwith "f n'a pas de variable"
+  | Var s -> s
+  | And (a, _) | Or (a, _) | Not a -> var_in_formule a
 
 
 (* Renvoie une valuation satisfiant f, ou None si f est insatisfiable *)
-let rec quine (f: formule) : sat_result =
-  if f = Top then Some []
-  else if f = Bot then None
-  else
-
-  let vars = liste_variables f in
-  match vars with
-  | [] -> if evaluer f [] then Some [] else None
-  | x::_ -> begin
-
-    let f_t = subst f x Top in
-    let f_tsimpl = simpl_full f_t in
-
-    match quine f_tsimpl with
-    | Some v -> Some ((x, true)::v)
-    | None -> begin
-
-      let f_b = subst f x Bot in
-      let f_bsimpl = simpl_full f_b in
-
-      match quine f_bsimpl with
+let rec quine (f:formule) :sat_result =
+  match simpl_full f with
+  | Top -> Some []
+  | Bot -> None
+  | f' ->
+    let x = var_in_formule f' in
+      match quine (subst f' x Bot) with
       | Some v -> Some ((x, false)::v)
-      | None -> None
-
-    end
-  end
+      | None ->
+        match quine (subst f' x Top) with
+        | Some v -> Some ((x, true)::v)
+        | None -> None
 
 
 let test_quine () =
@@ -464,10 +470,17 @@ let test_quine () =
   match res1 with
   | None -> failwith "Échec : pas de valuation trouvée pour tests/test1"
   | Some v -> assert (evaluer (from_file "tests/test1") v);
-  assert (quine (parse "(a | b) & (~a | c) & (~c | ~b)") = Some ["a", true; "b", false; "c", true]);
-  assert (quine (parse "(a | b) & (~a | ~b)") = Some ["a", true; "b", false]);
+  assert (quine (parse "(a | b) & (~a | c) & (~c | ~b)") = Some ["a", false; "b", true; "c", false]);
+  let a = quine (parse "(a | b) & (~a | ~b)") in
+  assert (a = Some ["a", true; "b", false] || a = Some ["a", false; "b", true]);
   assert (quine (parse "x & (y > (~z | (x & w))) & (y | ~z) & (z | ~x) & ~w") = None);
-  print_string "Tests quine OK\n"
+  assert (quine (parse "x | (y & ~z)") = Some [("x",false);("y",true);("z",false)]);
+  assert (quine (parse "x & (y & ~z)") = Some [("x",true);("y",true);("z",false)]);
+  assert (quine (parse "x | (y & ~x)") = Some [("x",false);("y",true)]);
+  assert (quine (parse "x | (y & ~y)") = Some [("x",true)]);
+  assert (quine (parse "x & (y & ~x)") = None);
+  assert (quine (from_file "tests/test_impossible.txt") = None);
+  print_string "Tests quine                      OK\n"
 
 
 (*
@@ -504,7 +517,7 @@ let main () =
   if argc = 1 then
     failwith "1 too few argument given to the program."
   else if Sys.argv.(1) = "test" then
-    test()
+    test ()
   else
     try begin
     let f = from_file Sys.argv.(1) in

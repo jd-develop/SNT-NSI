@@ -1,0 +1,130 @@
+\input{../../Latex.Settings.tex}
+
+\title{DM3: Conception et utilisation d’un SAT-solver}
+\author{Nils OGER}
+\date{}
+
+\begin{document}
+    \maketitle
+    \section{Conception du SAT-solver}
+    \subsection*{Q10.}
+    Soit $n$ le nombre d'opérateur.
+
+    Dans la configuration $(...((a_0 | a_1) | a_2) | ...) | a_n$,
+    il y a bien $n$ opérateur.
+
+    De plus, la complexité de l'algorithme dans cette configuration est
+    \begin{align*}
+        C_n &= C_{n-1} + C_0 + \Theta(n)\\
+        &\geq C_{n-1} + nA\\
+        &\geq C_0 + \sum_{i=0}^{n-1}(n-i)A\\
+        &= \Omega(n^2)
+    \end{align*}
+    Donc dans le pire cas, la complexité est au moins en $\Omega(n^2)$.
+
+    Il faut passer par une variable intermédiaire puis trier la liste.
+
+    \subsection*{Q11.(Bonus)}
+    Dans la nouvelle fonction, on a
+    \begin{align*}
+        C_n &= \Theta(n) + \Theta(n\log(n))\\
+        &= \Theta(n\log(n))
+    \end{align*}
+
+    \subsection*{Q19.}
+    Dans la configuration $\sim(...(\sim T)...)$, 
+    la complexité de l'algorithme dans cette configuration est
+    \begin{align*}
+        C_n &= C_{n-2} + \Theta(n)\\
+        &= \Theta(n^2)
+    \end{align*}
+
+    \subsection*{Q20.}
+    Dans la nouvelle fonction, on simplifie les enfants avant le noeud.
+
+    La complexité est
+    \begin{align*}
+        C_n &= C_{n-1} + \Theta(1)\\
+        &= \Theta(n)
+    \end{align*}
+
+    \subsection*{Q25.}~
+
+    \section{Résolution de problèmes}
+    \subsection*{Q31.}
+    La formule $\bigwedge\limits_{1 \leq i < j \leq n}(\lnot a_i \vee \lnot a_j)$ est sous FNC.
+
+    \subsection*{Q38.}~
+
+    \subsection*{Q40.}
+    Pour le problème a 8 dames, on obtient
+    \begin{lstlisting}[literate={é}{{\'{e}}}{1}]
+~/DM3/problemes$ ./n_dames 8
+Fichier '8_dames.txt' généré
+Taille du fichier: 15191 octets
+~/DM3/problemes$ ../satsolver/satsolver 8_dames.txt 
+La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres:
+X_0_7
+X_1_3
+X_2_0
+X_3_2
+X_4_5
+X_5_1
+X_6_6
+X_7_4
+Temps d'exécution : 0.139068 s
+    \end{lstlisting}
+    Soit encore
+    \begin{center}
+        \begin{tabular}{| c || *{8}{c |}}
+        \hline
+          & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+        \hline
+        \hline
+        0 &   &   & X &   &   &   &   &   \\
+        \hline
+        1 &   &   &   &   &   & X &   &   \\
+        \hline
+        2 &   &   &   & X &   &   &   &   \\
+        \hline
+        3 &   & X &   &   &   &   &   &   \\
+        \hline
+        4 &   &   &   &   &   &   &   & X \\
+        \hline
+        5 &   &   &   &   & X &   &   &   \\
+        \hline
+        6 &   &   &   &   &   &   & X &   \\
+        \hline
+        7 & X &   &   &   &   &   &   &   \\
+        \hline
+        \end{tabular}
+    \end{center}
+    Pour le problème a 5 dames, on obtient
+    \begin{center}
+        \begin{tabular}{| c || *{5}{c |}}
+        \hline
+          & 0 & 1 & 2 & 3 & 4 \\
+        \hline
+        \hline
+        0 &   &   & X &   &   \\
+        \hline
+        1 &   &   &   &   & X \\
+        \hline
+        2 &   & X &   &   &   \\
+        \hline
+        3 &   &   &   & X &   \\
+        \hline
+        4 & X &   &   &   &   \\
+        \hline
+        \end{tabular}
+    \end{center}
+    Et pour le problème a 3 dames, on obtient
+    \begin{lstlisting}[literate={é}{{\'{e}}}{1}]
+~/DM3/problemes$ ./n_dames 3
+Fichier '3_dames.txt' généré
+Taille du fichier: 671 octets
+~/DM3/problemes$ ../satsolver/satsolver 3_dames.txt 
+La formule est insatisfiable
+Temps d'exécution : 0.002545 s
+    \end{lstlisting}
+\end{document}
