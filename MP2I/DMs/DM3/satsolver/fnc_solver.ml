@@ -74,8 +74,11 @@ let priority (c: char) : int = match c with
      else find_op_paren (k+1) res (paren_lvl)
    in find_op_paren i (-1) 0
 
-
-(* Simplifier la formule f *)
+(*
+ * Renvoie une formule construite à partir de la chaîne s.
+ * Lève une exception Erreur_syntaxe si la chaîne ne représente pas une formule
+ * valide.
+ *)
 let parse (s: string) : formule =
   let n = String.length s in
   (* construit une formule à partir de s[i..j] *)
@@ -172,10 +175,7 @@ let test_liste_variables () =
 
 (********* algorithme de Quine *********)
 
-(*
- * Applique une étape de simplification de la formule f et renvoie
- * la formule simplifiée.
- *)
+(* Simplifier la formule f *)
 let rec simpl_full (f: formule) : formule =
   let f' = match f with
   | And (a, b) -> And (simpl_full a, simpl_full b)
