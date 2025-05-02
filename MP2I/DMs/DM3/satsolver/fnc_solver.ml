@@ -16,7 +16,6 @@ let equivalence (f1, f2) = And(implique (f1, f2), implique (f2, f1))
 
 (*** PARSER ***)
 
-exception Erreur_arguments of string  (* todo *)
 exception Erreur_syntaxe
 exception Fichier_invalide
 
@@ -339,31 +338,30 @@ type litteral = YesVar of string | NotVar of string
 type clause = litteral arn
 type fnc = clause list
 
-(* Renvoie f en litteral, None si ce n'est pas un litteral *)
-let litteral_of_formule (f: formule) : litteral option = match f with
-  | Var s -> Some (YesVar s)
-  | Not (Var s) -> Some(NotVar s)
-  | _ -> None
+(* 
+ * Renvoie f en litteral,
+ * Lève une exception Failure si f n'est pas un litteral
+ *)
+let litteral_of_formule (f: formule) : litteral = match f with
+  | Var s -> YesVar s
+  | Not (Var s) -> NotVar s
+  | _ -> failwith "f n'est pas un fnc"
 
-(* Renvoie f en clause, None si ce n'est pas une clause *)
-let clause_of_formule (f: formule) : clause option =
+(* 
+ * Renvoie f en clause,
+ * Lève une exception Failure si f n'est pas une clause
+ *)
+let clause_of_formule (f: formule) : clause =
   let rec clause_rec (f': formule)(c: clause) : clause = match f' with
     | Or (a,b) -> clause_rec a (clause_rec b c)
-    | _ ->
-    match litteral_of_formule f' with
-    | None -> failwith "pas un litteral"
-    | Some l -> insertARN c l
-  in try Some (clause_rec f None) with
-    | Failure _ -> None
+    | _ -> insertARN c (litteral_of_formule f')
+  in clause_rec f None
 
-(* Renvoie f en fnc, None si ce n'est pas un fnc *)
+(* Renvoie f en fnc, ou None si f n'est pas un fnc *)
 let fnc_of_formule (f: formule) : fnc option =
   let rec fnc_rec (f': formule)(fn: fnc) : fnc = match f' with
     | And (a,b) -> fnc_rec a (fnc_rec b fn)
-    | _ ->
-    match clause_of_formule f' with
-    | None -> failwith "pas une clause"
-    | Some c -> c::fn
+    | _ -> (clause_of_formule f')::fn
   in try Some (fnc_rec f []) with
     | Failure _ -> None
 

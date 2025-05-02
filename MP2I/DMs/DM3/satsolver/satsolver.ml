@@ -16,7 +16,6 @@ let equivalence (f1, f2) = And(implique (f1, f2), implique (f2, f1))
 
 (*** PARSER ***)
 
-exception Erreur_arguments of string  (* todo *)
 exception Erreur_syntaxe
 exception Fichier_invalide
 
