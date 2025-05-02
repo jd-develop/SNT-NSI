@@ -519,16 +519,19 @@ let main () =
   else if Sys.argv.(1) = "test" then
     test ()
   else
-    try begin
+    try
     let f = from_file Sys.argv.(1) in
     let v = quine f in
-    match v with
+    begin match v with
     | Some v' -> print_string "La formule est satisfiable en assignant 1 aux ";
                  print_string "variables suivantes et 0 aux autres :\n";
                  print_true v'
     | None    -> print_string "La formule est insatisfiable.\n"
-    end with
-    | Sys_error(no_such_file) -> print_string no_such_file; print_newline ()
+    end;
+    print_string "Temps d'exécution : ";
+    print_float (Sys.time ());
+    print_string " s\n"
+    with Sys_error(no_such_file) -> print_string no_such_file; print_newline ()
 
 
 let _ = main ()

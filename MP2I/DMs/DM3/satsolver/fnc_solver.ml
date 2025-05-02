@@ -1,12 +1,14 @@
 type formule =
-  | Var of string
   | Top
   | Bot
+  | Var of string
   | And of formule * formule
-  | Or of formule * formule
+  | Or  of formule * formule
   | Not of formule
 
+
 type valuation = (string * bool) list
+
 type sat_result = valuation option
 
 let implique (f1, f2) = Or(Not f1, f2)
@@ -14,7 +16,7 @@ let equivalence (f1, f2) = And(implique (f1, f2), implique (f2, f1))
 
 (*** PARSER ***)
 
-exception Erreur_arguments of string
+exception Erreur_arguments of string  (* todo *)
 exception Erreur_syntaxe
 exception Fichier_invalide
 
@@ -25,66 +27,74 @@ exception Fichier_invalide
   '|' -> Or
   '~' -> Not
   '>' -> implication
-  '=' -> equivalence
+  '=' -> équivalence
  *)
 
 (* Détermine si c correspond à un opérateur binaire logique *)
-let is_binop (c:char) :bool = match c with 
+let is_binop (c: char) : bool = match c with
   | '&' |  '|' |  '>' |  '='  -> true
-  | _ -> false 
+  | _ -> false
 
-(* Priorité de l'opérateur c. Permet de déterminer
-  comment interpréter une formule sans parenthèses.
-  Par exemple, "x&y|z" sera interprété comme "(x&y)|z"
-  car & est plus prioritaire que | *)
-let priority (c:char) :int = match c with
+(*
+ * Priorité de l'opérateur c. Permet de déterminer comment interpréter une
+ * formule sans parenthèses. Par exemple, "x&y|z" sera interprété comme
+ * "(x&y)|z" car & est plus prioritaire que |
+ *)
+let priority (c: char) : int = match c with
   | '&' -> 4
   | '|' -> 3
   | '=' -> 2
   | '>' -> 1
   | _ -> raise Erreur_syntaxe (* c n'est pas un opérateur *)
 
-(* indice de l'opérateur le moins prioritaire parmis ceux
-   qui ne sont pas entre parenthèses entre s.[i] et s.[j] 
-   inclus *)
- let find_op_surface (s:string) (i:int) (j:int) :int =
-   (* 
-      Renvoie l'indice de l'opérateur le moins prioritaire entre
-      i et j, sachant que res est l'indice du meilleur opérateur
-      entre i et k-1.
-      paren_lvl: niveau d'imbrication actuel des parenthèses *)
-   let rec find_op_paren (k:int) (res:int) (paren_lvl:int) :int  =
-     if k=j+1 then res else
+
+(*
+ * Indice de l'opérateur le moins prioritaire parmi ceux qui ne sont pas entre
+ * parenthèses entre s.[i] et s.[j] inclus
+ *)
+ let find_op_surface (s: string) (i: int) (j: int) : int =
+   (*
+    * Renvoie l'indice de l'opérateur le moins prioritaire entre
+    * i et j, sachant que res est l'indice du meilleur opérateur
+    * entre i et k-1.
+    * paren_lvl: niveau d'imbrication actuel des parenthèses
+    *)
+   let rec find_op_paren (k:int) (res:int) (paren_lvl: int) : int  =
+     if k = j+1 then res else
      if s.[k] = '(' then find_op_paren (k+1) res (paren_lvl+1)
-     else if s.[k] = ')' then find_op_paren (k+1) res (paren_lvl-1) 
+     else if s.[k] = ')' then find_op_paren (k+1) res (paren_lvl-1)
 
      (* Le caractère lu est pris si l'on est hors des parenthèses,
-        que le caractère est bien un opérateur, et qu'il est moins
-        prioritaire que le meilleur résultat jusqu'ici *)
-     else if paren_lvl = 0 
-        && is_binop s.[k] 
-        && (res = -1 || priority s.[k] < priority s.[res]) 
+      * que le caractère est bien un opérateur, et qu'il est moins
+      * prioritaire que le meilleur résultat jusqu'ici *)
+     else if paren_lvl = 0
+        && is_binop s.[k]
+        && (res = -1 || priority s.[k] < priority s.[res])
         then find_op_paren (k+1) k (paren_lvl)
      else find_op_paren (k+1) res (paren_lvl)
-   in find_op_paren i (-1) 0;;
+   in find_op_paren i (-1) 0
 
-(* Renvoie une formule construite à partir de la chaîne s.
-   Lève une exception Erreur_syntaxe si la chaîne ne représente pas une formule valide. *)
-let parse (s:string) :formule =
+
+(*
+ * Renvoie une formule construite à partir de la chaîne s.
+ * Lève une exception Erreur_syntaxe si la chaîne ne représente pas une formule
+ * valide.
+ *)
+let parse (s: string) : formule =
   let n = String.length s in
   (* construit une formule à partir de s[i..j] *)
-  let rec parse_aux (i:int) (j:int) =
+  let rec parse_aux (i: int) (j:int) =
     assert (0 <= i && i < n && 0 <= j && j < n && i <= j );
     if s.[i] = ' ' then parse_aux (i+1) j
     else if s.[j] = ' ' then parse_aux i (j-1)
-    else let k = find_op_surface s i j in 
+    else let k = find_op_surface s i j in
     if k = -1 then
-      if s.[i] = '~' then 
+      if s.[i] = '~' then
         Not (parse_aux (i+1) j)
       else if s.[i] = '(' then
-        begin 
-          if (s.[j] != ')') then (print_int j; failwith "mauvais parenthésage") else
-          parse_aux (i+1) (j-1)
+        begin
+          if (s.[j] != ')') then (print_int j; failwith "mauvais parenthésage")
+          else parse_aux (i+1) (j-1)
         end
       else if (i = j && s.[i] = 'T') then Top
       else if (i = j && s.[i] = 'F') then Bot
@@ -98,84 +108,153 @@ let parse (s:string) :formule =
       | _ -> raise Erreur_syntaxe
   in parse_aux 0 (String.length s -1)
 
-(* Renvoie une formule construire à partir du contenu du fichier fn.
-   Lève une exception Erreur_syntaxe si le contenu du fichier n'est pas une formule valide.
-   Lève une exception Sys_error(message_erreur) si le nom du fichier n'est pas valide. *)
-let from_file (filename:string) :formule = 
+(*
+ * Renvoie une formule construire à partir du contenu du fichier fn.
+ * Lève une exception Erreur_syntaxe si le contenu du fichier n'est pas une
+ * formule valide.
+ * Lève une exception Sys_error(message_erreur) si le nom du fichier n'est pas
+ * valide.
+ *)
+let from_file (filename: string) : formule =
   (* concatène toutes les lignes de f en une seule chaîne *)
-  let rec read_lines f = 
-    try 
+  let rec read_lines f =
+    try
       let next_line = input_line f in
       let s = read_lines f in
       next_line ^ s
-    with 
+    with
       | End_of_file -> ""
   in
-  let f = open_in filename in 
+  let f = open_in filename in
   let s = read_lines f in
   parse s
 
-(* Renvoie la liste des variables de f (mais en mieux) *)
-let  list_var (f:formule) :string list =
-  let rec list_var_rec (f':formule)(l:string list) :string list =
-  match f' with
+
+let test_parse () =
+  assert (parse "a | (b & ~c)" = Or(Var "a", And(Var "b", Not (Var "c"))));
+  assert (parse "ŵềδ€ß⍼" = Var "ŵềδ€ß⍼");
+  assert (parse "a = b" = And(Or(Not(Var "a"), Var "b"), Or(Not(Var "b"), Var "a")));
+  assert (parse "T & F" = And(Top, Bot));
+
+  assert (from_file "tests/test1" = Or(Not(Or(Var "a", Or(Var "b", And(Var "c", Not(Var "d"))))), And(Var "a", Var "ceci_est_un_nom_de_variable_très_long_qui_contient_même_une_espace_insécable_fine ici")));
+  assert (from_file "tests/test2" = Or(Or(Top, Or(Var "…", Or(Var "ﷺ", Var "j’♥️_unicode"))), Or(And(Or(Not(Bot), Var "4"), Or(Not(Var "4"), Bot)), And(Or(Not(Var "1"), Var "12"), Or(Not(Var "12"), Var "1")))));
+  assert (from_file "tests/test3" = Or(Var "a", And(Var "b", Not(Var "c"))));
+  assert (from_file "tests/test4" = And(Or(Var "a", Var "b"), Not(Var "c")));
+  assert (from_file "tests/test5" = Or(Var "a", And(Var "b", Not(Var "c"))));
+  assert (from_file "tests/zerowidthspace" = Var "​");  (* (Neo)Vim affiche <200b>, mais pas emacs (ce qui prouve bien que Vim est supérieur (même si ed est le standard)) *)
+  print_string "Tests parse et from_file         OK\n"
+
+
+(*
+ * Renvoie le contenu du fichier fn sous forme de chaîne de caractères.
+ * Le fichier ne doit contenir qu’une seule ligne
+ *)
+let read_file (fn: string) : string =
+  let ic = open_in fn in
+  let res = input_line ic in
+  close_in ic; res
+
+(* Renvoie la liste des variables contenues dans la formule, sans doublons et
+ * dans l’ordre croissant. Récursif terminal *)
+let liste_variables (f: formule) : string list =
+  let rec list_var_rec (f': formule) (l: string list) : string list =
+    match f' with
     | Top | Bot -> l
     | Var s -> s::l
     | And (a, b) | Or (a, b) -> list_var_rec a (list_var_rec b l)
     | Not a -> list_var_rec a l
   in List.sort_uniq compare (list_var_rec f [])
 
-(* Renvoie f simplifier *)
-let rec simpl_full (f:formule) :formule =
+let test_liste_variables () =
+  assert (liste_variables Top = []);
+  assert (liste_variables Bot = []);
+  assert (liste_variables (Var "A") = ["A"]);
+  assert (liste_variables (parse "x | (y & ~z)") = ["x"; "y"; "z"]);
+  assert (liste_variables (from_file "tests/test2") = ["1"; "12"; "4"; "j’♥️_unicode"; "…"; "ﷺ"]);
+  assert (liste_variables (from_file "tests/zerowidthspace") = ["​"]);
+  print_string "Tests liste_variables            OK\n"
+
+(********* algorithme de Quine *********)
+
+(*
+ * Applique une étape de simplification de la formule f et renvoie
+ * la formule simplifée. Renvoie également un booléen qui indique si une
+ * simplification a réellement été effectuée (true dans ce cas) ou si on a
+ * atteint un point fixe (false)
+ *)
+ 
+(* Simplifier la formule f *)
+let rec simpl_full (f: formule) : formule =
   let f' = match f with
   | And (a, b) -> And (simpl_full a, simpl_full b)
-  | Or (a, b) -> Or (simpl_full a, simpl_full b)
-  | Not a -> Not (simpl_full a)
+  | Or  (a, b) -> Or  (simpl_full a, simpl_full b)
+  | Not a      -> Not (simpl_full a)
   | _ -> f
   in match f' with
   | And (a, Top) | And (Top, a) -> a
   | And (a, Bot) | And (Bot, a) -> Bot
-  | Or (a, Top) | Or (Top, a) -> Top
-  | Or (a, Bot) | Or (Bot, a) -> a
+  | Or  (a, Top) | Or  (Top, a) -> Top
+  | Or  (a, Bot) | Or  (Bot, a) -> a
   | Not (Not a) -> a
   | Not Top -> Bot
   | Not Bot -> Top
   | _ -> f'
 
-(* Remplace tous les Var s par f' dans f *)
-let rec subst (f:formule)(s:string)(f':formule) = match f with
-  | Var s' when s' = s -> f'
-  | And (a,b) -> And (subst a s f', subst b s f')
-  | Or (a,b) -> Or (subst a s f', subst b s f')
-  | Not a -> Not (subst a s f')
-  | _ -> f
 
-(* Renvoie une variable présente dans f une formule simplifié *)
-let rec var_in_formule (f:formule) :string = match f with
-  | Top  | Bot -> failwith "f n'a pas de variable"
+(* Remplace toutes les occurences de x par g dans la formule f *)
+let rec subst (f: formule) (x: string) (g: formule) =
+  match f with
+  | Var (s) when s = x -> g
+  | Top | Bot | Var (_) -> f
+  | Or  (f1, f2) -> Or  (subst f1 x g, subst f2 x g)
+  | And (f1, f2) -> And (subst f1 x g, subst f2 x g)
+  | Not (f') -> Not(subst f' x g)
+
+
+let test_subst () =
+  assert (subst (parse "a & (b | c) & (c > a)") "c" (parse "a > d") = parse "a & (b | (a > d)) & ((a > d) > a)");
+  assert (subst (parse "a & (b | c) & (c > a)") "a" (parse "b & d") = parse "(b & d) & (b | c) & (c > (b & d))");
+  assert (subst Top "x" Bot = Top);
+  assert (subst (parse "T & x") "x" Bot = (parse "T & F"));
+  print_string "Tests subst                      OK\n"
+
+
+(* Renvoie une variable quelconque présente dans f une formule simplifiée *)
+let rec var_in_formule (f: formule) : string = match f with
+  | Top | Bot -> failwith "f n'a pas de variable"
   | Var s -> s
   | And (a, _) | Or (a, _) | Not a -> var_in_formule a
 
-(* Renvoie une solution de f
-   None si il n'y en a pas *)
+
+(* Renvoie une valuation satisfiant f, ou None si f est insatisfiable *)
 let rec quine (f:formule) :sat_result =
   match simpl_full f with
   | Top -> Some []
   | Bot -> None
   | f' ->
-  let x = var_in_formule f' in
-  match quine (subst f' x Bot) with
-  | Some v -> Some ((x,false)::v) 
-  | None ->
-  match quine (subst f' x Top) with
-  | Some v -> Some ((x,true)::v) 
-  | None -> None
+    let x = var_in_formule f' in
+      match quine (subst f' x Bot) with
+      | Some v -> Some ((x, false)::v)
+      | None ->
+        match quine (subst f' x Top) with
+        | Some v -> Some ((x, true)::v)
+        | None -> None
 
-(* Affiche les variables de valeur vrai *)
-let rec print_true (v:valuation) :unit = match v with
-  | [] -> ()
-  | (s, b)::q when b -> print_string s; print_newline (); print_true q
-  | (s, b)::q -> print_true q
+
+let test_quine () =
+  assert (quine Top = Some []);
+  assert (quine Bot = None);
+  assert (quine (parse "(a | b) & (~a | c) & (~c | ~b)") = Some ["a", false; "b", true; "c", false]);
+  let a = quine (parse "(a | b) & (~a | ~b)") in
+  assert (a = Some ["a", true; "b", false] || a = Some ["a", false; "b", true]);
+  assert (quine (parse "x & (y > (~z | (x & w))) & (y | ~z) & (z | ~x) & ~w") = None);
+  assert (quine (parse "x | (y & ~z)") = Some [("x",false);("y",true);("z",false)]);
+  assert (quine (parse "x & (y & ~z)") = Some [("x",true);("y",true);("z",false)]);
+  assert (quine (parse "x | (y & ~x)") = Some [("x",false);("y",true)]);
+  assert (quine (parse "x | (y & ~y)") = Some [("x",true)]);
+  assert (quine (parse "x & (y & ~x)") = None);
+  assert (quine (from_file "tests/test_impossible.txt") = None);
+  print_string "Tests quine                      OK\n"
 
 
 (*** ARN ***)
@@ -339,27 +418,16 @@ let rec quineFNC (f:fnc)(v:string list) :sat_result =
   | Some r -> Some ((s,true)::r) 
   | None -> None
 
+(*
+ * Affiche toutes les variables de v qui sont à `true` à raison d’une variable
+ * par ligne.
+ *)
+let rec print_true (v: valuation) : unit =
+  match v with
+  | [] -> ()
+  | (x, true)::q -> print_string x; print_newline (); print_true q
+  | (_, false)::q -> print_true q
 
-(*** TESTS ***)
-
-let test_parse () =
-  assert (parse "a | (b & ~c)" = Or(Var "a", And(Var "b", Not (Var "c"))));
-  print_string "Tests parse          OK\n"
-
-let test_from_file () =
-  assert (from_file "tests/test_from_file1.txt" = Or(Var "a", And(Var "b", Not(Var "c"))));
-  assert (from_file "tests/test_from_file2.txt" = And(Or(Var "a", Var "b"), Not(Var "c")));
-  assert (from_file "tests/test_from_file3.txt" = Or(Var "a", And(Var "b", Not(Var "c"))));
-  print_string "Tests from_file      OK\n"
-
-let test_quine () =
-  assert (quine (parse "x | (y & ~z)") = Some [("x",false);("y",true);("z",false)]);
-  assert (quine (parse "x & (y & ~z)") = Some [("x",true);("y",true);("z",false)]);
-  assert (quine (parse "x | (y & ~x)") = Some [("x",false);("y",true)]);
-  assert (quine (parse "x | (y & ~y)") = Some [("x",true)]);
-  assert (quine (parse "x & (y & ~x)") = None);
-  assert (quine (from_file "tests/test_impossible.txt") = None);
-  print_string "Tests quine          OK\n"
 
 let test_fnc_of_formule () =
   assert (fnc_of_formule(parse "a") = Some [Some (F (YesVar "a"))]);
@@ -370,44 +438,39 @@ let test_fnc_of_formule () =
   print_string "Tests fnc_of_formule OK\n"
 
 let test () =
+  print_string "Exécution des tests…\n";
   test_parse ();
-  test_from_file ();
+  test_liste_variables ();
+  test_subst ();
   test_quine ();
   test_fnc_of_formule ();
-  print_string "Tous les tests ont réussi.\n"
+  print_string "Tous les tests ont réussi !\n"
 
-(*** MAIN ***)
-
-(* Execute le programme principal *)
-let exec () =
-  let f = from_file Sys.argv.(1) in
-  begin
-  match fnc_of_formule f with
-  | Some fnc -> print_string "La formule est fnc\n";
-    begin
-    match quineFNC fnc (list_var f) with
-    | None -> print_string "La formule est insatisfiable\n"
-    | Some v -> print_string "La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres:\n";
-          print_true v
-    end
-  | None ->
-    begin
-    match quine f with
-    | None -> print_string "La formule est insatisfiable\n"
-    | Some v -> print_string "La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres:\n";
-          print_true v
-    end
-  end;
-  print_string "Temps d'exécution : ";
-  print_float (Sys.time ());
-  print_string " s\n"
-
-(* Execute test si le 1er argument est test sinon exec *)
 let main () =
-  if (Array.length Sys.argv < 2)
-  then raise (Erreur_arguments "1 argument demande")
-  else match Sys.argv.(1) with
-  | "test" -> test ()
-  | _ -> exec ()
+  let argc = Array.length Sys.argv in
+  if argc = 1 then
+    failwith "1 too few argument given to the program."
+  else if Sys.argv.(1) = "test" then
+    test ()
+  else
+    try
+    let f = from_file Sys.argv.(1) in
+    let v =
+    begin match fnc_of_formule f with
+    | Some fnc -> print_string "La formule est fnc\n";
+                  quineFNC fnc (liste_variables f)
+    | None -> quine f
+    end in
+    begin match v with
+    | Some v' -> print_string "La formule est satisfiable en assignant 1 aux ";
+                 print_string "variables suivantes et 0 aux autres :\n";
+                 print_true v'
+    | None    -> print_string "La formule est insatisfiable.\n"
+    end;
+    print_string "Temps d'exécution : ";
+    print_float (Sys.time ());
+    print_string " s\n"
+    with Sys_error(no_such_file) -> print_string no_such_file; print_newline ()
+
 
 let _ = main ()
