@@ -209,6 +209,7 @@ int main(int argc, char** argv) {
         fprintf(stderr, "Erreur d’ouverture du fichier %s\n", filename);
         return 3;
     }
+    free(filename);
 
     return 0;
 }
