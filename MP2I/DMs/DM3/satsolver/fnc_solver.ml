@@ -387,6 +387,14 @@ let fnc_of_formule (f:formule) :fnc option =
   in try Some (fnc_rec f) with
     | Failure _ -> None
 
+let test_fnc_of_formule () =
+  assert (fnc_of_formule(parse "a") = Some [Some (F (YesVar "a"))]);
+  assert (fnc_of_formule(parse "~a") = Some [Some (F (NotVar "a"))]);
+  assert (fnc_of_formule(parse "~a | b | ~c") = Some [Some (N (Rouge, YesVar "b", F (YesVar "b"), N (Rouge, NotVar "a", F (NotVar "a"), F (NotVar "c"))))]);
+  assert (fnc_of_formule(parse "(~a | b) & ~c") = Some [Some (N (Rouge, YesVar "b", F (YesVar "b"), F (NotVar "a"))); Some (F (NotVar "c"))]);
+  assert (fnc_of_formule(parse "(~a & b) | ~c") = None);
+  print_string "Tests fnc_of_formule             OK\n"
+
 (* Renvoie si une clause de f est vide *)
 let rec clause_vide (f:fnc) :bool = match f with
   | [] -> false
@@ -418,6 +426,13 @@ let rec quineFNC (f:fnc)(v:string list) :sat_result =
   | Some r -> Some ((s,true)::r) 
   | None -> None
 
+let test_quineFNC () =
+  assert (quineFNC([Some (F (YesVar "a"))]) ["a"] = Some [("a", true)]);
+  assert (quineFNC([Some (F (NotVar "a"))]) ["a"] = Some [("a", false)]);
+  assert (quineFNC([Some (N (Rouge, YesVar "b", F (YesVar "b"), N (Rouge, NotVar "a", F (NotVar "a"), F (NotVar "c"))))]) ["a";"b";"c"] = Some [("a", false)]);
+  assert (quineFNC([Some (N (Rouge, YesVar "b", F (YesVar "b"), F (NotVar "a"))); Some (F (NotVar "c"))]) ["a";"b";"c"] = Some [("a", false); ("b", false); ("c", false)]);
+  print_string "Tests quineFNC                   OK\n"
+
 (*
  * Affiche toutes les variables de v qui sont à `true` à raison d’une variable
  * par ligne.
@@ -429,14 +444,6 @@ let rec print_true (v: valuation) : unit =
   | (_, false)::q -> print_true q
 
 
-let test_fnc_of_formule () =
-  assert (fnc_of_formule(parse "a") = Some [Some (F (YesVar "a"))]);
-  assert (fnc_of_formule(parse "~a") = Some [Some (F (NotVar "a"))]);
-  assert (fnc_of_formule(parse "~a | b | ~c") = Some [Some (N (Rouge, YesVar "b", F (YesVar "b"), N (Rouge, NotVar "a", F (NotVar "a"), F (NotVar "c"))))]);
-  assert (fnc_of_formule(parse "(~a | b) & ~c") = Some [Some (N (Rouge, YesVar "b", F (YesVar "b"), F (NotVar "a"))); Some (F (NotVar "c"))]);
-  assert (fnc_of_formule(parse "(~a & b) | ~c") = None);
-  print_string "Tests fnc_of_formule OK\n"
-
 let test () =
   print_string "Exécution des tests…\n";
   test_parse ();
@@ -444,6 +451,7 @@ let test () =
   test_subst ();
   test_quine ();
   test_fnc_of_formule ();
+  test_quineFNC ();
   print_string "Tous les tests ont réussi !\n"
 
 let main () =
