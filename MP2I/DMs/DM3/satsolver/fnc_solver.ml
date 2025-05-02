@@ -178,12 +178,8 @@ let test_liste_variables () =
 
 (*
  * Applique une étape de simplification de la formule f et renvoie
- * la formule simplifée. Renvoie également un booléen qui indique si une
- * simplification a réellement été effectuée (true dans ce cas) ou si on a
- * atteint un point fixe (false)
+ * la formule simplifiée.
  *)
- 
-(* Simplifier la formule f *)
 let rec simpl_full (f: formule) : formule =
   let f' = match f with
   | And (a, b) -> And (simpl_full a, simpl_full b)
@@ -256,15 +252,14 @@ let test_quine () =
   assert (quine (from_file "tests/test_impossible.txt") = None);
   print_string "Tests quine                      OK\n"
 
-
-(*** ARN ***)
+(********* ARN *********)
 
 type coul = Rouge | Noir
 type 'a arn_r = F of 'a | N of coul * 'a * 'a arn_r * 'a arn_r
 type 'a arn = 'a arn_r option
 
 (* Renvoie Si k est dans a *)
-let rec getARNrelax (a:'a arn_r)(k:'a) :bool = match a with
+let rec getARNrelax (a: 'a arn_r)(k: 'a) : bool = match a with
   | N (_, x, g, d) when k>x -> getARNrelax d k
   | N (_, x, g, d) when k<x -> getARNrelax g k
   | N (_, x, g, d) -> true
@@ -272,12 +267,12 @@ let rec getARNrelax (a:'a arn_r)(k:'a) :bool = match a with
   | F x -> false
 
 (* Renvoie Si k est dans a *)
-let rec getARN (a:'a arn)(k:'a) :bool = match a with
+let rec getARN (a: 'a arn)(k: 'a) : bool = match a with
   | None -> false
   | Some a' -> getARNrelax a' k
 
 (* Corrige l'anomalie Rouge Rouge *)
-let correctionARN (a':'a arn_r) :'a arn_r = match a' with
+let correctionARN (a': 'a arn_r) : 'a arn_r = match a' with
   | N(Noir, z, N(Rouge, y, N(Rouge, x, a, b), c), d)
   | N(Noir, z, N(Rouge, x, a, N(Rouge, y, b, c)), d)
   | N(Noir, x, a, N(Rouge, z, N(Rouge, y, b, c), d))
@@ -285,7 +280,7 @@ let correctionARN (a':'a arn_r) :'a arn_r = match a' with
   | _ -> a'
 
 (* Insere x dans a *)
-let rec insertARNrelax (a:'a arn_r)(x:'a) :'a arn_r = match a with
+let rec insertARNrelax (a: 'a arn_r)(x: 'a) : 'a arn_r = match a with
   | N(c, y, g, d) when x>y -> correctionARN(N(c, y, g, insertARNrelax d x))
   | N(c, y, g, d) when x<y -> correctionARN(N(c, y, insertARNrelax g x, d))
   | N(c, y, g, d) -> a
@@ -294,7 +289,7 @@ let rec insertARNrelax (a:'a arn_r)(x:'a) :'a arn_r = match a with
   | F y -> a
 
 (* Insert x dans a *)
-let insertARN (a:'a arn)(x:'a) :'a arn = match a with
+let insertARN (a: 'a arn)(x: 'a) : 'a arn = match a with
   | None -> Some (F x)
   | Some a' ->
   match insertARNrelax a' x with
@@ -302,7 +297,7 @@ let insertARN (a:'a arn)(x:'a) :'a arn = match a with
   | F y -> Some (F y)
 
 (* Corrige l'anomalie de hauteur Noir a gauche *)
-let correctionARNg (a':'a arn_r) :'a arn_r * bool = match a' with
+let correctionARNg (a': 'a arn_r) : 'a arn_r * bool = match a' with
   | N (coul, x, a, N(Noir, y, b, N(Rouge, z, c, d)))
   | N (coul, x, a, N(Noir, z, N(Rouge, y, b, c), d)) -> N (coul, y, N(Noir, x, a, b), N(Noir, z, c, d)), false
   | N (coul, x, a, N(Noir, y, b, c)) -> N (Noir, x, a, N(Rouge, y, b, c)), coul=Noir
@@ -312,7 +307,7 @@ let correctionARNg (a':'a arn_r) :'a arn_r * bool = match a' with
   | _ -> a', false
 
 (* Corrige l'anomalie de hauteur Noir a droite *)
-let correctionARNd (a':'a arn_r) :'a arn_r * bool = match a' with
+let correctionARNd (a': 'a arn_r) : 'a arn_r * bool = match a' with
   | N (coul, z, N(Noir, y, N(Rouge, x, a, b), c), d)
   | N (coul, z, N(Noir, x, a, N(Rouge, y, b, c)), d) -> N (coul, y, N(Noir, x, a, b), N(Noir, z, c, d)), false
   | N (coul, y, N(Noir, x, a, b), c) -> N (Noir, y, N(Rouge, x, a, b), c), coul=Noir
@@ -322,7 +317,7 @@ let correctionARNd (a':'a arn_r) :'a arn_r * bool = match a' with
   | _ -> a', false
 
 (* Supprime k dans a' *)
-let rec supprARNrelax (a':'a arn_r)(k:'a) :'a arn_r * bool = match a' with
+let rec supprARNrelax (a': 'a arn_r)(k: 'a) : 'a arn_r * bool = match a' with
   | N (coul, _, F x, d) when k=x -> d, coul=Noir
   | N (coul, _, g, F x) when k=x -> g, coul=Noir
   | N (c, x, g, d) when k>x -> let s, h = supprARNrelax d k in
@@ -334,7 +329,7 @@ let rec supprARNrelax (a':'a arn_r)(k:'a) :'a arn_r * bool = match a' with
   | F x -> F x, false
 
 (* Supprime k dans a *)
-let supprARN (a:'a arn)(k:'a) :'a arn = match a with
+let supprARN (a: 'a arn)(k: 'a) : 'a arn = match a with
   | None -> None
   | Some F x when k=x -> None
   | Some a' ->
@@ -343,31 +338,30 @@ match supprARNrelax a' k with
   | F x, _ -> Some(F x)
 
 (* Concatène a et b *)
-let rec concatARNrelax (a:'a arn_r)(b:'a arn_r) :'a arn_r = match a with
+let rec concatARNrelax (a: 'a arn_r)(b: 'a arn_r) : 'a arn_r = match a with
   | F x -> insertARNrelax b x
   | N (_, x, g, d) -> concatARNrelax g (concatARNrelax d b)
 
 (* Concatène a et b *)
-let rec concatARN (a:'a arn)(b:'a arn) :'a arn = match a, b with
+let rec concatARN (a: 'a arn)(b: 'a arn) : 'a arn = match a, b with
   | ab, None | None, ab -> ab
   | Some a', Some b' -> Some (concatARNrelax a' b')
 
-
-(*** FNC ***)
+(********* FNC *********)
 
 type litteral = YesVar of string | NotVar of string
 type clause = litteral arn
 type fnc = clause list
 
 (* Renvoie f en litteral, None si ce n'est pas un litteral *)
-let litteral_of_formule (f:formule) :litteral option = match f with
+let litteral_of_formule (f: formule) : litteral option = match f with
   | Var s -> Some (YesVar s)
   | Not (Var s) -> Some(NotVar s)
   | _ -> None
 
 (* Renvoie f en clause, None si ce n'est pas une clause *)
-let clause_of_formule (f:formule) :clause option =
-  let rec clause_rec (f':formule) :clause = match f' with
+let clause_of_formule (f: formule) : clause option =
+  let rec clause_rec (f': formule) : clause = match f' with
     | Or (a,b) -> concatARN (clause_rec a)(clause_rec b)
     | _ ->
     match litteral_of_formule f' with
@@ -377,8 +371,8 @@ let clause_of_formule (f:formule) :clause option =
     | Failure _ -> None
 
 (* Renvoie f en fnc, None si ce n'est pas un fnc *)
-let fnc_of_formule (f:formule) :fnc option =
-  let rec fnc_rec (f':formule) :fnc = match f' with
+let fnc_of_formule (f: formule) : fnc option =
+  let rec fnc_rec (f': formule) : fnc = match f' with
     | And (a,b) -> (fnc_rec a) @ (fnc_rec b)
     | _ ->
     match clause_of_formule f' with
@@ -396,22 +390,21 @@ let test_fnc_of_formule () =
   print_string "Tests fnc_of_formule             OK\n"
 
 (* Renvoie si une clause de f est vide *)
-let rec clause_vide (f:fnc) :bool = match f with
+let rec clause_vide (f: fnc) : bool = match f with
   | [] -> false
   | x::f' when x=None -> true
   | x::f' -> clause_vide f'
 
 (* Remplace tous les s par v dans f *)
-let rec substFNC (f:fnc)(s:string)(v:bool) :fnc = match f, v with
+let rec substFNC (f: fnc)(s: string)(v: bool) : fnc = match f, v with
   | [], _ -> []
   | c::f', true when getARN c (YesVar s) -> substFNC f' s v 
   | c::f', true -> (supprARN c (NotVar s))::(substFNC f' s v) 
   | c::f', false when getARN c (NotVar s) -> substFNC f' s v 
   | c::f', false -> (supprARN c (YesVar s))::(substFNC f' s v)
 
-(* Renvoie une solution de f
-   None si il n'y en a pas *)
-let rec quineFNC (f:fnc)(v:string list) :sat_result =
+(* Renvoie une solution de f, ou None si il n'y en a pas *)
+let rec quineFNC (f: fnc)(v: string list) : sat_result =
   match f with
   | [] -> Some []
   | _ when clause_vide f -> None
