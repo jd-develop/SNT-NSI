@@ -317,11 +317,11 @@ let rec supprARNrelax (a': 'a arn_r)(k: 'a) : 'a arn_r * bool = match a' with
   | N (coul, _, F x, d) when k=x -> d, coul=Noir
   | N (coul, _, g, F x) when k=x -> g, coul=Noir
   | N (c, x, g, d) when k>x -> let s, h = supprARNrelax d k in
-              if h then correctionARNd (N(c, x, g, s))
-              else N(c, x, g, s), false
+                               if h then correctionARNd (N(c, x, g, s))
+                               else N(c, x, g, s), false
   | N (c, x, g, d) -> let s, h = supprARNrelax g k in
-              if h then correctionARNg (N(c, x, s, d))
-              else N(c, x, s, d), false
+                      if h then correctionARNg (N(c, x, s, d))
+                      else N(c, x, s, d), false
   | F x -> F x, false
 
 (* Supprime k dans a *)
