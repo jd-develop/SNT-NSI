@@ -75,11 +75,7 @@ let priority (c: char) : int = match c with
    in find_op_paren i (-1) 0
 
 
-(*
- * Renvoie une formule construite à partir de la chaîne s.
- * Lève une exception Erreur_syntaxe si la chaîne ne représente pas une formule
- * valide.
- *)
+(* Simplifier la formule f *)
 let parse (s: string) : formule =
   let n = String.length s in
   (* construit une formule à partir de s[i..j] *)
