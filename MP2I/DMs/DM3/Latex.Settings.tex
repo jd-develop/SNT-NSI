@@ -1,0 +1,63 @@
+\documentclass[a4paper, 10pt]{article}
+
+%% Importations des paquets
+\usepackage[margin=2.0cm]{geometry} % Modifie la taille des marges
+\usepackage{parskip, multicol} % Modifie la disposition des paragraphes et des colonnes
+\usepackage{xcolor} % Permet l'utilisation des couleurs
+
+\usepackage{arev} % Utilise la font Arev
+\usepackage[french]{babel} % Met le document en français
+\usepackage[utf8]{inputenc} % Encode le fichier en Utf-8
+\usepackage[T1]{fontenc} % Affiche les caractères accentués
+
+\usepackage{amsthm, amssymb, amsfonts, mathtools} % Ajoute des outils mathématiques
+\usepackage{siunitx} % Ajouts des outils physiques
+\usepackage{listings, graphicx, tikz} % Permet d’importer des fichiers, images et graphiques
+\usepackage[straightvoltages, RPvoltages, european, american inductor]{circuitikz} % Permet d’importer des circuits en pgf
+
+%% Paramètres des paquets
+\lstset{frame=single, % Paramètre pour listings
+		numbers=left,
+		breaklines=true,
+		basicstyle=\scriptsize\ttfamily\color{black},
+		keywordstyle=\bfseries\color{blue},
+		commentstyle=\color{gray},
+		stringstyle=\color{purple},
+		showspaces=false,
+		showstringspaces=false,
+		showtabs=false,
+		tabsize=4,
+		escapeinside={(*}{*)}}
+
+%% Theoreme
+\newtheorem{theorem}{Théorème}
+\newtheorem{corollary}{Corollaire}[theorem]
+\newtheorem{lemma}[theorem]{Lemme}
+
+\theoremstyle{definition}
+\newtheorem{exercice}{Exercice}
+\newtheorem{question}{Question}
+\newtheorem*{comment}{Commentaire}
+
+%% Macro
+\newcommand*{\bb}[1]{\mathbb{#1}} % Affiche L'ensemble #1
+\renewcommand*{\rm}[1]{\mathrm{#1}} % Affiche #1 en Roman
+\renewcommand*{\bf}[1]{\mathbf{#1}} % Affiche #1 en gras
+\renewcommand*{\cal}[1]{\mathcal{#1}} % Affiche #1 en script
+
+\newcommand*{\obar}[1]{\overline{#1}} % Affiche #1 bar
+\newcommand*{\ubar}[1]{\underline{#1}} % Affiche #1 sous bar
+
+\newcommand*{\deriv}[2]{\frac{\rm{d}#1}{\rm{d}#2}} % Affiche la derivee de #1 par #2
+\newcommand*{\dderiv}[3][2]{\deriv{^{#1}#2}{#3^{#1}}} % Affiche la derivee #1-ieme de #2 par #3
+\newcommand*{\pderiv}[2]{\frac{\partial#1}{\partial#2}} % Affiche la derivee partielle de #1 par #2
+\newcommand*{\pdderiv}[3][2]{\derivp{^{#1}#2}{#3^{#1}}} % Affiche la derivee partielle #1-ieme de #2 par #3
+
+\newcommand*{\txt}[2][]{\lstinputlisting[language=#1]{#2}} % Affiche le fichier #2 dans le langage #1
+\newcommand*{\img}[2][8cm]{\begin{center} % Affiche l'image #2 avec une hauteur de #1
+							\includegraphics[height=#1]{#2}
+							\end{center}}
+\newcommand*{\pgf}[2][8cm]{\begin{center} % Affiche le pgf #2 avec une hauteur de #1
+							\shorthandoff{:;!?}
+							\resizebox{!}{#1}{\input{#2}}
+							\end{center}}
