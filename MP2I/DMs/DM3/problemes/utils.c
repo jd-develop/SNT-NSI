@@ -4,55 +4,80 @@
 
 #include "utils.h"
 
-void safe_strcat(char** dest, const char* src){
-	size_t size = strlen(src) + strlen(*dest) + 1;
-	*dest = realloc(*dest, size*sizeof(char));
-	if (*dest == NULL) {
-		fprintf(stderr, "Erreur : impossible de réallouer la mémoire\n");
-		exit(EXIT_FAILURE);
-	}
-	strcat(*dest, src);
+String* new_string(){
+    String* dest = malloc(sizeof(String));
+    dest->len_max = 16;
+    dest->string = malloc(16*sizeof(char));
+    dest->len = 0;
+    dest->string[0] = '\0';
+    return dest;
 }
 
-char* au_moins_une(char** l, int n){
-	char* f = strdup("(");
-	for (int i = 0; i < n; i++){
-		safe_strcat(&f, l[i]);
-		if (i < n-1){
-			safe_strcat(&f, " | ");
-		}
-	}
-	safe_strcat(&f, ")");
-	return f;
+void string_append(String* dest, const char* src){
+    int len_src = strlen(src);
+    if (dest->len + len_src >= dest->len_max){
+        while (dest->len + len_src >= dest->len_max){
+            dest->len_max *= 2;
+        }
+        char* temp = realloc(dest->string, dest->len_max*sizeof(char));
+        if (temp == NULL) {
+            fprintf(stderr, "Erreur : impossible de réallouer la mémoire\n");
+            exit(EXIT_FAILURE);
+        }
+        dest->string = temp;
+    }
+    dest->len += len_src;
+    strcat(dest->string, src);
 }
 
-char* au_plus_une(char** l, int n){
-	char* f = strdup("(");
-	for (int i = 0; i < n; i++){
-		for (int j = i+1; j < n; j++){
-			safe_strcat(&f, "(~");
-			safe_strcat(&f, l[i]);
-			safe_strcat(&f, " | ~");
-			safe_strcat(&f, l[j]);
-			safe_strcat(&f, ")");
-			if (i < n-2){
-				safe_strcat(&f, " & ");
-			}
-		}
-	}
-	safe_strcat(&f, ")");
-	return f;
+void string_cat(String* dest, String* src){
+    string_append(dest, src->string);
+    string_free(src);
 }
 
-char* exactement_une(char** l, int n){
-	char* f = strdup("(");
-	char* plus = au_plus_une(l, n);
-	safe_strcat(&f, plus);
-	free(plus);
-	safe_strcat(&f, " & ");
-	char* moins = au_moins_une(l, n);
-	safe_strcat(&f, moins);
-	free(moins);
-	safe_strcat(&f, ")");
-	return f;
+void string_free(String* dest){
+    free(dest->string);
+    free(dest);
+}
+
+String* au_moins_une(String** l, int n){
+    String* f = new_string();
+    string_append(f, "(");
+    for (int i = 0; i < n; i++){
+        string_append(f, l[i]->string);
+        if (i < n-1){
+            string_append(f, " | ");
+        }
+    }
+    string_append(f, ")");
+    return f;
+}
+
+String* au_plus_une(String** l, int n){
+    String* f = new_string();
+    string_append(f, "(");
+    for (int i = 0; i < n; i++){
+        for (int j = i+1; j < n; j++){
+            string_append(f, "(~");
+            string_append(f, l[i]->string);
+            string_append(f, " | ~");
+            string_append(f, l[j]->string);
+            string_append(f, ")");
+            if (i < n-2){
+                string_append(f, " & ");
+            }
+        }
+    }
+    string_append(f, ")");
+    return f;
+}
+
+String* exactement_une(String** l, int n){
+    String* f = new_string();
+    string_append(f, "(");
+    string_cat(f, au_plus_une(l, n));
+    string_append(f, " & ");
+    string_cat(f, au_moins_une(l, n));
+    string_append(f, ")");
+    return f;
 }
