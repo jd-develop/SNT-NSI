@@ -93,7 +93,8 @@ String* contrainte_piece_pos(Piece p, int l, int c, int** cal_date){
             }
         }
     }
-    string_append(f, "T)");
+    string_rm(f, 3);
+    string_append(f, ")");
     return f;
 }
 
@@ -118,7 +119,8 @@ String* contrainte_une_piece(Piece p, int** cal_date){
         }
         p = rotation(p);
     }
-    string_append(f, "F)");
+    string_rm(f, 3);
+    string_append(f, ")");
     return f;
 }
 
@@ -131,10 +133,9 @@ String* contrainte_toutes_pieces(int** cal_date){
     for (int k_p=0; k_p<n_pieces; k_p++){
         var = contrainte_une_piece(pieces[k_p], cal_date);
         string_cat(f, var);
-        if (k_p<n_pieces-1){
-            string_append(f, " & ");
-        }
+        string_append(f, " & ");
     }
+    string_rm(f, 3);
     string_append(f, ")");
     return f;
 }
@@ -169,7 +170,8 @@ String* contrainte_toutes_cases(int** cal_date){
             }
         }
     }
-    string_append(f, "T)");
+    string_rm(f, 3);
+    string_append(f, ")");
     return f;
 }
 

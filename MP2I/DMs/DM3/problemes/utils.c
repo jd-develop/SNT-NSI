@@ -35,6 +35,15 @@ void string_cat(String* dest, String* src){
     string_free(src);
 }
 
+void string_rm(String* dest, int n){
+	if (n > dest->len) {
+        fprintf(stderr, "Erreur : le string est trop court\n");
+        exit(EXIT_FAILURE);
+	}
+    dest->len -= n;
+    dest->string[dest->len] = '\0';
+}
+
 void string_free(String* dest){
     free(dest->string);
     free(dest);

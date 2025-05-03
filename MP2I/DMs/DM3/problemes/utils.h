@@ -15,6 +15,9 @@ void string_append(String* dest, const char* src);
 /* Ajoute src dans dest puis libère src */
 void string_cat(String* dest, String* src);
 
+/* Supprime les n derniers caractère de dest*/
+void string_rm(String* dest, int n);
+
 /* Libère dest */
 void string_free(String* dest);
 
