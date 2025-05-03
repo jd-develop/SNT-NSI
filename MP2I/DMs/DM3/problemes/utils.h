@@ -1,4 +1,8 @@
-/* structure pour les string */
+/* structure pour stocker une chaîne de caractère
+ * .len : taille de .string
+ * .len_max : taille allouer pour .string
+ * .string : chaîne de caractère
+ */
 typedef struct {
     int len;
     int len_max;
@@ -6,7 +10,7 @@ typedef struct {
 } String;
 
 
-/* Crée un string avec src */
+/* Crée un nouveau string */
 String* new_string();
 
 /* Ajoute src dans dest */

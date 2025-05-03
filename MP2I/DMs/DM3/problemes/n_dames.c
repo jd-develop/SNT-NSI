@@ -36,10 +36,9 @@ String* contrainte_toutes_lignes(int n){
     string_append(f, "(");
     for (int i=0; i<n; i++){
         string_cat(f, contrainte_une_ligne(i, n));
-        if (i < n-1){
-            string_append(f, " & ");
-        }
+        string_append(f, " & ");
     }
+    string_rm(f, 3);
     string_append(f, ")");
     return f;
 }
@@ -66,10 +65,9 @@ String* contrainte_toutes_colonnes(int n){
     string_append(f, "(");
     for (int j=0; j<n; j++){
         string_cat(f, contrainte_une_colonne(j, n));
-        if (j < n-1){
-            string_append(f, " & ");
-        }
+        string_append(f, " & ");
     }
+    string_rm(f, 3);
     string_append(f, ")");
     return f;
 }
