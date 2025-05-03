@@ -7,7 +7,7 @@ all: $(EXEC)
 
 # Règle global pour chaque exécutable
 $(EXEC): %: %.ml
-	ocamlopt $^ $(ALLFLAGS) -o $@
+	ocamlopt $^ -o $@
 
 # Règle pour la suppression des fichiers temporaires
 .PHONY: clean
