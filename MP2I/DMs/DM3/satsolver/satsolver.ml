@@ -478,7 +478,7 @@ let test_quine () =
   assert (quine (parse "x | (y & ~x)") = Some [("x",false);("y",true)]);
   assert (quine (parse "x | (y & ~y)") = Some [("x",true)]);
   assert (quine (parse "x & (y & ~x)") = None);
-  assert (quine (from_file "tests/test_impossible.txt") = None);
+  assert (quine (from_file "tests/test_impossible") = None);
   print_string "Tests quine                      OK\n"
 
 

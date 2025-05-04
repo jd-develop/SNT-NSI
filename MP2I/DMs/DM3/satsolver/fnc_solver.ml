@@ -244,7 +244,7 @@ let test_quine () =
   assert (quine (parse "x | (y & ~x)") = Some [("x",false);("y",true)]);
   assert (quine (parse "x | (y & ~y)") = Some [("x",true)]);
   assert (quine (parse "x & (y & ~x)") = None);
-  assert (quine (from_file "tests/test_impossible.txt") = None);
+  assert (quine (from_file "tests/test_impossible") = None);
   print_string "Tests quine                      OK\n"
 
 (********* ARN *********)
@@ -256,8 +256,7 @@ type 'a arn = 'a arn_r option
 (* Renvoie Si k est dans a *)
 let rec getARNrelax (a: 'a arn_r)(k: 'a) : bool = match a with
   | N (_, x, g, d) when k>x -> getARNrelax d k
-  | N (_, x, g, d) when k<x -> getARNrelax g k
-  | N (_, x, g, d) -> true
+  | N (_, x, g, d) -> getARNrelax g k
   | F x when x=k -> true
   | F x -> false
 
