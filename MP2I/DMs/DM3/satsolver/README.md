@@ -57,10 +57,10 @@ Les espaces sont autoriser mais ignorer.
 `=` et `>` pour équivalent et implique.
 
 Tout le reste sera compris comme une variable.
-Il est toutefois conseiller de mettre les variable sous une forme lisible,
+Il est toutefois conseiller de mettre les variables sous une forme lisible,
 comme : `X_0_0`
 
-La priorité des opération sont `~`, `&`, `|`, `=` puis `>`
+La priorité des opérations sont `~`, `&`, `|`, `=` puis `>`
 
 ### Exemple
 Pour `entrée.txt` :
