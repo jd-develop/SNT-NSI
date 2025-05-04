@@ -425,11 +425,11 @@ let test_simpl () =
 (* Remplace toutes les occurences de x par g dans la formule f *)
 let rec subst (f: formule) (x: string) (g: formule) =
   match f with
-  | Var (s) when s = x -> g
-  | Top | Bot | Var (_) -> f
+  | Var s when s = x -> g
+  | Top | Bot | Var _ -> f
   | Or  (f1, f2) -> Or  (subst f1 x g, subst f2 x g)
   | And (f1, f2) -> And (subst f1 x g, subst f2 x g)
-  | Not (f') -> Not(subst f' x g)
+  | Not f' -> Not(subst f' x g)
 
 
 let test_subst () =
@@ -486,8 +486,7 @@ let test_quine () =
  * Affiche toutes les variables de v qui sont à `true` à raison d’une variable
  * par ligne.
  *)
-let rec print_true (v: valuation) : unit =
-  match v with
+let rec print_true (v: valuation) : unit = match v with
   | [] -> ()
   | (x, true)::q -> print_string x; print_newline (); print_true q
   | (_, false)::q -> print_true q

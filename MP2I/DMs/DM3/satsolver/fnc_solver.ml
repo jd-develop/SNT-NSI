@@ -195,11 +195,11 @@ let rec simpl_full (f: formule) : formule =
 (* Remplace toutes les occurences de x par g dans la formule f *)
 let rec subst (f: formule) (x: string) (g: formule) =
   match f with
-  | Var (s) when s = x -> g
-  | Top | Bot | Var (_) -> f
+  | Var s when s = x -> g
+  | Top | Bot | Var _ -> f
   | Or  (f1, f2) -> Or  (subst f1 x g, subst f2 x g)
   | And (f1, f2) -> And (subst f1 x g, subst f2 x g)
-  | Not (f') -> Not(subst f' x g)
+  | Not f' -> Not(subst f' x g)
 
 
 let test_subst () =
@@ -255,7 +255,7 @@ type 'a arn = 'a arn_r option
 
 (* Renvoie Si k est dans a *)
 let rec getARNrelax (a: 'a arn_r)(k: 'a) : bool = match a with
-  | N (_, x, g, d) when k>x -> getARNrelax d k
+  | N (_, x, g, d) when k > x -> getARNrelax d k
   | N (_, x, g, d) -> getARNrelax g k
   | F x when x=k -> true
   | F x -> false
@@ -275,11 +275,11 @@ let correctionARN (a': 'a arn_r) : 'a arn_r = match a' with
 
 (* Insere x dans a *)
 let rec insertARNrelax (a: 'a arn_r)(x: 'a) : 'a arn_r = match a with
-  | N(c, y, g, d) when x>y -> correctionARN(N(c, y, g, insertARNrelax d x))
-  | N(c, y, g, d) when x<y -> correctionARN(N(c, y, insertARNrelax g x, d))
+  | N(c, y, g, d) when x > y -> correctionARN(N(c, y, g, insertARNrelax d x))
+  | N(c, y, g, d) when x < y -> correctionARN(N(c, y, insertARNrelax g x, d))
   | N(c, y, g, d) -> a
-  | F y when x>y -> N(Rouge, y , F y, F x)
-  | F y when x<y -> N(Rouge, x, F x, F y)
+  | F y when x > y -> N(Rouge, y , F y, F x)
+  | F y when x < y -> N(Rouge, x, F x, F y)
   | F y -> a
 
 (* Insert x dans a *)
@@ -312,9 +312,9 @@ let correctionARNd (a': 'a arn_r) : 'a arn_r * bool = match a' with
 
 (* Supprime k dans a' *)
 let rec supprARNrelax (a': 'a arn_r)(k: 'a) : 'a arn_r * bool = match a' with
-  | N (coul, _, F x, d) when k=x -> d, coul=Noir
-  | N (coul, _, g, F x) when k=x -> g, coul=Noir
-  | N (c, x, g, d) when k>x -> let s, h = supprARNrelax d k in
+  | N (coul, _, F x, d) when k = x -> d, coul=Noir
+  | N (coul, _, g, F x) when k = x -> g, coul=Noir
+  | N (c, x, g, d) when k > x -> let s, h = supprARNrelax d k in
                                if h then correctionARNd (N(c, x, g, s))
                                else N(c, x, g, s), false
   | N (c, x, g, d) -> let s, h = supprARNrelax g k in
@@ -325,7 +325,7 @@ let rec supprARNrelax (a': 'a arn_r)(k: 'a) : 'a arn_r * bool = match a' with
 (* Supprime k dans a *)
 let supprARN (a: 'a arn)(k: 'a) : 'a arn = match a with
   | None -> None
-  | Some F x when k=x -> None
+  | Some F x when k = x -> None
   | Some a' ->
 match supprARNrelax a' k with
   | N (_, x, g, d), _ -> Some (N(Noir, x, g, d))
@@ -375,7 +375,7 @@ let test_fnc_of_formule () =
 (* Renvoie si une clause de f est vide *)
 let rec clause_vide (f: fnc) : bool = match f with
   | [] -> false
-  | x::f' when x=None -> true
+  | x::f' when x = None -> true
   | x::f' -> clause_vide f'
 
 (* Remplace tous les s par v dans f *)
@@ -413,8 +413,7 @@ let test_quineFNC () =
  * Affiche toutes les variables de v qui sont à `true` à raison d’une variable
  * par ligne.
  *)
-let rec print_true (v: valuation) : unit =
-  match v with
+let rec print_true (v: valuation) : unit = match v with
   | [] -> ()
   | (x, true)::q -> print_string x; print_newline (); print_true q
   | (_, false)::q -> print_true q
@@ -440,12 +439,12 @@ let main () =
     try
     let f = from_file Sys.argv.(1) in
     let v =
-    begin match fnc_of_formule f with
-    | Some f' -> print_string "La formule est fnc\n";
-                  quineFNC f' (liste_variables f)
-    | None -> quine f
-    end in
-    begin match v with
+      begin match fnc_of_formule f with
+      | Some f' -> print_string "La formule est fnc\n";
+                   quineFNC f' (liste_variables f)
+      | None -> quine f
+      end
+    in begin match v with
     | Some v' -> print_string "La formule est satisfiable en assignant 1 aux ";
                  print_string "variables suivantes et 0 aux autres :\n";
                  print_true v'
