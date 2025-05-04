@@ -1,5 +1,4 @@
 # DM3 : SAT solver
-de OGER Nils, BOUE-MOREL Raphaël et BELLOT DES MINIERES Elie
 
 ## Contenu de l'archive
 - README.md
