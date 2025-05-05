@@ -1,78 +1,92 @@
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
+
 #include "utils.h"
 
+String* new_string(){
+    String* dest = malloc(sizeof(String));
+    dest->len_max = 16;
+    dest->string = malloc(16*sizeof(char));
+    dest->len = 0;
+    dest->string[0] = '\0';
+    return dest;
+}
 
-void safe_strcat(char** dest, const char* src) {
-    size_t size = strlen(src) + strlen(*dest) + 1;
-    *dest = realloc(*dest, size*sizeof(char));
-    if (*dest == NULL) {
-        fprintf(stderr, "Erreur : impossible de réallouer la mémoire\n");
+void string_append(String* dest, const char* src){
+    int len_src = strlen(src);
+    if (dest->len + len_src >= dest->len_max){
+        while (dest->len + len_src >= dest->len_max){
+            dest->len_max *= 2;
+        }
+        char* temp = realloc(dest->string, dest->len_max*sizeof(char));
+        if (temp == NULL) {
+            fprintf(stderr, "Erreur : impossible de réallouer la mémoire\n");
+            exit(EXIT_FAILURE);
+        }
+        dest->string = temp;
+    }
+    dest->len += len_src;
+    strcat(dest->string, src);
+}
+
+void string_cat(String* dest, String* src){
+    string_append(dest, src->string);
+    string_free(src);
+}
+
+void string_rm(String* dest, int n){
+    if (n > dest->len) {
+        fprintf(stderr, "Erreur : le string est trop court\n");
         exit(EXIT_FAILURE);
     }
-    strcat(*dest, src);
+    dest->len -= n;
+    dest->string[dest->len] = '\0';
 }
 
+void string_free(String* dest){
+    free(dest->string);
+    free(dest);
+}
 
-char* join(char** l, int n, char* s, int j) {
-    char* res = strdup("(");
-    bool not = (0 <= j) && (j <= n);
-    for (int i = 0; i < n; i++) {
-        if (not && i != j) {
-            safe_strcat(&res, "~");
+String* au_moins_une(String** l, int n){
+    String* f = new_string();
+    string_append(f, "(");
+    for (int i = 0; i < n; i++){
+        string_append(f, l[i]->string);
+        if (i < n-1){
+            string_append(f, " | ");
         }
-        safe_strcat(&res, l[i]);
+    }
+    string_append(f, ")");
+    return f;
+}
 
-        if (i+1 != n) {
-            safe_strcat(&res, s);
+String* au_plus_une(String** l, int n){
+    String* f = new_string();
+    string_append(f, "(");
+    for (int i = 0; i < n; i++){
+        for (int j = i+1; j < n; j++){
+            string_append(f, "(~");
+            string_append(f, l[i]->string);
+            string_append(f, " | ~");
+            string_append(f, l[j]->string);
+            string_append(f, ")");
+            if (i < n-2){
+                string_append(f, " & ");
+            }
         }
     }
-    safe_strcat(&res, ")");
-    return res;
+    string_append(f, ")");
+    return f;
 }
 
-
-char* au_moins_une(char** l, int n) {
-    return join(l, n, " | ", -1);
+String* exactement_une(String** l, int n){
+    String* f = new_string();
+    string_append(f, "(");
+    string_cat(f, au_plus_une(l, n));
+    string_append(f, " & ");
+    string_cat(f, au_moins_une(l, n));
+    string_append(f, ")");
+    return f;
 }
-
-
-char* toutes(char** l, int n, int j) {
-    return join(l, n, " & ", j);
-}
-
-
-char* au_plus_une(char** l, int n) {
-    char** l2 = malloc((n+1)*sizeof(char*));
-    for (int i = 0; i <= n; i++) {
-        l2[i] = toutes(l, n, i);
-    }
-    char* res = au_moins_une(l2, n+1);
-    for (int i = 0; i <= n; i++) {
-        free(l2[i]);
-    }
-    free(l2);
-    return res;
-}
-
-
-char* exactement_une(char** l, int n) {
-    char** l2 = malloc(n*sizeof(char*));
-    for (int i = 0; i < n; i++) {
-        l2[i] = toutes(l, n, i);
-    }
-    char* res = au_moins_une(l2, n);
-    for (int i = 0; i < n; i++) {
-        free(l2[i]);
-    }
-    free(l2);
-    return res;
-}
-
-void printfree(char* s) {
-    printf("%s\n", s);
-    free(s);
-}
-

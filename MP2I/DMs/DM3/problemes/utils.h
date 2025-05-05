@@ -1,77 +1,42 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-
-/*
- * Concatène src à la fin de la chaîne pointée par dest, en arrêtant le
- * programme si ce n’est pas possible. S’occupe de réallouer à la bonne taille.
+/* structure pour stocker une chaîne de caractère
+ * .len : taille de .string
+ * .len_max : taille allouer pour .string
+ * .string : chaîne de caractère
  */
-void safe_strcat(char** dest, const char* src);
+typedef struct {
+    int len;
+    int len_max;
+    char* string;
+} String;
 
 
-/*
- * Renvoie la concaténation des chaînes de l (tableau de taille n) avec pour
- * séparateur la chaîne s, avec une parenthèse ouvrante et une parenthèse
- * fermante comme premier et dernier caractères.
- * Si j est compris entre 0 inclus et n exclus, toutes les chaînes sont
- * précédées de "~" sauf la chaîne d’indice j
- * Si j est égal à n, toutes les chaînes sont précédées de "~"
- */
-char* join(char** l, int n, char* s, int j);
+/* Crée un nouveau string */
+String* new_string();
 
-/*
- * Si l est une liste de n formules supposées atomiques (i.e. sans opérateurs
- * binaires en-dehors de parenthèses), renvoie une chaîne (dans le tas)
- * contenant une formule exprimant « au moins une des formules de l est vraie ».
- * Par exemple, au_moins_une(["(x & ~y)", "y", "z"], 3) pointe vers la chaîne
- * "((x & ~y) | y | z)"
- */
-char* au_moins_une(char** l, int n);
+/* Ajoute src dans dest */
+void string_append(String* dest, const char* src);
 
-/*
- * Si l est une liste de n formules supposées atomiques (i.e. sans opérateurs
- * binaires en-dehors de parenthèses), renvoie une chaîne (dans le tas)
- * contenant une formule exprimant « toutes les formules de l sont vraies ».
- * Par exemple, toutes(["(x & ~y)", "y", "z"], 3, -1) pointe vers la chaîne
- * "((x & ~y) & y & z)"
- *
- * Si j est compris entre 0 inclus et n exclus, la fomule représentée
- * par la chaîne de retour est « aucune formule n’est vraie sauf celle à
- * l’indice j ».
- * Par exemple, toutes(["(x & ~y)", "y", "z"], 3, 1) pointe vers la chaîne
- * "(~(x & ~y) & y & ~z)"
- *
- * Si j est égal à n, la formule représentée par la chaîne de retour est
- * « aucune formule n’est vraie ».
- * Par exemple, toutes(["(x & ~y)", "y", "z"], 3, 3) pointe vers la chaîne
- * "(~(x & ~y) & ~y & ~z)"
- */
-char* toutes(char** l, int n, int j);
+/* Ajoute src dans dest puis libère src */
+void string_cat(String* dest, String* src);
 
-/*
- * Si l est une liste de n formules supposées atomiques (i.e. sans opérateurs
- * binaires en-dehors de parenthèses), renvoie une chaîne (dans le tas)
- * contenant une formule exprimant « au plus une des formules de l est vraie ».
- * Par exemple, au_plus_une(["(x & ~y)", "y", "z"], 3) pointe vers la chaîne
- * "(((x & ~y) & ~y & ~z) | (~(x & ~y) & y & ~z) | (~(x & ~y) & ~y & z)
- *  | (~(x & ~y) & ~y & ~z))"
- */
-char* au_plus_une(char** l, int n);
+/* Supprime les n derniers caractère de dest*/
+void string_rm(String* dest, int n);
 
-/*
- * Si l est une liste de n formules supposées atomiques (i.e. sans opérateurs
- * binaires en-dehors de parenthèses), renvoie une chaîne (dans le tas)
- * contenant une formule exprimant « exactement une des formules de l est
- * vraie ».
- * Par exemple, exactement_une(["(x & ~y)", "y", "z"], 3) pointe vers la chaîne
- * "(((x & ~y) & ~y & ~z) | (~(x & ~y) & y & ~z) | (~(x & ~y) & ~y & z))"
- */
-char* exactement_une(char** l, int n);
+/* Libère dest */
+void string_free(String* dest);
 
-/*
- * Affiche la chaîne de caractères s (dans le tas) puis libère la mémoire qui
- * lui est allouée
- */
-void printfree(char* s);
 
+/* Renvoie la formule au moins une est vraie */
+String* au_moins_une(String** l, int n);
+
+/* Renvoie la formule au plus une est vraie */
+String* au_plus_une(String** l, int n);
+
+/* Renvoie la formule exactement une est vraie */
+String* exactement_une(String** l, int n);
 #endif
+
+/* TODO : write better comments */

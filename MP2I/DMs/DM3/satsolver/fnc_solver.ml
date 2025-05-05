@@ -248,7 +248,6 @@ let test_quine () =
   print_string "Tests quine                      OK\n"
 
 (********* ARN *********)
-
 type coul = Rouge | Noir
 type 'a arn_r = F of 'a | N of coul * 'a * 'a arn_r * 'a arn_r
 type 'a arn = 'a arn_r option
@@ -332,7 +331,6 @@ match supprARNrelax a' k with
   | F x, _ -> Some(F x)
 
 (********* FNC *********)
-
 type litteral = YesVar of string | NotVar of string
 type clause = litteral arn
 type fnc = clause list
@@ -451,6 +449,5 @@ let main () =
     print_float (Sys.time ());
     print_string " s\n"
     with Sys_error(no_such_file) -> print_string no_such_file; print_newline ()
-
 
 let _ = main ()
