@@ -378,9 +378,10 @@ let rec clause_vide (f: fnc) : bool = match f with
 let rec substFNC (f: fnc)(s: string)(v: bool) : fnc = match f, v with
   | [], _ -> []
   | c::f', true when getARN c (YesVar s) -> substFNC f' s v 
-  | c::f', true -> (supprARN c (NotVar s))::(substFNC f' s v) 
+  | c::f', true when getARN c (NotVar s) -> (supprARN c (NotVar s))::(substFNC f' s v) 
   | c::f', false when getARN c (NotVar s) -> substFNC f' s v 
-  | c::f', false -> (supprARN c (YesVar s))::(substFNC f' s v)
+  | c::f', false when getARN c (YesVar s) -> (supprARN c (YesVar s))::(substFNC f' s v)
+  | c::f', _ -> c::(substFNC f' s v)
 
 (* Renvoie une solution de f, ou None si il n'y en a pas *)
 let rec quineFNC (f: fnc)(v: string list) : sat_result =
