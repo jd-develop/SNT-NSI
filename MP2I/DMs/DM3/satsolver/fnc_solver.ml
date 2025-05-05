@@ -223,13 +223,13 @@ let rec quine (f:formule) :sat_result =
   | Top -> Some []
   | Bot -> None
   | f' ->
-    let x = var_in_formule f' in
-      match quine (subst f' x Bot) with
-      | Some v -> Some ((x, false)::v)
-      | None ->
-        match quine (subst f' x Top) with
-        | Some v -> Some ((x, true)::v)
-        | None -> None
+  let x = var_in_formule f' in
+  match quine (subst f' x Bot) with
+  | Some v -> Some ((x, false)::v)
+  | None ->
+  match quine (subst f' x Top) with
+  | Some v -> Some ((x, true)::v)
+  | None -> None
 
 
 let test_quine () =
@@ -248,6 +248,7 @@ let test_quine () =
   print_string "Tests quine                      OK\n"
 
 (********* ARN *********)
+
 type coul = Rouge | Noir
 type 'a arn_r = F of 'a | N of coul * 'a * 'a arn_r * 'a arn_r
 type 'a arn = 'a arn_r option
@@ -331,6 +332,7 @@ match supprARNrelax a' k with
   | F x, _ -> Some(F x)
 
 (********* FNC *********)
+
 type litteral = YesVar of string | NotVar of string
 type clause = litteral arn
 type fnc = clause list
@@ -369,8 +371,8 @@ let test_fnc_of_formule () =
 (* Renvoie si une clause de f est vide *)
 let rec clause_vide (f: fnc) : bool = match f with
   | [] -> false
-  | x::f' when x = None -> true
-  | x::f' -> clause_vide f'
+  | None::f' -> true
+  | _::f' -> clause_vide f'
 
 (* Remplace tous les s par v dans f *)
 let rec substFNC (f: fnc)(s: string)(v: bool) : fnc = match f, v with
@@ -381,12 +383,30 @@ let rec substFNC (f: fnc)(s: string)(v: bool) : fnc = match f, v with
   | c::f', false when getARN c (YesVar s) -> (supprARN c (YesVar s))::(substFNC f' s v)
   | c::f', _ -> c::(substFNC f' s v)
 
+(* Renvoie une variable dans une clause unitaire,
+ * v sans cette variable,
+ * et la valeur a mettre pour cette variable,
+ * ou None si aucune clause n'est unitaire *)
+let rec propagation_unitaire (f: fnc)(v: string list) : (string * string list * bool) option =
+  match f with
+  | [] -> None
+  | (Some (F (YesVar s)))::q -> Some (s, List.filter (fun x -> x<>s) v, true)
+  | (Some (F (NotVar s)))::q -> Some (s, List.filter (fun x -> x<>s) v, false)
+  | _::q -> propagation_unitaire q v
+
 (* Renvoie une solution de f, ou None si il n'y en a pas *)
 let rec quineFNC (f: fnc)(v: string list) : sat_result =
   match f with
   | [] -> Some []
   | _ when clause_vide f -> None
   | _ ->
+  match propagation_unitaire f v with
+  | Some (s, v', b) ->
+      begin match quineFNC (substFNC f s b) v' with
+	  | Some r -> Some ((s,b)::r) 
+	  | None -> None
+	  end
+  | None ->
   match v with
   | [] -> Some []
   | s::v' ->
@@ -449,5 +469,6 @@ let main () =
     print_float (Sys.time ());
     print_string " s\n"
     with Sys_error(no_such_file) -> print_string no_such_file; print_newline ()
+
 
 let _ = main ()
