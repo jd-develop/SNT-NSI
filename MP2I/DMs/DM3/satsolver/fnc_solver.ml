@@ -153,7 +153,7 @@ let read_file (fn: string) : string =
   close_in ic; res
 
 (* Renvoie la liste des variables contenues dans la formule, sans doublons et
- * dans l’ordre croissant. Récursif terminal *)
+ * dans l’ordre croissant *)
 let liste_variables (f: formule) : string list =
   let rec list_var_rec (f': formule) (l: string list) : string list =
     match f' with
@@ -337,19 +337,15 @@ type litteral = YesVar of string | NotVar of string
 type clause = litteral arn
 type fnc = clause list
 
-(* 
- * Renvoie f en litteral,
- * Lève une exception Failure si f n'est pas un litteral
- *)
+(* Renvoie f en litteral,
+ * Lève une exception Failure si f n'est pas un litteral *)
 let litteral_of_formule (f: formule) : litteral = match f with
   | Var s -> YesVar s
   | Not (Var s) -> NotVar s
   | _ -> failwith "f n'est pas un fnc"
 
-(* 
- * Renvoie f en clause,
- * Lève une exception Failure si f n'est pas une clause
- *)
+(* Renvoie f en clause,
+ * Lève une exception Failure si f n'est pas une clause *)
 let clause_of_formule (f: formule) : clause =
   let rec clause_rec (f': formule)(c: clause) : clause = match f' with
     | Or (a,b) -> clause_rec a (clause_rec b c)
@@ -443,8 +439,8 @@ let main () =
       | Some f' -> print_string "La formule est fnc\n";
                    quineFNC f' (liste_variables f)
       | None -> quine f
-      end
-    in begin match v with
+      end in
+    begin match v with
     | Some v' -> print_string "La formule est satisfiable en assignant 1 aux ";
                  print_string "variables suivantes et 0 aux autres :\n";
                  print_true v'

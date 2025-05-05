@@ -225,7 +225,7 @@ let rec liste_variables (f: formule) : string list =
 
 
 (* Renvoie la liste des variables contenues dans la formule, sans doublons et
- * dans l’ordre croissant. Récursif terminal *)
+ * dans l’ordre croissant. *)
 let liste_variables (f: formule) : string list =
   let rec list_var_rec (f': formule) (l: string list) : string list =
     match f' with
