@@ -383,7 +383,7 @@ let rec substFNC (f: fnc)(s: string)(v: bool) : fnc = match f, v with
   | c::f', false when getARN c (YesVar s) -> (supprARN c (YesVar s))::(substFNC f' s v)
   | c::f', _ -> c::(substFNC f' s v)
 
-(* Renvoie une variable dans une clause unitaire,
+(* Renvoie une variable unitaire,
  * v sans cette variable,
  * et la valeur a mettre pour cette variable,
  * ou None si aucune clause n'est unitaire *)
@@ -455,7 +455,8 @@ let main () =
     let f = from_file Sys.argv.(1) in
     let v =
       begin match fnc_of_formule f with
-      | Some f' -> print_string "La formule est fnc\n";
+      | Some f' -> print_string "La formule est sous FNC.\n";
+                   flush stdout;
                    quineFNC f' (liste_variables f)
       | None -> quine f
       end in
