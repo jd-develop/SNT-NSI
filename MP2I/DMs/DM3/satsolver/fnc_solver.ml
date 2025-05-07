@@ -34,11 +34,9 @@ let is_binop (c: char) : bool = match c with
   | '&' |  '|' |  '>' |  '='  -> true
   | _ -> false
 
-(*
- * Priorité de l'opérateur c. Permet de déterminer comment interpréter une
+(* Priorité de l'opérateur c. Permet de déterminer comment interpréter une
  * formule sans parenthèses. Par exemple, "x&y|z" sera interprété comme
- * "(x&y)|z" car & est plus prioritaire que |
- *)
+ * "(x&y)|z" car & est plus prioritaire que | *)
 let priority (c: char) : int = match c with
   | '&' -> 4
   | '|' -> 3
@@ -47,10 +45,8 @@ let priority (c: char) : int = match c with
   | _ -> raise Erreur_syntaxe (* c n'est pas un opérateur *)
 
 
-(*
- * Indice de l'opérateur le moins prioritaire parmi ceux qui ne sont pas entre
- * parenthèses entre s.[i] et s.[j] inclus
- *)
+(* Indice de l'opérateur le moins prioritaire parmi ceux qui ne sont pas entre
+ * parenthèses entre s.[i] et s.[j] inclus *)
  let find_op_surface (s: string) (i: int) (j: int) : int =
    (*
     * Renvoie l'indice de l'opérateur le moins prioritaire entre
@@ -73,11 +69,9 @@ let priority (c: char) : int = match c with
      else find_op_paren (k+1) res (paren_lvl)
    in find_op_paren i (-1) 0
 
-(*
- * Renvoie une formule construite à partir de la chaîne s.
+(* Renvoie une formule construite à partir de la chaîne s.
  * Lève une exception Erreur_syntaxe si la chaîne ne représente pas une formule
- * valide.
- *)
+ * valide. *)
 let parse (s: string) : formule =
   let n = String.length s in
   (* construit une formule à partir de s[i..j] *)
@@ -106,13 +100,11 @@ let parse (s: string) : formule =
       | _ -> raise Erreur_syntaxe
   in parse_aux 0 (String.length s -1)
 
-(*
- * Renvoie une formule construire à partir du contenu du fichier fn.
+(* Renvoie une formule construire à partir du contenu du fichier fn.
  * Lève une exception Erreur_syntaxe si le contenu du fichier n'est pas une
  * formule valide.
  * Lève une exception Sys_error(message_erreur) si le nom du fichier n'est pas
- * valide.
- *)
+ * valide. *)
 let from_file (filename: string) : formule =
   (* concatène toutes les lignes de f en une seule chaîne *)
   let rec read_lines f =
@@ -143,10 +135,8 @@ let test_parse () =
   print_string "Tests parse et from_file         OK\n"
 
 
-(*
- * Renvoie le contenu du fichier fn sous forme de chaîne de caractères.
- * Le fichier ne doit contenir qu’une seule ligne
- *)
+(* Renvoie le contenu du fichier fn sous forme de chaîne de caractères.
+ * Le fichier ne doit contenir qu’une seule ligne *)
 let read_file (fn: string) : string =
   let ic = open_in fn in
   let res = input_line ic in
@@ -257,8 +247,7 @@ type 'a arn = 'a arn_r option
 let rec getARNrelax (a: 'a arn_r)(k: 'a) : bool = match a with
   | N (_, x, g, d) when k > x -> getARNrelax d k
   | N (_, x, g, d) -> getARNrelax g k
-  | F x when x=k -> true
-  | F x -> false
+  | F x -> x = k
 
 (* Renvoie Si k est dans a *)
 let rec getARN (a: 'a arn)(k: 'a) : bool = match a with
@@ -276,11 +265,10 @@ let correctionARN (a': 'a arn_r) : 'a arn_r = match a' with
 (* Insere x dans a *)
 let rec insertARNrelax (a: 'a arn_r)(x: 'a) : 'a arn_r = match a with
   | N(c, y, g, d) when x > y -> correctionARN(N(c, y, g, insertARNrelax d x))
-  | N(c, y, g, d) when x < y -> correctionARN(N(c, y, insertARNrelax g x, d))
-  | N(c, y, g, d) -> a
+  | N(c, y, g, d) -> correctionARN(N(c, y, insertARNrelax g x, d))
   | F y when x > y -> N(Rouge, y , F y, F x)
   | F y when x < y -> N(Rouge, x, F x, F y)
-  | F y -> a
+  | F y -> F y
 
 (* Insert x dans a *)
 let insertARN (a: 'a arn)(x: 'a) : 'a arn = match a with
@@ -306,17 +294,17 @@ let correctionARNd (a': 'a arn_r) : 'a arn_r * bool = match a' with
   | N (coul, z, N(Noir, x, a, N(Rouge, y, b, c)), d)                   -> N (coul, y, N(Noir, x, a, b), N(Noir, z, c, d)), false
   | N (coul, y, N(Noir, x, a, b), c)                                   -> N (Noir, y, N(Rouge, x, a, b), c), coul=Noir
   | N (Noir, y, N(Rouge, x, a, N(Noir, x', N(Rouge, y', b, c), d)), e)
-  | N (Noir, y, N(Rouge, x, a, N(Noir, y', b, N(Rouge, x', c, d))), e) -> N (Noir, x, a, N(Rouge, x', N(Noir, y', b, c), N(Noir, y, c, d))), false
+  | N (Noir, y, N(Rouge, x, a, N(Noir, y', b, N(Rouge, x', c, d))), e) -> N (Noir, x, a, N(Rouge, x', N(Noir, y', b, c), N(Noir, y, d, e))), false
   | N (Noir,z, N(Rouge, x, a, N(Noir, y, b, c)), d)                    -> N (Noir, x, a, N(Noir, z, N(Rouge, y, b, c), d)), false
   | _ -> a', false
 
 (* Supprime k dans a' *)
 let rec supprARNrelax (a': 'a arn_r)(k: 'a) : 'a arn_r * bool = match a' with
-  | N (coul, _, F x, d) when k = x -> d, coul=Noir
-  | N (coul, _, g, F x) when k = x -> g, coul=Noir
+  | N (c, _, F x, d) when k = x -> d, c=Noir
+  | N (c, _, g, F x) when k = x -> g, c=Noir
   | N (c, x, g, d) when k > x -> let s, h = supprARNrelax d k in
-                               if h then correctionARNd (N(c, x, g, s))
-                               else N(c, x, g, s), false
+                                 if h then correctionARNd (N(c, x, g, s))
+                                 else N(c, x, g, s), false
   | N (c, x, g, d) -> let s, h = supprARNrelax g k in
                       if h then correctionARNg (N(c, x, s, d))
                       else N(c, x, s, d), false
@@ -327,7 +315,7 @@ let supprARN (a: 'a arn)(k: 'a) : 'a arn = match a with
   | None -> None
   | Some F x when k = x -> None
   | Some a' ->
-match supprARNrelax a' k with
+  match supprARNrelax a' k with
   | N (_, x, g, d), _ -> Some (N(Noir, x, g, d))
   | F x, _ -> Some(F x)
 
@@ -374,6 +362,17 @@ let rec clause_vide (f: fnc) : bool = match f with
   | None::f' -> true
   | _::f' -> clause_vide f'
 
+(* Renvoie une variable unitaire,
+ * v sans cette variable,
+ * et la valeur a mettre pour cette variable,
+ * ou None si aucune clause n'est unitaire *)
+let rec propagation_unitaire (f: fnc)(v: string list) : (string * string list * bool) option =
+  match f with
+  | [] -> None
+  | (Some (F (YesVar s)))::f' -> Some (s, List.filter (fun x -> x<>s) v, true)
+  | (Some (F (NotVar s)))::f' -> Some (s, List.filter (fun x -> x<>s) v, false)
+  | _::f' -> propagation_unitaire f' v
+
 (* Remplace tous les s par v dans f *)
 let rec substFNC (f: fnc)(s: string)(v: bool) : fnc = match f, v with
   | [], _ -> []
@@ -382,17 +381,6 @@ let rec substFNC (f: fnc)(s: string)(v: bool) : fnc = match f, v with
   | c::f', false when getARN c (NotVar s) -> substFNC f' s v 
   | c::f', false when getARN c (YesVar s) -> (supprARN c (YesVar s))::(substFNC f' s v)
   | c::f', _ -> c::(substFNC f' s v)
-
-(* Renvoie une variable unitaire,
- * v sans cette variable,
- * et la valeur a mettre pour cette variable,
- * ou None si aucune clause n'est unitaire *)
-let rec propagation_unitaire (f: fnc)(v: string list) : (string * string list * bool) option =
-  match f with
-  | [] -> None
-  | (Some (F (YesVar s)))::q -> Some (s, List.filter (fun x -> x<>s) v, true)
-  | (Some (F (NotVar s)))::q -> Some (s, List.filter (fun x -> x<>s) v, false)
-  | _::q -> propagation_unitaire q v
 
 (* Renvoie une solution de f, ou None si il n'y en a pas *)
 let rec quineFNC (f: fnc)(v: string list) : sat_result =
@@ -408,7 +396,7 @@ let rec quineFNC (f: fnc)(v: string list) : sat_result =
 	  end
   | None ->
   match v with
-  | [] -> Some []
+  | [] -> None
   | s::v' ->
   match quineFNC (substFNC f s false) v' with
   | Some r -> Some ((s,false)::r) 
@@ -424,10 +412,9 @@ let test_quineFNC () =
   assert (quineFNC([Some (N (Rouge, YesVar "b", F (YesVar "b"), F (NotVar "a"))); Some (F (NotVar "c"))]) ["a";"b";"c"] = Some [("a", false); ("b", false); ("c", false)]);
   print_string "Tests quineFNC                   OK\n"
 
-(*
- * Affiche toutes les variables de v qui sont à `true` à raison d’une variable
- * par ligne.
- *)
+
+(* Affiche toutes les variables de v qui sont à `true` à raison d’une variable
+ * par ligne. *)
 let rec print_true (v: valuation) : unit = match v with
   | [] -> ()
   | (x, true)::q -> print_string x; print_newline (); print_true q
