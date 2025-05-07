@@ -445,13 +445,15 @@ let main () =
       | Some f' -> print_string "La formule est sous FNC.\n";
                    flush stdout;
                    quineFNC f' (liste_variables f)
-      | None -> quine f
+      | None -> print_string "La formule n'est pas sous FNC.\n";
+                flush stdout;
+                quine f
       end in
     begin match v with
     | Some v' -> print_string "La formule est satisfiable en assignant 1 aux ";
                  print_string "variables suivantes et 0 aux autres :\n";
                  print_true v'
-    | None    -> print_string "La formule est insatisfiable.\n"
+    | None -> print_string "La formule est insatisfiable.\n"
     end;
     print_string "Temps d'exécution : ";
     print_float (Sys.time ());
