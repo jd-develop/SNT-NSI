@@ -3,7 +3,7 @@
 
 /* structure pour stocker une chaîne de caractère
  * .len : taille de .string
- * .len_max : taille allouer pour .string
+ * .len_max : taille allouée pour .string
  * .string : chaîne de caractère
  */
 typedef struct {
@@ -22,7 +22,7 @@ void string_append(String* dest, const char* src);
 /* Ajoute src dans dest puis libère src */
 void string_cat(String* dest, String* src);
 
-/* Supprime les n derniers caractère de dest*/
+/* Supprime les n derniers caractères de dest*/
 void string_rm(String* dest, int n);
 
 /* Libère dest */
