@@ -17,17 +17,18 @@
 
 %% Paramètres des paquets
 \lstset{frame=single, % Paramètre pour listings
-		numbers=left,
-		breaklines=true,
-		basicstyle=\scriptsize\ttfamily\color{black},
-		keywordstyle=\bfseries\color{blue},
-		commentstyle=\color{gray},
-		stringstyle=\color{purple},
-		showspaces=false,
-		showstringspaces=false,
-		showtabs=false,
-		tabsize=4,
-		escapeinside={(*}{*)}}
+        numbers=left,
+        breaklines=true,
+        basicstyle=\scriptsize\ttfamily\color{black},
+        keywordstyle=\bfseries\color{blue},
+        commentstyle=\color{gray},
+        stringstyle=\color{purple},
+        showspaces=false,
+        showstringspaces=false,
+        showtabs=false,
+        tabsize=4,
+        escapeinside={§}{§}
+        }
 
 %% Theoreme
 \newtheorem{theorem}{Théorème}
@@ -55,9 +56,9 @@
 
 \newcommand*{\txt}[2][]{\lstinputlisting[language=#1]{#2}} % Affiche le fichier #2 dans le langage #1
 \newcommand*{\img}[2][8cm]{\begin{center} % Affiche l'image #2 avec une hauteur de #1
-							\includegraphics[height=#1]{#2}
-							\end{center}}
+                            \includegraphics[height=#1]{#2}
+                            \end{center}}
 \newcommand*{\pgf}[2][8cm]{\begin{center} % Affiche le pgf #2 avec une hauteur de #1
-							\shorthandoff{:;!?}
-							\resizebox{!}{#1}{\input{#2}}
-							\end{center}}
+                            \shorthandoff{:;!?}
+                            \resizebox{!}{#1}{\input{#2}}
+                            \end{center}}
