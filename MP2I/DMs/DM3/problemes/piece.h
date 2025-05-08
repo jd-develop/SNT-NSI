@@ -1,10 +1,10 @@
 /* structure des pièces sans rotation et sans symétrie */
 typedef struct {
-	char nom;
-	int n_ligne;
-	int n_col;
-	int n_rot;
-	int n_sym;
+    char nom;
+    int n_ligne;
+    int n_col;
+    int n_rot;
+    int n_sym;
     int tab[4][4];
 } Piece;
 
