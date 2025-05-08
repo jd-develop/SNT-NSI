@@ -73,14 +73,17 @@ bool piece_valide(Piece p, int l, int c, int** cal_date){
 }
 
 /* Renvoie une formule exprimant la contrainte de la pièce p en l c,
+   avec alias le nom d'une variable intermédiaire,
    dans le problème du calendrier */
-String* contrainte_piece_pos(Piece p, int l, int c, int** cal_date){
+String* contrainte_piece_pos(Piece p, int l, int c, char* alias, int** cal_date){
     String* f = new_string();
-    string_append(f, "(");
     String* var;
     for (int i=0; i<n_calendrier; i++){
         for (int j=0; j<n_calendrier; j++){
             if (cal_date[i][j] == 1){
+                string_append(f, "(~");
+                string_append(f, alias);
+                string_append(f, " | ");
                 var = variable(p.nom, i, j);
                 if (l<=i && i<l+p.n_ligne && c<=j && j<c+p.n_col
                     && p.tab[i-l][j-c] == 1){
@@ -89,12 +92,11 @@ String* contrainte_piece_pos(Piece p, int l, int c, int** cal_date){
                     string_append(f, "~");
                     string_cat(f, var);
                 }
-                string_append(f, " & ");
+                string_append(f, ") & ");
             }
         }
     }
     string_rm(f, 3);
-    string_append(f, ")");
     return f;
 }
 
@@ -102,16 +104,16 @@ String* contrainte_piece_pos(Piece p, int l, int c, int** cal_date){
    dans le problème du calendrier */
 String* contrainte_une_piece(Piece p, int** cal_date){
     String* f = new_string();
-    string_append(f, "(");
-    String* var;
+    char alias[100];
+    int k = 0;
     for (int r=0; r<p.n_rot; r++){
         for (int s=0; s<p.n_sym; s++){
             for (int l=0; l<n_calendrier; l++){
                 for (int c=0; c<n_calendrier; c++){
                     if (piece_valide(p, l, c, cal_date)){
-                        var = contrainte_piece_pos(p, l, c, cal_date);
-                        string_cat(f, var);
-                        string_append(f, " | ");
+						sprintf(alias, "alias_%c%i", p.nom, k++);
+                        string_cat(f, contrainte_piece_pos(p, l, c, alias, cal_date));
+                        string_append(f, " & ");
                     }
                 }
             }
@@ -119,6 +121,12 @@ String* contrainte_une_piece(Piece p, int** cal_date){
         }
         p = rotation(p);
     }
+    string_append(f, "(");
+    for (int i=0; i<k; i++){
+		sprintf(alias, "alias_%c%i", p.nom, i);
+		string_append(f, alias);
+        string_append(f, " | ");
+	}
     string_rm(f, 3);
     string_append(f, ")");
     return f;
@@ -181,16 +189,16 @@ int gen_formule_calendrier(int jour, int mois, int j_semaine, char* filename){
     int** cal_date = date(jour, mois, j_semaine);
     FILE* file = fopen(filename, "w");
     assert(file != NULL);
-
+    
     String* f = new_string();
     string_cat(f,contrainte_toutes_pieces(cal_date));
     string_append(f, " & ");
     string_cat(f,contrainte_toutes_cases(cal_date));
-
+    
     int size = f->len;
     fprintf(file, "%s", f->string);
     string_free(f);
-
+    
     fclose(file);
     for (int i=0; i<n_calendrier; i++){
             free(cal_date[i]);
@@ -210,9 +218,9 @@ int main(int argc, char** argv){
     sscanf(argv[1], "%i", &j_semaine);
     sscanf(argv[2], "%i", &jour);
     sscanf(argv[3], "%i", &mois);
-
+    
     char outfile[] = "calendrier.txt";
-
+    
     int size = gen_formule_calendrier(jour, mois, j_semaine, outfile);
     printf("Fichier '%s' généré\n", outfile);
     printf("Taille du fichier: %d octets\n", size);

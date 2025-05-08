@@ -123,10 +123,9 @@ String* contrainte_toutes_diagonales(int n){
     }
     for (int i=-n+2; i<n-1; i++){
         string_cat(f, contrainte_une_diagonale_2(i, n));
-        if (i < n-2){
-            string_append(f, " & ");
-        }
+        string_append(f, " & ");
     }
+    string_rm(f, 3);
     string_append(f, ")");
     return f;
 }
@@ -136,18 +135,18 @@ String* contrainte_toutes_diagonales(int n){
 int gen_formule_n_dames(int n, char* filename){
     FILE* file = fopen(filename, "w");
     assert(file != NULL);
-
+    
     String* f = new_string();
     string_cat(f, contrainte_toutes_lignes(n));
     string_append(f, " & ");
     string_cat(f, contrainte_toutes_colonnes(n));
     string_append(f, " & ");
     string_cat(f, contrainte_toutes_diagonales(n));
-
+    
     int size = f->len;
     fprintf(file, "%s", f->string);
     string_free(f);
-
+    
     fclose(file);
     return size;
 }
@@ -159,10 +158,10 @@ int main(int argc, char** argv){
     }
     int n;
     sscanf(argv[1], "%i", &n);
-
+    
     char outfile[100];
     sprintf(outfile, "%i_dames.txt", n);
-
+    
     int size = gen_formule_n_dames(n, outfile);
     printf("Fichier '%s' généré\n", outfile);
     printf("Taille du fichier: %d octets\n", size);
