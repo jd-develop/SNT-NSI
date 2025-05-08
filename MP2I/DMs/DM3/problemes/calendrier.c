@@ -223,6 +223,6 @@ int main(int argc, char** argv){
     
     int size = gen_formule_calendrier(jour, mois, j_semaine, outfile);
     printf("Fichier '%s' généré.\n", outfile);
-    printf("Taille du fichier : %d octets\n", size);
+    printf("Taille du fichier : %d octets.\n", size);
     return 0;
 }
