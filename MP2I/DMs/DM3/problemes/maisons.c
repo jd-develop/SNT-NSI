@@ -332,16 +332,23 @@ String* contraintes_de_lenonce() {
 
 
 int main() {
+	char outfile[] = "maison.txt";
+    FILE* file = fopen(outfile, "w");
+    assert(file != NULL);
+    
     String* res = new_string();
-
     string_cat(res, contraintes_de_lenonce());
     string_append(res, " & ");
     string_cat(res, contrainte_unicite_toutes_caracteristiques());
     string_append(res, " & ");
     string_cat(res, contrainte_unicite_par_categorie_toutes_maisons());
-
-    printf("%s\n", res->string);
+    
+    int size = res->len;
+    fprintf(file, "%s\n", res->string);
     string_free(res);
-
+    
+    fclose(file);
+    printf("Fichier '%s' généré\n", outfile);
+    printf("Taille du fichier: %d octets\n", size);
     return 0;
 }
