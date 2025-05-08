@@ -28,15 +28,26 @@ void string_rm(String* dest, int n);
 /* Libère dest */
 void string_free(String* dest);
 
-
-/* Renvoie la formule au moins une est vraie */
+/*
+ * Si l est une liste de n formules supposées atomiques (i.e. sans opérateurs
+ * binaires en-dehors de parenthèses), renvoie une chaîne (dans le tas)
+ * contenant une formule exprimant « au moins une des formules de l est vraie ».
+ */
 String* au_moins_une(String** l, int n);
 
-/* Renvoie la formule au plus une est vraie */
+/*
+ * Si l est une liste de n formules supposées atomiques (i.e. sans opérateurs
+ * binaires en-dehors de parenthèses), renvoie une chaîne (dans le tas)
+ * contenant une formule exprimant « au plus une des formules de l est vraie ».
+ */
 String* au_plus_une(String** l, int n);
 
-/* Renvoie la formule exactement une est vraie */
+/*
+ * Si l est une liste de n formules supposées atomiques (i.e. sans opérateurs
+ * binaires en-dehors de parenthèses), renvoie une chaîne (dans le tas)
+ * contenant une formule exprimant « exactement une des formules de l est
+ * vraie ».
+ */
 String* exactement_une(String** l, int n);
 #endif
 
-/* TODO : write better comments */
