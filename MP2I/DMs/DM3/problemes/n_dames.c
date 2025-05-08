@@ -163,7 +163,7 @@ int main(int argc, char** argv){
     sprintf(outfile, "%i_dames.txt", n);
     
     int size = gen_formule_n_dames(n, outfile);
-    printf("Fichier '%s' généré\n", outfile);
-    printf("Taille du fichier: %d octets\n", size);
+    printf("Fichier '%s' généré.\n", outfile);
+    printf("Taille du fichier : %d octets\n", size);
     return 0;
 }
