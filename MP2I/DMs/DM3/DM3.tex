@@ -18,7 +18,7 @@
         C_n &= C_{n-1} + C_0 + \Theta(n)\\
         &\geq C_{n-1} + nA\\
         &\geq C_0 + \sum_{i=0}^{n-1}(n-i)A\\
-        &= \Omega(n^2)
+        &= \Omega(n^2)\\
     \end{align*}
     Donc dans le pire cas, la complexité est au moins en $\Omega(n^2)$.
     
@@ -29,7 +29,7 @@
     Dans la nouvelle fonction, on a
     \begin{align*}
         C_n &= \Theta(n) + \Theta(n\log(n))\\
-        &= \Theta(n\log(n))
+        &= \Theta(n\log(n))\\
     \end{align*}
     
     \subsection*{Q19.}
@@ -61,7 +61,9 @@
     
     \section{Résolution de problèmes}
     \subsection*{Q31.}
-    La formule $\bigwedge\limits_{1 \leq i < j \leq n}(\lnot a_i \vee \lnot a_j)$ est sous FNC.
+    La formule
+    $\bigwedge\limits_{1 \leq i < j \leq n}\left(\lnot a_i \lor \lnot a_j\right)$
+    est sous FNC.
     
     Pour $n$ variables différentes, la formule contient $\frac{n(n-1)}{2}$ variables.
     
@@ -69,7 +71,7 @@
     La taille de la formule de "gen\_formule\_n\_dames" est
     \begin{align*}
         C_n &= C_{ligne}(n) + C_{col}(n) + C_{diag}(n) + \Theta(1)\\
-        &= nE_x(n) + nE_p(n) + 2\sum_{i=-n+2}^{n-2}E_p(|n-i|) + \Theta(n)
+        &= nE_x(n) + nE_p(n) + 2\sum_{i=-n+2}^{n-2}E_p(|n-i|) + \Theta(n)\\
     \end{align*}
     
     Avec $E_x$ la fonction "exactement\_une" et $E_p$ "au\_plus\_une".
@@ -163,4 +165,81 @@ La formule est sous FNC.
 La formule est insatisfiable.
 Temps d'ex§é§cution : 0.000985 s
     \end{lstlisting}
+    
+    \section{Problème du calendrier}
+    \subsection*{Description}
+    Pour la résolution du problème du calendrier, il faut respecter ces deux règles:
+    \begin{enumerate}
+        \item Chaque case a une pièce (voir 0 pour certaine case).
+        \item Chaque pièce n'est utiliser qu'une seul fois.
+    \end{enumerate}
+    
+    Pour représenter le problème, chaque case aura 10 variables,
+    indiquant si la pièce correspondante est dessus.
+    
+    Elle seront de la forme "$X$\_0\_0" avec $X$ le nom de la pièces,
+    (0,0) les coordonnées de la cases.
+    Exemples: "l\_4\_5", "T\_2\_7"
+    
+    (le nom des pièces sont : I, L, S, b, C, l, s, Z, T et V)
+    
+    Pour optimiser, les cases qui doivent avoir 0 pièce ne seront pas crée et utiliser.
+    
+    \subsection*{1. Contrainte d'une case}
+    Pour $p_{i,j}$ les variables "p est en (i,j)" et $\bb{P}$ l'ensembles des pièces,
+    la contrainte sur la case $(i,j)$ est
+    \[F = \left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
+        \bigwedge_{(p,p')\in\bb{P}^2}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\]
+    Cette formule est sous FNC.
+    
+    \subsection*{2. Contrainte de toutes les cases}
+    Pour $C$ l'ensemble des cases qui doivent être remplie,
+    la contrainte de toutes les cases est
+    \[F = \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
+        \bigwedge_{(p,p')\in\bb{P}^2}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right)\]
+    Cette formule est sous FNC.
+    
+    \subsection*{3. Contrainte d'une pièce}
+    Pour $\bb{V}_p$ l'ensemble des positions valides de la pièce $p$,
+    et $N_v$ la représentation de la pièce dans la position $v$,
+    la contrainte d'une pièce $p$ est
+    \[F = \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\]
+    
+    Exemple pour la pièce $T$ de position $v =$
+    \begin{center}
+        \begin{tabular}{| c || *{4}{c |}}
+        \hline
+          & 0 & 1 & 2 & 3 \\
+        \hline
+        \hline
+        0 &   &   & X &   \\
+        \hline
+        1 & X & X & X &   \\
+        \hline
+        2 &   &   & X &   \\
+        \hline
+        3 &   &   &   &   \\
+        \hline
+        \end{tabular}
+    \end{center}
+    
+    $N_v(T_{1,2}) = T_{1,2}$ et $N_v(T_{3,1}) = \lnot T_{3,1}$
+    
+    Mais cette formule n'est pas sous FNC,
+    on doit passer par des variables intermédiaire que l'on nomme $Z_v$.
+    
+    \begin{align*}
+        F &= \bigvee_{v\in\bb{V}} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+        &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{v\in\bb{V}_p} \left(Z_v \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+        &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_v \lor \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+        &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_v \lor N_v(p_{i,j}) \right)\\
+    \end{align*}
+    qui est sous FNC.
+    
+    \subsection*{4. Contrainte de toutes les pièces}
+    La contrainte de toutes les pièces est
+    \[F = \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land
+        \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_v \lor N_v(p_{i,j}) \right)\right)\]
+    Cette formule est sous FNC.
+    
 \end{document}
