@@ -40,8 +40,8 @@ def affichage_case(case: int | None):
 
 def afficher_grille(
     grille: list[list[int | None]] | None,
-    ligne_sélectionnée: int = 0,
-    colonne_sélectionnée: int = 0,
+    ligne_sélectionnée: int = -1,
+    colonne_sélectionnée: int = -1,
 ):
     """
     Affiche la grille en cours
