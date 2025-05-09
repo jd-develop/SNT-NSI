@@ -4,7 +4,6 @@ typedef struct {
     int n_ligne;
     int n_col;
     int n_rot;
-    int n_sym;
     int tab[4][4];
 } Piece;
 

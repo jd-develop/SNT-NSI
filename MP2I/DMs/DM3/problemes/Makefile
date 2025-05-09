@@ -1,5 +1,5 @@
 # Liste des exécutables
-EXEC = n_dames calendrier print_tab
+EXEC = n_dames calendrier calendrier_n_pieces print_tab
 
 # Compilateur et flags de compilation
 CC = gcc
@@ -21,6 +21,7 @@ all: $(EXEC)
 # Règle spécifique pour chaque exécutable
 n_dames: utils.c utils.h
 calendrier: utils.c utils.h piece.c piece.h
+calendrier_n_pieces: utils.c utils.h piece.c piece.h
 maisons: utils.c utils.h
 
 # Règle global pour chaque exécutable

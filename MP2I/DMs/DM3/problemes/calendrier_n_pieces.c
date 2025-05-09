@@ -30,11 +30,7 @@ String* variable(char n, int l, int c){
 }
 
 /* Renvoie le calendrier avec la dates marquer */
-int** date(int jour, int mois, int j_semaine){
-    if (jour<1 || jour>31 || mois<1 || mois>12 || j_semaine<1 || j_semaine>7){
-        fprintf(stderr, "Erreur : La date est invalide.\n");
-        exit(EXIT_FAILURE);
-    }
+int** date(){
     int** cal_date = malloc(n_calendrier*sizeof(int*));
     for (int l=0; l<n_calendrier; l++){
         cal_date[l] = malloc(n_calendrier*sizeof(int));
@@ -42,16 +38,81 @@ int** date(int jour, int mois, int j_semaine){
             cal_date[l][c] = calendrier[l][c];
         }
     }
-    cal_date[(mois-1)/6][(mois-1)%6] = 0;
-    cal_date[2+(jour-1)/7][(jour-1)%7] = 0;
-    switch (j_semaine) {
-        case 1: cal_date[6][4] = 0; break;
-        case 2: cal_date[6][5] = 0; break;
-        case 3: cal_date[6][6] = 0; break;
-        case 4: cal_date[7][4] = 0; break;
-        case 5: cal_date[7][5] = 0; break;
-        case 6: cal_date[7][6] = 0; break;
-        case 7: cal_date[6][3] = 0; break;
+    cal_date[0][5] = 0;
+    cal_date[2][6] = 0;
+    cal_date[7][4] = 0;
+    if (n_pieces < 10){ //l
+        cal_date[2][0] = 0;
+        cal_date[2][1] = 0;
+        cal_date[2][2] = 0;
+        cal_date[3][0] = 0;
+    }
+    if (n_pieces < 9){ //s
+        cal_date[3][1] = 0;
+        cal_date[3][2] = 0;
+        cal_date[4][0] = 0;
+        cal_date[4][1] = 0;
+    }
+    if (n_pieces < 8){ //Z
+        cal_date[4][2] = 0;
+        cal_date[5][0] = 0;
+        cal_date[5][1] = 0;
+        cal_date[5][2] = 0;
+        cal_date[6][0] = 0;
+    }
+    if (n_pieces < 7){ //S
+        cal_date[5][3] = 0;
+        cal_date[5][4] = 0;
+        cal_date[6][1] = 0;
+        cal_date[6][2] = 0;
+        cal_date[6][3] = 0;
+    }
+    if (n_pieces < 6){ //I
+        cal_date[1][3] = 0;
+        cal_date[2][3] = 0;
+        cal_date[3][3] = 0;
+        cal_date[4][3] = 0;
+    }
+    if (n_pieces < 5){ //C
+        cal_date[4][4] = 0;
+        cal_date[4][5] = 0;
+        cal_date[5][5] = 0;
+        cal_date[6][4] = 0;
+        cal_date[6][5] = 0;
+    }
+    if (n_pieces < 4){ //L
+        cal_date[4][6] = 0;
+        cal_date[5][6] = 0;
+        cal_date[6][6] = 0;
+        cal_date[7][5] = 0;
+        cal_date[7][6] = 0;
+    }
+    if (n_pieces < 3){ //b
+        cal_date[0][0] = 0;
+        cal_date[0][1] = 0;
+        cal_date[1][0] = 0;
+        cal_date[1][1] = 0;
+        cal_date[1][2] = 0;
+    }
+    if (n_pieces < 2){ //V
+        cal_date[0][2] = 0;
+        cal_date[0][3] = 0;
+        cal_date[0][4] = 0;
+        cal_date[1][4] = 0;
+        cal_date[2][4] = 0;
+    }
+    if (n_pieces < 1){ //T
+        cal_date[1][5] = 0;
+        cal_date[2][5] = 0;
+        cal_date[3][4] = 0;
+        cal_date[3][5] = 0;
+        cal_date[3][6] = 0;
+    }
+    for (int l=0; l<n_calendrier; l++){
+        for (int c=0; c<n_calendrier; c++){
+            printf("%i", cal_date[l][c]);
+        }
+        printf("\n");
     }
     return cal_date;
 }
@@ -185,8 +246,8 @@ String* contrainte_toutes_cases(int** cal_date){
 
 /* Enregistre la formule du calendrier dans filename et
    Renvoie la taille de filename */
-int gen_formule_calendrier(int jour, int mois, int j_semaine, char* filename){
-    int** cal_date = date(jour, mois, j_semaine);
+int gen_formule_calendrier(char* filename){
+    int** cal_date = date();
     FILE* file = fopen(filename, "w");
     assert(file != NULL);
     
@@ -208,20 +269,20 @@ int gen_formule_calendrier(int jour, int mois, int j_semaine, char* filename){
 }
 
 int main(int argc, char** argv){
-    if (argc < 4){
+    if (argc < 2){
         fprintf(stderr, "Erreur : Le nombre d'argument est insuffisant.\n");
         exit(EXIT_FAILURE);
     }
-    int jour;
-    int mois;
-    int j_semaine;
-    sscanf(argv[1], "%i", &j_semaine);
-    sscanf(argv[2], "%i", &jour);
-    sscanf(argv[3], "%i", &mois);
+    sscanf(argv[1], "%i", &n_pieces);
+    if (n_pieces < 2 || n_pieces > 10){
+        fprintf(stderr, "Erreur : L'argument doit être compris entre 2 et 10.\n");
+        exit(EXIT_FAILURE);
+    }
     
-    char outfile[] = "calendrier.txt";
+    char outfile[100];
+    sprintf(outfile, "calendrier_%i_pieces.txt", n_pieces);
     
-    int size = gen_formule_calendrier(jour, mois, j_semaine, outfile);
+    int size = gen_formule_calendrier(outfile);
     printf("Fichier '%s' généré.\n", outfile);
     printf("Taille du fichier : %d octets.\n", size);
     return 0;

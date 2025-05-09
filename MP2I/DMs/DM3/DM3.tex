@@ -227,9 +227,8 @@ Temps d'ex§é§cution : 0.000985 s
     
     Mais cette formule n'est pas sous FNC,
     on doit passer par des variables intermédiaire que l'on nomme $Z_v$.
-    
     \begin{align*}
-        F &= \bigvee_{v\in\bb{V}} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+        F &= \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
         &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{v\in\bb{V}_p} \left(Z_v \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
         &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_v \lor \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
         &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_v \lor N_v(p_{i,j}) \right)\\
