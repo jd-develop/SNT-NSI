@@ -1,23 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
-from pprint import pprint
-
-# GRILLE: list[list[int | None]] = [[None]*9 for _ in range(9)]
-
-
-GRILLE = [
-    [None, None, None, None, None, None, None,    4, None],
-    [   4, None, None, None,    1,    8, None, None, None],
-    [None,    6,    2, None, None, None,    5, None,    3],
-
-    [   2, None,    3, None,    5, None, None, None, None],
-    [None,    5, None, None, None,    4, None,    1,    8],
-    [   8, None,    9, None,    6, None, None, None, None],
-
-    [None,    2,    1, None, None, None,    3, None,    4],
-    [   6, None, None, None,    4,    1, None, None, None],
-    [None, None, None, None, None, None, None,    5, None]
-]
+import time
+from utils import afficher_grille
 
 
 def check(grille: list[list[int | None]]):
@@ -63,8 +47,34 @@ def est_plein(grille: list[list[int | None]]):
     return True, 0, 0
 
 
-def backtrack(grille: list[list[int | None]]):
-    #pprint(grille)
+def print_grille(grille: list[list[int | None]] | None, highlight: tuple[int, int] | None = None):
+    if grille is None:
+        print("Pas de solutions !")
+        return
+    if highlight is None:
+        hi, hj = (-1, -1)
+    else:
+        hi, hj = highlight
+    print("┏━┯━┯━┳━┯━┯━┳━┯━┯━┓")
+    for i, ligne in enumerate(grille):
+        print("┃", end="")
+        for j, case in enumerate(ligne):
+            if hi == i and hj == j:
+                print("X", end="│" if j%3 != 2 else "┃")
+            else:
+                print(case if case is not None else " ", end="│" if j%3 != 2 else "┃")
+        print()
+        if i == len(grille)-1:
+            print("┗━┷━┷━┻━┷━┷━┻━┷━┷━┛")
+        elif i%3 == 2:
+            print("┣━┿━┿━╋━┿━┿━╋━┿━┿━┫")
+        else:
+            print("┠─┼─┼─╂─┼─┼─╂─┼─┼─┨")
+
+
+def backtrack(grille: list[list[int | None]]) -> list[list[int | None]] | None:
+    afficher_grille(grille)
+    time.sleep(1/1000)
     if not check(grille):
         return None
     plein, i, j = est_plein(grille)
@@ -80,4 +90,15 @@ def backtrack(grille: list[list[int | None]]):
     return None
 
 
-pprint(backtrack(GRILLE))
+print("\x1bc")
+grille: list[list[int | None]] = [[None]*9 for _ in range(9)]
+for i in range(9):
+    for j in range(9):
+        afficher_grille(grille, (i, j))
+        case = input()
+        if len(case) == 1 and 0x31 <= ord(case) <= 0x39:
+            grille[i][j] = ord(case)-0x30
+
+
+afficher_grille(backtrack(grille))
+print("\x1b[?25h")
