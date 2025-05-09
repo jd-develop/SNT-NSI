@@ -94,7 +94,7 @@ print("\x1bc")
 grille: list[list[int | None]] = [[None]*9 for _ in range(9)]
 for i in range(9):
     for j in range(9):
-        afficher_grille(grille, (i, j))
+        afficher_grille(grille, i, j)
         case = input()
         if len(case) == 1 and 0x31 <= ord(case) <= 0x39:
             grille[i][j] = ord(case)-0x30

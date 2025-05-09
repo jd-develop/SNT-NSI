@@ -39,13 +39,16 @@ def affichage_case(case: int | None):
 
 
 def afficher_grille(
-    grille: list[list[int | None]],
+    grille: list[list[int | None]] | None,
     ligne_sélectionnée: int = 0,
     colonne_sélectionnée: int = 0,
 ):
     """
     Affiche la grille en cours
     """
+    if grille is None:
+        print("Pas de solution !")
+        return
     global taille_terminal
     print("\x1b[H\x1b[?25l")
     print()
@@ -85,13 +88,13 @@ def afficher_grille(
                 # Si la case est la case sélectionnée,
                 # on change son fond en rouge
                 sélectionnée = (
-                    i + 1 == ligne_sélectionnée
-                    and j + 1 == colonne_sélectionnée
+                    i == ligne_sélectionnée
+                    and j == colonne_sélectionnée
                 )
                 # Si la case est la case sélectionnée, on change son fond en
                 # la couleur de sélection du terminal (généralement blanc)
                 if sélectionnée:
-                    print("\x1b[7m", end="")
+                    print("\x1b[49m\x1b[39m\x1b[7m", end="")
                 # On affiche le pion seulement sur les cases du milieu de la
                 # case verticalement, sinon on met des espaces.
                 # De plus, on centre horizontalement le pion dans la case
