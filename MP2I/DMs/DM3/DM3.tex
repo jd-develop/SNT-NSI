@@ -18,7 +18,7 @@
         C_n &= C_{n-1} + C_0 + \Theta(n)\\
         &\geq C_{n-1} + nA\\
         &\geq C_0 + \sum_{i=0}^{n-1}(n-i)A\\
-        &= \Omega(n^2)\\
+        C_n &= \boxed{\Omega(n^2)}\\
     \end{align*}
     Donc dans le pire cas, la complexité est au moins en $\Omega(n^2)$.
     
@@ -29,7 +29,7 @@
     Dans la nouvelle fonction, on a
     \begin{align*}
         C_n &= \Theta(n) + \Theta(n\log(n))\\
-        &= \Theta(n\log(n))\\
+        C_n &= \boxed{\Theta(n\log(n))}\\
     \end{align*}
     
     \subsection*{Q19.}
@@ -37,7 +37,7 @@
     la complexité de l'algorithme dans cette configuration est
     \begin{align*}
         C_n &= C_{n-2} + \Theta(n)\\
-        &= \Theta(n^2)
+        C_n &= \boxed{\Theta(n^2)}\\
     \end{align*}
     
     \subsection*{Q20.(Bonus)}
@@ -46,7 +46,7 @@
     La complexité est
     \begin{align*}
         C_n &= C_{i} + C_{n-1-i} + \Theta(1), \quad i \in [|0, n-1|]\\
-        &= \Theta(n)
+        C_n &= \boxed{\Theta(n)}\\
     \end{align*}
     
     \subsection*{Q25.}~
@@ -62,7 +62,7 @@
     \section{Résolution de problèmes}
     \subsection*{Q31.}
     La formule
-    $\bigwedge\limits_{1 \leq i < j \leq n}\left(\lnot a_i \lor \lnot a_j\right)$
+    $\boxed{\bigwedge\limits_{1 \leq i < j \leq n}\left(\lnot a_i \lor \lnot a_j\right)}$
     est sous FNC.
     
     Pour $n$ variables différentes, la formule contient $\frac{n(n-1)}{2}$ variables.
@@ -81,7 +81,7 @@
     
     \begin{align*}
         C_n &= \Theta(n^3) + \Theta(n^3) + O(n^3) +\Theta(n)\\
-        &= \Theta(n^3)\\
+        C_n &= \boxed{\Theta(n^3)}\\
     \end{align*}
     
     \subsection*{Q40.}
@@ -185,60 +185,67 @@ Temps d'ex§é§cution : 0.000985 s
     
     Pour optimiser, les cases qui doivent avoir 0 pièce ne seront pas crée et utiliser.
     
-    \subsection*{1. Contrainte d'une case}
+    \subsubsection*{1. Contrainte d'une case}
     Pour $p_{i,j}$ les variables "p est en (i,j)" et $\bb{P}$ l'ensembles des pièces,
     la contrainte sur la case $(i,j)$ est
     \[F = \left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
-        \bigwedge_{(p,p')\in\bb{P}^2}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\]
+        \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\]
     Cette formule est sous FNC.
     
-    \subsection*{2. Contrainte de toutes les cases}
+    \subsubsection*{2. Contrainte de toutes les cases}
     Pour $C$ l'ensemble des cases qui doivent être remplie,
     la contrainte de toutes les cases est
     \[F = \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
-        \bigwedge_{(p,p')\in\bb{P}^2}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right)\]
+        \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right)\]
     Cette formule est sous FNC.
     
-    \subsection*{3. Contrainte d'une pièce}
+    \subsubsection*{3. Contrainte d'une pièce}
     Pour $\bb{V}_p$ l'ensemble des positions valides de la pièce $p$,
-    et $N_v$ la représentation de la pièce dans la position $v$,
-    la contrainte d'une pièce $p$ est
+    et
+    \[N_v(p_{i,j}) = \begin{cases}
+        p_{i,j} & \text{si $p$ dans la position $v$ est sur la case $(i,j)$}\\
+        \lnot p_{i,j} & \text{sinon}
+    \end{cases}\]
+    
+    Exemple pour la pièce $T$ de position $v =
+    \begin{pmatrix}
+        0 & 0 & 1 & 0 \\
+        1 & 1 & 1 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0 \\
+    \end{pmatrix}$
+    
+    On a $N_v(T_{1,2}) = T_{1,2}$ et $N_v(T_{3,1}) = \lnot T_{3,1}$
+    
+    La contrainte d'une pièce $p$ est
     \[F = \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\]
-    
-    Exemple pour la pièce $T$ de position $v =$
-    \begin{center}
-        \begin{tabular}{| c || *{4}{c |}}
-        \hline
-          & 0 & 1 & 2 & 3 \\
-        \hline
-        \hline
-        0 &   &   & X &   \\
-        \hline
-        1 & X & X & X &   \\
-        \hline
-        2 &   &   & X &   \\
-        \hline
-        3 &   &   &   &   \\
-        \hline
-        \end{tabular}
-    \end{center}
-    
-    $N_v(T_{1,2}) = T_{1,2}$ et $N_v(T_{3,1}) = \lnot T_{3,1}$
     
     Mais cette formule n'est pas sous FNC,
     on doit passer par des variables intermédiaire que l'on nomme $Z_v$.
     \begin{align*}
         F &= \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
-        &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{v\in\bb{V}_p} \left(Z_v \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+        &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{v\in\bb{V}_p} \left(Z_v \leftrightarrow \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+    \end{align*}
+    Mais une implication est suffisant.
+    \begin{align*}
+        F &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{v\in\bb{V}_p} \left(Z_v \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
         &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_v \lor \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
         &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_v \lor N_v(p_{i,j}) \right)\\
     \end{align*}
     qui est sous FNC.
     
-    \subsection*{4. Contrainte de toutes les pièces}
+    \subsubsection*{4. Contrainte de toutes les pièces}
     La contrainte de toutes les pièces est
     \[F = \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land
         \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_v \lor N_v(p_{i,j}) \right)\right)\]
     Cette formule est sous FNC.
     
+    \subsubsection*{5. Formule générale}
+    La formule générale est donc
+    \[F = \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
+        \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right) \land
+        \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land
+        \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_v \lor N_v(p_{i,j}) \right)\right)\]
+    
+    \subsection*{Implémentation}
 \end{document}

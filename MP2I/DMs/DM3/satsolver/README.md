@@ -43,7 +43,7 @@ Avec `fnc_solver`, il affiche en plus si `entrée.txt` est en FNC.
 
 ## Format d'entrée
 
-Le fichier d'entrée.txt doit contenir une formule booléen avec :
+Le fichier d' `entrée.txt` doit contenir une formule booléen avec :
 
 Les espaces sont autoriser mais ignorer.
 
