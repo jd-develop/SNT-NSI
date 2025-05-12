@@ -1,4 +1,7 @@
-~/DM3/problemes$ ./fnc_solver calendrier_8_pieces.txt | ../problemes/print_tab 8
+~/DM3$ problemes/calendrier_n_pieces 8
+Fichier 'calendrier_8_pieces.txt' généré.
+Taille du fichier : 594808 octets.
+~/DM3$ satsolver/fnc_solver calendrier_8_pieces.txt | problemes/print_tab 8
 La formule est sous FNC.
 La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
 C_4_4

@@ -45,7 +45,7 @@
     
     La complexité est
     \begin{align*}
-        C_n &= C_{i} + C_{n-1-i} + \Theta(1), \quad i \in [|0, n-1|]\\
+        C_n &= C_{i} + C_{n-1-i} + \Theta(1), \quad i \in \dsbracket{0,n-1}\\
         C_n &= \boxed{\Theta(n)}\\
     \end{align*}
     
@@ -81,13 +81,16 @@
     
     \begin{align*}
         C_n &= \Theta(n^3) + \Theta(n^3) + O(n^3) +\Theta(n)\\
-        C_n &= \boxed{\Theta(n^3)}\\
+        C_n &= \boxed{O(n^3)}\\
     \end{align*}
     
     \subsection*{Q40.}
     Pour le problème a 5 dames, on obtient
     \begin{lstlisting}
-~/DM3/problemes$ ./fnc_solver 5_dames.txt 
+~/DM3$ problemes/n_dames 5
+Fichier '5_dames.txt' §généré§.
+Taille du fichier : 3471 octets.
+~/DM3$ satsolver/fnc_solver 5_dames.txt
 La formule est sous FNC.
 La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
 X_0_4
@@ -119,7 +122,7 @@ Temps d'ex§é§cution : 0.001377 s
     
     Pour le problème a 8 dames, on obtient
     \begin{lstlisting}
-~/DM3/problemes$ ./fnc_solver 8_dames.txt 
+~/DM3$ satsolver/fnc_solver 8_dames.txt 
 La formule est sous FNC.
 La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
 X_0_7
@@ -160,7 +163,7 @@ Temps d'ex§é§cution : 0.005287 s
     
     Et pour le problème a 3 dames, on obtient
     \begin{lstlisting}
-~/DM3/problemes$ ./fnc_solver 3_dames.txt 
+~/DM3$ satsolver/fnc_solver 3_dames.txt 
 La formule est sous FNC.
 La formule est insatisfiable.
 Temps d'ex§é§cution : 0.000985 s
@@ -188,12 +191,12 @@ Temps d'ex§é§cution : 0.000985 s
     \subsubsection*{1. Contrainte d'une case}
     Pour $p_{i,j}$ les variables "p est en (i,j)" et $\bb{P}$ l'ensembles des pièces,
     la contrainte sur la case $(i,j)$ est
-    \[F = \left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
+    \[F_{i,j} = \left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
         \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\]
     Cette formule est sous FNC.
     
     \subsubsection*{2. Contrainte de toutes les cases}
-    Pour $C$ l'ensemble des cases qui doivent être remplie,
+    Pour $C \subset \dsbracket{0,7}^2$ l'ensemble des cases qui doivent être remplie,
     la contrainte de toutes les cases est
     \[F = \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
         \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right)\]
@@ -218,34 +221,42 @@ Temps d'ex§é§cution : 0.000985 s
     On a $N_v(T_{1,2}) = T_{1,2}$ et $N_v(T_{3,1}) = \lnot T_{3,1}$
     
     La contrainte d'une pièce $p$ est
-    \[F = \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\]
+    \[F_p = \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\]
     
     Mais cette formule n'est pas sous FNC,
-    on doit passer par des variables intermédiaire que l'on nomme $Z_v$.
+    on doit passer par des variables intermédiaire que l'on nomme $Z_{p,v}$.
     \begin{align*}
-        F &= \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
-        &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{v\in\bb{V}_p} \left(Z_v \leftrightarrow \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+        F_p &= \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+        &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+            \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \leftrightarrow \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+        &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+            \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right){}
+            \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_{p,v} \to \lnot\bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
     \end{align*}
-    Mais une implication est suffisant.
+    Que l'on peut simplifié par
     \begin{align*}
-        F &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{v\in\bb{V}_p} \left(Z_v \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
-        &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_v \lor \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
-        &= \left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_v \lor N_v(p_{i,j}) \right)\\
+        F_p &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+            \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+        &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+            \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_{p,v} \lor \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+        &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+            \land \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\\
     \end{align*}
     qui est sous FNC.
     
     \subsubsection*{4. Contrainte de toutes les pièces}
     La contrainte de toutes les pièces est
-    \[F = \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land
-        \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_v \lor N_v(p_{i,j}) \right)\right)\]
+    \[F = \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right) \land
+        \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\right)\]
     Cette formule est sous FNC.
     
     \subsubsection*{5. Formule générale}
     La formule générale est donc
     \[F = \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
         \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right) \land
-        \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_v \right) \land
-        \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_v \lor N_v(p_{i,j}) \right)\right)\]
+        \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right) \land
+        \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\right)\]
     
     \subsection*{Implémentation}
+    
 \end{document}

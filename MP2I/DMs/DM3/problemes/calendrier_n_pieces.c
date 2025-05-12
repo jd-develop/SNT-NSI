@@ -108,12 +108,6 @@ int** date(){
         cal_date[3][5] = 0;
         cal_date[3][6] = 0;
     }
-    for (int l=0; l<n_calendrier; l++){
-        for (int c=0; c<n_calendrier; c++){
-            printf("%i", cal_date[l][c]);
-        }
-        printf("\n");
-    }
     return cal_date;
 }
 
