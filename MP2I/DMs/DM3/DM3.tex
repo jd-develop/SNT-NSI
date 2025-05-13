@@ -45,7 +45,7 @@
     
     La complexité est
     \begin{align*}
-        C_n &= C_{i} + C_{n-1-i} + \Theta(1), \quad i \in \dsbracket{0,n-1}\\
+        C_n &= C_{i} + C_{n-1-i} + \Theta(1), \quad i \in [\![0,n-1]\!]\\
         C_n &= \boxed{\Theta(n)}\\
     \end{align*}
     
@@ -196,7 +196,7 @@ Temps d'ex§é§cution : 0.000985 s
     Cette formule est sous FNC.
     
     \subsubsection*{2. Contrainte de toutes les cases}
-    Pour $C \subset \dsbracket{0,7}^2$ l'ensemble des cases qui doivent être remplie,
+    Pour $C \subset [\![0,7]\!]^2$ l'ensemble des cases qui doivent être remplie,
     la contrainte de toutes les cases est
     \[F = \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
         \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right)\]

@@ -61,7 +61,7 @@ comme : `X_0_0`
 
 La priorité des opérations sont `~`, `&`, `|`, `=` puis `>`
 
-### Exemple
+## Exemple
 Pour `entrée.txt` :
 ```
 (V_1 | ~V_2 | ~V_3) & (~V_1 | ~V_2 | ~V_3) & (V_1 | V_2)
@@ -69,9 +69,9 @@ Pour `entrée.txt` :
 
 Pour `fnc_solver` :
 ```
-~/DM3/problemes$ make fnc_solver 
+~/DM3/satsolver$ make fnc_solver 
 ocamlopt fnc_solver.ml -o fnc_solver
-~/DM3/problemes$ ./fnc_solver 'entrée.txt' 
+~/DM3/satsolver$ ./fnc_solver 'entrée.txt' 
 La formule est fnc
 La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
 V_2
