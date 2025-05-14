@@ -49,5 +49,6 @@ String* au_plus_une(String** l, int n);
  * vraie ».
  */
 String* exactement_une(String** l, int n);
+
 #endif
 

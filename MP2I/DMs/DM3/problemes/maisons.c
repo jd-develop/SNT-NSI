@@ -68,8 +68,8 @@ String* contrainte_deux_caracteristiques(String* car1, String* car2, int offset)
     assert(0 <= offset && offset <= 4);
 
     String* res = new_string();
-    char* i_as_str = malloc(2*sizeof(char));
-    char* i_plus_offset_as_str = malloc(2*sizeof(char));
+    char i_as_str[100];
+    char i_plus_offset_as_str[100];
 
     for (int i = 1; i <= 5-offset; i++) {
         sprintf(i_as_str, "%d", i);
@@ -89,7 +89,6 @@ String* contrainte_deux_caracteristiques(String* car1, String* car2, int offset)
         }
     }
 
-    free(i_as_str);
     return res;
 }
 
@@ -172,9 +171,9 @@ String* voisins(char* car1, char* car2) {
  * Construit et renvoie la contrainte « cette caractéristique se retrouve dans
  * exactement une maison ».
  */
-String* contrainte_exactement_une_maison(String* caracteristique) {
+String* contrainte_exactement_une_maison(const char* caracteristique) {
     String* res = new_string();
-    char* i_as_str = malloc(2*sizeof(char));
+    char i_as_str[100];
 
     for (int j = 1; j <= 5; j++) {
         string_append(res, "(");
@@ -185,7 +184,7 @@ String* contrainte_exactement_une_maison(String* caracteristique) {
                 string_append(res, "~");
             string_append(res, i_as_str);
             string_append(res, "_");
-            string_append(res, caracteristique->string);
+            string_append(res, caracteristique);
             if (i != 5)
                 string_append(res, " & ");
         }
@@ -203,41 +202,22 @@ String* contrainte_exactement_une_maison(String* caracteristique) {
  * exactement une maison ».
  */
 String* contrainte_unicite_toutes_caracteristiques() {
-    String* caracteristique = new_string();
     String* res = new_string();
-
     string_append(res, "(");
+    
     for (int i = 0; i < 5; i++) {
-        if (i != 0)
-            string_rm(caracteristique, caracteristique->len);
-
-        string_append(caracteristique, NATIONALITES[i]);
-        string_cat(res, contrainte_exactement_une_maison(caracteristique));
+        string_cat(res, contrainte_exactement_une_maison(NATIONALITES[i]));
         string_append(res, ") & (");
-
-        string_rm(caracteristique, caracteristique->len);
-        string_append(caracteristique, COULEURS[i]);
-        string_cat(res, contrainte_exactement_une_maison(caracteristique));
+        string_cat(res, contrainte_exactement_une_maison(COULEURS[i]));
         string_append(res, ") & (");
-
-        string_rm(caracteristique, caracteristique->len);
-        string_append(caracteristique, ANIMAUX[i]);
-        string_cat(res, contrainte_exactement_une_maison(caracteristique));
+        string_cat(res, contrainte_exactement_une_maison(ANIMAUX[i]));
         string_append(res, ") & (");
-
-        string_rm(caracteristique, caracteristique->len);
-        string_append(caracteristique, BOISSONS[i]);
-        string_cat(res, contrainte_exactement_une_maison(caracteristique));
+        string_cat(res, contrainte_exactement_une_maison(BOISSONS[i]));
         string_append(res, ") & (");
-
-        string_rm(caracteristique, caracteristique->len);
-        string_append(caracteristique, SPORTS[i]);
-        string_cat(res, contrainte_exactement_une_maison(caracteristique));
-
-        if (i != 4)
-            string_append(res, ") & (");
+        string_cat(res, contrainte_exactement_une_maison(SPORTS[i]));
+        string_append(res, ") & (");
     }
-    string_append(res, ")");
+    string_rm(res, 4);
     return res;
 }
 
@@ -247,7 +227,7 @@ String* contrainte_unicite_toutes_caracteristiques() {
  */
 String* contrainte_unicite_par_categorie(const char** categorie, int maison) {
     String* res = new_string();
-    char* i_as_str = malloc(2*sizeof(char));
+    char i_as_str[100];
     sprintf(i_as_str, "%d", maison);
 
     for (int j = 0; j < 5; j++) {

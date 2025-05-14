@@ -19,3 +19,5 @@ Piece rotation(Piece p);
 
 /* Renvoie la symétrie de p (axe vertical) */
 Piece symetrie(Piece p);
+
+#endif
