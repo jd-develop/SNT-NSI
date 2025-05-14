@@ -1,3 +1,6 @@
+#ifndef PIECE_H
+#define PIECE_H
+
 /* structure des pièces sans rotation et sans symétrie */
 typedef struct {
     char nom;
