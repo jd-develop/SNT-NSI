@@ -58,7 +58,7 @@ $C(0, 0)$ vaut la valeur contenue dans la case $(0, 0)$.
 $$
     C(i, j) =
     \begin{cases}
-        \max \begin{cases}C(i-1, j)+G[i][j] \\ C(i, j-1)+G[i][j]\end{cases} & \text{si } i \ne 0 \text{ et } j \ne 0 \\
+        \max \bigl(C(i-1, j)+G[i][j], C(i, j-1)+G[i][j]\bigr) & \text{si } i \ne 0 \text{ et } j \ne 0 \\
         C(i-1, 0) + G[i][0] & \text{si } j = 0 \\
         C(0, j-1) + G[0][j] & \text{si } i = 0
     \end{cases}
