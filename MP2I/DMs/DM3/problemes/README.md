@@ -84,7 +84,9 @@ Il affiche la liste `liste_varibles.txt` ou
 la sortie de `satsolver` sous la forme d'un tableau.
 
 Chaque variable doit être sur une ligne et de la forme :
-```X_i_j```
+```
+X_i_j
+```
 avec `X` le caractère de la pièces, `i` la ligne et `j` la colonne.
 Il ignore toute les autres ligne.
 
