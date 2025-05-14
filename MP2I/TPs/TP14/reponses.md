@@ -1,7 +1,6 @@
 # Réponses
 
-Note&nsbp;: il y a quelques formules $\LaTeX$ dans ce markdown, je recommande
-d’utiliser un logiciel pouvant afficher du $\LaTeX$.
+Note&nbsp;: il y a quelques formules $\LaTeX$ dans ce markdown.
 
 ## Question 1
 
@@ -59,12 +58,16 @@ $C(0, 0)$ vaut la valeur contenue dans la case $(0, 0)$.
 $$
     C(i, j) =
     \begin{cases}
-        \max \cases{C(i-1, j)+G[i][j] \\ C(i, j-1)+G[i][j]} & \text{si } i \ne 0 \text{ et } j \ne 0 \\
-        C(i-1, 0) & \text{si } j = 0 \\
-        C(0, j-1) & \text{si } i = 0
+        \max \begin{cases}C(i-1, j)+G[i][j] \\ C(i, j-1)+G[i][j]\end{cases} & \text{si } i \ne 0 \text{ et } j \ne 0 \\
+        C(i-1, 0) + G[i][0] & \text{si } j = 0 \\
+        C(0, j-1) + G[0][j] & \text{si } i = 0
     \end{cases}
 $$
 
 ## Question 12
 On peut remplir le tableau ligne par ligne, de gauche à droite et de haut en
 bas.
+
+## Question 16
+On trouve DRRDRDDRDRDDDDRRRRRRRRRDDRRRRRRRDDRRDDRRRRDDDRDRDRDRRDR, qui est bien
+un chemin optimal.
