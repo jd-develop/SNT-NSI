@@ -56,14 +56,14 @@ solution optimale est 2000061.
 $C(0, 0)$ vaut la valeur contenue dans la case $(0, 0)$.
 
 ## Question 11
-\[
+$$
     C(i, j) =
     \begin{cases}
         \max \cases{C(i-1, j)+G[i][j] \\ C(i, j-1)+G[i][j]} & \text{si } i \ne 0 \text{ et } j \ne 0 \\
         C(i-1, 0) & \text{si } j = 0 \\
         C(0, j-1) & \text{si } i = 0
     \end{cases}
-\]
+$$
 
 ## Question 12
 On peut remplir le tableau ligne par ligne, de gauche à droite et de haut en
