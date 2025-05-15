@@ -128,7 +128,7 @@ String* a_droite(char* car1, char* car2) {
  */
 String* voisins(char* car1, char* car2) {
     String* res = new_string();
-    
+
     string_cat(res, a_droite(car1, car2));
     string_append(res, " | ");
     string_cat(res, a_gauche(car1, car2));
@@ -173,7 +173,7 @@ String* contrainte_exactement_une_maison(char* caracteristique) {
 String* contrainte_unicite_toutes_caracteristiques() {
     String* res = new_string();
     string_append(res, "(");
-    
+
     for (int i = 0; i < 5; i++) {
         string_cat(res, contrainte_exactement_une_maison(NATIONALITES[i]));
         string_append(res, ") & (");
@@ -224,7 +224,7 @@ String* contrainte_unicite_par_categorie(char** categorie, int maison) {
 String* contrainte_unicite_par_categorie_toutes_maisons() {
     String* res = new_string();
     string_append(res, "(");
-    
+
     for (int i = 1; i <= 5; i++) {
         string_cat(res, contrainte_unicite_par_categorie(NATIONALITES, i));
         string_append(res, ") & (");

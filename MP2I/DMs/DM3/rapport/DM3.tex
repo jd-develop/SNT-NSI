@@ -259,4 +259,57 @@ Temps d'ex§é§cution : 0.000985 s
     
     \subsection*{Implémentation}
     
+
+\section{Problème des cinq maisons}
+\subsection{Description}
+Le problème des cinq maisons requiert certaines contraintes\nbsp:
+\begin{enumerate}
+    \item $\varphi_1$\nbsp: Chaque caractéristique («\nbsp anglais\nbsp», «\nbsp poisson
+        rouge\nbsp», …) se retrouve dans exactement une des cinq maisons
+    \item $\varphi_2$\nbsp: Chaque maison doit avoir exactement une caractéristique de chaque
+        catégorie (nationalité, boisson, couleur, …). Par exemple, la maison
+        1 doit avoir exactement une couleur.
+    \item $\varphi_3$\nbsp: Contraintes de l’énoncé
+\end{enumerate}
+
+\subsection{Nomenclature}
+Les variables utilisées dans les formules sont de la forme
+\verb|numéro_caractéristique|. Par exemple\nbsp:
+\begin{itemize}
+    \item \verb|1_anglais| représente «\nbsp l’anglais habite dans la maison
+        1\nbsp»
+    \item \verb|5_poisson_rouge| représente «\nbsp la personne habitant la
+        maison 5 a pour animal de compagnie un poisson rouge\nbsp»
+    \item \verb|3_yop| représente «\nbsp la personne habitant la maison 3
+        boit du yop\nbsp»
+    \item etc.
+\end{itemize}
+
+Dans la suite de cette section, notons $C$ l’ensemble des caractéristiques
+($C = \{\text{anglais}, \text{lait}, \text{escalade}, \dots\}$) et utilisons
+des indices de maison dans $[\![1, 5]\!]$.
+
+\subsection{Modélisation de la contrainte 1}
+Pour modéliser la contrainte «\nbsp Chaque caractéristique se retrouve dans
+exactement une des cinq maisons\nbsp», on peut d’abord modéliser la contrainte
+«\nbsp La caractéristique $c$ se retrouve dans exactement une maison\nbsp»,
+en utilisant la formule suivante\nbsp:
+
+\begin{equation*}
+    \bigvee_{j = 1}^5 \left(\verb|j_c| \wedge \bigwedge_{\substack{i=1 \\ i \ne j}}^5 \neg \verb|i_c| \right)
+\end{equation*}
+
+(i.e. «\nbsp Soit cette caractéristique est dans la maison 1 et aucune autre,
+soit dans la 2 et aucune autre, etc.\nbsp»)
+
+Ainsi, on peut modéliser la contrainte sur toutes les caractéristiques en
+faisant un «\nbsp et\nbsp» logique\nbsp:
+
+\begin{equation*}
+    \varphi_1 \equiv \bigwedge_{c\in C}\bigvee_{j = 1}^5 \left(\verb|j_c| \wedge \bigwedge_{\substack{i=1 \\ i \ne j}}^5 \neg \verb|i_c| \right)
+\end{equation*}
+
+\subsection{Modélisation de la contrainte 2}
+
+
 \end{document}
