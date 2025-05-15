@@ -369,8 +369,8 @@ let rec clause_vide (f: fnc) : bool = match f with
 let rec propagation_unitaire (f: fnc)(v: string list) : (string * string list * bool) option =
   match f with
   | [] -> None
-  | (Some (F (YesVar s)))::f' -> Some (s, List.filter (fun x -> x!=s) v, true)
-  | (Some (F (NotVar s)))::f' -> Some (s, List.filter (fun x -> x!=s) v, false)
+  | (Some (F (YesVar s)))::f' -> Some (s, List.filter (fun x -> x<>s) v, true)
+  | (Some (F (NotVar s)))::f' -> Some (s, List.filter (fun x -> x<>s) v, false)
   | _::f' -> propagation_unitaire f' v
 
 (* Remplace tous les s par v dans f *)
