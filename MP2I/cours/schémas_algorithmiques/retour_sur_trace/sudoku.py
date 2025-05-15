@@ -72,8 +72,12 @@ def print_grille(grille: list[list[int | None]] | None, highlight: tuple[int, in
             print("┠─┼─┼─╂─┼─┼─╂─┼─┼─┨")
 
 
-def backtrack(grille: list[list[int | None]]) -> list[list[int | None]] | None:
-    afficher_grille(grille)
+total = 0
+
+
+def backtrack(grille: list[list[int | None]], total_possibilities: int, total_max: int) -> list[list[int | None]] | None:
+    global total
+    afficher_grille(grille, possibilités=total, total_max=total_max)
     time.sleep(1/1000)
     if not check(grille):
         return None
@@ -84,10 +88,16 @@ def backtrack(grille: list[list[int | None]]) -> list[list[int | None]] | None:
     for n in range(1, 10):
         grille_2 = [l.copy() for l in grille]
         grille_2[i][j] = n
-        b = backtrack(grille_2)
+        b = backtrack(grille_2, total_possibilities // 9, total_max)
         if b is not None:
             return b
+    total += total_possibilities
     return None
+
+
+def solve(grille: list[list[int | None]]):
+    total = 9**sum(sum(1 if i is None else 0 for i in ligne) for ligne in grille)
+    return backtrack(grille, total, total)
 
 
 print("\x1bc")
@@ -100,5 +110,5 @@ for i in range(9):
             grille[i][j] = ord(case)-0x30
 
 
-afficher_grille(backtrack(grille))
+afficher_grille(solve(grille))
 print("\x1b[?25h")

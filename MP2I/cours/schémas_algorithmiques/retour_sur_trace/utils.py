@@ -42,6 +42,8 @@ def afficher_grille(
     grille: list[list[int | None]] | None,
     ligne_sélectionnée: int = -1,
     colonne_sélectionnée: int = -1,
+    possibilités: int = 0,
+    total_max: int = 0
 ):
     """
     Affiche la grille en cours
@@ -114,3 +116,8 @@ def afficher_grille(
                     # normale
                     print("\x1b[49m\x1b[39m", end="")
             print()
+
+    if total_max != 0:
+        print(f"{possibilités*100/total_max:4f} %")
+        barre_chargement_largeur = int((possibilités/total_max)*largeur)
+        print("[" + barre_chargement_largeur*">" + (largeur - barre_chargement_largeur)*" " + "]")
