@@ -12,7 +12,7 @@
  */
 
 
-const char* NATIONALITES[5] = {
+char* NATIONALITES[5] = {
     "anglais",
     "suédois",
     "danois",
@@ -20,7 +20,7 @@ const char* NATIONALITES[5] = {
     "allemand"
 };
 
-const char* COULEURS[5] = {
+char* COULEURS[5] = {
     "rouge",
     "vert",
     "blanc",
@@ -28,7 +28,7 @@ const char* COULEURS[5] = {
     "bleu"
 };
 
-const char* ANIMAUX[5] = {
+char* ANIMAUX[5] = {
     "chiens",
     "oiseaux",
     "chats",
@@ -36,7 +36,7 @@ const char* ANIMAUX[5] = {
     "poisson_rouge"
 };
 
-const char* BOISSONS[5] = {
+char* BOISSONS[5] = {
     "thé",
     "café",
     "lait",
@@ -44,7 +44,7 @@ const char* BOISSONS[5] = {
     "eau"
 };
 
-const char* SPORTS[5] = {
+char* SPORTS[5] = {
     "vélo",
     "danse",
     "escalade",
@@ -63,7 +63,7 @@ const char* SPORTS[5] = {
  * avec un offset de 1.
  * Le offset ne peut être supérieur à 4
  */
-String* contrainte_deux_caracteristiques(String* car1, String* car2, int offset)
+String* contrainte_deux_caracteristiques(char* car1, char* car2, int offset)
 {
     assert(0 <= offset && offset <= 4);
 
@@ -78,17 +78,14 @@ String* contrainte_deux_caracteristiques(String* car1, String* car2, int offset)
         string_append(res, "(");
         string_append(res, i_as_str);
         string_append(res, "_");
-        string_append(res, car1->string);
+        string_append(res, car1);
         string_append(res, " & ");
         string_append(res, i_plus_offset_as_str);
         string_append(res, "_");
-        string_append(res, car2->string);
-        string_append(res, ")");
-        if (i != 5-offset) {
-            string_append(res, " | ");
-        }
+        string_append(res, car2);
+        string_append(res, ") | ");
     }
-
+    string_rm(res, 3);
     return res;
 }
 
@@ -100,18 +97,7 @@ String* contrainte_deux_caracteristiques(String* car1, String* car2, int offset)
  * "(1_anglais & 1_rouge) | (2_anglais & 2_rouge) | … | (5_anglais & 5_rouge)"
  */
 String* meme_maison(char* car1, char* car2) {
-    String* c1 = new_string();
-    String* c2 = new_string();
-
-    string_append(c1, car1);
-    string_append(c2, car2);
-
-    String* res = contrainte_deux_caracteristiques(c1, c2, 0);
-
-    string_free(c1);
-    string_free(c2);
-
-    return res;
+    return contrainte_deux_caracteristiques(car1, car2, 0);
 }
 
 
@@ -121,18 +107,7 @@ String* meme_maison(char* car1, char* car2) {
  * "(1_anglais & 2_rouge) | (2_anglais & 3_rouge) | … | (4_anglais & 5_rouge)"
  */
 String* a_gauche(char* car1, char* car2) {
-    String* c1 = new_string();
-    String* c2 = new_string();
-
-    string_append(c1, car1);
-    string_append(c2, car2);
-
-    String* res = contrainte_deux_caracteristiques(c1, c2, 1);
-
-    string_free(c1);
-    string_free(c2);
-
-    return res;
+    return contrainte_deux_caracteristiques(car1, car2, 1);
 }
 
 /*
@@ -152,16 +127,11 @@ String* a_droite(char* car1, char* car2) {
  *  (1_anglais & 2_rouge) | (2_anglais & 3_rouge) | … | (4_anglais & 5_rouge)"
  */
 String* voisins(char* car1, char* car2) {
-    String* droite = a_droite(car1, car2);
-    String* gauche = a_gauche(car1, car2);
-
     String* res = new_string();
-    string_append(res, droite->string);
+    
+    string_cat(res, a_droite(car1, car2));
     string_append(res, " | ");
-    string_append(res, gauche->string);
-
-    string_free(droite);
-    string_free(gauche);
+    string_cat(res, a_gauche(car1, car2));
 
     return res;
 }
@@ -171,7 +141,7 @@ String* voisins(char* car1, char* car2) {
  * Construit et renvoie la contrainte « cette caractéristique se retrouve dans
  * exactement une maison ».
  */
-String* contrainte_exactement_une_maison(const char* caracteristique) {
+String* contrainte_exactement_une_maison(char* caracteristique) {
     String* res = new_string();
     char i_as_str[100];
 
@@ -180,19 +150,18 @@ String* contrainte_exactement_une_maison(const char* caracteristique) {
         for (int i = 1; i <= 5; i++) {
             sprintf(i_as_str, "%d", i);
 
-            if (i != j)
+            if (i != j){
                 string_append(res, "~");
+            }
             string_append(res, i_as_str);
             string_append(res, "_");
             string_append(res, caracteristique);
-            if (i != 5)
-                string_append(res, " & ");
+            string_append(res, " & ");
         }
-        string_append(res, ")");
-        if (j != 5)
-            string_append(res, " | ");
+        string_rm(res, 3);
+        string_append(res, ") | ");
     }
-
+    string_rm(res, 3);
     return res;
 }
 
@@ -225,7 +194,7 @@ String* contrainte_unicite_toutes_caracteristiques() {
  * Construit et renvoie la contrainte « cette maison a exactement une
  * caractéristique de cette catégorie ».
  */
-String* contrainte_unicite_par_categorie(const char** categorie, int maison) {
+String* contrainte_unicite_par_categorie(char** categorie, int maison) {
     String* res = new_string();
     char i_as_str[100];
     sprintf(i_as_str, "%d", maison);
@@ -233,19 +202,18 @@ String* contrainte_unicite_par_categorie(const char** categorie, int maison) {
     for (int j = 0; j < 5; j++) {
         string_append(res, "(");
         for (int i = 0; i < 5; i++) {
-            if (i != j)
+            if (i != j){
                 string_append(res, "~");
+            }
             string_append(res, i_as_str);
             string_append(res, "_");
             string_append(res, categorie[i]);
-            if (i != 4)
-                string_append(res, " & ");
+            string_append(res, " & ");
         }
-        string_append(res, ")");
-        if (j != 4)
-            string_append(res, " | ");
+        string_rm(res, 3);
+        string_append(res, ") | ");
     }
-
+    string_rm(res, 3);
     return res;
 }
 
@@ -255,8 +223,9 @@ String* contrainte_unicite_par_categorie(const char** categorie, int maison) {
  */
 String* contrainte_unicite_par_categorie_toutes_maisons() {
     String* res = new_string();
+    string_append(res, "(");
+    
     for (int i = 1; i <= 5; i++) {
-        string_append(res, "(");
         string_cat(res, contrainte_unicite_par_categorie(NATIONALITES, i));
         string_append(res, ") & (");
         string_cat(res, contrainte_unicite_par_categorie(COULEURS, i));
@@ -266,11 +235,9 @@ String* contrainte_unicite_par_categorie_toutes_maisons() {
         string_cat(res, contrainte_unicite_par_categorie(BOISSONS, i));
         string_append(res, ") & (");
         string_cat(res, contrainte_unicite_par_categorie(SPORTS, i));
-        string_append(res, ")");
-
-        if (i != 5)
-            string_append(res, " & ");
+        string_append(res, ") & (");
     }
+    string_rm(res, 4);
     return res;
 }
 
