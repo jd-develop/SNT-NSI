@@ -1,3 +1,6 @@
+#ifndef PIECE_H
+#define PIECE_H
+
 /* structure des pièces sans rotation et sans symétrie */
 typedef struct {
     char nom;
@@ -16,3 +19,5 @@ Piece rotation(Piece p);
 
 /* Renvoie la symétrie de p (axe vertical) */
 Piece symetrie(Piece p);
+
+#endif
