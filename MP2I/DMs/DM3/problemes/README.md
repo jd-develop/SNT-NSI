@@ -90,13 +90,13 @@ Il ignore toutes les autres lignes.
 
 Pour `n_dames` et `print_tab` :
 ```console
-user:~/DM3/problemes$ make n_dames print_tab
+fred@mp2:~/DM3/problemes$ make n_dames print_tab
 gcc n_dames.c utils.c utils.h -Wextra -Wall -lm -o n_dames
 gcc print_tab.c -Wextra -Wall -lm -o print_tab
-user:~/DM3/problemes$ ./n_dames 15
+fred@mp2:~/DM3/problemes$ ./n_dames 15
 Fichier '15_dames.txt' généré.
 Taille du fichier : 112521 octets.
-user:~/DM3/problemes$ ../satsolver/fnc_solver '15_dames.txt' | ./print_tab 15
+fred@mp2:~/DM3/problemes$ ../satsolver/fnc_solver '15_dames.txt' | ./print_tab 15
 La formule est sous FNC.
 La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
 X_0_9
