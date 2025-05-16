@@ -87,10 +87,10 @@
     \subsection*{Q40.}
     Pour le problème a 5 dames, on obtient
     \begin{lstlisting}
-~/DM3$ problemes/n_dames 5
-Fichier '5_dames.txt' §généré§.
+fred@mp2:~/DM3$ problemes/n_dames 5
+Fichier '5_dames.txt' généré.
 Taille du fichier : 3471 octets.
-~/DM3$ satsolver/fnc_solver 5_dames.txt
+fred@mp2:~/DM3$ satsolver/fnc_solver '5_dames.txt'
 La formule est sous FNC.
 La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
 X_0_4
@@ -98,7 +98,7 @@ X_1_2
 X_2_0
 X_3_3
 X_4_1
-Temps d'ex§é§cution : 0.001377 s
+Temps d'exécution : 0.001377 s
     \end{lstlisting}
     Soit encore
     \begin{center}
@@ -122,7 +122,7 @@ Temps d'ex§é§cution : 0.001377 s
     
     Pour le problème a 8 dames, on obtient
     \begin{lstlisting}
-~/DM3$ satsolver/fnc_solver 8_dames.txt 
+fred@mp2:~/DM3$ satsolver/fnc_solver '8_dames.txt'
 La formule est sous FNC.
 La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
 X_0_7
@@ -133,7 +133,7 @@ X_6_6
 X_5_1
 X_4_5
 X_7_4
-Temps d'ex§é§cution : 0.005287 s
+Temps d'exécution : 0.005287 s
     \end{lstlisting}
     Soit encore
     \begin{center}
@@ -163,10 +163,10 @@ Temps d'ex§é§cution : 0.005287 s
     
     Et pour le problème a 3 dames, on obtient
     \begin{lstlisting}
-~/DM3$ satsolver/fnc_solver 3_dames.txt 
+fred@mp2:~/DM3$ satsolver/fnc_solver '3_dames.txt'
 La formule est sous FNC.
 La formule est insatisfiable.
-Temps d'ex§é§cution : 0.000985 s
+Temps d'exécution : 0.000985 s
     \end{lstlisting}
 
 
