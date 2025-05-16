@@ -31,7 +31,19 @@ void string_append(String* dest, const char* src){
 }
 
 void string_cat(String* dest, String* src){
-    string_append(dest, src->string);
+    if (dest->len + src->len >= dest->len_max){
+        while (dest->len + src->len >= dest->len_max){
+            dest->len_max *= 2;
+        }
+        char* temp = realloc(dest->string, dest->len_max*sizeof(char));
+        if (temp == NULL) {
+            fprintf(stderr, "Erreur : impossible de réallouer la mémoire\n");
+            exit(EXIT_FAILURE);
+        }
+        dest->string = temp;
+    }
+    dest->len += src->len;
+    strcat(dest->string, src->string);
     string_free(src);
 }
 
