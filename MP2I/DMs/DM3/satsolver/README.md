@@ -16,62 +16,58 @@
 
 ## Compilation
 
-Pour compiler sur Linux, on se place dans le répertoire `satsolver/` puis :
+Pour compiler sous GNU/Linux, il faut se placer dans le répertoire `satsolver/`
+puis&nbsp;:
 
-Utiliser `make satsolver` pour compiler le satsolver.
-
-Utiliser `make fnc_solver` pour compiler le satsolver spécialiser en FNC.
-
-Utiliser `make clear` pour nettoyer les fichiers temporaires.
-
-Utiliser `make mrproper` pour supprimer les fichiers temporaires et exécutables.
+* Utiliser `make satsolver` pour compiler le satsolver.
+* Utiliser `make fnc_solver` pour compiler le satsolver spécialisé en FNC.
+* Utiliser `make clear` pour nettoyer les fichiers temporaires.
+* Utiliser `make mrproper` pour supprimer les fichiers temporaires et les
+  exécutables.
 
 ## Exécution
 
-le programme s'exécute dans la forme
-```
+Le programme s'exécute avec la commande suivante&nbsp;:
+```bash
 ./satsolver 'entrée.txt'
 ```
 ou
-```
+```bash
 ./fnc_solver 'entrée.txt'
 ```
 avec `entrée.txt` un fichier texte (voir [Format d'entrée](#format-dentrée))
 
-A la fin de son exécution, il affiche les solutions et le temps correspondant.
+À la fin de son exécution, il affiche les solutions et le temps correspondant.
 Avec `fnc_solver`, il affiche en plus si `entrée.txt` est en FNC.
 
 ## Format d'entrée
 
-Le fichier d' `entrée.txt` doit contenir une formule booléen avec :
+Le fichier `entrée.txt` doit contenir une formule booléenne avec&nbsp;:
 
-Les espaces sont autoriser mais ignorer.
+* Les espaces sont autorisés mais ignorés. Les espaces insécables et insécables
+fines sont considérés comme des caractères valides dans les noms de variable.
+* `(...)` pour les parenthèse.
+* `T` et `F` pour vrai et faux.
+* `~`, `&` et `|`  pour non, et et ou
+* `=` et `>` pour équivalent et implique.
+* Tout le reste (i.e. tous les autres caractères unicode) sera compris comme un
+  nom de variable.
+* Il est toutefois conseillé de mettre les variables sous une forme lisible,
+  comme : `X_0_0`
 
-`(...)` pour les parenthèse.
-
-`T` et `F` pour vrai et faux.
-
-`~`, `&` et `|`  pour non, et et ou
-
-`=` et `>` pour équivalent et implique.
-
-Tout le reste sera compris comme une variable.
-Il est toutefois conseiller de mettre les variables sous une forme lisible,
-comme : `X_0_0`
-
-La priorité des opérations sont `~`, `&`, `|`, `=` puis `>`
+La priorité des opérations est `~`, `&`, `|`, `=` puis `>`
 
 ## Exemple
-Pour `entrée.txt` :
+Si `entrée.txt` contient&nbsp;:
 ```
 (V_1 | ~V_2 | ~V_3) & (~V_1 | ~V_2 | ~V_3) & (V_1 | V_2)
 ```
 
-Pour `fnc_solver` :
-```
-~/DM3/satsolver$ make fnc_solver 
+Pour `fnc_solver`&nbsp;:
+```console
+~/DM3/satsolver$ make fnc_solver
 ocamlopt fnc_solver.ml -o fnc_solver
-~/DM3/satsolver$ ./fnc_solver 'entrée.txt' 
+~/DM3/satsolver$ ./fnc_solver 'entrée.txt'
 La formule est fnc
 La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
 V_2
