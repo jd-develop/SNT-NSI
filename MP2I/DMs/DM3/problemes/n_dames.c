@@ -4,22 +4,23 @@
 #include <stdlib.h>
 #include <string.h>
 
-// Renvoie X_i_j avec i,j <= 99
+// Renvoie X_i_j
 char* variable(int i, int j){
-	assert(i <= 99 && j <= 99);
-	char* var = malloc(8*sizeof(char));
+	int p = digits_number(i) + digits_number(j);
+	char* var = malloc((p + 4)*sizeof(char));
 	sprintf(var, "X_%d_%d", i, j);
 	return var;
 }
 
-// Renvoie la formule de contrainte sur la ligne i pour un échequier de n <= 100 lignes
+// Renvoie la formule de contrainte sur la ligne i pour un échequier de n lignes
 char* contrainte_une_ligne(int i, int n){
-	assert(i <= 99 && n <= 100);
+	// taille maximum d'une variable (X_i_j)
+	int p = 2 * digits_number(n) + 3;
 	char** l = malloc(n * sizeof(char*));
 	for (int j = 0; j < n; j++){
 		l[j] = variable(i, j);
 	}
-	char* f = malloc(sizeof(char) * (n * (12*n - 2) + 5));
+	char* f = malloc(sizeof(char) * n * (4 * p + 18 + n * (p + 5)));
 	char* f1 = au_moins_une(l, n);
 	char* f2 = au_plus_une(l, n);
 	sprintf(f, "(%s & %s)", f1, f2);
@@ -32,10 +33,11 @@ char* contrainte_une_ligne(int i, int n){
 	return f;
 }
 
-// Renvoie la formule de contrainte sur n <= 100 lignes
+// Renvoie la formule de contrainte sur n lignes
 char* contrainte_toutes_lignes(int n){
-	assert(n <= 100);
-	char* f = calloc(n*n*(12*n-2) + 8*n, sizeof(char));
+	// taille maximum d'une variable (X_i_j)
+	int p = 2 * digits_number(n) + 3;
+	char* f = calloc(n * n * (4 * p + 18 + n * (p + 5) + 3 * n), sizeof(char));
 	f[0] = '(';
 	char* s = contrainte_une_ligne(0, n);
 	int k = 1;
@@ -52,9 +54,8 @@ char* contrainte_toutes_lignes(int n){
 	return f;
 }
 
-// Renvoie la formule de contrainte sur la colonne j pour un échequier de n <= 100 lignes
+// Renvoie la formule de contrainte sur la colonne j pour un échequier de n lignes
 char* contrainte_une_colonne(int j, int n){
-	assert(n <= 100 && j <= 99);
 	char** l = malloc(n * sizeof(char*));
 	for (int i = 0; i < n; i++){
 		l[i] = variable(i, j);
@@ -67,10 +68,11 @@ char* contrainte_une_colonne(int j, int n){
 	return f;
 }
 
-// Renvoie la formule de contrainte sur n <= 100 lignes
+// Renvoie la formule de contrainte sur n lignes
 char* contrainte_toutes_colonnes(int n){
-	assert(n <= 100);
-	char* f = calloc(12*n*n*(n-1) + 3*n + 1, sizeof(char));
+	// taille maximum d'une variable (X_i_j)
+	int p = 2 * digits_number(n) + 3;
+	char* f = calloc(3 * n + n * n * (p+5) * (3 + n), sizeof(char));
 	f[0] = '(';
 	int k = 1;
 	char* s = contrainte_une_colonne(0, n);
@@ -90,10 +92,9 @@ char* contrainte_toutes_colonnes(int n){
 /* 
 Renvoie la formule de contrainte sur la diagonale commencant à (i, j) avec s le
 sens de la diagonale: 1 pour lignes montantes -1 pour descandantes.
-pour un échequier de n <= 100 lignes
+pour un échequier de n lignes
 */
 char* contrainte_une_diag(int i, int j, int s, int n){
-	assert(n <= 100);
 	// nombre de variables
 	int nv = min(n-1-j, (1 - s) * (n - 1) / 2 + s*i) + 1;
 	if (nv <= 0) {
@@ -111,12 +112,14 @@ char* contrainte_une_diag(int i, int j, int s, int n){
 	return f;
 }
 
-// Renvoie la formule de contrainte sur n <= 100 lignes
+// Renvoie la formule de contrainte sur n lignes
 char* contrainte_toutes_diag(int n){
 	if (n == 1){
 		return strdup("T");
 	}
-	char* f = calloc((12 * n * (n-1) + 3) * (4*n-6), sizeof(char));
+	// taille maximum d'une variable (X_i_j)
+	int p = 2 * digits_number(n) + 3;
+	char* f = calloc(n * (p+5) * (3 + n) * (4*n-6), sizeof(char));
 	f[0] = '(';
 	int k = 1;
 	char* c = contrainte_une_diag(0, 0, -1, n);
@@ -158,10 +161,14 @@ void gen_formule_n_dames(int n, char* filename){
 }
 
 int main (int argc, char** argv){
-	if (argc != 3) {
-		perror("Ce programme prend deux arguments: le nom du fichier et la taille de l'échéquier n");
+	if (argc != 2) {
+		perror("Ce programme prend un argument: la taille de l'échéquier n");
 	} else {
-		gen_formule_n_dames(atoi(argv[2]), argv[1]);
+		int n = atoi(argv[1]);
+		if (n <= 0) perror("n doit être plus grand que 1");
+		char filename[100]; 
+		sprintf(filename, "%d_dames.txt", n);
+		gen_formule_n_dames(n, filename);
 	}
 	return 0;
 }

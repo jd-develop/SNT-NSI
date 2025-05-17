@@ -1,7 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <assert.h>
-// #include <stdio.h>
 
 void write_f(char* f, char* s, int* k){
 	int j = *k;
@@ -9,6 +8,16 @@ void write_f(char* f, char* s, int* k){
 		f[j + i] = s[i];
 		(*k)++;
 	}
+}
+
+int digits_number(int n){
+	if (n == 0) return 1;
+	int p = 0;
+	while (n > 0){
+		n /= 10;
+		p++;
+	}
+	return p;
 }
 
 char* au_moins_une(char** l, int n){
@@ -83,12 +92,3 @@ int min(int a, int b){
 		return b;
 	}
 }
-
-// int main () {
-// 	char* forms[4] = {"(x & ~y)", "y", "z", "(x | y & ~z)"};
-// 	// char* phi = au_moins_une(forms, 3);
-// 	char* psi = au_plus_une(forms, 4);
-// 	printf("%s\n", psi);
-// 	free(psi);
-// 	return 0;
-// }

@@ -8,5 +8,8 @@ char* au_moins_une(char** l, int n);
 /* Renvoie une formule atomique qui est vrai ssi au plus une des n formule atomique de l est vrai*/
 char* au_plus_une(char** l, int n);
 
-// Renvoie le minimum de a et b
+/* Renvoie le minimum de a et b*/
 int min(int a, int b);
+
+/*Renvoie le nombre de chiffres dans n*/
+int digits_number(int n);
