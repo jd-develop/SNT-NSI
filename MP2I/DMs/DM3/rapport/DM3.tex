@@ -170,56 +170,130 @@ Temps d'exécution : 0.000985 s
     \end{lstlisting}
 
 
-    \section{Problème des cinq maisons}
-    \subsection{Description}
-    Le problème des cinq maisons requiert certaines contraintes~:
-    \begin{enumerate}
-        \item $\varphi_1$~: Chaque caractéristique («~anglais~», «~poisson
-            rouge~», …) se retrouve dans exactement une des cinq maisons
-        \item $\varphi_2$~: Chaque maison doit avoir exactement une caractéristique de chaque
-            catégorie (nationalité, boisson, couleur, …). Par exemple, la maison
-            1 doit avoir exactement une couleur.
-        \item $\varphi_3$~: Contraintes de l’énoncé
-    \end{enumerate}
+\section{Problème des cinq maisons}
+\subsection{Description}
+Le problème des cinq maisons requiert certaines contraintes~:
+\begin{enumerate}
+    \item $\varphi_1$~: Chaque caractéristique («~anglais~», «~poisson
+        rouge~», …) se retrouve dans exactement une des cinq maisons
+    \item $\varphi_2$~: Chaque maison doit avoir exactement une caractéristique de chaque
+        catégorie (nationalité, boisson, couleur, …). Par exemple, la maison
+        1 doit avoir exactement une couleur.
+    \item $\varphi_3$~: Contraintes de l’énoncé
+\end{enumerate}
 
-    \subsection{Nomenclature}
-    Les variables utilisées dans les formules sont de la forme
-    \verb|numéro_caractéristique|. Par exemple~:
-    \begin{itemize}
-        \item \verb|1_anglais| représente «~l’anglais habite dans la maison
-            1~»
-        \item \verb|5_poisson_rouge| représente «~la personne habitant la
-            maison 5 a pour animal de compagnie un poisson rouge~»
-        \item \verb|3_yop| représente «~la personne habitant la maison 3
-            boit du yop~»
-        \item etc.
-    \end{itemize}
+\subsection{Nomenclature}
+Les variables utilisées dans les formules sont de la forme
+\verb|numéro_caractéristique|. Par exemple~:
+\begin{itemize}
+    \item \verb|1_anglais| représente «~l’anglais habite dans la maison
+        1~»
+    \item \verb|5_poisson_rouge| représente «~la personne habitant la
+        maison 5 a pour animal de compagnie un poisson rouge~»
+    \item \verb|3_yop| représente «~la personne habitant la maison 3
+        boit du yop~»
+    \item etc.
+\end{itemize}
 
-    Dans la suite de cette section, notons $C$ l’ensemble des caractéristiques
-    ($C = \{\text{anglais}, \text{lait}, \text{escalade}, \dots\}$) et utilisons
-    des indices de maison dans $[\![1, 5]\!]$.
+Dans la suite de cette section, notons $C$ l’ensemble des caractéristiques
+($C = \{\text{anglais}, \text{lait}, \text{escalade}, \dots\}$), $\mathscr C$
+l’ensemble des catéogries de caractéristiques (nationalité, couleur, …) (donc
+$C = \bigsqcup_{\mathcal C \in \mathscr C} \mathcal C$)
+et utilisons
+des indices de maison dans $[\![1, 5]\!]$.
 
-    \subsection{Modélisation de la contrainte 1}
-    Pour modéliser la contrainte «~Chaque caractéristique se retrouve dans
-    exactement une des cinq maisons~», on peut d’abord modéliser la contrainte
-    «~La caractéristique $c$ se retrouve dans exactement une maison~»,
-    en utilisant la formule suivante~:
+\subsection{Modélisation de la contrainte 1}
+Pour modéliser la contrainte «~Chaque caractéristique se retrouve dans
+exactement une des cinq maisons~», on peut d’abord modéliser la contrainte
+«~La caractéristique $c$ se retrouve dans exactement une maison~»,
+en utilisant la formule suivante~:
 
-    \begin{equation*}
-        \bigvee_{j = 1}^5 \left(\verb|j_c| \wedge \bigwedge_{\substack{i=1 \\ i \ne j}}^5 \neg \verb|i_c| \right)
-    \end{equation*}
+\begin{equation*}
+    \bigvee_{j = 1}^5 \left(\verb|j_c| \wedge \bigwedge_{\substack{i=1 \\ i \ne j}}^5 \neg \verb|i_c| \right)
+\end{equation*}
 
-    (i.e. «~Soit cette caractéristique est dans la maison 1 et aucune autre,
-    soit dans la 2 et aucune autre, etc.~»)
+(i.e. «~Soit cette caractéristique est dans la maison 1 et aucune autre,
+soit dans la 2 et aucune autre, etc.~»)
 
-    Ainsi, on peut modéliser la contrainte sur toutes les caractéristiques en
-    faisant un «~et~» logique~:
+Ainsi, on peut modéliser la contrainte sur toutes les caractéristiques en
+faisant un «~et~» logique~:
 
-    \begin{equation*}
-        \varphi_1 \equiv \bigwedge_{c\in C}\bigvee_{j = 1}^5 \left(\verb|j_c| \wedge \bigwedge_{\substack{i=1 \\ i \ne j}}^5 \neg \verb|i_c| \right)
-    \end{equation*}
+\begin{equation*}
+    \varphi_1 \equiv \bigwedge_{c\in C}\bigvee_{j = 1}^5 \left(\verb|j_c| \wedge \bigwedge_{\substack{i=1 \\ i \ne j}}^5 \neg \verb|i_c| \right)
+\end{equation*}
 
-    \subsection{Modélisation de la contrainte 2}
+\subsection{Modélisation de la contrainte 2}
+Pour modéliser la contrainte «~Chaque maison doit avoir exactement une
+caractéristique de chaque catégorie~», on peut d’abord modéliser la contrainte
+«~La maison $i$ a exactement une caractéristique de la catégorie
+$\mathcal C \in \mathscr C$~», en utilisant la formule suivante~:
+
+\begin{equation*}
+    \bigvee_{c'\in\mathcal C} \left(\verb|i_c'| \wedge \bigwedge_{\substack{c\in\mathcal C \\ c \ne c'}} \neg \verb|i_c| \right)
+\end{equation*}
+
+On peut alors modéliser la contrainte sur toutes les catégories de
+caractéristiques avec un «~et~» logique~:
+
+\begin{equation*}
+    \bigwedge_{\mathcal C \in \mathscr C} \bigvee_{c'\in\mathcal C} \left(\verb|i_c'| \wedge \bigwedge_{\substack{c\in\mathcal C \\ c \ne c'}} \neg \verb|i_c| \right)
+\end{equation*}
+
+Et de même, on modélise la contrainte sur toutes les maisons ainsi~:
+
+\begin{equation*}
+    \varphi_2 \equiv \bigwedge_{i=1}^5 \bigwedge_{\mathcal C \in \mathscr C}\bigvee_{c'\in\mathcal C} \left(\verb|i_c'| \wedge \bigwedge_{\substack{c\in\mathcal C \\ c \ne c'}} \neg \verb|i_c| \right)
+\end{equation*}
+
+\subsection{Modélisation de la contrainte 3}
+Les contraintes de l’énoncé se modélisent assez facilement. Par exemple,
+«~L’Anglais vit dans une maison rouge~» se modélise ainsi~:
+
+\begin{equation*}
+    \bigvee_{i=1}^5 \verb|i_anglais| \wedge \verb|i_rouge|
+\end{equation*}
+
+«~La personne qui fait de l’escalade vit à côté de celle qui a des chats~» se
+modélise avec cette formule~:
+\begin{equation*}
+    \left(\bigvee_{i=1}^4 \verb|i_escalade| \wedge \verb|(i+1)_chats|\right) \vee
+    \left(\bigvee_{i=1}^4 \verb|i_chats| \wedge \verb|(i+1)_escalade|\right)
+\end{equation*}
+
+Encore plus simple, «~La personne qui vit dans la maison du centre boit du
+lait~» se modélise avec la formule suivante~:
+\begin{equation*}
+    \verb|3_lait|
+\end{equation*}
+
+Il suffit ensuite de faire un «~et~» logique sur toutes les formules données
+par les contraintes pour obtenir $\varphi_3$.
+
+\subsection{Solution}
+Le satsolver résoud le problème en 0.4 secondes. À noter que l’ordre des
+contraintes est important~: écrire dans le fichier
+$\varphi_1 \wedge \varphi_2 \wedge \varphi_3$ prend au moins 10 minutes
+(peut-être beaucoup plus, on l’a arrêté avant), tandis que
+$\varphi_3 \wedge \varphi_2 \wedge \varphi_1$ est beaucoup plus rapide.
+
+La solution est la suivante~:
+\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    Maison      & 1         & 2         & 3       & 4             & 5 \\
+    \hline
+    Couleur     & Jaune     & Bleu      & Rouge   & Vert          & Blanc \\
+    \hline
+    Nationalité & Norvégien & Danois    & Anglais & Allemand      & Suédois \\
+    \hline
+    Animal      & Chats     & Cheval    & Oiseaux & Poisson rouge & Chiens \\
+    \hline
+    Boisson     & Eau       & Thé       & Lait    & Café          & Yop \\
+    \hline
+    Sport       & Danse     & Escalade  & Vélo    & Karaté        & Basket \\
+    \hline
+\end{tabular}
+
+Ainsi, le poisson rouge est l’animal de compagnie de l’Allemand.
 
 
     \section{Problème du calendrier}
