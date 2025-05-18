@@ -14,17 +14,19 @@ Soit $n$ le nombre d'opérateurs.
 Dans la configuration $(...((a_0 | a_1) | a_2) | ...) | a_n$,
 il y a bien $n$ opérateurs.
 
-De plus, la complexité de l'algorithme dans cette configuration est
-\begin{align*}
-    C_n &= C_{n-1} + C_0 + \Theta(n)\\
-    &\geq C_{n-1} + nA\\
-    &\geq C_0 + \sum_{i=0}^{n-1}(n-i)A\\
-    C_n &= \boxed{\Omega(n^2)}\\
-\end{align*}
+De plus, la complexité de l'algorithme dans cette configuration est $C_n = C_{n-1} + \Omega(n)$.
+
+Il existe donc un $n_0 \in \mathbb{N}$ tel que $\forall n > n_0$:
+\begin{equation*}
+    C_n \ge C_{n-1} + An
+    \Longrightarrow C_n \ge C_{n_0} + A\sum_{k=n_0+1}^n{k}
+\end{equation*}
+Donc $C_n - C_{n_0} = \Omega(n^2)$.
+Or $C_{n_0}$ est une constante.
+
 Donc dans le pire cas, la complexité est au moins de l’ordre de $\Omega(n^2)$.
 
-Pour améliorer la fonction, il faut passer par une variable intermédiaire puis
-trier la liste.
+Pour améliorer cette fonction, on pourrait par exemple utiliser un arbre rouge-noir.
 
 \subsection*{Q11. (Bonus)}
 Dans la nouvelle fonction, on a
