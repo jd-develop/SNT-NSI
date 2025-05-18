@@ -5,6 +5,11 @@
 
 #include "utils.h"
 
+/*
+ * Note : il y a dans ce fichier plein de formules définissant la taille des
+ * chaînes de caractères à l’avance. Elles sont expliquées dans le rapport
+ */
+
 // Renvoie X_i_j
 char* variable(int i, int j){
     int p = digits_number(i) + digits_number(j);
