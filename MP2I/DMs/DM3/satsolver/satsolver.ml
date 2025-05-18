@@ -213,6 +213,7 @@ let test_union () =
 (*
 (* Renvoie la liste des variables contenues dans la formule, sans doublons et
  * dans l’ordre croissant *)
+(* Note : ancienne implémentation *)
 let rec liste_variables (f: formule) : string list =
   match f with
   | Top
@@ -226,16 +227,17 @@ let rec liste_variables (f: formule) : string list =
 type couleur = Rouge | Noir
 type 'a noeud_arn = Feuille of 'a | Noeud of couleur * 'a * 'a noeud_arn * 'a noeud_arn
 type 'a arn = 'a noeud_arn option
+
 (* Corrige t après insertion *)
 let correctionARN (t: 'a noeud_arn) : 'a noeud_arn = 
   match t with
   | Noeud(Noir, z, Noeud(Rouge, y, Noeud(Rouge, x, a, b), c), d)
-  | Noeud(Noir, z, Noeud(Rouge, x, a, Noeud(Rouge, y, b, c)), d) 
+  | Noeud(Noir, z, Noeud(Rouge, x, a, Noeud(Rouge, y, b, c)), d)
   | Noeud(Noir, x, a, Noeud(Rouge, z, Noeud(Rouge, y, b, c), d))
   | Noeud(Noir, x, a, Noeud(Rouge, y, b, Noeud(Rouge, z, c, d)))
   -> Noeud(Rouge, y, Noeud(Noir, x, a, b), Noeud(Noir, z, c, d))
   | _ -> t
-(* insert x dans t et renvoie un arn relaxé *)
+(* insère x dans t et renvoie un arn relaxé *)
 let rec insertionARNrelax (x: 'a) (t: 'a noeud_arn ) : 'a noeud_arn =
   match t with
   | Feuille e when e < x -> Noeud(Rouge, e, Feuille e, Feuille x)
@@ -243,15 +245,15 @@ let rec insertionARNrelax (x: 'a) (t: 'a noeud_arn ) : 'a noeud_arn =
   | Feuille e -> Noeud(Rouge, x, Feuille x, Feuille e)
   | Noeud(c, e, g, d) when e < x -> correctionARN (Noeud(c, e, g, insertionARNrelax x d))
   | Noeud(c, e, g, d) -> correctionARN (Noeud(c, e, insertionARNrelax x g, d))
-(* insert x dans t *)
+(* insère x dans t *)
 let insertionARN (x: 'a) (t: 'a arn) : 'a arn =
   match t with
   | None -> Some (Feuille x)
   | Some t' -> match insertionARNrelax x t' with
           | Noeud(c, e, g, d) -> Some (Noeud(Noir, e, g, d))
-          | Feuille e -> Some (Feuille e) 
+          | Feuille e -> Some (Feuille e)
 
-(* Retourne l'ensemble des variable de f sous forme d'arn *)
+(* Retourne l'ensemble des variables de f sous forme d'arn *)
 let var_arn (f: formule) : string arn =
   let rec insert_var_arn (f: formule) (t: string arn) : string arn =
     match f with
@@ -263,12 +265,12 @@ let var_arn (f: formule) : string arn =
 
 (* transforme l'arn des variables en liste *)
 let list_var_from_arn (t: 'a arn) : 'a list =
-  let rec list_arn_aux (t: 'a arn) (l: 'a list) : 'a list = 
+  let rec list_arn_aux (t: 'a arn) (l: 'a list) : 'a list =
     match t with
     | None -> l
     | Some Feuille(a) -> a::l
     | Some Noeud(_, _, g, d) -> list_arn_aux (Some g) (list_arn_aux (Some d) l)
-  in list_arn_aux t [] 
+  in list_arn_aux t []
 
 (* Renvoie la liste des variables contenues dans la formule, sans doublons et
  * dans l’ordre croissant. *)
