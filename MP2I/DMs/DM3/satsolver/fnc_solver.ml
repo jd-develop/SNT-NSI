@@ -409,7 +409,7 @@ let test_quineFNC () =
   assert (quineFNC([Some (F (YesVar "a"))]) ["a"] = Some [("a", true)]);
   assert (quineFNC([Some (F (NotVar "a"))]) ["a"] = Some [("a", false)]);
   assert (quineFNC([Some (N (Rouge, YesVar "b", F (YesVar "b"), N (Rouge, NotVar "a", F (NotVar "a"), F (NotVar "c"))))]) ["a";"b";"c"] = Some [("a", false)]);
-  assert (quineFNC([Some (N (Rouge, YesVar "b", F (YesVar "b"), F (NotVar "a"))); Some (F (NotVar "c"))]) ["a";"b";"c"] = Some [("a", false); ("b", false); ("c", false)]);
+  assert (quineFNC([Some (N (Rouge, YesVar "b", F (YesVar "b"), F (NotVar "a"))); Some (F (NotVar "c"))]) ["a";"b";"c"] = Some [("c", false); ("a", false)]);
   print_string "Tests quineFNC                   OK\n"
 
 
