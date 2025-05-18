@@ -5,6 +5,8 @@
 *.cmo
 *.cmx
 *.o
+*.gz
+*.sum.synctex
 
 satsolver/satsolver
 satsolver/fnc_solver
