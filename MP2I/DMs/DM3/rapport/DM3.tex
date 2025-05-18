@@ -49,7 +49,49 @@ La complexité est
     C_n &= \boxed{\Theta(n)}\\
 \end{align*}
 
-\subsection*{Q25.}~
+\subsection*{Q25.}
+
+Nous avons tenté de choisir la variable en fonction de la fréquence
+d’apparition~: celle qui apparaît le plus est choisie en premier et est mise
+à $\top$. Nous l’avons implémenté de cette manière~:
+
+\begin{lstlisting}[language=caml]
+(* Renvoie la variable dont la fréquence d'apparition dans f est la plus élevée. *)
+let find_var (f: formule) : string =
+  let rec find_var_aux (f: formule) (dico: (string, int) dico) (m: string*int): (string*int) * (string, int) dico =
+    match f with
+    | Top | Bot -> m, dico
+    | Var(q) ->
+        begin
+        match get dico q with
+        | None when snd m < 1 -> (q, 1), set dico q 1
+        | None -> m, set dico q 1
+        | Some v when snd m <= v -> (q, v+1), set dico q (v + 1)
+        | Some v -> m, set dico q (v + 1)
+        end
+    | Not(f') -> find_var_aux f' dico m
+    | And (f1, f2) | Or(f1, f2) -> let m', d' = find_var_aux f2 dico m in
+      find_var_aux f1 d' m'
+  in fst(fst(find_var_aux f None ("", 0)))
+
+(* quine en utilisant find_var (lent) *)
+let rec quine2 (f: formule) : sat_result =
+  if f = Top then Some []
+    else if f = Bot then None
+    else match find_var f with
+    | "" -> quine (simpl f)
+    | x -> let f' = simpl (subst f x Top) in
+      match quine f' with
+      | Some v -> Some ((x, true)::v)
+      | None -> let f'' = simpl (subst f x Bot) in
+        match quine f'' with
+        | None -> None
+        | Some v' -> Some ((x, false)::v')
+\end{lstlisting}
+
+Cette méthode est particulièrement longue et inefficace. Pour voir comment est
+implémentée la structure de dictionnaire, le fichier est disponible via
+\href{https://github.com/jd-develop/SNT-NSI/blob/0dac83109e924ea315277291cb7cc9fd998daa48/MP2I/DMs/DM3/satsolver/dico.ml}{ce lien}.
 
 \subsection*{Q26. (Bonus)}
 Le satsolver spécialisé en FNC a été implémenté dans \verb|fnc_solver.ml|.
