@@ -302,7 +302,7 @@ Ainsi, le poisson rouge est l’animal de compagnie de l’Allemand.
 
 
 \section{Problème du calendrier}
-\subsection*{Description}
+\subsection{Description}
 Pour la résolution du problème du calendrier, il faut respecter ces deux
 règles~:
 \begin{enumerate}
@@ -318,34 +318,26 @@ coordonnées de la case.
 Exemples~: \verb|l_4_5|, \verb|T_2_7|. (Les noms des pièces sont I, L, S, b, C,
 l, s, Z, T et V)
 
-Pour optimiser, les cases qui doivent avoir 0 pièce ne seront pas créées ni
+Pour optimiser, les cases qui doivent avoir 0 pièce ne seront ni créées ni
 utilisées.
 
-\subsubsection*{1. Contrainte sur une case}
-Pour $p_{i,j}$ les variables «~p est en (i,j)~» et $\bb{P}$ l'ensembles des
-pièces, la contrainte sur la case $(i,j)$ est
-\begin{equation*}
-    F_{i,j} = \left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
-    \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)
-\end{equation*}
-Cette formule est sous FNC.
+\subsection{Définition des ensembles}
+On définie $C \subset [\![0,7]\!]^2$ l'ensemble des cases qui doivent être remplies,
+implémenté avec \verb|date| et le tableau \verb|calendrier|.
 
-\subsubsection*{2. Contrainte de toutes les cases}
-Pour $C \subset [\![0,7]\!]^2$ l'ensemble des cases qui doivent être remplies,
-la contrainte sur toutes les cases est
-\begin{equation*}
-    F = \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
-        \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right)
-\end{equation*}
-Cette formule est sous FNC.
+On définie $\bb{P}$ l'ensemble des pièces, implémenté dans \verb|pieces.c| et \verb|pieces.h|
+($\bb{P}$ est ordonné).
 
-\subsubsection*{3. Contrainte sur une pièce}
-Pour $\bb{V}_p$ l'ensemble des positions valides de la pièce $p$~:
+On définie $\bb{V}_p$ l'ensemble des positions valides de la pièce $p\in\bb{P}$,
+implémenté avec \verb|piece_valide|.
+
+Pour $p\in\bb{P}$ et $v\in\bb{V}_p$, on définie $N_v$ par
 \begin{equation*}
-    N_v(p_{i,j}) = \begin{cases}
-        p_{i,j} & \text{si $p$ dans la position $v$ est sur la case $(i,j)$}\\
-        \lnot p_{i,j} & \text{sinon}
-    \end{cases}
+    \forall (i,j)\in C,\quad N_v(p_{i,j}) =
+        \begin{cases}
+            p_{i,j} & \text{si $p$ dans la position $v$ est sur la case $(i,j)$}\\
+            \lnot p_{i,j} & \text{sinon}
+        \end{cases}
 \end{equation*}
 
 Exemple pour la pièce $T$ de position $v =
@@ -358,50 +350,242 @@ Exemple pour la pièce $T$ de position $v =
 
 On a $N_v(T_{1,2}) = T_{1,2}$ et $N_v(T_{3,1}) = \lnot T_{3,1}$
 
-La contrainte sur une pièce $p$ est
+\subsection{Modélisation de la contrainte sur une case avec qu'une pièce}
+Pour $p_{i,j}$ les variables «~$p$ est en $(i,j)$~», la contrainte sur la case $(i,j)\in C$ est
 \begin{equation*}
-    F_p = \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)
+    \varphi_{i,j} = \left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
+                    \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)
+\end{equation*}
+Cette formule est sous FNC.
+
+Elle est implémenter dans \verb|contrainte_une_case|.
+
+\subsection{Modélisation de la contrainte sur toutes les cases avec qu'une pièce}
+La contrainte sur toutes les cases est
+\begin{align*}
+    \varphi &= \bigwedge_{(i,j)\in C} \varphi_{i,j} \\
+            &= \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
+               \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right)
+\end{align*}
+Cette formule est sous FNC.
+
+Elle est implémenter dans \verb|contrainte_toutes_cases|.
+
+\subsection{Modélisation de la contrainte sur une pièce}
+La contrainte sur la pièces $p\in\bb{P}$ est
+\begin{equation*}
+    \varphi'_p = \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)
 \end{equation*}
 
 Mais cette formule n'est pas sous FNC, on doit passer par des variables
 intermédiaires que l'on nomme $Z_{p,v}$.
 \begin{align*}
-    F_p &= \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
-    &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
-        \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \leftrightarrow \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
-    &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
-        \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right){}
-        \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_{p,v} \to \lnot\bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+    \varphi'_p &= \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+               &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+                  \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \leftrightarrow \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+               &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+                  \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right){}
+                  \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_{p,v} \to \lnot\bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
 \end{align*}
 
 Que l'on peut simplifier en
 \begin{align*}
-    F_p &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
-        \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
-    &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
-        \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_{p,v} \lor \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
-    &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
-        \land \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\\
+    \varphi'_p &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+                  \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+               &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+                  \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_{p,v} \lor \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+               &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+                  \land \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\\
 \end{align*}
 qui est sous FNC.
 
-\subsubsection*{4. Contrainte de toutes les pièces}
+Elle est implémenter en 2 partie dans \verb|contrainte_piece_pos|
+et dans \verb|contrainte_une_piece|.
+
+\subsection{Modélisation de la contrainte sur toutes les pièces}
 La contrainte sur toutes les pièces est
-\begin{equation*}
-    F = \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right) \land
-        \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\right)
-\end{equation*}
+\begin{align*}
+    \varphi' &= \bigwedge_{p\in\bb{P}}  \varphi'_p \\
+             &= \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right) \land
+                \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\right)
+\end{align*}
 Cette formule est sous FNC.
 
-\subsubsection*{5. Formule générale}
-La formule générale est donc
-\begin{equation*}
-F = \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
-    \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right) \land
-    \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right) \land
-    \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\right)
-\end{equation*}
+Elle est implémenter dans \verb|contrainte_toutes_pieces|.
 
-\subsection*{Implémentation}
+\subsection{Formule générale}
+La formule générale est donc
+\begin{align*}
+\Phi &= \varphi \land \varphi' \\
+     &= \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
+        \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right) \land
+        \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right) \land
+        \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\right)
+\end{align*}
+
+\subsection{Solution}
+Malheureusement, la complexité de cette formule est trop élevée pour les 10 pièces.
+Donc, en plus d'avoir implémenté le problème dans \verb|calendrier.c|,
+une version simplifier est implémenté dans \verb|calendrier_n_pieces.c|.
+
+Ce programme représente le «~Jeudi 7 Juin~» avec, en entrée,
+le nombre de pièces a prendre entre 2 et 10.
+
+L'une des solution attendue pour 10 pièces est
+\begin{center}
+\begin{tikzpicture}
+\draw[black] (0,0) grid (8,-8);
+\draw[black, ultra thick] (0, 0) -- (0,-8);
+\draw[black, ultra thick] (0, 0) -- (8, 0);
+\draw[black, ultra thick] (8, 0) -- (8,-8);
+\draw[black, ultra thick] (0,-8) -- (8,-8);
+
+\draw[black, ultra thick] (2, 0) -- (2,-1) -- (4,-1) -- (4,-5);
+\draw[black, ultra thick] (3,-1) -- (3,-6) -- (1,-6) -- (1,-7);
+\draw[black, ultra thick] (0,-2) -- (3,-2);
+\draw[black, ultra thick] (0,-4) -- (1,-4) -- (1,-3) -- (3,-3);
+\draw[black, ultra thick] (0,-5) -- (2,-5) -- (2,-4) -- (3,-4);
+\draw[black, ultra thick] (0,-7) -- (6,-7) -- (6,-4);
+\draw[black, ultra thick] (3,-5) -- (5,-5) -- (5,-6) -- (4,-6) -- (4,-8);
+\draw[black, ultra thick] (5,-7) -- (5,-8);
+\draw[black, ultra thick] (5, 0) -- (5,-3) -- (4,-3);
+\draw[black, ultra thick] (6, 0) -- (6,-3) -- (7,-3);
+\draw[black, ultra thick] (6,-2) -- (7,-2) -- (7,-8);
+\draw[black, ultra thick] (5,-1) -- (6,-1);
+\draw[black, ultra thick] (4,-4) -- (7,-4);
+
+\node at (5.5,-0.5) {\verb|Juin|};
+\node at (6.5,-2.5) {\verb|07|};
+\node at (4.5,-7.5) {\verb|Jeudi|};
+
+\node at (5.5,-3.5) {1};
+\node at (4.5,-0.5) {2};
+\node at (1.5,-1.5) {3};
+\node at (6.5,-7.5) {4};
+\node at (5.5,-5.5) {5};
+\node at (3.5,-2.5) {6};
+\node at (3.5,-6.5) {7};
+\node at (1.5,-5.5) {8};
+\node at (1.5,-3.5) {9};
+\node at (0.5,-2.5) {10};
+\end{tikzpicture}
+\end{center}
+
+Pour le problème avec 6 pièces, on obtient
+\begin{lstlisting}
+fred@mp2:~/DM3$ problemes/calendrier_n_pieces 6
+Fichier 'calendrier_6_pieces.txt' généré.
+Taille du fichier : 182857 octets.
+fred@mp2:~/DM3$ satsolver/fnc_solver calendrier_6_pieces.txt | problemes/print_tab 8
+La formule est sous FNC.
+La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
+C_4_4
+alias_C28
+C_4_5
+C_5_5
+C_6_4
+C_6_5
+I_1_3
+I_2_3
+I_3_3
+I_4_3
+alias_L23
+L_4_6
+L_5_6
+L_6_6
+L_7_5
+L_7_6
+T_1_5
+T_2_5
+T_3_4
+alias_V3
+V_0_2
+V_0_3
+V_0_4
+V_1_4
+V_2_4
+b_0_0
+b_0_1
+alias_b43
+b_1_0
+b_1_1
+b_1_2
+T_3_5
+T_3_6
+alias_I26
+alias_T31
+Temps d'exécution : 4.159915 s
++--+--+--+--+--+--+--+--+
+|     |        |        |
++     +--+--+  +--+     +
+|        |  |  |  |     |
++--+--+--+  +  +  +     +
+|        |  |  |  |     |
++        +  +--+  +--+  +
+|        |  |        |  |
++        +  +--+--+--+  +
+|        |  |     |  |  |
++        +--+--+  +  +  +
+|              |  |  |  |
++           +--+  +  +  +
+|           |     |  |  |
++           +--+--+  +  +
+|              |     |  |
++--+--+--+--+--+--+--+--+
+\end{lstlisting}
+
+Et pour le problème avec 7 et 8 pièces, on obtient
+\begin{lstlisting}
+fred@mp2:~/DM3$ satsolver/fnc_solver calendrier_7_pieces.txt | problemes/print_tab 8
+La formule est sous FNC.
+La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
+C_4_4
+...
+alias_T48
+Temps d'exécution : 45.569438 s
++--+--+--+--+--+--+--+--+
+|     |        |        |
++     +--+--+  +--+     +
+|        |  |  |  |     |
++--+--+--+  +  +  +     +
+|        |  |  |  |     |
++        +  +--+  +--+  +
+|        |  |        |  |
++        +  +--+--+--+  +
+|        |  |     |  |  |
++        +--+--+  +  +  +
+|        |     |  |  |  |
++  +--+--+  +--+  +  +  +
+|  |        |     |  |  |
++  +--+--+--+--+--+  +  +
+|              |     |  |
++--+--+--+--+--+--+--+--+
+fred@mp2:~/DM3$ satsolver/fnc_solver calendrier_8_pieces.txt | problemes/print_tab 8
+La formule est sous FNC.
+La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
+C_4_4
+...
+alias_T58
+Temps d'exécution : 675.462875 s
++--+--+--+--+--+--+--+--+
+|     |        |        |
++     +--+--+  +--+     +
+|        |  |  |  |     |
++--+--+--+  +  +  +     +
+|        |  |  |  |     |
++        +  +--+  +--+  +
+|        |  |        |  |
++     +--+  +--+--+--+  +
+|     |  |  |     |  |  |
++--+--+  +--+--+  +  +  +
+|        |     |  |  |  |
++  +--+--+  +--+  +  +  +
+|  |        |     |  |  |
++--+--+--+--+--+--+  +  +
+|              |     |  |
++--+--+--+--+--+--+--+--+
+\end{lstlisting}
+
+Mais il n'est pas possible de résoudre avec 9 pièces en un temps convenable.
 
 \end{document}
