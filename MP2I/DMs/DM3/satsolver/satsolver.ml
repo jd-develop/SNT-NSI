@@ -223,18 +223,56 @@ let rec liste_variables (f: formule) : string list =
   | Not f' -> liste_variables f'
 *)
 
+type couleur = Rouge | Noir
+type 'a noeud_arn = Feuille of 'a | Noeud of couleur * 'a * 'a noeud_arn * 'a noeud_arn
+type 'a arn = 'a noeud_arn option
+(* Corrige t après insertion *)
+let correctionARN (t: 'a noeud_arn) : 'a noeud_arn = 
+  match t with
+  | Noeud(Noir, z, Noeud(Rouge, y, Noeud(Rouge, x, a, b), c), d)
+  | Noeud(Noir, z, Noeud(Rouge, x, a, Noeud(Rouge, y, b, c)), d) 
+  | Noeud(Noir, x, a, Noeud(Rouge, z, Noeud(Rouge, y, b, c), d))
+  | Noeud(Noir, x, a, Noeud(Rouge, y, b, Noeud(Rouge, z, c, d)))
+  -> Noeud(Rouge, y, Noeud(Noir, x, a, b), Noeud(Noir, z, c, d))
+  | _ -> t
+(* insert x dans t et renvoie un arn relaxé *)
+let rec insertionARNrelax (x: 'a) (t: 'a noeud_arn ) : 'a noeud_arn =
+  match t with
+  | Feuille e when e < x -> Noeud(Rouge, e, Feuille e, Feuille x)
+  | Feuille e when e = x -> t
+  | Feuille e -> Noeud(Rouge, x, Feuille x, Feuille e)
+  | Noeud(c, e, g, d) when e < x -> correctionARN (Noeud(c, e, g, insertionARNrelax x d))
+  | Noeud(c, e, g, d) -> correctionARN (Noeud(c, e, insertionARNrelax x g, d))
+(* insert x dans t *)
+let insertionARN (x: 'a) (t: 'a arn) : 'a arn =
+  match t with
+  | None -> Some (Feuille x)
+  | Some t' -> match insertionARNrelax x t' with
+          | Noeud(c, e, g, d) -> Some (Noeud(Noir, e, g, d))
+          | Feuille e -> Some (Feuille e) 
+
+(* Retourne l'ensemble des variable de f sous forme d'arn *)
+let var_arn (f: formule) : string arn =
+  let rec insert_var_arn (f: formule) (t: string arn) : string arn =
+    match f with
+    | Top | Bot -> t
+    | Var(q) -> insertionARN q t
+    | Not(f') -> insert_var_arn f' t
+    | And(f1, f2) | Or(f1, f2) -> insert_var_arn f1 (insert_var_arn f2 t)
+  in insert_var_arn f None
+
+(* transforme l'arn des variables en liste *)
+let list_var_from_arn (t: 'a arn) : 'a list =
+  let rec list_arn_aux (t: 'a arn) (l: 'a list) : 'a list = 
+    match t with
+    | None -> l
+    | Some Feuille(a) -> a::l
+    | Some Noeud(_, _, g, d) -> list_arn_aux (Some g) (list_arn_aux (Some d) l)
+  in list_arn_aux t [] 
 
 (* Renvoie la liste des variables contenues dans la formule, sans doublons et
  * dans l’ordre croissant. *)
-let liste_variables (f: formule) : string list =
-  let rec list_var_rec (f': formule) (l: string list) : string list =
-    match f' with
-    | Top | Bot -> l
-    | Var s -> s::l
-    | And (a, b) | Or (a, b) -> list_var_rec a (list_var_rec b l)
-    | Not a -> list_var_rec a l
-  in List.sort_uniq compare (list_var_rec f [])
-
+let liste_variables (f: formule) : string list = list_var_from_arn (var_arn f)
 
 let test_liste_variables () =
   assert (liste_variables Top = []);
