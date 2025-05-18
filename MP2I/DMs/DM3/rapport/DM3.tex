@@ -322,16 +322,16 @@ Pour optimiser, les cases qui doivent avoir 0 pièce ne seront ni créées ni
 utilisées.
 
 \subsection{Définition des ensembles}
-On définie $C \subset [\![0,7]\!]^2$ l'ensemble des cases qui doivent être remplies,
-implémenté avec \verb|date| et le tableau \verb|calendrier|.
+On définit $C \subset [\![0,7]\!]^2$ l'ensemble des cases qui doivent être
+remplies, implémentés avec \verb|date| et le tableau \verb|calendrier|.
 
-On définie $\bb{P}$ l'ensemble des pièces, implémenté dans \verb|pieces.c| et \verb|pieces.h|
-($\bb{P}$ est ordonné).
+On définit $\bb{P}$ l'ensemble des pièces, implémenté dans \verb|pieces.c| et
+\verb|pieces.h| ($\bb{P}$ est ordonné).
 
-On définie $\bb{V}_p$ l'ensemble des positions valides de la pièce $p\in\bb{P}$,
+On définit $\bb{V}_p$ l'ensemble des positions valides de la pièce $p\in\bb{P}$,
 implémenté avec \verb|piece_valide|.
 
-Pour $p\in\bb{P}$ et $v\in\bb{V}_p$, on définie $N_v$ par
+Pour $p\in\bb{P}$ et $v\in\bb{V}_p$, on définit $N_v$ par
 \begin{equation*}
     \forall (i,j)\in C,\quad N_v(p_{i,j}) =
         \begin{cases}
@@ -351,14 +351,15 @@ Exemple pour la pièce $T$ de position $v =
 On a $N_v(T_{1,2}) = T_{1,2}$ et $N_v(T_{3,1}) = \lnot T_{3,1}$
 
 \subsection{Modélisation de la contrainte sur une case avec qu'une pièce}
-Pour $p_{i,j}$ les variables «~$p$ est en $(i,j)$~», la contrainte sur la case $(i,j)\in C$ est
+Pour $p_{i,j}$ les variables «~$p$ est en $(i,j)$~», la contrainte sur la case
+$(i,j)\in C$ est
 \begin{equation*}
     \varphi_{i,j} = \left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
                     \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)
 \end{equation*}
 Cette formule est sous FNC.
 
-Elle est implémenter dans \verb|contrainte_une_case|.
+Elle est implémentée dans \verb|contrainte_une_case|.
 
 \subsection{Modélisation de la contrainte sur toutes les cases avec qu'une pièce}
 La contrainte sur toutes les cases est
@@ -372,7 +373,7 @@ Cette formule est sous FNC.
 Elle est implémenter dans \verb|contrainte_toutes_cases|.
 
 \subsection{Modélisation de la contrainte sur une pièce}
-La contrainte sur la pièces $p\in\bb{P}$ est
+La contrainte sur la pièce $p\in\bb{P}$ est
 \begin{equation*}
     \varphi'_p = \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)
 \end{equation*}
@@ -399,7 +400,7 @@ Que l'on peut simplifier en
 \end{align*}
 qui est sous FNC.
 
-Elle est implémenter en 2 partie dans \verb|contrainte_piece_pos|
+Elle est implémentée en 2 parties dans \verb|contrainte_piece_pos|
 et dans \verb|contrainte_une_piece|.
 
 \subsection{Modélisation de la contrainte sur toutes les pièces}
@@ -411,7 +412,7 @@ La contrainte sur toutes les pièces est
 \end{align*}
 Cette formule est sous FNC.
 
-Elle est implémenter dans \verb|contrainte_toutes_pieces|.
+Elle est implémentée dans \verb|contrainte_toutes_pieces|.
 
 \subsection{Formule générale}
 La formule générale est donc
@@ -424,12 +425,12 @@ La formule générale est donc
 \end{align*}
 
 \subsection{Solution}
-Malheureusement, la complexité de cette formule est trop élevée pour les 10 pièces.
-Donc, en plus d'avoir implémenté le problème dans \verb|calendrier.c|,
-une version simplifier est implémenté dans \verb|calendrier_n_pieces.c|.
+Malheureusement, la complexité de cette formule est trop élevée pour les 10
+pièces. Donc, en plus d'avoir implémenté le problème dans \verb|calendrier.c|,
+une version simplifiée est implémentée dans \verb|calendrier_n_pieces.c|.
 
-Ce programme représente le «~Jeudi 7 Juin~» avec, en entrée,
-le nombre de pièces a prendre entre 2 et 10.
+Ce programme représente le Jeudi 7 Juin avec, en entrée,
+le nombre de pièces à prendre entre 2 et 10.
 
 L'une des solution attendue pour 10 pièces est
 \begin{center}
