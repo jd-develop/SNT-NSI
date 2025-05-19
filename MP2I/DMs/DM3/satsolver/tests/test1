@@ -1,0 +1,1 @@
+(a | b | (c & ~d)) > (a & ceci_est_un_nom_de_variable_très_long_qui_contient_même_une_espace_insécable_fine ici)

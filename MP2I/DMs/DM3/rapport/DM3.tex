@@ -1,0 +1,684 @@
+\input{Latex.Settings.tex}
+
+\title{DM3: Conception et utilisation d’un SAT-solver}
+\author{TODO}
+\date{19 mai 2025}
+
+\begin{document}
+
+\maketitle
+\section{Conception du SAT-solver}
+\subsection*{Q10.}
+Soit $n$ le nombre d'opérateurs.
+
+Dans la configuration $(...((a_0 | a_1) | a_2) | ...) | a_n$,
+il y a bien $n$ opérateurs.
+
+De plus, la complexité de l'algorithme dans cette configuration est $C_n = C_{n-1} + \Omega(n)$.
+
+Il existe donc un $n_0 \in \mathbb{N}$ tel que $\forall n > n_0$:
+\begin{equation*}
+    C_n \ge C_{n-1} + An
+    \Longrightarrow C_n \ge C_{n_0} + A\sum_{k=n_0+1}^n{k}
+\end{equation*}
+Donc $C_n - C_{n_0} = \Omega(n^2)$.
+Or $C_{n_0}$ est une constante.
+
+Donc dans le pire cas, la complexité est au moins de l’ordre de $\Omega(n^2)$.
+
+Pour améliorer cette fonction, on pourrait par exemple utiliser un arbre rouge-noir.
+
+\subsection*{Q11. (Bonus)}
+Dans la nouvelle fonction, on a
+\begin{align*}
+    C_n &= \Theta(n) + \Theta(n\log(n))\\
+    C_n &= \boxed{\Theta(n\log(n))}\\
+\end{align*}
+
+\subsection*{Q19.}
+La complexité de l’algorithme dans la configuration $\sim(...(\sim T)...)$ est
+\begin{align*}
+    C_n &= C_{n-2} + \Theta(n)\\
+    C_n &= \boxed{\Theta(n^2)}\\
+\end{align*}
+
+\subsection*{Q20. (Bonus)}
+Dans la nouvelle fonction, on simplifie les enfants avant le nœud.
+
+La complexité est
+\begin{align*}
+    C_n &= C_{i} + C_{n-1-i} + \Theta(1), \quad i \in [\![0,n-1]\!]\\
+    C_n &= \boxed{\Theta(n)}\\
+\end{align*}
+
+\subsection*{Q25.}
+
+Nous avons tenté de choisir la variable en fonction de la fréquence
+d’apparition~: celle qui apparaît le plus est choisie en premier et est mise
+à $\top$. Nous l’avons implémenté de cette manière~:
+
+\begin{lstlisting}[language=caml]
+(* Renvoie la variable dont la fréquence d'apparition dans f est la plus élevée. *)
+let find_var (f: formule) : string =
+  let rec find_var_aux (f: formule) (dico: (string, int) dico) (m: string*int): (string*int) * (string, int) dico =
+    match f with
+    | Top | Bot -> m, dico
+    | Var(q) ->
+        begin
+        match get dico q with
+        | None when snd m < 1 -> (q, 1), set dico q 1
+        | None -> m, set dico q 1
+        | Some v when snd m <= v -> (q, v+1), set dico q (v + 1)
+        | Some v -> m, set dico q (v + 1)
+        end
+    | Not(f') -> find_var_aux f' dico m
+    | And (f1, f2) | Or(f1, f2) -> let m', d' = find_var_aux f2 dico m in
+      find_var_aux f1 d' m'
+  in fst(fst(find_var_aux f None ("", 0)))
+
+(* quine en utilisant find_var (lent) *)
+let rec quine2 (f: formule) : sat_result =
+  if f = Top then Some []
+    else if f = Bot then None
+    else match find_var f with
+    | "" -> quine (simpl f)
+    | x -> let f' = simpl (subst f x Top) in
+      match quine f' with
+      | Some v -> Some ((x, true)::v)
+      | None -> let f'' = simpl (subst f x Bot) in
+        match quine f'' with
+        | None -> None
+        | Some v' -> Some ((x, false)::v')
+\end{lstlisting}
+
+Cette méthode est particulièrement longue et inefficace. Pour voir comment est
+implémentée la structure de dictionnaire, le fichier est disponible via
+\href{https://github.com/jd-develop/SNT-NSI/blob/0dac83109e924ea315277291cb7cc9fd998daa48/MP2I/DMs/DM3/satsolver/dico.ml}{ce lien}.
+
+\subsection*{Q26. (Bonus)}
+Le satsolver spécialisé en FNC a été implémenté dans \verb|fnc_solver.ml|.
+De plus, la propagation unitaire a été rajoutée.
+
+En termes d'efficacité, le satsolver en FNC est meilleur que le simple.
+En effet, dans la résolution du problème à $n$ dames (cf. seconde partie),
+le satsolver en FNC permet de résoudre plus de dames et en moins de temps.
+
+\section{Résolution de problèmes}
+\subsection*{Q31.}
+La formule
+$\boxed{\bigwedge\limits_{1 \leq i < j \leq n}\left(\lnot a_i \lor \lnot a_j\right)}$
+est sous FNC.
+
+Pour $n$ variables différentes, la formule contient $n(n-1)$ variables.
+
+\subsection*{Calculs de mémoire (Q29 - Q38)}
+
+On note $T(n)$ la taille des formules en nombre de caractères.
+et $p = 2(\lfloor \log_{10}(n)\rfloor + 1) + 3$ la taille maximale d'une
+variable \verb|X_i_j|.
+
+\subsubsection*{au\_moins\_une~:}
+La formule est de la forme~: \verb$(X_0_0 | ... | X_n_n)$.
+
+\begin{equation*}
+    T(n) \le n(p+3)
+\end{equation*}
+
+\subsubsection*{au\_plus\_une~:}
+La formule est de la forme~: \verb$((~X_0_0 | ~X_0_1) & ... & (~X_n_n | X_n_(n-1)))$
+
+Il y a $\frac{n(n-1)}{2}$ clauses, chaque clause est de taille $2p + 7$ et entre
+chaque clause il y a $3$ caractères.
+
+\begin{equation*}
+    T(n) \le \frac{n(n-1)}{2}(2p + 10) = n(n-1)(p+5)
+\end{equation*}
+\subsubsection*{Contrainte sur une ligne~:}
+La formule est de la forme~: \verb|(au_moins_une & au_plus_une)|
+\begin{equation*}
+   T(n) \le 5 + n(n-1)(p+5) + n(p+3)
+\end{equation*}
+
+\subsubsection*{Contrainte sur toutes les lignes~:}
+La formule est de la forme~: \verb|(contrainte_une_ligne & ... & contrainte_une_ligne)|
+\begin{equation*}
+   T(n) \le n(3 + 5 + n(p+3) + n(n-1)(p+5))
+\end{equation*}
+
+\subsubsection*{Contrainte sur toutes les colonnes~:}
+La formule est de la forme~: \verb|(au_plus_une & ... & au_plus_une)|
+\begin{equation*}
+   T(n) \le n(3 + 5 + n(n-1)(p+5))
+\end{equation*}
+
+\subsubsection*{Contrainte sur toutes les diagonales~:}
+La formule est de la forme~: \verb|(au_plus_une & ... & au_plus_une)|
+avec $2(n-1)(n-2)$ \verb|au_plus_une|.
+\begin{equation*}
+    T(n) \le 2n(n-1)^2(n-2)(p+5)
+\end{equation*}
+
+\subsection*{Q38.}
+La taille de la formule de \verb|gen_formule_n_dames| est
+\begin{align*}
+    C_n &= C_{ligne}(n) + C_{col}(n) + C_{diag}(n) + \Theta(1)\\
+    &= nE_x(n) + nE_p(n) + 2\sum_{i=-n+2}^{n-2}E_p(|n-i|) + \Theta(n)\\
+\end{align*}
+
+Avec $E_x$ la fonction \verb|exactement_une| et $E_p$ \verb|au_plus_une|.
+
+Or $nE_x(n) = \Theta(n^3)$, $nE_p(n) = \Theta(n^3)$ et
+$2\sum_{i=-n+2}^{n-2}E_p(|n-i|) \leq 4nE_p(n) = O(n^3)$, donc
+
+\begin{align*}
+    C_n &= \Theta(n^3) + \Theta(n^3) + O(n^3) +\Theta(n)\\
+    C_n &= \boxed{O(n^3)}\\
+\end{align*}
+
+\subsection*{Q40.}
+Pour le problème à 5 dames, on obtient
+
+\begin{lstlisting}
+fred@mp2:~/DM3$ problemes/n_dames 5
+Fichier '5_dames.txt' généré.
+Taille du fichier : 3471 octets.
+fred@mp2:~/DM3$ satsolver/fnc_solver '5_dames.txt'
+La formule est sous FNC.
+La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
+X_0_4
+X_1_2
+X_2_0
+X_3_3
+X_4_1
+Temps d'exécution : 0.001377 s
+\end{lstlisting}
+
+Soit encore
+\begin{center}
+    \begin{tabular}{| c || *{5}{c |}}
+    \hline
+      & 0 & 1 & 2 & 3 & 4 \\
+    \hline
+    \hline
+    0 &   &   & X &   &   \\
+    \hline
+    1 &   &   &   &   & X \\
+    \hline
+    2 &   & X &   &   &   \\
+    \hline
+    3 &   &   &   & X &   \\
+    \hline
+    4 & X &   &   &   &   \\
+    \hline
+    \end{tabular}
+\end{center}
+
+Pour le problème à 8 dames, on obtient
+\begin{lstlisting}
+fred@mp2:~/DM3$ satsolver/fnc_solver '8_dames.txt'
+La formule est sous FNC.
+La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
+X_0_7
+X_1_3
+X_2_0
+X_3_2
+X_6_6
+X_5_1
+X_4_5
+X_7_4
+Temps d'exécution : 0.005287 s
+\end{lstlisting}
+
+Soit encore
+\begin{center}
+    \begin{tabular}{| c || *{8}{c |}}
+    \hline
+      & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+    \hline
+    \hline
+    0 &   &   & X &   &   &   &   &   \\
+    \hline
+    1 &   &   &   &   &   & X &   &   \\
+    \hline
+    2 &   &   &   & X &   &   &   &   \\
+    \hline
+    3 &   & X &   &   &   &   &   &   \\
+    \hline
+    4 &   &   &   &   &   &   &   & X \\
+    \hline
+    5 &   &   &   &   & X &   &   &   \\
+    \hline
+    6 &   &   &   &   &   &   & X &   \\
+    \hline
+    7 & X &   &   &   &   &   &   &   \\
+    \hline
+    \end{tabular}
+\end{center}
+
+Et pour le problème à 3 dames, on obtient
+\begin{lstlisting}
+fred@mp2:~/DM3$ satsolver/fnc_solver '3_dames.txt'
+La formule est sous FNC.
+La formule est insatisfiable.
+Temps d'exécution : 0.000985 s
+\end{lstlisting}
+
+
+\section{Problème des cinq maisons}
+\subsection{Description}
+Le problème des cinq maisons a les contraintes suivantes~:
+\begin{enumerate}
+    \item $\varphi_1$~: Chaque caractéristique («~anglais~», «~poisson
+        rouge~», …) se retrouve dans exactement une des cinq maisons
+    \item $\varphi_2$~: Chaque maison doit avoir exactement une caractéristique de chaque
+        catégorie (nationalité, boisson, couleur, …). Par exemple, la maison
+        1 doit avoir exactement une couleur.
+    \item $\varphi_3$~: Contraintes de l’énoncé
+\end{enumerate}
+
+\subsection{Nomenclature}
+Les variables utilisées dans les formules sont de la forme
+\verb|numéro_caractéristique|. Par exemple~:
+\begin{itemize}
+    \item \verb|1_anglais| représente «~l’anglais habite dans la maison
+        1~»
+    \item \verb|5_poisson_rouge| représente «~la personne habitant la
+        maison 5 a pour animal de compagnie un poisson rouge~»
+    \item \verb|3_yop| représente «~la personne habitant la maison 3
+        boit du yop~»
+    \item etc.
+\end{itemize}
+
+Dans la suite de cette section, notons $C$ l’ensemble des caractéristiques
+($C = \{\text{anglais}, \text{lait}, \text{escalade}, \dots\}$), $\mathscr C$
+l’ensemble des catéogries de caractéristiques (nationalité, couleur, …) (donc
+$C = \bigsqcup_{\mathcal C \in \mathscr C} \mathcal C$)
+et utilisons
+des indices de maison dans $[\![1, 5]\!]$.
+
+\subsection{Modélisation de la contrainte 1}
+Pour modéliser la contrainte «~Chaque caractéristique se retrouve dans
+exactement une des cinq maisons~», on peut d’abord modéliser la contrainte
+«~La caractéristique $c$ se retrouve dans exactement une maison~»,
+en utilisant la formule suivante~:
+
+\begin{equation*}
+    \bigvee_{j = 1}^5 \left(\verb|j_c| \wedge \bigwedge_{\substack{i=1 \\ i \ne j}}^5 \neg \verb|i_c| \right)
+\end{equation*}
+
+(i.e. «~Soit cette caractéristique est dans la maison 1 et aucune autre,
+soit dans la 2 et aucune autre, etc.~»)
+
+Ainsi, on peut modéliser la contrainte sur toutes les caractéristiques en
+faisant un «~et~» logique~:
+
+\begin{equation*}
+    \varphi_1 \equiv \bigwedge_{c\in C}\bigvee_{j = 1}^5 \left(\verb|j_c| \wedge \bigwedge_{\substack{i=1 \\ i \ne j}}^5 \neg \verb|i_c| \right)
+\end{equation*}
+
+\subsection{Modélisation de la contrainte 2}
+Pour modéliser la contrainte «~Chaque maison doit avoir exactement une
+caractéristique de chaque catégorie~», on peut d’abord modéliser la contrainte
+«~La maison $i$ a exactement une caractéristique de la catégorie
+$\mathcal C \in \mathscr C$~», en utilisant la formule suivante~:
+
+\begin{equation*}
+    \bigvee_{c'\in\mathcal C} \left(\verb|i_c'| \wedge \bigwedge_{\substack{c\in\mathcal C \\ c \ne c'}} \neg \verb|i_c| \right)
+\end{equation*}
+
+On peut alors modéliser la contrainte sur toutes les catégories de
+caractéristiques avec un «~et~» logique~:
+
+\begin{equation*}
+    \bigwedge_{\mathcal C \in \mathscr C} \bigvee_{c'\in\mathcal C} \left(\verb|i_c'| \wedge \bigwedge_{\substack{c\in\mathcal C \\ c \ne c'}} \neg \verb|i_c| \right)
+\end{equation*}
+
+Et de même, on modélise la contrainte sur toutes les maisons ainsi~:
+
+\begin{equation*}
+    \varphi_2 \equiv \bigwedge_{i=1}^5 \bigwedge_{\mathcal C \in \mathscr C}\bigvee_{c'\in\mathcal C} \left(\verb|i_c'| \wedge \bigwedge_{\substack{c\in\mathcal C \\ c \ne c'}} \neg \verb|i_c| \right)
+\end{equation*}
+
+\subsection{Modélisation de la contrainte 3}
+Les contraintes de l’énoncé se modélisent assez facilement. Par exemple,
+«~L’Anglais vit dans une maison rouge~» se modélise ainsi~:
+
+\begin{equation*}
+    \bigvee_{i=1}^5 \verb|i_anglais| \wedge \verb|i_rouge|
+\end{equation*}
+
+«~La personne qui fait de l’escalade vit à côté de celle qui a des chats~» se
+modélise avec cette formule~:
+\begin{equation*}
+    \left(\bigvee_{i=1}^4 \verb|i_escalade| \wedge \verb|(i+1)_chats|\right) \vee
+    \left(\bigvee_{i=1}^4 \verb|i_chats| \wedge \verb|(i+1)_escalade|\right)
+\end{equation*}
+
+Encore plus simple, «~La personne qui vit dans la maison du centre boit du
+lait~» se modélise avec la formule suivante~:
+\begin{equation*}
+    \verb|3_lait|
+\end{equation*}
+
+Il suffit ensuite de faire un «~et~» logique sur toutes les formules données
+par les contraintes pour obtenir $\varphi_3$.
+
+\subsection{Solution}
+Le satsolver résoud le problème en 0.4 secondes. À noter que l’ordre des
+contraintes est important~: écrire dans le fichier
+$\varphi_1 \wedge \varphi_2 \wedge \varphi_3$ prend au moins 10 minutes
+(peut-être beaucoup plus, on l’a arrêté avant), tandis que
+$\varphi_3 \wedge \varphi_2 \wedge \varphi_1$ est beaucoup plus rapide.
+
+La solution est la suivante~:
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    Maison      & 1         & 2         & 3       & 4             & 5 \\
+    \hline
+    Couleur     & Jaune     & Bleu      & Rouge   & Vert          & Blanc \\
+    \hline
+    Nationalité & Norvégien & Danois    & Anglais & Allemand      & Suédois \\
+    \hline
+    Animal      & Chats     & Cheval    & Oiseaux & Poisson rouge & Chiens \\
+    \hline
+    Boisson     & Eau       & Thé       & Lait    & Café          & Yop \\
+    \hline
+    Sport       & Danse     & Escalade  & Vélo    & Karaté        & Basket \\
+    \hline
+\end{tabular}
+\end{center}
+
+Ainsi, le poisson rouge est l’animal de compagnie de l’Allemand.
+
+
+\section{Problème du calendrier}
+\subsection{Description}
+Pour la résolution du problème du calendrier, il faut respecter ces deux
+règles~:
+\begin{enumerate}
+    \item Chaque case a une pièce (voire 0 pour certaines cases).
+    \item Chaque pièce n'est utilisée qu'une seule fois.
+\end{enumerate}
+
+Pour représenter le problème, chaque case aura 10 variables,
+indiquant si la pièce correspondante est dessus.
+
+Elle seront de la forme \verb|X_0_0| avec $X$ le nom de la pièce, $(0,0)$ les
+coordonnées de la case.
+Exemples~: \verb|l_4_5|, \verb|T_2_7|. (Les noms des pièces sont I, L, S, b, C,
+l, s, Z, T et V)
+
+Pour optimiser, les cases qui doivent avoir 0 pièce ne seront ni créées ni
+utilisées.
+
+\subsection{Définition des ensembles}
+On définit $C \subset [\![0,7]\!]^2$ l'ensemble des cases qui doivent être
+remplies, implémentés avec \verb|date| et le tableau \verb|calendrier|.
+
+On définit $\bb{P}$ l'ensemble des pièces, implémenté dans \verb|pieces.c| et
+\verb|pieces.h| ($\bb{P}$ est ordonné).
+
+On définit $\bb{V}_p$ l'ensemble des positions valides de la pièce $p\in\bb{P}$,
+implémenté avec \verb|piece_valide|.
+
+Pour $p\in\bb{P}$ et $v\in\bb{V}_p$, on définit $N_v$ par
+\begin{equation*}
+    \forall (i,j)\in C,\quad N_v(p_{i,j}) =
+        \begin{cases}
+            p_{i,j} & \text{si $p$ dans la position $v$ est sur la case $(i,j)$}\\
+            \lnot p_{i,j} & \text{sinon}
+        \end{cases}
+\end{equation*}
+
+Exemple pour la pièce $T$ de position $v =
+    \begin{pmatrix}
+        0 & 0 & 1 & 0 \\
+        1 & 1 & 1 & 0 \\
+        0 & 0 & 1 & 0 \\
+        0 & 0 & 0 & 0 \\
+    \end{pmatrix}$
+
+On a $N_v(T_{1,2}) = T_{1,2}$ et $N_v(T_{3,1}) = \lnot T_{3,1}$
+
+\subsection{Modélisation de la contrainte sur une case avec qu'une pièce}
+Pour $p_{i,j}$ les variables «~$p$ est en $(i,j)$~», la contrainte sur la case
+$(i,j)\in C$ est
+\begin{equation*}
+    \varphi_{i,j} = \left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
+                    \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)
+\end{equation*}
+Cette formule est sous FNC.
+
+Elle est implémentée dans \verb|contrainte_une_case|.
+
+\subsection{Modélisation de la contrainte sur toutes les cases avec qu'une pièce}
+La contrainte sur toutes les cases est
+\begin{align*}
+    \varphi &= \bigwedge_{(i,j)\in C} \varphi_{i,j} \\
+            &= \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
+               \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right)
+\end{align*}
+Cette formule est sous FNC.
+
+Elle est implémenter dans \verb|contrainte_toutes_cases|.
+
+\subsection{Modélisation de la contrainte sur une pièce}
+La contrainte sur la pièce $p\in\bb{P}$ est
+\begin{equation*}
+    \varphi'_p = \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)
+\end{equation*}
+
+Mais cette formule n'est pas sous FNC, on doit passer par des variables
+intermédiaires que l'on nomme $Z_{p,v}$.
+\begin{align*}
+    \varphi'_p &= \bigvee_{v\in\bb{V}_p} \left( \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+               &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+                  \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \leftrightarrow \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+               &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+                  \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right){}
+                  \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_{p,v} \to \lnot\bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+\end{align*}
+
+Que l'on peut simplifier en
+\begin{align*}
+    \varphi'_p &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+                  \land \bigwedge_{v\in\bb{V}_p} \left(Z_{p,v} \to \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+               &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+                  \land \bigwedge_{v\in\bb{V}_p} \left(\lnot Z_{p,v} \lor \bigwedge_{(i,j)\in C} N_v(p_{i,j}) \right)\\
+               &= \left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right)
+                  \land \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\\
+\end{align*}
+qui est sous FNC.
+
+Elle est implémentée en 2 parties dans \verb|contrainte_piece_pos|
+et dans \verb|contrainte_une_piece|.
+
+\subsection{Modélisation de la contrainte sur toutes les pièces}
+La contrainte sur toutes les pièces est
+\begin{align*}
+    \varphi' &= \bigwedge_{p\in\bb{P}}  \varphi'_p \\
+             &= \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right) \land
+                \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\right)
+\end{align*}
+Cette formule est sous FNC.
+
+Elle est implémentée dans \verb|contrainte_toutes_pieces|.
+
+\subsection{Formule générale}
+La formule générale est donc
+\begin{align*}
+\Phi &= \varphi \land \varphi' \\
+     &= \bigwedge_{(i,j)\in C} \left(\left(\bigvee_{p\in\bb{P}} p_{i,j} \right) \land
+        \bigwedge_{\substack{(p,p')\in\bb{P}^2\\p<p'}}\left(\lnot p_{i,j} \lor \lnot p'_{i,j}\right)\right) \land
+        \bigwedge_{p\in\bb{P}} \left(\left( \bigvee_{v\in\bb{V}_p} Z_{p,v} \right) \land
+        \bigwedge_{\substack{(i,j)\in C\\v\in\bb{V}_p}} \left(\lnot Z_{p,v} \lor N_v(p_{i,j}) \right)\right)
+\end{align*}
+
+\subsection{Solution}
+Malheureusement, la complexité de cette formule est trop élevée pour les 10
+pièces. Donc, en plus d'avoir implémenté le problème dans \verb|calendrier.c|,
+une version simplifiée est implémentée dans \verb|calendrier_n_pieces.c|.
+
+Ce programme représente le Jeudi 7 Juin avec, en entrée,
+le nombre de pièces à prendre entre 2 et 10.
+
+L'une des solution attendue pour 10 pièces est
+\begin{center}
+\begin{tikzpicture}
+% \draw[black] (0,0) grid (8,-8);
+\draw[black, ultra thick] (0, 0) -- (0,-7);
+\draw[black, ultra thick] (0, 0) -- (6, 0);
+% \draw[black, ultra thick] (8, 0) -- (8,-8);
+\draw[black, ultra thick] (4,-8) -- (7,-8);
+
+\draw[black, ultra thick] (2, 0) -- (2,-1) -- (4,-1) -- (4,-5);
+\draw[black, ultra thick] (3,-1) -- (3,-6) -- (1,-6) -- (1,-7);
+\draw[black, ultra thick] (0,-2) -- (3,-2);
+\draw[black, ultra thick] (0,-4) -- (1,-4) -- (1,-3) -- (3,-3);
+\draw[black, ultra thick] (0,-5) -- (2,-5) -- (2,-4) -- (3,-4);
+\draw[black, ultra thick] (0,-7) -- (6,-7) -- (6,-4);
+\draw[black, ultra thick] (3,-5) -- (5,-5) -- (5,-6) -- (4,-6) -- (4,-8);
+\draw[black, ultra thick] (5,-7) -- (5,-8);
+\draw[black, ultra thick] (5, 0) -- (5,-3) -- (4,-3);
+\draw[black, ultra thick] (6, 0) -- (6,-3) -- (7,-3);
+\draw[black, ultra thick] (6,-2) -- (7,-2) -- (7,-8);
+\draw[black, ultra thick] (5,-1) -- (6,-1);
+\draw[black, ultra thick] (4,-4) -- (7,-4);
+
+\node at (5.5,-0.5) {\verb|Juin|};
+\node at (6.5,-2.5) {\verb|07|};
+\node at (4.5,-7.5) {\verb|Jeudi|};
+
+\node at (5.5,-3.5) {Pièce 1};
+\node at (4.0,-0.5) {Pièce 2};
+\node at (1.5,-1.5) {Pièce 3};
+\node at (6.0,-7.5) {Pièce 4};
+\node at (5.0,-4.5) {Pièce 5};
+\node at (3.5,-2.5) {Pièce};
+\node at (3.5,-3.0) {6};
+\node at (3.0,-6.5) {Pièce 7};
+\node at (1.5,-5.5) {Pièce 8};
+\node at (2.0,-3.5) {Pièce 9};
+\node at (1.0,-2.5) {Pièce 10};
+\end{tikzpicture}
+\end{center}
+
+Pour le problème avec 6 pièces, on obtient
+\begin{lstlisting}
+fred@mp2:~/DM3$ problemes/calendrier_n_pieces 6
+Fichier 'calendrier_6_pieces.txt' généré.
+Taille du fichier : 182857 octets.
+fred@mp2:~/DM3$ satsolver/fnc_solver calendrier_6_pieces.txt | problemes/print_tab 8
+La formule est sous FNC.
+La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
+C_4_4
+alias_C28
+C_4_5
+C_5_5
+C_6_4
+C_6_5
+I_1_3
+I_2_3
+I_3_3
+I_4_3
+alias_L23
+L_4_6
+L_5_6
+L_6_6
+L_7_5
+L_7_6
+T_1_5
+T_2_5
+T_3_4
+alias_V3
+V_0_2
+V_0_3
+V_0_4
+V_1_4
+V_2_4
+b_0_0
+b_0_1
+alias_b43
+b_1_0
+b_1_1
+b_1_2
+T_3_5
+T_3_6
+alias_I26
+alias_T31
+Temps d'exécution : 4.159915 s
++--+--+--+--+--+--+--+--+
+|     |        |        |
++     +--+--+  +--+     +
+|        |  |  |  |     |
++--+--+--+  +  +  +     +
+|        |  |  |  |     |
++        +  +--+  +--+  +
+|        |  |        |  |
++        +  +--+--+--+  +
+|        |  |     |  |  |
++        +--+--+  +  +  +
+|              |  |  |  |
++           +--+  +  +  +
+|           |     |  |  |
++           +--+--+  +  +
+|              |     |  |
++--+--+--+--+--+--+--+--+
+\end{lstlisting}
+
+Et pour le problème avec 7 et 8 pièces, on obtient
+\begin{lstlisting}
+fred@mp2:~/DM3$ satsolver/fnc_solver calendrier_7_pieces.txt | problemes/print_tab 8
+La formule est sous FNC.
+La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
+C_4_4
+...
+alias_T48
+Temps d'exécution : 45.569438 s
++--+--+--+--+--+--+--+--+
+|     |        |        |
++     +--+--+  +--+     +
+|        |  |  |  |     |
++--+--+--+  +  +  +     +
+|        |  |  |  |     |
++        +  +--+  +--+  +
+|        |  |        |  |
++        +  +--+--+--+  +
+|        |  |     |  |  |
++        +--+--+  +  +  +
+|        |     |  |  |  |
++  +--+--+  +--+  +  +  +
+|  |        |     |  |  |
++  +--+--+--+--+--+  +  +
+|              |     |  |
++--+--+--+--+--+--+--+--+
+fred@mp2:~/DM3$ satsolver/fnc_solver calendrier_8_pieces.txt | problemes/print_tab 8
+La formule est sous FNC.
+La formule est satisfiable en assignant 1 aux variables suivantes et 0 aux autres :
+C_4_4
+...
+alias_T58
+Temps d'exécution : 675.462875 s
++--+--+--+--+--+--+--+--+
+|     |        |        |
++     +--+--+  +--+     +
+|        |  |  |  |     |
++--+--+--+  +  +  +     +
+|        |  |  |  |     |
++        +  +--+  +--+  +
+|        |  |        |  |
++     +--+  +--+--+--+  +
+|     |  |  |     |  |  |
++--+--+  +--+--+  +  +  +
+|        |     |  |  |  |
++  +--+--+  +--+  +  +  +
+|  |        |     |  |  |
++--+--+--+--+--+--+  +  +
+|              |     |  |
++--+--+--+--+--+--+--+--+
+\end{lstlisting}
+
+Mais il n'est pas possible de résoudre avec 9 pièces en un temps convenable.
+
+\end{document}
