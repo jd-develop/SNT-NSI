@@ -31,8 +31,8 @@ Pour améliorer cette fonction, on pourrait par exemple utiliser un arbre rouge-
 \subsection*{Q11. (Bonus)}
 Dans la nouvelle fonction, on a
 \begin{align*}
-    C_n &= \mathcal{O}(n) + \mathcal{O}(n\log(n))\\
-    C_n &= \boxed{\mathcal{O}(n\log(n))}\\
+    C_n &= \cal{O}(n) + \cal{O}(n\log(n))\\
+    C_n &= \boxed{\cal{O}(n\log(n))}\\
 \end{align*}
 
 \subsection*{Q19.}
@@ -168,11 +168,11 @@ La taille de la formule de \verb|gen_formule_n_dames| est
 Avec $E_x$ la fonction \verb|exactement_une| et $E_p$ \verb|au_plus_une|.
 
 Or $nE_x(n) = \Theta(n^3)$, $nE_p(n) = \Theta(n^3)$ et
-$2\sum_{i=-n+2}^{n-2}E_p(|n-i|) \leq 4nE_p(n) = O(n^3)$, donc
+$2\sum\limits_{i=-n+2}^{n-2}E_p(|n-i|) \leq 4nE_p(n) = \cal{O}(n^3)$, donc
 
 \begin{align*}
-    C_n &= \Theta(n^3) + \Theta(n^3) + O(n^3) +\Theta(n)\\
-    C_n &= \boxed{O(n^3)}\\
+    C_n &= \Theta(n^3) + \Theta(n^3) + \cal{O}(n^3) +\Theta(n)\\
+    C_n &= \boxed{\cal{O}(n^3)}\\
 \end{align*}
 
 \subsection*{Q40.}
