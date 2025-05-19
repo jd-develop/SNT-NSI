@@ -14,7 +14,7 @@ else
 	ALLFLAGS = $(CFLAGS) $(LDLIBS)
 endif
 
-# Règle pour tous compiler
+# Règle pour tout compiler
 .PHONY: all
 all: $(EXEC)
 
@@ -24,7 +24,7 @@ maisons: utils.c utils.h
 calendrier: utils.c utils.h piece.c piece.h
 calendrier_n_pieces: utils.c utils.h piece.c piece.h
 
-# Règle global pour chaque exécutable
+# Règle globale pour chaque exécutable
 $(EXEC): %: %.c
 	$(CC) $^ $(ALLFLAGS) -o $@
 

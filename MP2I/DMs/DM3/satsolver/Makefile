@@ -1,11 +1,11 @@
 # Liste des exécutables
 EXEC = satsolver fnc_solver
 
-# Règle pour tous compiler
+# Règle pour tout compiler
 .PHONY: all
 all: $(EXEC)
 
-# Règle global pour chaque exécutable
+# Règle globale pour chaque exécutable
 $(EXEC): %: %.ml
 	ocamlopt $^ -o $@
 
