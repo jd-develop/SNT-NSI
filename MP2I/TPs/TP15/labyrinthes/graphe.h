@@ -1,3 +1,6 @@
+#ifndef GRAPH_H
+#define GRAPH_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -23,3 +26,12 @@ void free_graphe(graphe_t* g);
 
 /* Crée un graphe avec n sommets et aucune arête */
 graphe_t* graphe_vide(int n);
+
+/* Ajoute l’arête (u, v) au graphe. Si oriente est faux, ajoute également
+ * l’arête (v, u). */
+void ajouter(graphe_t* g, unsigned int u, unsigned int v, bool oriente);
+
+/* Lit le graphe stocké dans le fichier filename */
+graphe_t* lire_graphe(char* filename);
+
+#endif
