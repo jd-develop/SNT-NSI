@@ -1,0 +1,110 @@
+37 72
+Saint-Ambroise
+République
+Maraîchers
+Jasmin
+Exelmans
+Rue des Boulets
+Michel Ange-Molitor
+Pont de Sèvres
+Trocadéro
+Saint-Philippe du Roule
+Richelieu-Drouot
+Rue de la Pompe
+Franklin D. Roosevelt
+Marcel Sembat
+Havre-Caumartin
+La Muette
+Mairie de Montreuil
+Bonne Nouvelle
+Nation
+Buzenval
+Saint-Augustin
+Grands Boulevards
+Oberkampf
+Croix de Chavaux
+Voltaire
+Miromesnil
+Charonne
+Iéna
+Billancourt
+Ranelagh
+Strasbourg-Saint-Denis
+Chaussée d'Antin - La Fayette
+Porte de Saint-Cloud
+Robespierre
+Porte de Montreuil
+Michel Ange-Auteuil
+Alma-Marceau
+Pont de Sèvres$Billancourt$83.05602549430631
+Billancourt$Marcel Sembat$82.057293559118
+Marcel Sembat$Porte de Saint-Cloud$108.9834219408549
+Porte de Saint-Cloud$Exelmans$83.43881773321841
+Exelmans$Michel Ange-Molitor$74.80575146797263
+Michel Ange-Molitor$Michel Ange-Auteuil$75.94996051334114
+Michel Ange-Auteuil$Jasmin$86.38201504517852
+Jasmin$Ranelagh$76.01600491264287
+Ranelagh$La Muette$78.25425433661962
+La Muette$Rue de la Pompe$92.29157594271405
+Rue de la Pompe$Trocadéro$85.72973457272957
+Trocadéro$Iéna$87.12590776817844
+Iéna$Alma-Marceau$82.20168649395058
+Alma-Marceau$Franklin D. Roosevelt$93.82165947923455
+Franklin D. Roosevelt$Saint-Philippe du Roule$76.62012238805835
+Saint-Philippe du Roule$Miromesnil$77.47518780186621
+Miromesnil$Saint-Augustin$83.87608183707863
+Saint-Augustin$Havre-Caumartin$78.88623313940852
+Havre-Caumartin$Chaussée d'Antin - La Fayette$82.43051786232083
+Chaussée d'Antin - La Fayette$Richelieu-Drouot$74.62300922077048
+Richelieu-Drouot$Grands Boulevards$79.10736582986911
+Grands Boulevards$Bonne Nouvelle$73.19248932170268
+Bonne Nouvelle$Strasbourg-Saint-Denis$78.28716403660067
+Strasbourg-Saint-Denis$République$90.67992132337197
+République$Oberkampf$81.43000352921803
+Oberkampf$Saint-Ambroise$86.0472533074743
+Saint-Ambroise$Voltaire$86.58170863816603
+Voltaire$Charonne$80.51286446939662
+Charonne$Rue des Boulets$81.57953406025653
+Rue des Boulets$Nation$85.83461358979473
+Nation$Buzenval$84.72080268407598
+Buzenval$Maraîchers$74.03202622076316
+Maraîchers$Porte de Montreuil$79.57591297233543
+Porte de Montreuil$Robespierre$97.32622504825474
+Robespierre$Croix de Chavaux$98.92354560640801
+Croix de Chavaux$Mairie de Montreuil$91.83713937106123
+Mairie de Montreuil$Croix de Chavaux$91.83713937106123
+Croix de Chavaux$Robespierre$98.92354560640801
+Robespierre$Porte de Montreuil$97.32622504825474
+Porte de Montreuil$Maraîchers$79.57591297233543
+Maraîchers$Buzenval$74.03202622076316
+Buzenval$Nation$84.72080268407598
+Nation$Rue des Boulets$85.83461358979473
+Rue des Boulets$Charonne$81.57953406025653
+Charonne$Voltaire$80.51286446939662
+Voltaire$Saint-Ambroise$86.58170863816603
+Saint-Ambroise$Oberkampf$86.0472533074743
+Oberkampf$République$81.43000352921803
+République$Strasbourg-Saint-Denis$90.67992132337197
+Strasbourg-Saint-Denis$Bonne Nouvelle$78.28716403660067
+Bonne Nouvelle$Grands Boulevards$73.19248932170268
+Grands Boulevards$Richelieu-Drouot$79.10736582986911
+Richelieu-Drouot$Chaussée d'Antin - La Fayette$74.62300922077048
+Chaussée d'Antin - La Fayette$Havre-Caumartin$82.43051786232083
+Havre-Caumartin$Saint-Augustin$78.88623313940852
+Saint-Augustin$Miromesnil$83.87608183707863
+Miromesnil$Saint-Philippe du Roule$77.47518780186621
+Saint-Philippe du Roule$Franklin D. Roosevelt$76.62012238805835
+Franklin D. Roosevelt$Alma-Marceau$93.82165947923455
+Alma-Marceau$Iéna$82.20168649395058
+Iéna$Trocadéro$87.12590776817844
+Trocadéro$Rue de la Pompe$85.72973457272957
+Rue de la Pompe$La Muette$92.29157594271405
+La Muette$Ranelagh$78.25425433661962
+Ranelagh$Jasmin$76.01600491264287
+Jasmin$Michel Ange-Auteuil$86.38201504517852
+Michel Ange-Auteuil$Michel Ange-Molitor$75.94996051334114
+Michel Ange-Molitor$Exelmans$74.80575146797263
+Exelmans$Porte de Saint-Cloud$83.43881773321841
+Porte de Saint-Cloud$Marcel Sembat$108.9834219408549
+Marcel Sembat$Billancourt$82.057293559118
+Billancourt$Pont de Sèvres$83.05602549430631

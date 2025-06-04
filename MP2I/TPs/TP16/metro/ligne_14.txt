@@ -1,0 +1,38 @@
+13 24
+Pont Cardinet
+Mairie de Saint-Ouen
+Châtelet
+Saint-Lazare
+Pyramides
+Bercy
+Olympiades
+Saint-Ouen
+Bibliothèque François Mitterrand
+Gare de Lyon
+Porte de Clichy
+Cour Saint-Émilion
+Madeleine
+Olympiades$Bibliothèque François Mitterrand$79.4997076514518
+Bibliothèque François Mitterrand$Cour Saint-Émilion$84.42800520456272
+Cour Saint-Émilion$Bercy$85.11212120912388
+Bercy$Gare de Lyon$75.7144919718683
+Gare de Lyon$Châtelet$134.7337854620654
+Châtelet$Pyramides$91.68955104463066
+Pyramides$Madeleine$82.58375433498254
+Madeleine$Saint-Lazare$75.9103545694125
+Saint-Lazare$Pont Cardinet$106.53603556780956
+Pont Cardinet$Porte de Clichy$77.42748123573422
+Porte de Clichy$Saint-Ouen$94.55748007205645
+Saint-Ouen$Mairie de Saint-Ouen$97.56281572187928
+Mairie de Saint-Ouen$Saint-Ouen$97.56281572187928
+Saint-Ouen$Porte de Clichy$94.55748007205645
+Porte de Clichy$Pont Cardinet$77.42748123573422
+Pont Cardinet$Saint-Lazare$106.53603556780956
+Saint-Lazare$Madeleine$75.9103545694125
+Madeleine$Pyramides$82.58375433498254
+Pyramides$Châtelet$91.68955104463066
+Châtelet$Gare de Lyon$134.7337854620654
+Gare de Lyon$Bercy$75.7144919718683
+Bercy$Cour Saint-Émilion$85.11212120912388
+Cour Saint-Émilion$Bibliothèque François Mitterrand$84.42800520456272
+Bibliothèque François Mitterrand$Olympiades$79.4997076514518

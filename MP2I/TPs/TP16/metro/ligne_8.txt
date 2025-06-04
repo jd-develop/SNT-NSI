@@ -1,0 +1,113 @@
+38 74
+Ledru Rollin
+La Motte Picquet-Grenelle
+Filles du Calvaire
+Daumesnil
+Reuilly-Diderot
+Boucicaut
+Porte de Charenton
+République
+Montgallet
+Charenton-Écoles
+Saint-Sébastien-Froissart
+Félix Faure
+Concorde
+Créteil–L’Échat
+Chemin Vert
+Richelieu-Drouot
+Michel Bizot
+Balard
+Bonne Nouvelle
+Opéra
+Porte Dorée
+Créteil-Université
+Créteil–Préfecture
+Maisons-Alfort-Stade
+Grands Boulevards
+École Vétérinaire de Maisons-Alfort
+Commerce
+Madeleine
+Faidherbe Chaligny
+École Militaire
+Maisons-Alfort-Les Juilliottes
+Invalides
+Strasbourg-Saint-Denis
+Lourmel
+Créteil - Pointe du Lac
+Liberté
+Bastille
+La Tour Maubourg
+Créteil - Pointe du Lac$Créteil–Préfecture$117.58287485978303
+Créteil–Préfecture$Créteil-Université$116.85963135691208
+Créteil-Université$Créteil–L’Échat$93.60705365052732
+Créteil–L’Échat$Maisons-Alfort-Les Juilliottes$95.266494875234
+Maisons-Alfort-Les Juilliottes$Maisons-Alfort-Stade$105.99346636362722
+Maisons-Alfort-Stade$École Vétérinaire de Maisons-Alfort$108.38813731537876
+École Vétérinaire de Maisons-Alfort$Charenton-Écoles$106.19632413072475
+Charenton-Écoles$Liberté$93.25380725119062
+Liberté$Porte de Charenton$95.19628287046233
+Porte de Charenton$Porte Dorée$79.35984635120028
+Porte Dorée$Michel Bizot$75.20653969693463
+Michel Bizot$Daumesnil$83.0787003349201
+Daumesnil$Montgallet$89.41326988001833
+Montgallet$Reuilly-Diderot$78.85624049800987
+Reuilly-Diderot$Faidherbe Chaligny$77.83402054266631
+Faidherbe Chaligny$Ledru Rollin$89.98571793289342
+Ledru Rollin$Bastille$80.48814816145881
+Bastille$Chemin Vert$78.61553187977063
+Chemin Vert$Saint-Sébastien-Froissart$80.33987691940003
+Saint-Sébastien-Froissart$Filles du Calvaire$70.47781254526056
+Filles du Calvaire$République$84.93412498193398
+République$Strasbourg-Saint-Denis$90.39054838654155
+Strasbourg-Saint-Denis$Bonne Nouvelle$78.28716403660067
+Bonne Nouvelle$Grands Boulevards$73.19248932170268
+Grands Boulevards$Richelieu-Drouot$79.9390944722418
+Richelieu-Drouot$Opéra$84.3976688063061
+Opéra$Madeleine$76.51743180522399
+Madeleine$Concorde$79.4675859205966
+Concorde$Invalides$99.48093481668047
+Invalides$La Tour Maubourg$79.23541519557799
+La Tour Maubourg$École Militaire$79.47976035862374
+École Militaire$La Motte Picquet-Grenelle$96.46671186367382
+La Motte Picquet-Grenelle$Commerce$88.09122886027305
+Commerce$Félix Faure$72.1012272141882
+Félix Faure$Boucicaut$75.26968643025637
+Boucicaut$Lourmel$82.18402909178468
+Lourmel$Balard$77.2973027650641
+Balard$Lourmel$77.2973027650641
+Lourmel$Boucicaut$82.18402909178468
+Boucicaut$Félix Faure$75.26968643025637
+Félix Faure$Commerce$72.1012272141882
+Commerce$La Motte Picquet-Grenelle$88.09122886027305
+La Motte Picquet-Grenelle$École Militaire$96.46671186367382
+École Militaire$La Tour Maubourg$79.47976035862374
+La Tour Maubourg$Invalides$79.23541519557799
+Invalides$Concorde$99.48093481668047
+Concorde$Madeleine$79.4675859205966
+Madeleine$Opéra$76.51743180522399
+Opéra$Richelieu-Drouot$84.3976688063061
+Richelieu-Drouot$Grands Boulevards$79.9390944722418
+Grands Boulevards$Bonne Nouvelle$73.19248932170268
+Bonne Nouvelle$Strasbourg-Saint-Denis$78.28716403660067
+Strasbourg-Saint-Denis$République$90.39054838654155
+République$Filles du Calvaire$84.93412498193398
+Filles du Calvaire$Saint-Sébastien-Froissart$70.47781254526056
+Saint-Sébastien-Froissart$Chemin Vert$80.33987691940003
+Chemin Vert$Bastille$78.61553187977063
+Bastille$Ledru Rollin$80.48814816145881
+Ledru Rollin$Faidherbe Chaligny$89.98571793289342
+Faidherbe Chaligny$Reuilly-Diderot$77.83402054266631
+Reuilly-Diderot$Montgallet$78.85624049800987
+Montgallet$Daumesnil$89.41326988001833
+Daumesnil$Michel Bizot$83.0787003349201
+Michel Bizot$Porte Dorée$75.20653969693463
+Porte Dorée$Porte de Charenton$79.35984635120028
+Porte de Charenton$Liberté$95.19628287046233
+Liberté$Charenton-Écoles$93.25380725119062
+Charenton-Écoles$École Vétérinaire de Maisons-Alfort$106.19632413072475
+École Vétérinaire de Maisons-Alfort$Maisons-Alfort-Stade$108.38813731537876
+Maisons-Alfort-Stade$Maisons-Alfort-Les Juilliottes$105.99346636362722
+Maisons-Alfort-Les Juilliottes$Créteil–L’Échat$95.266494875234
+Créteil–L’Échat$Créteil-Université$93.60705365052732
+Créteil-Université$Créteil–Préfecture$116.85963135691208
+Créteil–Préfecture$Créteil - Pointe du Lac$117.58287485978303

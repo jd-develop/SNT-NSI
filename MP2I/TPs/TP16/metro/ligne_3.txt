@@ -1,0 +1,74 @@
+25 48
+Temple
+Parmentier
+Louise Michel
+Malesherbes
+Arts et Métiers
+Gambetta
+Pont de Levallois
+Père Lachaise
+Bourse
+Pereire-Levallois
+Havre-Caumartin
+Quatre Septembre
+Réaumur Sébastopol
+Opéra
+Saint-Lazare
+Porte de Bagnolet
+Villiers
+Wagram
+Porte de Champerret
+Gallieni
+Europe
+Sentier
+Rue Saint-Maur
+Anatole France
+République
+Pont de Levallois$Anatole France$89.17333543202321
+Anatole France$Louise Michel$79.4491191238098
+Louise Michel$Porte de Champerret$82.16429745134653
+Porte de Champerret$Pereire-Levallois$74.69269719955582
+Pereire-Levallois$Wagram$83.21627312998514
+Wagram$Malesherbes$74.93193191507362
+Malesherbes$Villiers$80.45276364896294
+Villiers$Europe$87.075834327709
+Europe$Saint-Lazare$79.16145068698658
+Saint-Lazare$Havre-Caumartin$73.08393180822553
+Havre-Caumartin$Opéra$76.84239644294522
+Opéra$Quatre Septembre$77.47694098641203
+Quatre Septembre$Bourse$77.41219740073277
+Bourse$Sentier$77.74703064849817
+Sentier$Réaumur Sébastopol$76.41360039219379
+Réaumur Sébastopol$Arts et Métiers$78.05209353906207
+Arts et Métiers$Temple$73.99363324019743
+Temple$République$71.48039621132658
+République$Parmentier$94.71906016743526
+Parmentier$Rue Saint-Maur$77.44391877229528
+Rue Saint-Maur$Père Lachaise$80.77386149709508
+Père Lachaise$Gambetta$97.01383037974824
+Gambetta$Porte de Bagnolet$96.19379031966794
+Porte de Bagnolet$Gallieni$88.40728220610877
+Gallieni$Porte de Bagnolet$88.40728220610877
+Porte de Bagnolet$Gambetta$96.19379031966794
+Gambetta$Père Lachaise$97.01383037974824
+Père Lachaise$Rue Saint-Maur$80.77386149709508
+Rue Saint-Maur$Parmentier$77.44391877229528
+Parmentier$République$94.71906016743526
+République$Temple$71.48039621132658
+Temple$Arts et Métiers$73.99363324019743
+Arts et Métiers$Réaumur Sébastopol$78.05209353906207
+Réaumur Sébastopol$Sentier$76.41360039219379
+Sentier$Bourse$77.74703064849817
+Bourse$Quatre Septembre$77.41219740073277
+Quatre Septembre$Opéra$77.47694098641203
+Opéra$Havre-Caumartin$76.84239644294522
+Havre-Caumartin$Saint-Lazare$73.08393180822553
+Saint-Lazare$Europe$79.16145068698658
+Europe$Villiers$87.075834327709
+Villiers$Malesherbes$80.45276364896294
+Malesherbes$Wagram$74.93193191507362
+Wagram$Pereire-Levallois$83.21627312998514
+Pereire-Levallois$Porte de Champerret$74.69269719955582
+Porte de Champerret$Louise Michel$82.16429745134653
+Louise Michel$Anatole France$79.4491191238098
+Anatole France$Pont de Levallois$89.17333543202321

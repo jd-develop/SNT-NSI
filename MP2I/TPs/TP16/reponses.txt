@@ -1,0 +1,2 @@
+Q2) Ces lignes sont un include-guard, permettant de ne pas faire d’inclusions
+    en boucle ou d’inclure plusieurs fois le même fichier.

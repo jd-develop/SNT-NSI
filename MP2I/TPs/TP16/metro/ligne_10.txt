@@ -1,0 +1,62 @@
+23 38
+Boulogne - Jean Jaurès
+La Motte Picquet-Grenelle
+Sèvres-Babylone
+Boulogne - Pont de Saint-Cloud
+Église d'Auteuil
+Chardon Lagache
+Odéon
+Michel Ange-Molitor
+Javel - André Citroën
+Mabillon
+Charles Michels
+Duroc
+Porte d'Auteuil
+Cluny-La Sorbonne
+Ségur
+Maubert-Mutualité
+Mirabeau
+Cardinal Lemoine
+Vaneau
+Avenue Émile Zola
+Gare d'Austerlitz
+Michel Ange-Auteuil
+Jussieu
+Gare d'Austerlitz$Jussieu$98.10433190887747
+Jussieu$Cardinal Lemoine$71.00283028377825
+Cardinal Lemoine$Maubert-Mutualité$80.27682056385618
+Maubert-Mutualité$Cluny-La Sorbonne$73.64963117313887
+Cluny-La Sorbonne$Odéon$72.68227355548969
+Odéon$Mabillon$77.45722204101698
+Mabillon$Sèvres-Babylone$92.10227781816988
+Sèvres-Babylone$Vaneau$79.18490351802616
+Vaneau$Duroc$76.51723025089355
+Duroc$Ségur$91.2330654607218
+Ségur$La Motte Picquet-Grenelle$91.12108005001558
+La Motte Picquet-Grenelle$Avenue Émile Zola$77.3166681897157
+Avenue Émile Zola$Charles Michels$89.42346323333862
+Charles Michels$Javel - André Citroën$84.78347098338784
+Javel - André Citroën$Église d'Auteuil$78.9527177510091
+Église d'Auteuil$Michel Ange-Auteuil$73.00811068948474
+Michel Ange-Auteuil$Porte d'Auteuil$75.73557321972122
+Porte d'Auteuil$Boulogne - Jean Jaurès$128.04959963921894
+Boulogne - Jean Jaurès$Boulogne - Pont de Saint-Cloud$94.23641046482163
+Boulogne - Pont de Saint-Cloud$Boulogne - Jean Jaurès$94.23641046482163
+Boulogne - Jean Jaurès$Michel Ange-Molitor$128.04959963921894
+Michel Ange-Molitor$Chardon Lagache$75.73557321972122
+Chardon Lagache$Mirabeau$73.00811068948474
+Mirabeau$Javel - André Citroën$78.9527177510091
+Javel - André Citroën$Charles Michels$84.78347098338784
+Charles Michels$Avenue Émile Zola$89.42346323333862
+Avenue Émile Zola$La Motte Picquet-Grenelle$77.3166681897157
+La Motte Picquet-Grenelle$Ségur$91.12108005001558
+Ségur$Duroc$91.2330654607218
+Duroc$Vaneau$76.51723025089355
+Vaneau$Sèvres-Babylone$79.18490351802616
+Sèvres-Babylone$Mabillon$92.10227781816988
+Mabillon$Odéon$77.45722204101698
+Odéon$Cluny-La Sorbonne$72.68227355548969
+Cluny-La Sorbonne$Maubert-Mutualité$73.64963117313887
+Maubert-Mutualité$Cardinal Lemoine$80.27682056385618
+Cardinal Lemoine$Jussieu$71.00283028377825
+Jussieu$Gare d'Austerlitz$98.10433190887747

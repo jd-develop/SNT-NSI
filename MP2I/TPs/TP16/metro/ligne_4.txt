@@ -1,0 +1,80 @@
+27 52
+Étienne Marcel
+Châtelet
+Les Halles
+Alésia
+Odéon
+Vavin
+Simplon
+Mairie de Montrouge
+Château d'Eau
+Château Rouge
+Gare de l'Est
+Réaumur Sébastopol
+Saint-Placide
+Saint-Sulpice
+Porte d'Orléans
+Montparnasse-Bienvenüe
+Cité
+Mouton-Duvernet
+Denfert-Rochereau
+Marcadet-Poissonniers
+Gare du Nord
+Raspail
+Saint-Michel
+Saint-Germain-des-Prés
+Porte de Clignancourt
+Strasbourg-Saint-Denis
+Barbès-Rochechouart
+Porte de Clignancourt$Simplon$80.5810616676026
+Simplon$Marcadet-Poissonniers$79.08249918017601
+Marcadet-Poissonniers$Château Rouge$87.8210682048342
+Château Rouge$Barbès-Rochechouart$79.37823891620305
+Barbès-Rochechouart$Gare du Nord$91.85609438358185
+Gare du Nord$Gare de l'Est$83.78731823345987
+Gare de l'Est$Château d'Eau$80.92378301705236
+Château d'Eau$Strasbourg-Saint-Denis$78.77186360201578
+Strasbourg-Saint-Denis$Réaumur Sébastopol$78.17716267396408
+Réaumur Sébastopol$Étienne Marcel$80.45489932037609
+Étienne Marcel$Les Halles$77.13007492647026
+Les Halles$Châtelet$76.88685266465855
+Châtelet$Cité$88.21707013693435
+Cité$Saint-Michel$78.76877936192106
+Saint-Michel$Odéon$74.68910178068538
+Odéon$Saint-Germain-des-Prés$84.5041631726308
+Saint-Germain-des-Prés$Saint-Sulpice$79.60543364958268
+Saint-Sulpice$Saint-Placide$88.93943382588498
+Saint-Placide$Montparnasse-Bienvenüe$80.44556401279384
+Montparnasse-Bienvenüe$Vavin$80.08547935832004
+Vavin$Raspail$80.30285341982908
+Raspail$Denfert-Rochereau$92.66120946938068
+Denfert-Rochereau$Mouton-Duvernet$75.85426423552391
+Mouton-Duvernet$Alésia$79.81862197296786
+Alésia$Porte d'Orléans$88.7698143954543
+Porte d'Orléans$Mairie de Montrouge$95.87560987043847
+Mairie de Montrouge$Porte d'Orléans$95.87560987043847
+Porte d'Orléans$Alésia$88.7698143954543
+Alésia$Mouton-Duvernet$79.81862197296786
+Mouton-Duvernet$Denfert-Rochereau$75.85426423552391
+Denfert-Rochereau$Raspail$92.66120946938068
+Raspail$Vavin$80.30285341982908
+Vavin$Montparnasse-Bienvenüe$80.08547935832004
+Montparnasse-Bienvenüe$Saint-Placide$80.44556401279384
+Saint-Placide$Saint-Sulpice$88.93943382588498
+Saint-Sulpice$Saint-Germain-des-Prés$79.60543364958268
+Saint-Germain-des-Prés$Odéon$84.5041631726308
+Odéon$Saint-Michel$74.68910178068538
+Saint-Michel$Cité$78.76877936192106
+Cité$Châtelet$88.21707013693435
+Châtelet$Les Halles$76.88685266465855
+Les Halles$Étienne Marcel$77.13007492647026
+Étienne Marcel$Réaumur Sébastopol$80.45489932037609
+Réaumur Sébastopol$Strasbourg-Saint-Denis$78.17716267396408
+Strasbourg-Saint-Denis$Château d'Eau$78.77186360201578
+Château d'Eau$Gare de l'Est$80.92378301705236
+Gare de l'Est$Gare du Nord$83.78731823345987
+Gare du Nord$Barbès-Rochechouart$91.85609438358185
+Barbès-Rochechouart$Château Rouge$79.37823891620305
+Château Rouge$Marcadet-Poissonniers$87.8210682048342
+Marcadet-Poissonniers$Simplon$79.08249918017601
+Simplon$Porte de Clignancourt$80.5810616676026

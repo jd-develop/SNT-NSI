@@ -1,0 +1,74 @@
+25 48
+Anvers
+Porte Dauphine
+Blanche
+Stalingrad
+Père Lachaise
+Couronnes
+Alexandre Dumas
+Ménilmontant
+Nation
+Ternes
+Monceau
+Jaurès
+Villiers
+Avron
+Belleville
+Place de Clichy
+Pigalle
+Charles De Gaulle-Étoile
+Victor Hugo
+Courcelles
+La Chapelle
+Colonel Fabien
+Philippe Auguste
+Barbès-Rochechouart
+Rome
+Nation$Avron$83.16418680667545
+Avron$Alexandre Dumas$88.498117662672
+Alexandre Dumas$Philippe Auguste$78.28899960356895
+Philippe Auguste$Père Lachaise$86.92696360761062
+Père Lachaise$Ménilmontant$89.96577419278852
+Ménilmontant$Couronnes$79.54385314978543
+Couronnes$Belleville$83.88012213369359
+Belleville$Colonel Fabien$98.81861964681954
+Colonel Fabien$Jaurès$83.71125423978197
+Jaurès$Stalingrad$83.23101576540923
+Stalingrad$La Chapelle$80.98763759146759
+La Chapelle$Barbès-Rochechouart$98.02375166467655
+Barbès-Rochechouart$Anvers$83.51785237407267
+Anvers$Pigalle$85.27633342420181
+Pigalle$Blanche$80.3457169533919
+Blanche$Place de Clichy$78.9425176411621
+Place de Clichy$Rome$87.81626168830151
+Rome$Villiers$88.34833605955619
+Villiers$Monceau$83.450724577361
+Monceau$Courcelles$79.11724862644344
+Courcelles$Ternes$83.67370425328649
+Ternes$Charles De Gaulle-Étoile$80.98504193167257
+Charles De Gaulle-Étoile$Victor Hugo$110.09793604654095
+Victor Hugo$Porte Dauphine$93.4079700877316
+Porte Dauphine$Victor Hugo$93.4079700877316
+Victor Hugo$Charles De Gaulle-Étoile$110.09793604654095
+Charles De Gaulle-Étoile$Ternes$80.98504193167257
+Ternes$Courcelles$83.67370425328649
+Courcelles$Monceau$79.11724862644344
+Monceau$Villiers$83.450724577361
+Villiers$Rome$88.34833605955619
+Rome$Place de Clichy$87.81626168830151
+Place de Clichy$Blanche$78.9425176411621
+Blanche$Pigalle$80.3457169533919
+Pigalle$Anvers$85.27633342420181
+Anvers$Barbès-Rochechouart$83.51785237407267
+Barbès-Rochechouart$La Chapelle$98.02375166467655
+La Chapelle$Stalingrad$80.98763759146759
+Stalingrad$Jaurès$83.23101576540923
+Jaurès$Colonel Fabien$83.71125423978197
+Colonel Fabien$Belleville$98.81861964681954
+Belleville$Couronnes$83.88012213369359
+Couronnes$Ménilmontant$79.54385314978543
+Ménilmontant$Père Lachaise$89.96577419278852
+Père Lachaise$Philippe Auguste$86.92696360761062
+Philippe Auguste$Alexandre Dumas$78.28899960356895
+Alexandre Dumas$Avron$88.498117662672
+Avron$Nation$83.16418680667545

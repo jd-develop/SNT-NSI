@@ -1,0 +1,80 @@
+27 52
+Mairie de Saint-Ouen
+La Fourche
+Liège
+Saint-Denis - Université
+Châtillon-Montrouge
+Pernety
+Malakoff - Plateau de Vanves
+Brochant
+Saint-François-Xavier
+Garibaldi
+Duroc
+Saint-Lazare
+Montparnasse-Bienvenüe
+Saint-Denis - Porte de Paris
+Malakoff - Rue Étienne Dolet
+Champs-Élysées – Clemenceau
+Guy Môquet
+Varenne
+Gaîté
+Carrefour Pleyel
+Porte de Saint-Ouen
+Place de Clichy
+Miromesnil
+Basilique de Saint-Denis
+Plaisance
+Invalides
+Porte de Vanves
+Saint-Denis - Université$Basilique de Saint-Denis$108.07211940330725
+Basilique de Saint-Denis$Saint-Denis - Porte de Paris$95.49473567377967
+Saint-Denis - Porte de Paris$Carrefour Pleyel$129.41169766601723
+Carrefour Pleyel$Mairie de Saint-Ouen$104.7955692549849
+Mairie de Saint-Ouen$Garibaldi$89.80033654067648
+Garibaldi$Porte de Saint-Ouen$104.10008747885684
+Porte de Saint-Ouen$Guy Môquet$86.14638483021974
+Guy Môquet$Brochant$84.25075015568896
+Brochant$La Fourche$84.79083607634566
+La Fourche$Place de Clichy$77.36525330959373
+Place de Clichy$Liège$80.6195137322818
+Liège$Saint-Lazare$81.42327592441778
+Saint-Lazare$Miromesnil$96.73768808419167
+Miromesnil$Champs-Élysées – Clemenceau$90.53614491445732
+Champs-Élysées – Clemenceau$Invalides$97.4291987552308
+Invalides$Varenne$76.03766862459425
+Varenne$Saint-François-Xavier$86.91615601383695
+Saint-François-Xavier$Duroc$82.66052943362571
+Duroc$Montparnasse-Bienvenüe$87.66384972951283
+Montparnasse-Bienvenüe$Gaîté$78.91081811054033
+Gaîté$Pernety$85.15921394201831
+Pernety$Plaisance$78.82662182696063
+Plaisance$Porte de Vanves$94.31070784743355
+Porte de Vanves$Malakoff - Plateau de Vanves$94.53441610761338
+Malakoff - Plateau de Vanves$Malakoff - Rue Étienne Dolet$96.24072919785146
+Malakoff - Rue Étienne Dolet$Châtillon-Montrouge$87.06035946095051
+Châtillon-Montrouge$Malakoff - Rue Étienne Dolet$87.06035946095051
+Malakoff - Rue Étienne Dolet$Malakoff - Plateau de Vanves$96.24072919785146
+Malakoff - Plateau de Vanves$Porte de Vanves$94.53441610761338
+Porte de Vanves$Plaisance$94.31070784743355
+Plaisance$Pernety$78.82662182696063
+Pernety$Gaîté$85.15921394201831
+Gaîté$Montparnasse-Bienvenüe$78.91081811054033
+Montparnasse-Bienvenüe$Duroc$87.66384972951283
+Duroc$Saint-François-Xavier$82.66052943362571
+Saint-François-Xavier$Varenne$86.91615601383695
+Varenne$Invalides$76.03766862459425
+Invalides$Champs-Élysées – Clemenceau$97.4291987552308
+Champs-Élysées – Clemenceau$Miromesnil$90.53614491445732
+Miromesnil$Saint-Lazare$96.73768808419167
+Saint-Lazare$Liège$81.42327592441778
+Liège$Place de Clichy$80.6195137322818
+Place de Clichy$La Fourche$77.36525330959373
+La Fourche$Brochant$84.79083607634566
+Brochant$Guy Môquet$84.25075015568896
+Guy Môquet$Porte de Saint-Ouen$86.14638483021974
+Porte de Saint-Ouen$Garibaldi$104.10008747885684
+Garibaldi$Mairie de Saint-Ouen$89.80033654067648
+Mairie de Saint-Ouen$Carrefour Pleyel$104.7955692549849
+Carrefour Pleyel$Saint-Denis - Porte de Paris$129.41169766601723
+Saint-Denis - Porte de Paris$Basilique de Saint-Denis$95.49473567377967
+Basilique de Saint-Denis$Saint-Denis - Université$108.07211940330725

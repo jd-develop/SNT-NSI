@@ -1,0 +1,83 @@
+28 54
+Edgar Quinet
+La Motte Picquet-Grenelle
+Pasteur
+Daumesnil
+Place d'Italie
+Dugommier
+Passy
+Trocadéro
+Bercy
+Quai de la Gare
+Saint-Jacques
+Corvisart
+Bel-Air
+Nation
+Montparnasse-Bienvenüe
+Chevaleret
+Denfert-Rochereau
+Nationale
+Kléber
+Glacière
+Dupleix
+Raspail
+Bir-Hakeim
+Boissière
+Cambronne
+Charles De Gaulle-Étoile
+Sèvres-Lecourbe
+Picpus
+Nation$Picpus$82.1321930501982
+Picpus$Bel-Air$78.44010090301798
+Bel-Air$Daumesnil$79.12806136578187
+Daumesnil$Dugommier$79.94595226873119
+Dugommier$Bercy$92.27388733871265
+Bercy$Quai de la Gare$88.35894370353554
+Quai de la Gare$Chevaleret$78.46950515909867
+Chevaleret$Nationale$79.1591222233032
+Nationale$Place d'Italie$84.65750400871879
+Place d'Italie$Corvisart$79.39789649348447
+Corvisart$Glacière$83.41264850045857
+Glacière$Saint-Jacques$82.51500898251328
+Saint-Jacques$Denfert-Rochereau$75.53863960245477
+Denfert-Rochereau$Raspail$84.07325809905306
+Raspail$Edgar Quinet$76.50752363027193
+Edgar Quinet$Montparnasse-Bienvenüe$78.06621328896301
+Montparnasse-Bienvenüe$Pasteur$87.68093085290188
+Pasteur$Sèvres-Lecourbe$78.06809338069556
+Sèvres-Lecourbe$Cambronne$83.27957741712532
+Cambronne$La Motte Picquet-Grenelle$74.47840604492006
+La Motte Picquet-Grenelle$Dupleix$79.21297057914995
+Dupleix$Bir-Hakeim$82.22800073044245
+Bir-Hakeim$Passy$80.76985470629558
+Passy$Trocadéro$90.9914024909639
+Trocadéro$Boissière$78.51121211079968
+Boissière$Kléber$83.54099563696242
+Kléber$Charles De Gaulle-Étoile$78.8077940431052
+Charles De Gaulle-Étoile$Kléber$78.8077940431052
+Kléber$Boissière$83.54099563696242
+Boissière$Trocadéro$78.51121211079968
+Trocadéro$Passy$90.9914024909639
+Passy$Bir-Hakeim$80.76985470629558
+Bir-Hakeim$Dupleix$82.22800073044245
+Dupleix$La Motte Picquet-Grenelle$79.21297057914995
+La Motte Picquet-Grenelle$Cambronne$74.47840604492006
+Cambronne$Sèvres-Lecourbe$83.27957741712532
+Sèvres-Lecourbe$Pasteur$78.06809338069556
+Pasteur$Montparnasse-Bienvenüe$87.68093085290188
+Montparnasse-Bienvenüe$Edgar Quinet$78.06621328896301
+Edgar Quinet$Raspail$76.50752363027193
+Raspail$Denfert-Rochereau$84.07325809905306
+Denfert-Rochereau$Saint-Jacques$75.53863960245477
+Saint-Jacques$Glacière$82.51500898251328
+Glacière$Corvisart$83.41264850045857
+Corvisart$Place d'Italie$79.39789649348447
+Place d'Italie$Nationale$84.65750400871879
+Nationale$Chevaleret$79.1591222233032
+Chevaleret$Quai de la Gare$78.46950515909867
+Quai de la Gare$Bercy$88.35894370353554
+Bercy$Dugommier$92.27388733871265
+Dugommier$Daumesnil$79.94595226873119
+Daumesnil$Bel-Air$79.12806136578187
+Bel-Air$Picpus$78.44010090301798
+Picpus$Nation$82.1321930501982

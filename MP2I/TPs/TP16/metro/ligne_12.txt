@@ -1,0 +1,92 @@
+31 60
+Porte de Versailles
+Pasteur
+Sèvres-Babylone
+Jules Joffrin
+Porte de la Chapelle
+Rennes
+Notre-Dame-des-Champs
+Trinité d'Estienne d'Orves
+Lamarck-Caulaincourt
+Rue du Bac
+Marx Dormoy
+Concorde
+Corentin Celton
+Aimé Césaire
+Front Populaire
+Mairie d'Issy
+Vaugirard
+Saint-Lazare
+Assemblée Nationale
+Saint-Georges
+Notre-Dame-de-Lorette
+Volontaires
+Convention
+Falguière
+Marcadet-Poissonniers
+Madeleine
+Pigalle
+Montparnasse Bienvenüe
+Abbesses
+Mairie d'Aubervilliers
+Solférino
+Mairie d'Issy$Corentin Celton$83.18922976378988
+Corentin Celton$Porte de Versailles$98.56588856020036
+Porte de Versailles$Convention$95.23209977223486
+Convention$Vaugirard$79.856071053004
+Vaugirard$Volontaires$84.32593271925367
+Volontaires$Pasteur$76.11414252255267
+Pasteur$Falguière$79.27423748597158
+Falguière$Montparnasse Bienvenüe$81.45078120890742
+Montparnasse Bienvenüe$Notre-Dame-des-Champs$75.57913490984787
+Notre-Dame-des-Champs$Rennes$77.67153471082965
+Rennes$Sèvres-Babylone$76.62484287535017
+Sèvres-Babylone$Rue du Bac$77.28516389581598
+Rue du Bac$Solférino$78.45407379063387
+Solférino$Assemblée Nationale$73.32628633167099
+Assemblée Nationale$Concorde$87.51498924421523
+Concorde$Madeleine$81.10830422437054
+Madeleine$Saint-Lazare$88.25395104341781
+Saint-Lazare$Trinité d'Estienne d'Orves$77.42452312456412
+Trinité d'Estienne d'Orves$Notre-Dame-de-Lorette$74.32719313074166
+Notre-Dame-de-Lorette$Saint-Georges$70.57172251489115
+Saint-Georges$Pigalle$80.2697892630804
+Pigalle$Abbesses$71.86504714886502
+Abbesses$Lamarck-Caulaincourt$85.24258780882919
+Lamarck-Caulaincourt$Jules Joffrin$83.76141948526171
+Jules Joffrin$Marcadet-Poissonniers$77.07522642647862
+Marcadet-Poissonniers$Marx Dormoy$93.4315662725682
+Marx Dormoy$Porte de la Chapelle$93.4446652281732
+Porte de la Chapelle$Front Populaire$110.55958801000989
+Front Populaire$Aimé Césaire$99.12173529731412
+Aimé Césaire$Mairie d'Aubervilliers$89.46523156058252
+Mairie d'Aubervilliers$Aimé Césaire$89.46523156058252
+Aimé Césaire$Front Populaire$99.12173529731412
+Front Populaire$Porte de la Chapelle$110.55958801000989
+Porte de la Chapelle$Marx Dormoy$93.4446652281732
+Marx Dormoy$Marcadet-Poissonniers$93.4315662725682
+Marcadet-Poissonniers$Jules Joffrin$77.07522642647862
+Jules Joffrin$Lamarck-Caulaincourt$83.76141948526171
+Lamarck-Caulaincourt$Abbesses$85.24258780882919
+Abbesses$Pigalle$71.86504714886502
+Pigalle$Saint-Georges$80.2697892630804
+Saint-Georges$Notre-Dame-de-Lorette$70.57172251489115
+Notre-Dame-de-Lorette$Trinité d'Estienne d'Orves$74.32719313074166
+Trinité d'Estienne d'Orves$Saint-Lazare$77.42452312456412
+Saint-Lazare$Madeleine$88.25395104341781
+Madeleine$Concorde$81.10830422437054
+Concorde$Assemblée Nationale$87.51498924421523
+Assemblée Nationale$Solférino$73.32628633167099
+Solférino$Rue du Bac$78.45407379063387
+Rue du Bac$Sèvres-Babylone$77.28516389581598
+Sèvres-Babylone$Rennes$76.62484287535017
+Rennes$Notre-Dame-des-Champs$77.67153471082965
+Notre-Dame-des-Champs$Montparnasse Bienvenüe$75.57913490984787
+Montparnasse Bienvenüe$Falguière$81.45078120890742
+Falguière$Pasteur$79.27423748597158
+Pasteur$Volontaires$76.11414252255267
+Volontaires$Vaugirard$84.32593271925367
+Vaugirard$Convention$79.856071053004
+Convention$Porte de Versailles$95.23209977223486
+Porte de Versailles$Corentin Celton$98.56588856020036
+Corentin Celton$Mairie d'Issy$83.18922976378988

@@ -1,0 +1,74 @@
+25 48
+Châtelet
+Tuileries
+Reuilly-Diderot
+La Défense
+Les Sablons
+Gare de Lyon
+Concorde
+Argentine
+Hôtel de Ville
+Franklin D. Roosevelt
+Porte de Vincennes
+Nation
+Porte Maillot
+Esplanade de la Défense
+Palais Royal - Musée du Louvre
+Champs-Élysées – Clemenceau
+Louvre-Rivoli
+Saint-Paul
+Pont de Neuilly
+Bérault
+Château de Vincennes
+Saint-Mandé
+Charles De Gaulle-Étoile
+George V
+Bastille
+Château de Vincennes$Bérault$90.73455504407792
+Bérault$Saint-Mandé$88.57963888200986
+Saint-Mandé$Porte de Vincennes$89.16164368007554
+Porte de Vincennes$Nation$93.9860706100929
+Nation$Reuilly-Diderot$87.99206219448736
+Reuilly-Diderot$Gare de Lyon$91.54926178664068
+Gare de Lyon$Bastille$88.81728340190297
+Bastille$Saint-Paul$84.7802424700863
+Saint-Paul$Hôtel de Ville$87.03859478864086
+Hôtel de Ville$Châtelet$77.33003618395149
+Châtelet$Louvre-Rivoli$74.17449842942128
+Louvre-Rivoli$Palais Royal - Musée du Louvre$74.0165595329648
+Palais Royal - Musée du Louvre$Tuileries$79.10696427795665
+Tuileries$Concorde$81.04807282812688
+Concorde$Champs-Élysées – Clemenceau$86.31864192084882
+Champs-Élysées – Clemenceau$Franklin D. Roosevelt$74.79304964127037
+Franklin D. Roosevelt$George V$84.25901355131536
+George V$Charles De Gaulle-Étoile$78.02123020722784
+Charles De Gaulle-Étoile$Argentine$75.66776651064663
+Argentine$Porte Maillot$80.9544635027462
+Porte Maillot$Les Sablons$92.84694391607195
+Les Sablons$Pont de Neuilly$95.20315034404835
+Pont de Neuilly$Esplanade de la Défense$92.2905182932316
+Esplanade de la Défense$La Défense$98.40033996751048
+La Défense$Esplanade de la Défense$98.40033996751048
+Esplanade de la Défense$Pont de Neuilly$92.2905182932316
+Pont de Neuilly$Les Sablons$95.20315034404835
+Les Sablons$Porte Maillot$92.84694391607195
+Porte Maillot$Argentine$80.9544635027462
+Argentine$Charles De Gaulle-Étoile$75.66776651064663
+Charles De Gaulle-Étoile$George V$78.02123020722784
+George V$Franklin D. Roosevelt$84.25901355131536
+Franklin D. Roosevelt$Champs-Élysées – Clemenceau$74.79304964127037
+Champs-Élysées – Clemenceau$Concorde$86.31864192084882
+Concorde$Tuileries$81.04807282812688
+Tuileries$Palais Royal - Musée du Louvre$79.10696427795665
+Palais Royal - Musée du Louvre$Louvre-Rivoli$74.0165595329648
+Louvre-Rivoli$Châtelet$74.17449842942128
+Châtelet$Hôtel de Ville$77.33003618395149
+Hôtel de Ville$Saint-Paul$87.03859478864086
+Saint-Paul$Bastille$84.7802424700863
+Bastille$Gare de Lyon$88.81728340190297
+Gare de Lyon$Reuilly-Diderot$91.54926178664068
+Reuilly-Diderot$Nation$87.99206219448736
+Nation$Porte de Vincennes$93.9860706100929
+Porte de Vincennes$Saint-Mandé$89.16164368007554
+Saint-Mandé$Bérault$88.57963888200986
+Bérault$Château de Vincennes$90.73455504407792

@@ -1,0 +1,38 @@
+13 24
+Porte des Lilas
+Jourdain
+Châtelet
+Rambuteau
+Place des Fêtes
+Pyrénées
+Mairie des Lilas
+Goncourt
+Hôtel de Ville
+Arts et Métiers
+Télégraphe
+Belleville
+République
+Châtelet$Hôtel de Ville$69.70380366067437
+Hôtel de Ville$Rambuteau$80.23445973653645
+Rambuteau$Arts et Métiers$82.90566248434217
+Arts et Métiers$République$90.18146475076679
+République$Goncourt$81.83204003206916
+Goncourt$Belleville$80.17095866236627
+Belleville$Pyrénées$90.08028697421034
+Pyrénées$Jourdain$74.64394362788073
+Jourdain$Place des Fêtes$74.49794683312528
+Place des Fêtes$Télégraphe$80.00316874866206
+Télégraphe$Porte des Lilas$86.13099893460883
+Porte des Lilas$Mairie des Lilas$94.92305117461008
+Mairie des Lilas$Porte des Lilas$94.92305117461008
+Porte des Lilas$Télégraphe$86.13099893460883
+Télégraphe$Place des Fêtes$80.00316874866206
+Place des Fêtes$Jourdain$74.49794683312528
+Jourdain$Pyrénées$74.64394362788073
+Pyrénées$Belleville$90.08028697421034
+Belleville$Goncourt$80.17095866236627
+Goncourt$République$81.83204003206916
+République$Arts et Métiers$90.18146475076679
+Arts et Métiers$Rambuteau$82.90566248434217
+Rambuteau$Hôtel de Ville$80.23445973653645
+Hôtel de Ville$Châtelet$69.70380366067437

@@ -1,0 +1,101 @@
+34 66
+Châtelet
+Place d'Italie
+Aubervilliers Pantin - Quatre Chemins
+Stalingrad
+Sully-Morland
+Riquet
+Crimée
+Fort d'Aubervilliers
+Cadet
+Le Peletier
+Le Kremlin-Bicêtre
+Pyramides
+Villejuif - Louis Aragon
+Porte d'Italie
+Poissonnière
+Corentin Cariou
+Tolbiac
+Gare de l'Est
+Opéra
+Palais Royal - Musée du Louvre
+Maison Blanche
+Les Gobelins
+Villejuif Paul Vaillant-Couturier
+Louis Blanc
+Place Monge
+Villejuif - Léo Lagrange
+Pont Neuf
+Chaussée d'Antin - La Fayette
+Porte de la Villette
+Château-Landon
+Censier-Daubenton
+Jussieu
+La Courneuve 8 Mai 1945
+Pont Marie
+Villejuif - Louis Aragon$Villejuif Paul Vaillant-Couturier$104.11008843828239
+Villejuif Paul Vaillant-Couturier$Villejuif - Léo Lagrange$102.91458245670633
+Villejuif - Léo Lagrange$Le Kremlin-Bicêtre$87.45016476800632
+Le Kremlin-Bicêtre$Porte d'Italie$105.70411427342012
+Porte d'Italie$Maison Blanche$75.0991508853211
+Maison Blanche$Tolbiac$81.39662391964194
+Tolbiac$Place d'Italie$85.2905043395874
+Place d'Italie$Les Gobelins$84.4054964608465
+Les Gobelins$Censier-Daubenton$81.48476859067814
+Censier-Daubenton$Place Monge$73.16671285388713
+Place Monge$Jussieu$77.79653363510826
+Jussieu$Sully-Morland$95.05034034370604
+Sully-Morland$Pont Marie$77.16306237113912
+Pont Marie$Châtelet$93.70802206758641
+Châtelet$Pont Neuf$80.81467173880193
+Pont Neuf$Palais Royal - Musée du Louvre$87.37861655292531
+Palais Royal - Musée du Louvre$Pyramides$76.41719396112204
+Pyramides$Opéra$81.61133170948969
+Opéra$Chaussée d'Antin - La Fayette$76.95764837877442
+Chaussée d'Antin - La Fayette$Le Peletier$83.16223206881423
+Le Peletier$Cadet$73.96409562458658
+Cadet$Poissonnière$74.68770361282225
+Poissonnière$Gare de l'Est$90.44595237388633
+Gare de l'Est$Château-Landon$76.62719164167386
+Château-Landon$Louis Blanc$75.80450532415064
+Louis Blanc$Stalingrad$84.17832341160884
+Stalingrad$Riquet$80.09904951986047
+Riquet$Crimée$78.7176548776906
+Crimée$Corentin Cariou$84.79297706954121
+Corentin Cariou$Porte de la Villette$77.34654919785292
+Porte de la Villette$Aubervilliers Pantin - Quatre Chemins$98.39390843804898
+Aubervilliers Pantin - Quatre Chemins$Fort d'Aubervilliers$127.91333940758652
+Fort d'Aubervilliers$La Courneuve 8 Mai 1945$95.15598005351836
+La Courneuve 8 Mai 1945$Fort d'Aubervilliers$95.15598005351836
+Fort d'Aubervilliers$Aubervilliers Pantin - Quatre Chemins$127.91333940758652
+Aubervilliers Pantin - Quatre Chemins$Porte de la Villette$98.39390843804898
+Porte de la Villette$Corentin Cariou$77.34654919785292
+Corentin Cariou$Crimée$84.79297706954121
+Crimée$Riquet$78.7176548776906
+Riquet$Stalingrad$80.09904951986047
+Stalingrad$Louis Blanc$84.17832341160884
+Louis Blanc$Château-Landon$75.80450532415064
+Château-Landon$Gare de l'Est$76.62719164167386
+Gare de l'Est$Poissonnière$90.44595237388633
+Poissonnière$Cadet$74.68770361282225
+Cadet$Le Peletier$73.96409562458658
+Le Peletier$Chaussée d'Antin - La Fayette$83.16223206881423
+Chaussée d'Antin - La Fayette$Opéra$76.95764837877442
+Opéra$Pyramides$81.61133170948969
+Pyramides$Palais Royal - Musée du Louvre$76.41719396112204
+Palais Royal - Musée du Louvre$Pont Neuf$87.37861655292531
+Pont Neuf$Châtelet$80.81467173880193
+Châtelet$Pont Marie$93.70802206758641
+Pont Marie$Sully-Morland$77.16306237113912
+Sully-Morland$Jussieu$95.05034034370604
+Jussieu$Place Monge$77.79653363510826
+Place Monge$Censier-Daubenton$73.16671285388713
+Censier-Daubenton$Les Gobelins$81.48476859067814
+Les Gobelins$Place d'Italie$84.4054964608465
+Place d'Italie$Tolbiac$85.2905043395874
+Tolbiac$Maison Blanche$81.39662391964194
+Maison Blanche$Porte d'Italie$75.0991508853211
+Porte d'Italie$Le Kremlin-Bicêtre$105.70411427342012
+Le Kremlin-Bicêtre$Villejuif - Léo Lagrange$87.45016476800632
+Villejuif - Léo Lagrange$Villejuif Paul Vaillant-Couturier$102.91458245670633
+Villejuif Paul Vaillant-Couturier$Villejuif - Louis Aragon$104.11008843828239

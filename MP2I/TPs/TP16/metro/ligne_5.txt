@@ -1,0 +1,65 @@
+22 42
+Richard Lenoir
+Bréguet-Sabin
+Place d'Italie
+République
+Stalingrad
+Église de Pantin
+Saint-Marcel
+Campo Formio
+Gare de l'Est
+Jaurès
+Hoche
+Ourcq
+Laumière
+Oberkampf
+Jacques Bonsergent
+Gare du Nord
+Porte de Pantin
+Bobigny-Pantin - Raymond Queneau
+Quai de la Rapée
+Bobigny Pablo Picasso
+Gare d'Austerlitz
+Bastille
+Bobigny Pablo Picasso$Bobigny-Pantin - Raymond Queneau$154.4581051381628
+Bobigny-Pantin - Raymond Queneau$Église de Pantin$102.38057619614929
+Église de Pantin$Hoche$95.13510219224574
+Hoche$Porte de Pantin$97.04256134841427
+Porte de Pantin$Ourcq$80.57879487369487
+Ourcq$Laumière$85.1750625754742
+Laumière$Jaurès$83.73104631805933
+Jaurès$Stalingrad$75.84380539316444
+Stalingrad$Gare du Nord$97.66110429057595
+Gare du Nord$Gare de l'Est$80.15468048278235
+Gare de l'Est$Jacques Bonsergent$90.34210249707827
+Jacques Bonsergent$République$74.8019771591111
+République$Oberkampf$79.57465064541837
+Oberkampf$Richard Lenoir$88.33866262902949
+Richard Lenoir$Bréguet-Sabin$79.26267253599339
+Bréguet-Sabin$Bastille$74.19419293829428
+Bastille$Quai de la Rapée$95.56655045279058
+Quai de la Rapée$Gare d'Austerlitz$80.41156692704725
+Gare d'Austerlitz$Saint-Marcel$84.55668226582335
+Saint-Marcel$Campo Formio$77.9697091501337
+Campo Formio$Place d'Italie$82.82677885126411
+Place d'Italie$Campo Formio$82.82677885126411
+Campo Formio$Saint-Marcel$77.9697091501337
+Saint-Marcel$Gare d'Austerlitz$84.55668226582335
+Gare d'Austerlitz$Quai de la Rapée$80.41156692704725
+Quai de la Rapée$Bastille$95.56655045279058
+Bastille$Bréguet-Sabin$74.19419293829428
+Bréguet-Sabin$Richard Lenoir$79.26267253599339
+Richard Lenoir$Oberkampf$88.33866262902949
+Oberkampf$République$79.57465064541837
+République$Jacques Bonsergent$74.8019771591111
+Jacques Bonsergent$Gare de l'Est$90.34210249707827
+Gare de l'Est$Gare du Nord$80.15468048278235
+Gare du Nord$Stalingrad$97.66110429057595
+Stalingrad$Jaurès$75.84380539316444
+Jaurès$Laumière$83.73104631805933
+Laumière$Ourcq$85.1750625754742
+Ourcq$Porte de Pantin$80.57879487369487
+Porte de Pantin$Hoche$97.04256134841427
+Hoche$Église de Pantin$95.13510219224574
+Église de Pantin$Bobigny-Pantin - Raymond Queneau$102.38057619614929
+Bobigny-Pantin - Raymond Queneau$Bobigny Pablo Picasso$154.4581051381628
