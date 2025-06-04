@@ -38,6 +38,21 @@ int main() {
     printf("%f\n", longueur(g, sommets, 4));  // infinity
     printf("%f\n", longueur(g, sommets, 3));  // 8
 
+    char* depart = sommets[0];
+    char* arrivee = sommets[2];
+    char** pcc1 = pcc(g, depart, arrivee);
+    if (pcc1 == NULL) {
+        printf("Pas de chemin !\n");
+    } else {
+        int i = 0;
+        while (pcc1[i] != arrivee) {
+            printf("%s\n", pcc1[i]);
+            i++;
+        }
+        printf("%s\n", pcc1[i]);
+        free(pcc1);
+    }
+
     graphe_free(g);
 
     for (int i = 0; i < n; i++) {
