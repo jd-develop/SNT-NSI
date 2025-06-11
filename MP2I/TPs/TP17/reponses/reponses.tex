@@ -1,0 +1,83 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{listings}
+
+\usepackage{geometry} % Required for adjusting page dimensions and margins
+\geometry{
+    paper=a4paper, % Paper size, change to letterpaper for US letter size
+    top=2cm, % Top margin
+    bottom=2.5cm, % Bottom margin
+    left=2cm, % Left margin
+    right=2cm, % Right margin
+    headheight=0.75cm, % Header height
+    footskip=1cm, % Space from the bottom margin to the baseline of the footer
+    headsep=0.5cm, % Space from the top margin to the baseline of the header
+    %showframe, % Uncomment to show how the type block is set on the page
+}
+
+\begin{document}
+
+\paragraph{Q7)}
+
+\begin{align*}
+h(t_{i+1} \dots t_{i+p}) &= \sum_{k=0}^{p-1} t_{i+p-k} B^{k} \hspace{1em} [q] \\
+                         &= \sum_{k'=-1}^{p-2} t_{i+p-k'-1} B^{k'+1} \hspace{1em} [q] \\
+                         &= B\sum_{k'=-1}^{p-2} t_{i+p-k'-1} B^{k'} \hspace{1em} [q] \\
+                         &= B\sum_{k'=0}^{p-2} t_{i+p-k'-1} B^{k'} + t_{i+p} \hspace{1em} [q] \\
+                         &= B\sum_{k'=0}^{p-1} t_{i+p-k'-1} B^{k'} + t_{i+p} - Bt_{i+p-(p-1)-1}B^{p-1} \hspace{1em} [q] \\
+                         &= B\sum_{k'=0}^{p-1} t_{i+p-k'-1} B^{k'} + t_{i+p} - B^pt_{i} \hspace{1em} [q] \\
+                         &= Bh(t_{i} \dots t_{i+p-1}) + t_{i+p} - B^pt_{i} \hspace{1em} [q] \\
+\end{align*}
+
+\paragraph{Q15)}
+
+\subparagraph{Naïf}
+\begin{lstlisting}
+Recherche de CTFR dans l'ADN...
+-1
+Temps : 0.062885
+Recherche de Motifs dans Vingt Mille Lieues sous les Mers...
+Nemo : 480
+Nautilus : 637
+teratologique : 1
+quoicoubaka : 1
+anticonstitutionnellement : 0
+Temps : 0.006184
+\end{lstlisting}
+
+\subparagraph{Rabin-Karp}
+\begin{lstlisting}
+Recherche de CTFR dans l'ADN...
+Collision !
+Collision !
+Collision !
+Collision !
+Collision !
+Collision !
+-1
+Temps : 0.218932
+Recherche de Motifs dans Vingt Mille Lieues sous les Mers...
+Nemo : 480
+Nautilus : 637
+teratologique : 1
+quoicoubaka : 1
+anticonstitutionnellement : 0
+Temps : 0.032065
+\end{lstlisting}
+
+\subparagraph{Boyer-Moore-Horspool}
+\begin{lstlisting}
+Recherche de CTFR dans l'ADN...
+-1
+Temps : 0.078375
+Recherche de Motifs dans Vingt Mille Lieues sous les Mers...
+Nemo : 480
+Nautilus : 637
+teratologique : 1
+quoicoubaka : 1
+anticonstitutionnellement : 0
+Temps : 0.003381
+\end{lstlisting}
+
+\end{document}
