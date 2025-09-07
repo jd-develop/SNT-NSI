@@ -449,7 +449,7 @@ int main() {
                 return 2;
 
             case 3:
-                printf("Not enough values in stack\n");
+                printf("Stack underflow\n");
                 return 3;
 
             case 4:
