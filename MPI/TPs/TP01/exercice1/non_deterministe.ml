@@ -16,7 +16,7 @@ let int_of_letter (c: char) : int =
 (* Renvoie true si atomate_nd est déterministe, false sinon *)
 let est_deterministe (a: automate_nd) =
   (* Un automate déterminste aura au + 1 transition (q, a, q’) pour
-   * q et a fixé, i.e. List.length trans.(q).(a) <= 1. *)
+   * q et a fixés, i.e. List.length trans.(q).(a) <= 1. *)
   if List.length a.init > 1 then
     false
   else begin
