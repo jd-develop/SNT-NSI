@@ -66,7 +66,7 @@ let accepte (a: automate_d) (w: string) : bool =
   List.mem etat_fin a.fin
 
 let test_accepte (f_accepte: automate_d -> string -> bool) : unit =
-  (* appelé 2 fois dans test_toutes_les_fonctions_accepte *)
+  (* appelé 2 fois dans teste_toutes_les_fonctions_accepte *)
   assert (f_accepte auto_1 "bcadabc");
   assert (not (f_accepte auto_1 "d"));
   assert (f_accepte auto_1 "aa");
@@ -84,7 +84,6 @@ let rec accepte_depuis (a: automate_d) (q: int) (w: string) (i: int) : bool =
   else
     accepte_depuis auto_1 (delta auto_1 q w.[i]) w (i+1)
 
-
 let test_accepte_depuis : unit =
   assert (accepte_depuis auto_1 1 "debcabc" 4);
   assert (not (accepte_depuis auto_1 1 "debcabc" 3));
@@ -100,6 +99,6 @@ let test_accepte_depuis : unit =
 let accepte_v2 (a: automate_d) (w: string) : bool =
   accepte_depuis auto_1 0 w 0
 
-let test_toutes_les_fonctions_accepte : unit =
+let teste_toutes_les_fonctions_accepte : unit =
   test_accepte accepte;
   test_accepte accepte_v2
