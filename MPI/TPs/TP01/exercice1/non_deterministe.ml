@@ -117,3 +117,80 @@ let test_delta : unit =
   assert (delta auto_2 [0] 'a' = [0; 1]);
   assert (delta auto_2 [0; 1] 'a' = [2; 0; 1]);
   assert (delta auto_2 [] 'a' = [])
+
+
+(* Étant donné un automate a, un ensemble d’états s et un mot w, renvoie
+ * l’ensemble des états q’ atteints en lisant le mot w en partant d’un état
+ * de s dans a. s est supposée sans doublons et la liste de sortie est
+ * sans doublons *)
+let rec delta_etoile (a: automate_nd) (s: int list) (w: string) : int list =
+  let n = String.length w in
+  if n = 0 then
+    s
+  else
+    delta_etoile a (delta a s w.[0]) (String.sub w 1 (n-1))
+
+let test_delta_etoile : unit =
+  assert (delta_etoile auto_2 [0] "ab" = [2; 0]);
+  assert (delta_etoile auto_2 [0] "abc" = [3]);
+  assert (delta_etoile auto_2 [] "abc" = []);
+  assert (delta_etoile auto_2 [1; 2] "ba" = []);
+  assert (delta_etoile auto_2 [0; 3] "aab" = [3; 2; 0])
+
+
+(* Étant donné un automate a et un mot w, renvoie true si w est reconnu par
+ * a, false sinon *)
+let accepte (a: automate_nd) (w: string) : bool =
+  let etats_fin = delta_etoile a a.init w in
+  (* renvoie true si l’intersection de a et b est non vide, false sinon *)
+  let rec intersection_non_vide (l: 'a list) (l': 'a list) : bool =
+    match l with
+    | [] -> false
+    | x::q -> if List.mem x l' then true
+              else intersection_non_vide q l'
+  in intersection_non_vide etats_fin a.fin
+
+let test_accepte (f_accepte: automate_nd -> string -> bool) : unit =
+  (* appelé 2 fois dans teste_toutes_les_fonctions_accepte *)
+  assert (accepte auto_2 "abab");
+  assert (accepte auto_2 "abaaabc");
+  assert (accepte auto_2 "cabcacbcacc");
+  assert (accepte auto_2 "aa");
+  assert (accepte auto_2 "c");
+  assert (not (accepte auto_2 "a"));
+  assert (not (accepte auto_2 "b"));
+  assert (not (accepte auto_2 "ba"));
+  assert (not (accepte auto_2 "bbbba"))
+
+
+(* Renvoie true si la lecture de w à partir de l'indice i, dans l'automate a,
+ * en partant de l'état q, conduit à un état final *)
+let rec accepte_depuis (a: automate_nd) (q: int) (w: string) (i: int) : bool =
+  let n = String.length w in
+  if i = n then
+    List.mem q a.fin
+  else
+    List.exists
+      (fun x -> accepte_depuis a x w (i+1))
+      a.trans.(q).(int_of_letter (w.[i]))
+
+let test_accepte_depuis : unit =
+  assert (accepte_depuis auto_2 0 "abab" 0);
+  assert (accepte_depuis auto_2 2 "abaaabc" 7);
+  assert (accepte_depuis auto_2 2 "cabcacbcacc" 3);
+  assert (accepte_depuis auto_2 0 "aa" 0);
+  assert (accepte_depuis auto_2 1 "c" 0);
+  assert (not (accepte_depuis auto_2 1 "c" 1));
+  assert (not (accepte_depuis auto_2 0 "b" 0));
+  assert (not (accepte_depuis auto_2 2 "ba" 1));
+  assert (not (accepte_depuis auto_2 0 "bbbba" 3));
+  assert (not (accepte_depuis auto_2 0 "aa" 1))
+
+(* Pareil que accepte *)
+let accepte_v2 (a: automate_nd) (w: string) : bool =
+  accepte_depuis a 0 w 0
+
+let teste_toutes_les_fonctions_accepte : unit =
+  test_accepte accepte;
+  test_accepte accepte_v2
+

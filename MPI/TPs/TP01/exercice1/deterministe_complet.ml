@@ -97,7 +97,7 @@ let test_accepte_depuis : unit =
 
 (* Exactement la même chose que accepte *)
 let accepte_v2 (a: automate_d) (w: string) : bool =
-  accepte_depuis auto_1 0 w 0
+  accepte_depuis a 0 w 0
 
 let teste_toutes_les_fonctions_accepte : unit =
   test_accepte accepte;
