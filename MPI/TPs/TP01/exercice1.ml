@@ -143,7 +143,7 @@ let test_est_deterministe : unit =
   } in
   assert (est_deterministe auto_deterministe);
   let trop_etats_initiaux = {
-    init = [0;1];
+    init = [0; 1];
     trans =
       [|
         [| [0]; [];  [1] |];
@@ -265,7 +265,8 @@ let test_accepte_nd (f_accepte: automate_nd -> string -> bool) : unit =
 
 (* Renvoie true si la lecture de w à partir de l'indice i, dans l'automate non
  * déterministe a, en partant de l'état q, conduit à un état final *)
-let rec accepte_depuis_nd (a: automate_nd) (q: int) (w: string) (i: int) : bool =
+let rec accepte_depuis_nd
+        (a: automate_nd) (q: int) (w: string) (i: int) : bool =
   let n = String.length w in
   if i = n then
     List.mem q a.fin
