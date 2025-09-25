@@ -32,6 +32,7 @@ let test_affiche_arbre_g_prefixe () : unit =
   print_newline ()
 
 
+(* Ancienne version de la fonction :
 (* Affiche les étiquettes de a niveau par niveau de gauche à droite. *)
 let affiche_arbre_g_niveau_rt (a: int arbre_g) : unit =
   (* Affiche les étiquettes des arbres de en_cours_de_traitement une par une,
@@ -55,6 +56,30 @@ let affiche_arbre_g_niveau_rt (a: int arbre_g) : unit =
         print_int n;
         print_string " ";
         affiche_arbres_g_niveau_rt q (l'::a_traiter)
+  in
+  affiche_arbres_g_niveau_rt [a] []
+*)
+
+(* Affiche les étiquettes de a niveau par niveau de gauche à droite. *)
+let affiche_arbre_g_niveau_rt (a: int arbre_g) : unit =
+  (* Affiche les étiquettes de chaque arbre de en_cours_de_traitement en
+   * ajoutant (à l’envers) ses enfants au début de a_traiter. Lorsque
+   * en_cours_de_traitement est vide, recopie a_traiter à l’envers dans
+   * en_cours_de_traitement et laisse a_traiter vide. *)
+  let rec affiche_arbres_g_niveau_rt
+      (en_cours_de_traitement: int arbre_g list)
+      (a_traiter: int arbre_g list) : unit =
+    match en_cours_de_traitement with
+    | [] ->
+        begin match List.rev a_traiter with
+        | [] -> ()
+        | l -> affiche_arbres_g_niveau_rt l []
+        end
+    | Vide::q -> affiche_arbres_g_niveau_rt q a_traiter
+    | Nd(n, l')::q ->
+        print_int n;
+        print_string " ";
+        affiche_arbres_g_niveau_rt q (List.rev_append l' a_traiter)
   in
   affiche_arbres_g_niveau_rt [a] []
 
