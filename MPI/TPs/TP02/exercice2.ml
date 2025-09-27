@@ -223,5 +223,58 @@ let test_liste_parcours_profondeur : unit =
     assert (f_parcours_profondeur g6 = [0; 1; 2; 3; 4; 5; 6; 7])
   in
   teste_une_fonction liste_parcours_profondeur_imperatif;
-  teste_une_fonction liste_parcours_profondeur_recursif;
+  teste_une_fonction liste_parcours_profondeur_recursif
 
+
+(* définition de quelques graphes non orientés pour tester la fonction *)
+let gn0 = [|
+  [1];
+  [0; 2; 3; 4];
+  [1; 3];
+  [1; 2];
+  [1];
+  [6; 7];
+  [5; 7];
+  [5; 6];
+  []
+|]
+
+
+(* Question 9 *)
+(* Pour trouver toutes les composantes connexes d’un graphe non orienté, il
+ * suffit de faire un parcours, de choisir un sommet non encore visité,
+ * et de recommencer un parcours. On recommence tant qu’on a des sommets non
+ * visités. *)
+let composantes_connexes (g: graphe) : int list list =
+  let n = Array.length g in
+  let resultat: int list list ref = ref [] in
+  let composante_connexe_en_cours: int list ref = ref [] in
+  let deja_faits = Array.make n false in
+
+  (* Effectue un parcours en profondeur depuis le sommet `sommet`, sauf si
+   * ce dernier a déjà été visité (i.e. est dans deja_faits) *)
+  let rec explore_depuis (sommet: int) : unit =
+    if deja_faits.(sommet) then
+      ()
+    else begin
+      composante_connexe_en_cours:= sommet::!composante_connexe_en_cours;
+      deja_faits.(sommet) <- true;
+      List.iter explore_depuis g.(sommet)
+    end
+  in
+
+  for i = 0 to n-1 do
+    if deja_faits.(i) then
+      ()
+    else begin
+      explore_depuis i;
+      resultat := (List.rev !composante_connexe_en_cours)::!resultat;
+      composante_connexe_en_cours := []
+    end
+  done;
+
+  List.rev !resultat
+
+let test_composantes_connexes : unit =
+  assert (composantes_connexes gn0 = [[0; 1; 2; 3; 4]; [5; 6; 7]; [8]]);
+  assert (composantes_connexes [||] = [])
