@@ -227,6 +227,17 @@ let test_liste_parcours_profondeur : unit =
 
 
 (* définition de quelques graphes non orientés pour tester la fonction *)
+(*
+ * 0 -- 1 -- 2
+ *     / \  /
+ *    4   \/
+ *        3
+ *               8
+ * 5 -- 6
+ *  \  /
+ *   \/
+ *   7
+ *)
 let gn0 = [|
   [1];
   [0; 2; 3; 4];
@@ -239,6 +250,20 @@ let gn0 = [|
   []
 |]
 
+(*
+ * 0 -- 2            5
+ *  \  /             |
+ *   \/              1
+ *   3 -- 4
+ *)
+let gn1 = [|
+  [2; 3];
+  [5];
+  [0; 3];
+  [0; 2; 4];
+  [3];
+  [1]
+|]
 
 (* Question 9 *)
 (* Pour trouver toutes les composantes connexes d’un graphe non orienté, il
@@ -277,4 +302,6 @@ let composantes_connexes (g: graphe) : int list list =
 
 let test_composantes_connexes : unit =
   assert (composantes_connexes gn0 = [[0; 1; 2; 3; 4]; [5; 6; 7]; [8]]);
-  assert (composantes_connexes [||] = [])
+  assert (composantes_connexes gn1 = [[0; 2; 3; 4]; [1; 5]]);
+  assert (composantes_connexes [||] = []);
+  assert (composantes_connexes [|[]|] = [[0]])
