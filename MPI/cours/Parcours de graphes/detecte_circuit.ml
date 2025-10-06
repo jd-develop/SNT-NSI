@@ -88,20 +88,20 @@ let detecte_circuit (g: graphe) : bool =
   let n = Array.length(g) in
   let etats = Array.make n NonVu in
   let circuit = ref false in
-  let rec explore_depuis (profondeur: int) (s: int) : unit =
+  let rec explore_depuis (s: int) : unit =
     if etats.(s) = Ferme then ()
     else if etats.(s) = Ouvert then begin
       circuit := true
     end
     else begin
       etats.(s) <- Ouvert;
-      List.iter (explore_depuis (profondeur+1)) g.(s) ;
+      List.iter (explore_depuis) g.(s) ;
       etats.(s) <- Ferme;
     end
   in
   for s = 0 to n - 1 do
     if not !circuit then
-      explore_depuis 0 s;
+      explore_depuis s;
   done;
   !circuit
 
@@ -114,3 +114,58 @@ let test_detecte_circuit : unit =
   assert (detecte_circuit g4);
   assert (not (detecte_circuit g5));
   assert (detecte_circuit g6)
+
+
+exception Circuit of int
+
+
+let detecte_circuit_renvoie (g: graphe) : int list option =
+  let n = Array.length(g) in
+  let etats = Array.make n NonVu in
+  let parents = Array.make n None in
+  let circuit = ref false in
+  let rec explore_depuis (s: int) (p: int) : unit =
+    if etats.(s) = Ferme then ()
+    else if etats.(s) = Ouvert then begin
+      parents.(s) <- Some p;
+      raise (Circuit s)
+    end
+    else begin
+      parents.(s) <- Some p;
+      etats.(s) <- Ouvert;
+      List.iter (fun v -> explore_depuis v s) g.(s) ;
+      etats.(s) <- Ferme;
+    end
+  in
+  try begin
+    for s = 0 to n - 1 do
+      if not !circuit then
+        explore_depuis s s;
+    done;
+    None
+  end with
+  | Circuit s ->
+      let rec construire_resultat (depart: int) (accu: int list) =
+        match accu with
+        | [] -> construire_resultat depart [depart]
+        | x::_ ->
+            begin match parents.(x) with
+            | None -> print_int x; failwith "Impossible de remonter au parent"
+            | Some sommet ->
+              if sommet <> depart then
+                construire_resultat depart (sommet::accu)
+              else
+                accu
+            end
+      in
+      Some (s::(construire_resultat s [s]))
+
+let test_detecte_circuit_renvoie : unit =
+  assert (detecte_circuit_renvoie g0 = None);
+  assert (detecte_circuit_renvoie g1 = None);
+  assert (detecte_circuit_renvoie g2 = Some [0; 1; 4; 0]);
+  assert (detecte_circuit_renvoie g3 = Some [1; 5; 6; 2; 1]);
+  assert (detecte_circuit_renvoie g4 = Some [0; 5; 4; 0]);
+  assert (detecte_circuit_renvoie g5 = None);
+  assert (detecte_circuit_renvoie g6 = Some [1; 2; 1])
+
