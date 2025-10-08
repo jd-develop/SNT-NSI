@@ -1,0 +1,2 @@
+#!/usr/bin/bash
+ocamlc -I /home/jddev/.opam/default/lib/graphics graphics.cma compagnon.ml exercice1.ml
