@@ -79,6 +79,34 @@ let w_ex_3 =
                 @ list_init 6 (fun i -> (i + 13, 18))
   }
 
+
+let w_ex_4 =
+  {
+    w = 25;
+    h = 25;
+    obstacles = w_ex_3.obstacles @ list_init 6 (fun i -> (i + 19, 18))
+  }
+
+
+let labyrinthe =
+  {
+    w = 11;
+    h = 11;
+    obstacles = List.map (fun (x,y) -> (y,x)) (
+      [(0,1); (1,1); (0,3); (1,5); (2,3); (4, 2); (5,1); (6,3)]
+      @ list_init 6 (fun i -> (3, i))
+      @ list_init 4 (fun i -> (9, i+1))
+      @ list_init 2 (fun i -> (i+7, 1))
+      @ list_init 4 (fun i -> (i+5, 4))
+      @ list_init 5 (fun i -> (5, i+5))
+      @ list_init 5 (fun i -> (i, 7))
+      @ list_init 3 (fun i -> (i+1, 9))
+      @ list_init 4 (fun i -> (i+7, 6))
+      @ list_init 3 (fun i -> (7, i+7))
+      @ list_init 3 (fun i -> (9, i+8))
+    )
+  }
+
 (* Calcul des voisins *)
 let voisin (w: world) ((cx, cy): cell): (cell * float) list =
   let possibles =
