@@ -86,6 +86,10 @@ let a_etoile
     (h: cell -> cell -> float)
     (graphics: bool) : Floatb.t =
 
+  if graphics then
+    Graphics.open_graph " 600x600";
+
+
   let start' = lin w start in
   let finish' = lin w finish in
   let mu = Array.make (w.w*w.h) Floatb.Infini in
@@ -116,7 +120,15 @@ let a_etoile
           (fun (v, c) -> let v' = lin w v in relax u v' c)
           (voisin w (delin w u));
         todo := List.filter (fun x -> x <> u) !todo;
-        fini := u::!fini
+        fini := u::!fini;
+        if graphics then begin
+          draw_world (Some {
+            fini = !fini; todo = !todo; mu = mu; pi = pi; src = start; obj = finish
+          }) w;
+          Unix.sleepf 0.1; (*
+          let _ = Graphics.wait_next_event [Key_pressed] in
+          () *)
+        end
       end
     done;
     Floatb.Infini
@@ -124,7 +136,6 @@ let a_etoile
   with
   | FinishFound f ->
     if graphics then begin
-      Graphics.open_graph " 600x600";
       draw_world (Some {
         fini = !fini; todo = !todo; mu = mu; pi = pi; src = start; obj = finish
       }) w;
@@ -148,3 +159,12 @@ let distance_mieux ((x1, y1): cell) ((x2, y2): cell): float =
 (* Distance de Manhattan *)
 let distance_de_manhattan ((x1, y1): cell) ((x2, y2): cell) : float =
   float_of_int (abs (x2-x1) + abs (y2-y1))
+
+
+(* Heuristique spéciale sur w1 illustrant le fait qu’un sommet puisse être
+ * visité plusieurs fois *)
+let heuristique_w2 ((x1, y1): cell) ((x2, y2): cell) : float =
+  if x1 = 2 && 0 <= y1 && y1 <= 3 then
+    8.
+  else
+    0.
