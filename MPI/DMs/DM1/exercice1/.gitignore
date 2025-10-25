@@ -1,0 +1,9 @@
+# base de donnée MNIST
+MNIST-txt/
+
+# résultats de la compilation
+*.o
+tests_section_1
+tests_section_2
+tests_section_5
+tests_section_6
