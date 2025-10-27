@@ -33,7 +33,7 @@ tests_section_6 : tests_section_6.c database.o vector.o candidats.o knn.o jeu_qu
 
 
 all : tests_section_1 tests_section_2  tests_section_5 tests_section_6
-		
+
 clean :
 	rm -f *.o
 	rm -f tests_section_1
@@ -41,5 +41,3 @@ clean :
 	rm -f tests_section_5
 	rm -f tests_section_6
 
-	
-	
