@@ -40,4 +40,5 @@ clean :
 	rm -f tests_section_2
 	rm -f tests_section_5
 	rm -f tests_section_6
+	rm -f vgcore*
 

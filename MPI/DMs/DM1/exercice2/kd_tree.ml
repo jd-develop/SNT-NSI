@@ -200,6 +200,7 @@ let creer_arbre_kd (t: vector array) : kd_tree =
 
 
 let main_exemple () =
+  () |> Unix.time |> int_of_float |> Random.init;
   let nb_points = 50 in
   let _t = genere_jeu_donnes nb_points in
   let kd_tree = creer_arbre_kd _t in

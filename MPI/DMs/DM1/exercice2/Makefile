@@ -1,6 +1,6 @@
 
 kd_tree : kd_tree.ml
-	ocamlfind ocamlopt -o kd_tree -linkpkg -package graphics kd_tree.ml
+	ocamlfind ocamlopt -o kd_tree -linkpkg -package graphics -linkpkg -package unix kd_tree.ml
 
 all : kd_tree
 
