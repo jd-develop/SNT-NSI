@@ -102,13 +102,27 @@ def solve(grille: list[list[int | None]]):
 
 print("\x1bc")
 grille: list[list[int | None]] = [[None]*9 for _ in range(9)]
-for i in range(9):
-    for j in range(9):
-        afficher_grille(grille, i, j)
-        case = input()
-        if len(case) == 1 and 0x31 <= ord(case) <= 0x39:
-            grille[i][j] = ord(case)-0x30
+i = 0
+j = 0
+while i < 9:
+    afficher_grille(grille, i, j)
+    case = input()
+    if case == "b":
+        if (i, j) == (0, 0):
+            pass
+        elif j == 0:
+            j = 8
+            i -= 1
+        else:
+            j -= 1
+        continue
 
+    if len(case) == 1 and 0x31 <= ord(case) <= 0x39:
+        grille[i][j] = ord(case)-0x30
+    j += 1
+    if j == 9:
+        j = 0
+        i += 1
 
 afficher_grille(solve(grille))
 print("\x1b[?25h")
