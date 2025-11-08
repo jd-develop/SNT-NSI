@@ -1,4 +1,4 @@
-# SNT/NSI/MP2I code
+# SNT/NSI/MP2I/MPI code
  All the code I wrote in SNT, NSI, MP2I and MPI computer science classes.
 
 # Languages and dependencies
