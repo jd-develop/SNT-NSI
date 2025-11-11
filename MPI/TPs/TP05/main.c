@@ -592,11 +592,42 @@ int fusionne_homogene_modif_classe(darbre* p_da) {
     }
     return -1;
 }
+/* fusionne_homogene_modif_classe est bien de complexité linéaire en le nombre
+ * de nœuds. En effet, elle est en O(1) sur les feuilles, et elle est au mieux
+ * en O(nb nœuds vrai)+O(nb nœuds faux) et au pire en O(nb nœuds vrai) +
+ * O(nb nœuds faux) + O(nb nœuds vrai) + O(nb nœuds faux) = O(nb nœuds vrai) +
+ * O(nb nœuds faux) sur les nœuds */
 
 
 /* Écourte *p_da (en modifiant sa valeur) */
 void fusionne_homogene_modif(darbre* p_da) {
     fusionne_homogene_modif_classe(p_da);
+}
+
+/* Modifie *p_da en supprimant les disjonctions inutiles (i.e. les disjonctions
+ * qui ont pour sous-arbres vrai et faux deux arbres équivalents). L’arbre en
+ * entrée est supposé écourté. */
+void supprime_disjonctions_inutiles_aux(darbre* p_da) {
+    if (est_feuille(*p_da)) {
+        return;
+    }
+    supprime_disjonctions_inutiles_aux(&((*p_da)->vrai));
+    supprime_disjonctions_inutiles_aux(&((*p_da)->faux));
+    if (sont_egaux((*p_da)->vrai, (*p_da)->faux)) {
+        libere_darbre((*p_da)->vrai);
+        darbre nouveau = (*p_da)->faux;
+        free(*p_da);
+        *p_da = nouveau;
+    }
+}
+
+
+/* Modifie *p_da en supprimant les disjonctions inutiles (i.e. les disjonctions
+ * qui ont pour sous-arbres vrai et faux deux arbres équivalents). Écourte
+ * d’abord l’arbre. */
+void supprime_disjonctions_inutiles(darbre* p_da) {
+    fusionne_homogene_modif(p_da);
+    supprime_disjonctions_inutiles_aux(p_da);
 }
 
 
@@ -605,16 +636,168 @@ void complete_profil(jeu_donnees_c jdc, int profil[K]) {
     for (int i = 0; i < K; i++) {
         profil[i] = 0;
     }
-    for (int i = 0; i < jdc.taille; i++) {
-        profil[jdc.contenu[i]] ++;
+    for (int j = 0; j < jdc.taille; j++) {
+        profil[jdc.contenu[j]->classe] ++;
     }
 }
 
 
 /* Renvoie c si jdc est homogène de classe c, -1 sinon */
-int jdc_est_homogene(jeu_donnes_c jdc) {
-    // TODO
-    return 0;
+int jdc_est_homogene(jeu_donnees_c jdc) {
+    int* profil = malloc(K * sizeof(int));
+    complete_profil(jdc, profil);
+
+    for (int i = 0; i < K; i++) {
+        if (profil[i] == jdc.taille) {
+            int classe = i;
+            free(profil);
+            return classe;
+        }
+    }
+
+    free(profil);
+    return -1;
+}
+
+
+/* Renvoie l’entropie du jeu de données classifiées jdc */
+/* Note : j’ai fait la somme des -|f⁻¹({c})|*ln(|f⁻¹({c})), puis divisé par
+ * par 1/|S|, et j’ai ajouté ln(|S|) */
+float entropie(jeu_donnees_c jdc) {
+    int* profil = malloc(K * sizeof(int));
+    complete_profil(jdc, profil);
+
+    float res = 0.;
+    for (int i = 0; i < K; i++) {
+        if (profil[i] != 0) {
+            res -= ((float) profil[i]) * logf((float) profil[i]);
+        }
+    }
+    res /= (float) (jdc.taille);
+    res += logf((float) (jdc.taille));
+
+    free(profil);
+    return res;
+}
+
+
+/* Partitionne le jeu de données classifiées jdc en 2 : un jeu de données
+ * « vrai » (pour lequel toutes les composantes sur i sont vraies), qui est
+ * mis dans la case pointée par jdc_i_vrai, et un jeu de données « faux » (pour
+ * lequel toutes les composantes sur i sont fausses), qui est mis dans la case
+ * pointée par jdc_i_faux. Les données sont copiées par référence, donc il
+ * ne faudra les libérer qu’une seule fois ! */
+void partitionne_jdc(
+    jeu_donnees_c jdc, int i, jeu_donnees_c* jdc_i_faux,
+    jeu_donnees_c* jdc_i_vrai
+) {
+    int nb_vrais = 0;
+    for (int j = 0; j < jdc.taille; j++) {
+        if (jdc.contenu[j]->donnee.contenu[i])
+            nb_vrais++;
+    }
+    (*jdc_i_vrai).taille = nb_vrais;
+    (*jdc_i_vrai).contenu = malloc(nb_vrais * sizeof(donnee_c));
+    (*jdc_i_faux).taille = jdc.taille-nb_vrais;
+    (*jdc_i_faux).contenu = malloc((*jdc_i_faux).taille * sizeof(donnee_c));
+
+    int idx_vrai = 0;
+    int idx_faux = 0;
+    for (int j = 0; j < jdc.taille; j++) {
+        if (jdc.contenu[j]->donnee.contenu[i]) {
+            (*jdc_i_vrai).contenu[idx_vrai] = jdc.contenu[j];
+            idx_vrai++;
+        } else {
+            (*jdc_i_faux).contenu[idx_faux] = jdc.contenu[j];
+            idx_faux++;
+        }
+    }
+}
+
+
+/* Renvoie l’entropie de la partition du jeu de données classifiées i selon la
+ * i-ième coordonée */
+float entropie_disjonction_i(jeu_donnees_c jdc, int i) {
+    jeu_donnees_c jdc_i_vrai;
+    jeu_donnees_c jdc_i_faux;
+
+    partitionne_jdc(jdc, i, &jdc_i_faux, &jdc_i_vrai);
+
+    float entropie_partition = 0.;
+    entropie_partition += (float) jdc_i_faux.taille * entropie(jdc_i_faux);
+    entropie_partition += (float) jdc_i_vrai.taille * entropie(jdc_i_vrai);
+    entropie_partition /= (float) jdc.taille,
+
+    free(jdc_i_vrai.contenu);
+    free(jdc_i_faux.contenu);
+
+    return entropie_partition;
+}
+
+
+/* Renvoie l’indice de coordonnée i minimisant l’entropie de la partition
+ * selon la coordonnée i du jeu de données jdc, tel que i ne soit pas déjà
+ * utilisé (i.e. utilisees.contenu[i] est faux). Renvoie -1 si tous les indices
+ * sont utilisés. */
+int minimiseur_entropie(jeu_donnees_c jdc, bool_vec utilisees) {
+    int i_min = -1;
+    float entropie_min = INFINITY;  // macro C99
+    float entropie_calculee;
+    if (jdc.taille == 0)
+        return -1;
+    for (int i = 0; i < jdc.contenu[0]->donnee.dim; i++) {
+        if (utilisees.contenu[i])
+            continue;
+        entropie_calculee = entropie_disjonction_i(jdc, i);
+        if (entropie_calculee < entropie_min) {
+            entropie_min = entropie_calculee;
+            i_min = i;
+        }
+    }
+
+    return i_min;
+}
+
+
+/* Comme id3 (cf. plus loin) mais n’utilise pas les indices de utilisees */
+darbre id3_aux(jeu_donnees_c jdc, bool_vec utilisees) {
+    if (jdc.taille == 1) {
+        return cree_feuille(jdc.contenu[0]->classe);
+    }
+    int i_min = minimiseur_entropie(jdc, utilisees);
+    utilisees.contenu[i_min] = true;
+
+    jeu_donnees_c jdc_i_faux;
+    jeu_donnees_c jdc_i_vrai;
+    partitionne_jdc(jdc, i_min, &jdc_i_faux, &jdc_i_vrai);
+
+    darbre arbre_faux = id3_aux(jdc_i_faux, utilisees);
+    darbre arbre_vrai = id3_aux(jdc_i_vrai, utilisees);
+    free(jdc_i_faux.contenu);
+    free(jdc_i_vrai.contenu);
+
+    utilisees.contenu[i_min] = false;
+    return cree_noeud(i_min, arbre_faux, arbre_vrai);
+}
+
+
+/* Renvoie un arbre de décision pour le jeu de données jdc. Renvoie un arbre
+ * écourté puis dont les disjonctions inutiles ont été supprimées. Plante
+ * si le jeu de données est vide. */
+darbre id3(jeu_donnees_c jdc) {
+    assert(jdc.taille != 0);
+    int dim = jdc.contenu[0]->donnee.dim;
+
+    bool_vec utilisees;
+    utilisees.contenu = malloc(dim*sizeof(bool));
+    for (int i = 0; i < dim; i++)
+        utilisees.contenu[i] = false;
+
+    darbre res = id3_aux(jdc, utilisees);
+    supprime_disjonctions_inutiles(&res); // écourte aussi l’arbre
+
+    free(utilisees.contenu);
+    return res;
 }
 
 
@@ -629,8 +812,10 @@ int main () {
     d.contenu[2] = false;
     d.dim = 3;
 
+    /* test de lit_darbre */
     assert(lit_darbre(ex, d) == 3);
 
+    /* test de sont_egaux */
     darbre ex_autre_part_sur_la_memoire = exemple_1();
     assert(sont_egaux(ex, ex_autre_part_sur_la_memoire));
 
@@ -641,18 +826,170 @@ int main () {
     ex_autre_part_sur_la_memoire->vrai->vrai->i = 1;
     assert(!sont_egaux(ex, ex_autre_part_sur_la_memoire));
 
+    /* test de est_homogene */
     assert(est_homogene(ex) == -1);
     assert(est_homogene(ex->faux) == 0);
 
+    /* test de fusionne_homogene et fusionne_homogene_modif */
     darbre ex1h = fusionne_homogene(ex);
+    printf("fusionne_homogene(exemple_1())\n");
     affiche_arbre(ex1h);
     fusionne_homogene_modif(&ex);
     affiche_arbre(ex);
     assert(sont_egaux(ex, ex1h));
 
+    printf("fusionne_homogene(example_3(3))\n");
+    darbre ex3 = exemple_3(3);
+    darbre ex3h = cree_noeud(
+        0,
+        cree_feuille(0),
+        cree_feuille(1)
+    );
+
+    fusionne_homogene_modif(&ex3);
+    affiche_arbre(ex3);
+    affiche_arbre(ex3h);
+    assert(sont_egaux(ex3, ex3h));
+
+    /* test de supprime_disjonctions_inutiles */
+    printf("supprime_disjonctions_inutiles(example_2(3))\n");
+    darbre ex2 = exemple_2(3);
+    affiche_arbre(ex2);
+    supprime_disjonctions_inutiles(&ex2);
+    darbre ex2bis = cree_noeud(
+        2,
+        cree_feuille(0),
+        cree_feuille(1)
+    );
+    affiche_arbre(ex2);
+    affiche_arbre(ex2bis);
+    assert(sont_egaux(ex2, ex2bis));
+
+    /* test de complete_profil */
+    jeu_donnees_c jdc = cree_jeu_donnees_exemple();
+    int profil[K];
+    complete_profil(jdc, profil);
+    assert(profil[0] == 8);
+    assert(profil[1] == 4);
+    assert(profil[2] == 4);
+    assert(profil[3] == 0);
+
+    /* test de jdc_est_homogene */
+    assert(jdc_est_homogene(jdc) == -1);
+
+    jeu_donnees_c jdc_test;
+    jdc_test.taille = 3;
+    jdc_test.contenu = malloc(3*sizeof(donnee_c));
+    bool arr0[2] = {false, false};
+    bool arr1[2] = {true, false};
+    bool arr2[2] = {true, true};
+    jdc_test.contenu[0] = cree_donnee_classifiee(arr0, 2, 1);
+    jdc_test.contenu[1] = cree_donnee_classifiee(arr1, 2, 1);
+    jdc_test.contenu[2] = cree_donnee_classifiee(arr2, 2, 1);
+    assert(jdc_est_homogene(jdc_test) == 1);
+
+    /* test de entropie (calcul à la main au préalable) */
+    float epsilon = 0.0001;
+
+    float entropie_jdc = 1.039720771;
+    float entropie_jdc_calculee = entropie(jdc);
+    assert(entropie_jdc-epsilon <= entropie_jdc_calculee);
+    assert(entropie_jdc_calculee <= entropie_jdc+epsilon);
+
+    float entropie_jdc_test_calculee = entropie(jdc_test);
+    assert(-epsilon <= entropie_jdc_test_calculee);
+    assert(entropie_jdc_test_calculee <= epsilon);
+
+    /* test de partitionne_jdc */
+    jeu_donnees_c jdc_2_faux;
+    jeu_donnees_c jdc_2_vrai;
+    partitionne_jdc(jdc, 2, &jdc_2_faux, &jdc_2_vrai);
+    assert(jdc_2_faux.taille == 8);
+    assert(jdc_2_vrai.taille == 8);
+    for (int j = 0; j < jdc.taille; j++) {
+        // décommenter les printf pour constater que la formule moche fonctionne
+        if ((j&2) == 0) {
+            // printf("%.2d %d f\n", j, 2*(j/4)+((j%4)%2));
+            assert(jdc_2_faux.contenu[2*(j/4)+((j%4)%2)] == jdc.contenu[j]);
+        } else {
+            // printf("%.2d %d v\n", j, 2*(j/4)+((j%4)%2));
+            assert(jdc_2_vrai.contenu[2*(j/4)+((j%4)%2)] == jdc.contenu[j]);
+        }
+    }
+
+    /* test de entropie_disjonction_i */
+    float entropie_disjonction_2_calculee = entropie_disjonction_i(jdc, 2);
+    // note : entropie_disjonction_2 = ½ln(8) = entropie_jdc
+    assert(entropie_jdc-epsilon <= entropie_disjonction_2_calculee);
+    assert(entropie_disjonction_2_calculee <= entropie_jdc+epsilon);
+
+    float entropie_disjonction_3 = 0.3465735903;
+    float entropie_disjonction_3_calculee = entropie_disjonction_i(jdc, 3);
+    assert(entropie_disjonction_3-epsilon <= entropie_disjonction_3_calculee);
+    assert(entropie_disjonction_3_calculee <= entropie_disjonction_3+epsilon);
+
+    /* test de minimiseur_entropie */
+    bool_vec utilisees;
+    utilisees.contenu = malloc(4*sizeof(bool));
+    for (int i = 0; i < 4; i++)
+        utilisees.contenu[i] = false;
+    assert(minimiseur_entropie(jdc, utilisees) == 3);
+
+    utilisees.contenu[3] = true;
+    // entropie selon 0 : 0.6931
+    // entropie selon 1 : 1.0397
+    // entropie selon 2 : 1.0397
+    assert(minimiseur_entropie(jdc, utilisees) == 0);
+
+    /* test id3 */
+    printf("ID3\n");
+    darbre id3_jdc = id3(jdc);
+    affiche_arbre(id3_jdc);
+    darbre arbre_attendu = cree_noeud(
+        3,
+        cree_feuille(0),
+        cree_noeud(
+            0,
+            cree_feuille(2),
+            cree_feuille(1)
+        )
+    );
+    assert(sont_egaux(id3_jdc, arbre_attendu));
+
+    darbre id3_jdc_test = id3(jdc_test);
+    darbre arbre_attendu_jdc_test = cree_feuille(1);
+    assert(sont_egaux(id3_jdc_test, arbre_attendu_jdc_test));
+
+    /* libération de la mémoire */
     free(d.contenu);
     libere_darbre(ex);
     libere_darbre(ex_autre_part_sur_la_memoire);
     libere_darbre(ex1h);
+    libere_darbre(ex3);
+    libere_darbre(ex3h);
+    libere_darbre(ex2);
+    libere_darbre(ex2bis);
+    libere_darbre(id3_jdc);
+    libere_darbre(arbre_attendu);
+    libere_darbre(id3_jdc_test);
+    libere_darbre(arbre_attendu_jdc_test);
+
+    /* jeu de données */
+    for (int i = 0; i < jdc.taille; i++) {
+        free(jdc.contenu[i]->donnee.contenu);
+        free(jdc.contenu[i]);
+    }
+    free(jdc.contenu);
+    free(jdc_2_faux.contenu);
+    free(jdc_2_vrai.contenu);
+
+    for (int i = 0; i < jdc_test.taille; i++) {
+        free(jdc_test.contenu[i]->donnee.contenu);
+        free(jdc_test.contenu[i]);
+    }
+    free(jdc_test.contenu);
+
+    free(utilisees.contenu);
+
     return 0;
 }
