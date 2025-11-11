@@ -794,7 +794,7 @@ darbre id3(jeu_donnees_c jdc) {
         utilisees.contenu[i] = false;
 
     darbre res = id3_aux(jdc, utilisees);
-    supprime_disjonctions_inutiles(&res); // écourte aussi l’arbre
+    supprime_disjonctions_inutiles(&res);  // écourte aussi l’arbre
 
     free(utilisees.contenu);
     return res;
