@@ -115,27 +115,51 @@ let test_supprime_occurences : unit =
 
 
 (* Renvoie deux sous-listes : celle des éléments de l d’indice strictement
- * inférieur à i, et celle des élémenst de l d’indice supérieur à i.
+ * inférieur à i, et celle des éléments de l d’indice supérieur à i.
  * En syntaxe python : (l[:i], l[i:]).
  * Si i < 0, renvoie ([], l) et si i ⩾ List.length l, renvoie (l, []) *)
-let rec sous_listes (l: 'a list) (i: int) : 'a list * 'a list =
+let sous_listes_8 (l: 'a list) (i: int) : 'a list * 'a list =
+  (* Renvoie deux sous-listes : le miroir de accu concaténé avec les éléments
+   * de l d’indice strictement inférieur à j, et celle des éléments de l
+   * d’indice supérieur à j *)
+  let rec sous_listes_accu
+      (l': 'a list) (j: int) (accu: 'a list): 'a list * 'a list =
+    if j <= 0 then (miroir accu), l'
+    else begin
+      match l' with
+      | [] -> (miroir accu), []
+      | x::q -> sous_listes_accu q (j-1) (x::accu)
+      end
+  in sous_listes_accu l i []
+
+let test_sous_listes_8 : unit =
+  assert (sous_listes_8 [] 0 = ([], []));
+  assert (sous_listes_8 [1] 0 = ([], [1]));
+  assert (sous_listes_8 [1] 1 = ([1], []));
+  assert (sous_listes_8 [1; 2] 1 = ([1], [2]));
+  assert (sous_listes_8 (list_make 10 0) 5 = (list_make 5 0, list_make 5 5));
+  assert (sous_listes_8 (list_make 10 0) 2 = (list_make 2 0, list_make 8 2))
+
+
+(* Idem que sous_listes_8 *)
+let rec sous_listes_9 (l: 'a list) (i: int) : 'a list * 'a list =
   if i <= 0 then
     [], l
   else begin
     match l with
     | [] -> [], []
     | x::q ->
-        let l1, l2 = sous_listes q (i-1) in
+        let l1, l2 = sous_listes_9 q (i-1) in
         x::l1, l2
   end
 
-let test_sous_listes : unit =
-  assert (sous_listes [] 0 = ([], []));
-  assert (sous_listes [1] 0 = ([], [1]));
-  assert (sous_listes [1] 1 = ([1], []));
-  assert (sous_listes [1; 2] 1 = ([1], [2]));
-  assert (sous_listes (list_make 10 0) 5 = (list_make 5 0, list_make 5 5));
-  assert (sous_listes (list_make 10 0) 2 = (list_make 2 0, list_make 8 2))
+let test_sous_listes_9 : unit =
+  assert (sous_listes_9 [] 0 = ([], []));
+  assert (sous_listes_9 [1] 0 = ([], [1]));
+  assert (sous_listes_9 [1] 1 = ([1], []));
+  assert (sous_listes_9 [1; 2] 1 = ([1], [2]));
+  assert (sous_listes_9 (list_make 10 0) 5 = (list_make 5 0, list_make 5 5));
+  assert (sous_listes_9 (list_make 10 0) 2 = (list_make 2 0, list_make 8 2))
 
 
 (* La question 9 est presque similaire à la question 8. Voici le diff :
