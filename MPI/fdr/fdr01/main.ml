@@ -200,4 +200,15 @@ let test_pair_impair_tr : unit =
   )
 
 
-(* todo palindrome *)
+(* Renvoie true si la liste est un palindrome *)
+let palindrome (l: 'a list) : bool =
+  (* O(n) pour miroir et O(n) pour la comparaison *)
+  miroir l = l
+
+let test_palindrome : unit =
+  assert (palindrome []);
+  assert (palindrome [1]);
+  assert (palindrome [0; 1; 2; 1; 0]);
+  assert (palindrome [0; 1; 2; 2; 1; 0]);
+  assert (not (palindrome [0; 1]));
+  assert (not (palindrome [0; 1; 2]))
