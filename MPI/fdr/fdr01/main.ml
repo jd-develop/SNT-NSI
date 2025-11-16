@@ -162,14 +162,6 @@ let test_sous_listes_9 : unit =
   assert (sous_listes_9 (list_make 10 0) 2 = (list_make 2 0, list_make 8 2))
 
 
-(* La question 9 est presque similaire à la question 8. Voici le diff :
- *  4c4
- *  < ne pas faire appel à une fonction récursive auxiliaire
- *  ---
- *  > ne pas faire appel à des fonctions récursives auxiliaires.
- *)
-
-
 (* Renvoie le couple de la liste des éléments d’indice pairs dans l et de
  * la liste des éléments d’indice impairs dans l. On conserve l’ordre des
  * éléments *)
