@@ -16,8 +16,9 @@ int main() {
 
     vector vecteur_nul_0 = create_zero_vector(0);
     assert(vecteur_nul_0->taille == 0);
-    /* On n’asserte rien sur vecteur_nul_0->content car c’est spécifique à
-     * chaque implémentation de C (ça peut être NULL ou autre chose) : cf.
+    /* On n’asserte rien sur vecteur_nul_0->content car le résultat de
+     * malloc(0) est spécifique à chaque implémentation de C (ça peut être NULL
+     * ou autre chose) : cf.
      * https://stackoverflow.com/questions/2022335/whats-the-point-of-malloc0
      * Une chose est sûre : le free marchera.
      */
