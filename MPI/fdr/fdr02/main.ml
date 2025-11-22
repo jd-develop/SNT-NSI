@@ -135,7 +135,7 @@ let test_sum_fold_left : unit =
   assert (sum_fold_left [|1; 2; 3|] = 6)
 
 
-(* Renvoie l’indice du minimum dans le tableau t. Lève l’exection
+(* Renvoie l’indice du minimum dans le tableau t. Lève l’execption
  * Invalid_argument lorsque t est vide *)
 let indice_minimum (t: int array) : int =
   let n = Array.length t in
@@ -159,5 +159,99 @@ let test_indice_mininum : unit =
     | Invalid_argument _ -> true
   );
   assert (indice_minimum [|0; 1; 7; 2|] = 0);
+  assert (indice_minimum [|0; 1; 7; 2; 0|] = 0);
   assert (indice_minimum [|7|] = 0)
 
+
+(* Renvoie l’indice du maximum dans le tableau t. Lève l’exception
+ * Invalid_argument lorsque t est vide *)
+let indice_maximum (t: int array) : int =
+  let n = Array.length t in
+  if n = 0 then raise (Invalid_argument "indice_maximum: t est vide");
+  (* l’accumulateur est un couple (indice actuel, indice maximum, maximum) *)
+  let _, idx, _ = Array.fold_left
+    (fun (idx_actuel, idx_maximum, maximum: int * int * int) (elt: int) ->
+      if elt > maximum then (idx_actuel+1, idx_actuel, elt)
+      else (idx_actuel+1, idx_maximum, maximum))
+    (0, 0, t.(0)) t
+  in
+  idx
+
+let test_indice_maximum : unit =
+  assert (indice_maximum [|3; 7; 0; 6; -2; 4|] = 1);
+  assert (
+    try
+      let _ = indice_maximum [||] in false
+    with
+    | Invalid_argument _ -> true
+  );
+  assert (indice_maximum [|0; 1; 7; 2|] = 2);
+  assert (indice_maximum [|7|] = 0);
+  assert (indice_maximum [|0; 7; 1; 7; 2|] = 1)
+
+
+(* Renvoie un tableau t', de même taille que t, contenant les sommes cumulées
+ * des éléments de t, i.e. t'.(i) = t.(0) + ... + t.(i) *)
+let sommes_cumulees (t: int array) : int array =
+  let n = Array.length t in
+  let t' = Array.make n 0 in
+  let somme = ref 0 in
+  for i = 0 to (n-1) do
+    somme := !somme + t.(i);
+    t'.(i) <- !somme
+  done;
+  t'
+
+let test_sommes_cumulees : unit =
+  assert (sommes_cumulees [||] = [||]);
+  assert (sommes_cumulees [|1|] = [|1|]);
+  assert (sommes_cumulees [|5; 2; -1; 4; 12|] = [|5; 7; 6; 10; 22|])
+
+
+(* Modifie t de façon à ce qu’à la fin de l’appel, t.(i) contienne
+ * i::(l’ancienne valeur de t.(i)) *)
+let ajoute_indices (t: int list array) : unit =
+  let n = Array.length t in
+  for i = 0 to (n-1) do
+    t.(i) <- i::(t.(i))
+  done
+
+let test_ajoute_indices : unit =
+  let t1 = [||] in
+  ajoute_indices t1;
+  assert (t1 = [||]);
+  let t2 = [|[]; [5; 2]; [23; 4]|] in
+  ajoute_indices t2;
+  assert (t2 = [|[0]; [1; 5; 2]; [2; 23; 4]|]);
+  ajoute_indices t2;
+  assert (t2 = [|[0; 0]; [1; 1; 5; 2]; [2; 2; 23; 4]|])
+
+
+(* Renvoie le tableau t' de même taille que t tel que t'.(i) = x::t.(i) *)
+let ajoute_entier (t: int list array) (x: int) : int list array =
+  Array.map (fun l -> x::l) t
+
+let test_ajoute_entier : unit =
+  assert (ajoute_entier [||] 2 = [||]);
+  assert (ajoute_entier [|[]|] 5 = [|[5]|]);
+  assert (
+    ajoute_entier [|[]; [5; 2]; [23; 4]|] 3 = [|[3]; [3; 5; 2]; [3; 23; 4]|]
+  )
+
+
+(* Étant donné t un tableau d’entiers à valeurs dans [|0, m-1|], renvoie
+ * l’entier de [|0, m-1|] ayant le plus d’occurences dans t *)
+let plus_d_occurrences (t: int array) (m: int) : int =
+  (* On stocke le nombre d’occurences de chaque entier dans t' *)
+  let t' = Array.make m 0 in
+  Array.fold_left (fun () elt -> t'.(elt) <- t'.(elt)+1) () t;
+  (* On renvoie l’entier avec le + d’occurences *)
+  indice_maximum t'
+
+
+let test_plus_d_occurrences : unit =
+  assert (plus_d_occurrences [||] 1 = 0);
+  assert (plus_d_occurrences [|100|] 120 = 100); (* ici, une approche avec des
+                                                  * Hashtbl aurait sûrement été
+                                                  * plus judicieuse *)
+  assert (plus_d_occurrences [|7; 4; 3; 4; 5; 3; 2; 0; 2; 4|] 8 = 4)
