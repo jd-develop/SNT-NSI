@@ -9,7 +9,6 @@
 
 int main (){
     srand(time(NULL));
-    /* remplacer -1 par la valeur adéquate */
     nb_class_max = 4;
 
     vector v = create_zero_vector(2);
