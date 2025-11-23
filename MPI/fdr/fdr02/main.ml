@@ -255,3 +255,28 @@ let test_plus_d_occurrences : unit =
                                                   * Hashtbl aurait sûrement été
                                                   * plus judicieuse *)
   assert (plus_d_occurrences [|7; 4; 3; 4; 5; 3; 2; 0; 2; 4|] 8 = 4)
+
+
+(* Trie le tableau t par ordre croissant (modifie t) *)
+let bubble_sort (t: int array) : unit =
+  let n = Array.length t in
+  for i = (n-1) downto 1 do
+    for j = 0 to (i-1) do
+      if t.(j) > t.(j+1) then begin
+        let temp = t.(j+1) in
+        t.(j+1) <- t.(j);
+        t.(j) <- temp
+      end
+    done
+  done
+
+let test_bubble_sort : unit =
+  let t1 = [||] in
+  bubble_sort t1;
+  assert (t1 = [||]);
+  let t2 = [|1|] in
+  bubble_sort t2;
+  assert (t2 = [|1|]);
+  let t3 = [|5; 9; 6; -1; 4; 6; 7; 12; 0; -25|] in
+  bubble_sort t3;
+  assert (t3 = [|-25; -1; 0; 4; 5; 6; 6; 7; 9; 12|])
