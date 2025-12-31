@@ -478,90 +478,77 @@ uf_partition_t ex9() {
 }
 
 void test_Q1() {
-    printf("décommenter le corps de test_Q1 après avoir codé uf_initialize\n");
-    /*
     uf_partition_t part_0 = uf_initialize(0);
     int q1_test = 10;
     uf_partition_t part_1 = uf_initialize(q1_test);
-    for (int i = 0; i < q1_test; i ++) {
-     assert(part_1[i]->rank == 0);
-     assert(part_1[i]->elem == i);
-     assert(part_1[i]->parent == part_1[i]);
+    for (int i = 0; i < q1_test; i++) {
+        assert(part_1[i]->rank == 0);
+        assert(part_1[i]->elem == i);
+        assert(part_1[i]->parent == part_1[i]);
     }
+    uf_free(part_0, 0); // cette ligne n’était pas présente à l’origine
     uf_free(part_1, q1_test);
     printf("Test Q1 OK\n");
-    */
 }
 
 void test_Q2() {
-    printf("décommenter le corps de test_Q2 après avoir codé uf_free\n");
-    /*
     uf_partition_t part_0 = uf_initialize(0);
     int q1_test = 10;
     uf_partition_t part_1 = uf_initialize(q1_test);
     uf_free(part_0, 0);
     uf_free(part_1, q1_test);
     printf("Test Q2 OK\n");
-    */
 }
 
 void test_Q3() {
-    printf("décommenter le corps de test_Q3 après avoir codé uf_free\n");
-    /*
-            uf_partition_t q3_ex = exemple_pour_test_0();
-            uf_partition_t q3_ex_copy = exemple_pour_test_0();
-            assert(uf_find_no(q3_ex[0]) == q3_ex[5]);
-            assert(uf_find_no(q3_ex[1]) == q3_ex[7]);
-            assert(uf_find_no(q3_ex[2]) == q3_ex[7]);
-            assert(uf_find_no(q3_ex[3]) == q3_ex[7]);
-            assert(uf_find_no(q3_ex[4]) == q3_ex[4]);
-            assert(uf_find_no(q3_ex[5]) == q3_ex[5]);
-            assert(uf_find_no(q3_ex[6]) == q3_ex[6]);
-            assert(uf_find_no(q3_ex[7]) == q3_ex[7]);
-            assert(uf_find_no(q3_ex[8]) == q3_ex[4]);
-            assert(uf_find_no(q3_ex[9]) == q3_ex[4]);
-            assert(uf_find_no(q3_ex[10]) == q3_ex[4]);
-            equality(q3_ex, q3_ex_copy, 11);
-            uf_free(q3_ex, 11);
-            uf_free(q3_ex_copy, 11);
-            printf("Test Q3 OK\n");
-            */
+    uf_partition_t q3_ex = exemple_pour_test_0();
+    uf_partition_t q3_ex_copy = exemple_pour_test_0();
+    assert(uf_find_no(q3_ex[0]) == q3_ex[5]);
+    assert(uf_find_no(q3_ex[1]) == q3_ex[7]);
+    assert(uf_find_no(q3_ex[2]) == q3_ex[7]);
+    assert(uf_find_no(q3_ex[3]) == q3_ex[7]);
+    assert(uf_find_no(q3_ex[4]) == q3_ex[4]);
+    assert(uf_find_no(q3_ex[5]) == q3_ex[5]);
+    assert(uf_find_no(q3_ex[6]) == q3_ex[6]);
+    assert(uf_find_no(q3_ex[7]) == q3_ex[7]);
+    assert(uf_find_no(q3_ex[8]) == q3_ex[4]);
+    assert(uf_find_no(q3_ex[9]) == q3_ex[4]);
+    assert(uf_find_no(q3_ex[10]) == q3_ex[4]);
+    equality(q3_ex, q3_ex_copy, 11);
+    uf_free(q3_ex, 11);
+    uf_free(q3_ex_copy, 11);
+    printf("Test Q3 OK\n");
 }
 
 void test_Q4() {
-    printf("décommenter le corps de test_Q4 après avoir codé uf_free\n");
-    /*
-            uf_partition_t q4_ex = exemple_pour_test_1();
-            uf_partition_t q4_ex_res = exemple_pour_test_2();
-            assert(uf_find(q4_ex[8]) == q4_ex[7]);
-            equality(q4_ex, q4_ex_res, 10);
-            assert(uf_find(q4_ex[0]) == q4_ex[0]);
-            assert(uf_find(q4_ex[1]) == q4_ex[7]);
-            assert(uf_find(q4_ex[2]) == q4_ex[7]);
-            assert(uf_find(q4_ex[3]) == q4_ex[7]);
-            assert(uf_find(q4_ex[4]) == q4_ex[7]);
-            assert(uf_find(q4_ex[5]) == q4_ex[7]);
-            assert(uf_find(q4_ex[6]) == q4_ex[7]);
-            assert(uf_find(q4_ex[7]) == q4_ex[7]);
-            assert(uf_find(q4_ex[8]) == q4_ex[7]);
-            assert(uf_find(q4_ex[9]) == q4_ex[7]);
-            assert(q4_ex[0]->rank == q4_ex_res[0]->rank);
-            assert(q4_ex[0]->elem == 0);
-            assert(q4_ex[0]->parent == q4_ex[0]);
-            for (int i = 1; i < 10; i ++) {
-             assert(q4_ex[i]->rank == q4_ex_res[i]->rank);
-             assert(q4_ex[i]->elem == i);
-             assert(q4_ex[i]->parent == q4_ex[7]);
-            }
-            uf_free(q4_ex, 10);
-            uf_free(q4_ex_res, 10);
-            printf("Test Q4 OK\n");
-            */
+    uf_partition_t q4_ex = exemple_pour_test_1();
+    uf_partition_t q4_ex_res = exemple_pour_test_2();
+    assert(uf_find(q4_ex[8]) == q4_ex[7]);
+    equality(q4_ex, q4_ex_res, 10);
+    assert(uf_find(q4_ex[0]) == q4_ex[0]);
+    assert(uf_find(q4_ex[1]) == q4_ex[7]);
+    assert(uf_find(q4_ex[2]) == q4_ex[7]);
+    assert(uf_find(q4_ex[3]) == q4_ex[7]);
+    assert(uf_find(q4_ex[4]) == q4_ex[7]);
+    assert(uf_find(q4_ex[5]) == q4_ex[7]);
+    assert(uf_find(q4_ex[6]) == q4_ex[7]);
+    assert(uf_find(q4_ex[7]) == q4_ex[7]);
+    assert(uf_find(q4_ex[8]) == q4_ex[7]);
+    assert(uf_find(q4_ex[9]) == q4_ex[7]);
+    assert(q4_ex[0]->rank == q4_ex_res[0]->rank);
+    assert(q4_ex[0]->elem == 0);
+    assert(q4_ex[0]->parent == q4_ex[0]);
+    for (int i = 1; i < 10; i++) {
+        assert(q4_ex[i]->rank == q4_ex_res[i]->rank);
+        assert(q4_ex[i]->elem == i);
+        assert(q4_ex[i]->parent == q4_ex[7]);
+    }
+    uf_free(q4_ex, 10);
+    uf_free(q4_ex_res, 10);
+    printf("Test Q4 OK\n");
 }
 
 void test_Q5() {
-    printf("décommenter le corps de test_Q5 après avoir codé uf_free\n");
-    /*
     int q5_size = 10;
     uf_partition_t q5_ex = uf_initialize(q5_size);
 
@@ -608,16 +595,13 @@ void test_Q5() {
     uf_free(uf8, q5_size);
     uf_free(uf9, q5_size);
     printf("Test Q5 OK\n");
-    */
 }
 
 int main() {
-    printf("Décommenter les tests dans le fichier tests_uf.c afin de tester "
-           "les fonctions de l'exercice 1.\n\n\n");
-    /* test_Q1();*/
-    /* test_Q2();*/
-    /* test_Q3();*/
-    /* test_Q4();*/
-    /* test_Q5();*/
+    test_Q1();
+    test_Q2();
+    test_Q3();
+    test_Q4();
+    test_Q5();
     return 0;
 }
