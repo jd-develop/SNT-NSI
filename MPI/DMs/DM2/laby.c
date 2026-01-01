@@ -213,7 +213,7 @@ void rec_generator(laby_t laby, bool *visited, int i, int j) {
             do {
                 ok = true;
                 // on choisit une direction
-                directions[k] = rand()%4;
+                directions[k] = rand() % 4;
                 // on regarde si on l’a déjà choisie
                 for (int j = 0; j < k; j++) {
                     if (directions[k] == directions[j]) {
@@ -224,37 +224,37 @@ void rec_generator(laby_t laby, bool *visited, int i, int j) {
                 }
             } while (!ok);
             // on a une direction qu’on n’a pas encore faite
-            if (directions[k] == 0) {  // nord
+            if (directions[k] == 0) { // nord
                 if (
-                        is_in_laby(laby, i-1, j) &&
-                        !visited[linearise(laby, i-1, j)]
+                        is_in_laby(laby, i - 1, j) &&
+                        !visited[linearise(laby, i - 1, j)]
                 ) {
-                    casse_mur(laby, i, j, i-1, j);
-                    rec_generator(laby, visited, i-1, j);
+                    casse_mur(laby, i, j, i - 1, j);
+                    rec_generator(laby, visited, i - 1, j);
                 }
-            } else if (directions[k] == 1) {  // est
+            } else if (directions[k] == 1) { // est
                 if (
-                        is_in_laby(laby, i, j+1) &&
-                        !visited[linearise(laby, i, j+1)]
+                        is_in_laby(laby, i, j + 1) &&
+                        !visited[linearise(laby, i, j + 1)]
                 ) {
-                    casse_mur(laby, i, j, i, j+1);
-                    rec_generator(laby, visited, i, j+1);
+                    casse_mur(laby, i, j, i, j + 1);
+                    rec_generator(laby, visited, i, j + 1);
                 }
-            } else if (directions[k] == 2) {  // sud
+            } else if (directions[k] == 2) { // sud
                 if (
-                        is_in_laby(laby, i+1, j) &&
-                        !visited[linearise(laby, i+1, j)]
+                        is_in_laby(laby, i + 1, j) &&
+                        !visited[linearise(laby, i + 1, j)]
                 ) {
-                    casse_mur(laby, i, j, i+1, j);
-                    rec_generator(laby, visited, i+1, j);
+                    casse_mur(laby, i, j, i + 1, j);
+                    rec_generator(laby, visited, i + 1, j);
                 }
             } else if (directions[k] == 3) {
                 if (
-                        is_in_laby(laby, i, j-1) &&
-                        !visited[linearise(laby, i, j-1)]
+                        is_in_laby(laby, i, j - 1) &&
+                        !visited[linearise(laby, i, j - 1)]
                 ) {
-                    casse_mur(laby, i, j, i, j-1);
-                    rec_generator(laby, visited, i, j-1);
+                    casse_mur(laby, i, j, i, j - 1);
+                    rec_generator(laby, visited, i, j - 1);
                 }
             }
         }
@@ -265,14 +265,122 @@ void rec_generator(laby_t laby, bool *visited, int i, int j) {
 void generate_laby(laby_t laby) {
     int w = laby.width;
     int h = laby.height;
-    bool* visited = malloc(w*h*sizeof(bool));
+    bool *visited = malloc(w * h * sizeof(bool));
+    rec_generator(laby, visited, 0, 0);
+    free(visited);
+}
+
+
+/* Idem, mais sans récursivité */
+void generate_laby_q2(laby_t laby) {
+    /* TODO faire marcher cette fonction */
+    /* pour une cellule, stocke les directions essayées (même rôle que le
+     * tableau directions dans la version récursive) */
+    struct cell_directions {
+        int cell;
+        bool directions[4];
+    };
+    int w = laby.width;
+    int h = laby.height;
+    bool *visited = malloc(w * h * sizeof(bool));
+
+    struct cell_directions *pile =
+        malloc(w * h * sizeof(struct cell_directions));
+    pile[0].cell = 0;
+    pile[0].directions[0] = false;
+    pile[0].directions[1] = false;
+    pile[0].directions[2] = false;
+    pile[0].directions[3] = false;
+    int tete_pile = 0;
+
     int i;
     int j;
-    for (int k = 0; k < w*h; k++) {
-        if (!visited[k]) {
-            delinearise(laby, k, &i, &j);
-            rec_generator(laby, visited, i, j);
+
+    while (tete_pile != -1) {
+        visited[pile[tete_pile].cell] = true;
+
+        // si on a testé toutes les directions -> on dépile
+        bool tout_teste = true;
+        for (int k = 0; k < 4; k++) {
+            if (!pile[tete_pile].directions[k]) {
+                tout_teste = false;
+                break;
+            }
+        }
+        if (tout_teste) {
+            tete_pile--;
+        } else {
+            int direction;
+            bool ok = true;
+            do {
+                ok = true;
+                // on choisit une direction
+                direction = rand() % 4;
+                // on regarde si on l’a déjà choisie
+                if (pile[tete_pile].directions[direction])
+                    ok = false;
+            } while (!ok);
+
+            pile[tete_pile].directions[direction] = true;
+            delinearise(laby, pile[tete_pile].cell, &i, &j);
+
+            // on a une direction qu’on n’a pas encore faite
+            if (direction == 0) { // nord
+                if (
+                        is_in_laby(laby, i - 1, j) &&
+                        !visited[linearise(laby, i - 1, j)]
+                ) {
+                    casse_mur(laby, i, j, i - 1, j);
+                    tete_pile++;
+                    pile[tete_pile].cell = linearise(laby, i - 1, j);
+                    pile[tete_pile].directions[0] = false;
+                    pile[tete_pile].directions[1] = false;
+                    pile[tete_pile].directions[2] = true;
+                    pile[tete_pile].directions[3] = false;
+                }
+            } else if (direction == 1) { // est
+                if (
+                        is_in_laby(laby, i, j + 1) &&
+                        !visited[linearise(laby, i, j + 1)]
+                ) {
+                    casse_mur(laby, i, j, i, j + 1);
+                    tete_pile++;
+                    pile[tete_pile].cell = linearise(laby, i, j + 1);
+                    pile[tete_pile].directions[0] = false;
+                    pile[tete_pile].directions[1] = false;
+                    pile[tete_pile].directions[2] = false;
+                    pile[tete_pile].directions[3] = true;
+                }
+            } else if (direction == 2) { // sud
+                if (
+                        is_in_laby(laby, i + 1, j) &&
+                        !visited[linearise(laby, i + 1, j)]
+                ) {
+                    casse_mur(laby, i, j, i + 1, j);
+                    tete_pile++;
+                    pile[tete_pile].cell = linearise(laby, i + 1, j);
+                    pile[tete_pile].directions[0] = true;
+                    pile[tete_pile].directions[1] = false;
+                    pile[tete_pile].directions[2] = false;
+                    pile[tete_pile].directions[3] = false;
+                }
+            } else if (direction == 3) {
+                if (
+                        is_in_laby(laby, i, j - 1) &&
+                        !visited[linearise(laby, i, j - 1)]
+                ) {
+                    casse_mur(laby, i, j, i, j - 1);
+                    tete_pile++;
+                    pile[tete_pile].cell = linearise(laby, i, j - 1);
+                    pile[tete_pile].directions[0] = false;
+                    pile[tete_pile].directions[1] = true;
+                    pile[tete_pile].directions[2] = false;
+                    pile[tete_pile].directions[3] = false;
+                }
+            }
         }
     }
+
+    free(pile);
     free(visited);
 }

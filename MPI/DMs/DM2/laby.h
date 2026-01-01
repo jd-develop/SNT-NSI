@@ -70,6 +70,7 @@ typedef struct mur_s mur_t;
 /* à implémenter dans laby.c */
 void rec_generator(laby_t laby, bool *visited, int i, int j);
 void generate_laby(laby_t laby);
+void generate_laby_q2(laby_t laby);
 void *place_mur(laby_t laby, int k1, int k2, mur_t *p_mur);
 mur_t *tab_murs_laby_plein(laby_t laby);
 bool rec_solver(laby_t laby, bool *chemin, int i, int j);
