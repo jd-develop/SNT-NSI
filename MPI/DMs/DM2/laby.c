@@ -185,3 +185,94 @@ void casse_mur(laby_t laby, int i1, int j1, int i2, int j2) {
             laby.cells[linearise(laby, i2, j2)] % 2;
     }
 }
+
+/*
+void *place_mur(laby_t laby, int k1, int k2, mur_t *p_mur);
+mur_t *tab_murs_laby_plein(laby_t laby);
+bool rec_solver(laby_t laby, bool *chemin, int i, int j);
+bool *solve_labyrinthe(laby_t laby);
+*/
+
+/* Sachant un labyrinthe non encore parfait laby, casse des murs des cases dont
+ * visited est à false à partir de la case d’indice (i, j) au moyen d’un
+ * parcours en profondeur, jusqu’à ce que le labyrinthe soit parfait. Ne fait
+ * rien si (i, j) est une case invalide dans le labyrinthe. */
+void rec_generator(laby_t laby, bool *visited, int i, int j) {
+    if (!visited[linearise(laby, i, j)]) {
+        visited[linearise(laby, i, j)] = true;
+        /* On initialise un tableau pour se souvenir quelles directions on a
+         * visité. On choisit arbitrairement :
+         * * 0 : nord
+         * * 1 : est
+         * * 2 : sud
+         * * 3 : ouest
+         */
+        int directions[4] = {-1, -1, -1, -1};
+        for (int k = 0; k < 4; k++) {
+            bool ok = true;
+            do {
+                ok = true;
+                // on choisit une direction
+                directions[k] = rand()%4;
+                // on regarde si on l’a déjà choisie
+                for (int j = 0; j < k; j++) {
+                    if (directions[k] == directions[j]) {
+                        // si oui, on recommence la boucle do-while
+                        ok = false;
+                        break;
+                    }
+                }
+            } while (!ok);
+            // on a une direction qu’on n’a pas encore faite
+            if (directions[k] == 0) {  // nord
+                if (
+                        is_in_laby(laby, i-1, j) &&
+                        !visited[linearise(laby, i-1, j)]
+                ) {
+                    casse_mur(laby, i, j, i-1, j);
+                    rec_generator(laby, visited, i-1, j);
+                }
+            } else if (directions[k] == 1) {  // est
+                if (
+                        is_in_laby(laby, i, j+1) &&
+                        !visited[linearise(laby, i, j+1)]
+                ) {
+                    casse_mur(laby, i, j, i, j+1);
+                    rec_generator(laby, visited, i, j+1);
+                }
+            } else if (directions[k] == 2) {  // sud
+                if (
+                        is_in_laby(laby, i+1, j) &&
+                        !visited[linearise(laby, i+1, j)]
+                ) {
+                    casse_mur(laby, i, j, i+1, j);
+                    rec_generator(laby, visited, i+1, j);
+                }
+            } else if (directions[k] == 3) {
+                if (
+                        is_in_laby(laby, i, j-1) &&
+                        !visited[linearise(laby, i, j-1)]
+                ) {
+                    casse_mur(laby, i, j, i, j-1);
+                    rec_generator(laby, visited, i, j-1);
+                }
+            }
+        }
+    }
+}
+
+/* Génère un labyrinthe parfait à partir du labyrinthe plein laby */
+void generate_laby(laby_t laby) {
+    int w = laby.width;
+    int h = laby.height;
+    bool* visited = malloc(w*h*sizeof(bool));
+    int i;
+    int j;
+    for (int k = 0; k < w*h; k++) {
+        if (!visited[k]) {
+            delinearise(laby, k, &i, &j);
+            rec_generator(laby, visited, i, j);
+        }
+    }
+    free(visited);
+}
