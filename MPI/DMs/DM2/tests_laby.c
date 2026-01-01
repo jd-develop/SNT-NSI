@@ -28,23 +28,19 @@ int main() {
         laby3.cells[k] = 3;
     }
 
-    /*
     printf("\n==== version récursive ====\n");
     printf("Labyrinthe plein\n");
     draw_laby(laby);
     generate_laby(laby);
     printf("Labyrinthe généré\n");
     draw_laby(laby);
-    */
 
-    /*
     printf("\n==== version impérative ====\n");
     printf("Labyrinthe plein\n");
     draw_laby(laby2);
     generate_laby_q2(laby2);
     printf("Labyrinthe généré\n");
     draw_laby(laby2);
-    */
 
     printf("\n==== version avec union-find ====\n");
     printf("Labyrinthe plein\n");

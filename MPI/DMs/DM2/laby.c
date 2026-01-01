@@ -258,7 +258,10 @@ void rec_generator(laby_t laby, bool *visited, int i, int j) {
 void generate_laby(laby_t laby) {
     int w = laby.width;
     int h = laby.height;
-    bool *visited = malloc(w * h * sizeof(bool));
+    bool* visited = malloc(w * h * sizeof(bool));
+    for (int i = 0; i < w*h; i++) {
+        visited[i] = false;
+    }
     rec_generator(laby, visited, 0, 0);
     free(visited);
 }
@@ -276,6 +279,9 @@ void generate_laby_q2(laby_t laby) {
     int w = laby.width;
     int h = laby.height;
     bool *visited = malloc(w * h * sizeof(bool));
+    for (int i = 0; i < w*h; i++) {
+        visited[i] = false;
+    }
 
     struct cell_directions *pile =
         malloc(w * h * sizeof(struct cell_directions));
