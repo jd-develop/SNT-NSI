@@ -1,4 +1,7 @@
 #include "laby.h"
+// codes couleurs ANSI
+#define GREEN "\033[92m"
+#define RESET "\033[00m"
 
 void draw_laby(laby_t laby) {
     // affiche le labyrinthe laby avec des caractères ASCII
@@ -47,6 +50,8 @@ void draw_laby(laby_t laby) {
 
 void draw_laby_with_visited(laby_t laby, bool *visited) {
     // affiche le labyrinthe laby et le chemin décrit par visited en ASCII
+    /* note : j’ai pris l’initiative de remplacer les · par des # et de les
+     * mettre en vert afin de mieux voir le chemin */
     for (int j = 0; j < laby.width; j++) {
         printf("+-");
     }
@@ -55,7 +60,7 @@ void draw_laby_with_visited(laby_t laby, bool *visited) {
         printf("|");
         for (int j = 0; j < laby.width - 1; j++) {
             if (visited[i * laby.width + j]) {
-                printf("·");
+                printf("%s#%s", GREEN, RESET);
             } else {
                 printf(" ");
             }
@@ -65,14 +70,14 @@ void draw_laby_with_visited(laby_t laby, bool *visited) {
             } else {
                 if (visited[i * laby.width + j] &&
                     visited[i * laby.width + j + 1]) {
-                    printf("·");
+                    printf("%s#%s", GREEN, RESET);
                 } else {
                     printf(" ");
                 }
             }
         }
         if (visited[i * laby.width + laby.width - 1]) {
-            printf("·");
+            printf("%s#%s", GREEN, RESET);
         } else {
             printf(" ");
         }
@@ -85,7 +90,7 @@ void draw_laby_with_visited(laby_t laby, bool *visited) {
             } else {
                 if (visited[i * laby.width + j] &&
                     visited[(i + 1) * laby.width + j]) {
-                    printf("·+");
+                    printf("%s#%s+", GREEN, RESET);
                 } else {
                     printf(" +");
                 }
@@ -96,7 +101,7 @@ void draw_laby_with_visited(laby_t laby, bool *visited) {
     printf("|");
     for (int j = 0; j < laby.width - 1; j++) {
         if (visited[(laby.height - 1) * laby.width + j]) {
-            printf("·");
+            printf("%s#%s", GREEN, RESET);
         } else {
             printf(" ");
         }
@@ -106,14 +111,16 @@ void draw_laby_with_visited(laby_t laby, bool *visited) {
         } else {
             if (visited[(laby.height - 1) * laby.width + j] &&
                 visited[(laby.height - 1) * laby.width + j + 1]) {
-                printf("·");
+                printf("%s#%s", GREEN, RESET);
             } else {
                 printf(" ");
             }
         }
     }
     if (visited[(laby.height - 1) * laby.width + laby.width - 1]) {
-        printf("·");
+        printf("%s#%s", GREEN, RESET);
+    } else {
+        printf(" ");
     }
     printf("|\n");
     printf("+");
@@ -269,7 +276,6 @@ void generate_laby(laby_t laby) {
 
 /* Idem, mais sans récursivité */
 void generate_laby_q2(laby_t laby) {
-    /* TODO faire marcher cette fonction */
     /* pour une cellule, stocke les directions essayées (même rôle que le
      * tableau directions dans la version récursive) */
     struct cell_directions {
@@ -469,3 +475,51 @@ void generate_laby_q5(laby_t laby) {
     free(murs);
 }
 
+
+/* Résoud récursivement le labyrinthe laby à partir de la case (i, j) sachant
+ * le tableau des cases déjà visitées chemin. Renvoie true si une solution
+ * a été trouvée, false sinon. */
+bool rec_solver(laby_t laby, bool* chemin, int i, int j) {
+    int w = laby.width;
+    int h = laby.height;
+
+    if (!is_in_laby(laby, i, j)) {
+        return false;
+    } else if (i == h-1 && j == w-1) {
+        chemin[linearise(laby, i, j)] = true;
+        return true;
+    } else if (chemin[linearise(laby, i, j)]) {
+        return false;
+    } else {
+        chemin[linearise(laby, i, j)] = true;
+        if (
+            (is_in_laby(laby, i-1, j) &&
+               can_go_from(laby, i, j, i-1, j) &&
+               rec_solver(laby, chemin, i-1, j)) ||
+            (is_in_laby(laby, i, j-1) &&
+               can_go_from(laby, i, j, i, j-1) &&
+               rec_solver(laby, chemin, i, j-1)) ||
+            (is_in_laby(laby, i+1, j) &&
+               can_go_from(laby, i, j, i+1, j) &&
+               rec_solver(laby, chemin, i+1, j)) ||
+            (is_in_laby(laby, i, j+1) &&
+               can_go_from(laby, i, j, i, j+1) &&
+               rec_solver(laby, chemin, i, j+1))
+        ) {
+            return true;
+        } else {
+            chemin[linearise(laby, i, j)] = false;
+            return false;
+        }
+    }
+}
+
+/* Résoud le labyrinthe laby en renvoyant les cases visitées */
+bool* solve_labyrinthe(laby_t laby) {
+    bool* chemin = malloc(laby.width*laby.height*sizeof(bool));
+    for (int i = 0; i < laby.width*laby.height; i++) {
+        chemin[i] = false;
+    }
+    rec_solver(laby, chemin, 0, 0);
+    return chemin;
+}
