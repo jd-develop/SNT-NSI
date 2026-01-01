@@ -186,13 +186,6 @@ void casse_mur(laby_t laby, int i1, int j1, int i2, int j2) {
     }
 }
 
-/*
-void *place_mur(laby_t laby, int k1, int k2, mur_t *p_mur);
-mur_t *tab_murs_laby_plein(laby_t laby);
-bool rec_solver(laby_t laby, bool *chemin, int i, int j);
-bool *solve_labyrinthe(laby_t laby);
-*/
-
 /* Sachant un labyrinthe non encore parfait laby, casse des murs des cases dont
  * visited est à false à partir de la case d’indice (i, j) au moyen d’un
  * parcours en profondeur, jusqu’à ce que le labyrinthe soit parfait. Ne fait
@@ -384,3 +377,89 @@ void generate_laby_q2(laby_t laby) {
     free(pile);
     free(visited);
 }
+
+
+/*
+bool rec_solver(laby_t laby, bool *chemin, int i, int j);
+bool* solve_labyrinthe(laby_t laby);
+*/
+
+/* Renvoie le tableau contenant tous les murs du labyrinthe plein de même taille
+ * que laby */
+mur_t* tab_murs_laby_plein(laby_t laby) {
+    int h = laby.height;
+    int w = laby.width;
+
+    mur_t* res = malloc((2*w*h-w-h)*sizeof(mur_t));
+
+    int indice_courant = 0;
+    for (int i = 0; i < h; i++) {
+        for (int j = 0; j < w; j++) {
+            if (i != h-1) {
+                res[indice_courant].i1 = i;
+                res[indice_courant].j1 = j;
+                res[indice_courant].i2 = i+1;
+                res[indice_courant].j2 = j;
+                indice_courant++;
+            }
+
+            if (j != w-1) {
+                res[indice_courant].i1 = i;
+                res[indice_courant].j1 = j;
+                res[indice_courant].i2 = i;
+                res[indice_courant].j2 = j+1;
+                indice_courant++;
+            }
+        }
+    }
+    assert(indice_courant == 2*w*h-w-h);
+
+    return res;
+}
+
+
+/* Mélange la liste de murs `murs`, pour un labyrinthe de même taille que laby,
+ * au moyen de l’algorithme de Fisher-Yates */
+void melange_liste_murs(mur_t* murs, laby_t laby) {
+    int h = laby.height;
+    int w = laby.width;
+    int j;
+    mur_t temp;
+    for (int i = 2*w*h-w-h-1; i > 0; i--) {
+        j = rand()%(i+1);
+        temp = murs[j];
+        murs[j] = murs[i];
+        murs[i] = temp;
+    }
+}
+
+/* Idem que generate_laby, avec des union-find */
+void generate_laby_q5(laby_t laby) {
+    int h = laby.height;
+    int w = laby.width;
+
+    mur_t* murs = tab_murs_laby_plein(laby);
+    melange_liste_murs(murs, laby);
+    uf_partition_t p = uf_initialize(w*h);
+
+    int mur_counter = 0;
+    int mur_idx = 0;
+    while (mur_counter < w*h-1) {
+        /* on vérifie si le mur courant coupe deux cases de la même classe ou
+         * non */
+        uf_elem_t cell1 =
+            p[linearise(laby, murs[mur_idx].i1, murs[mur_idx].j1)];
+        uf_elem_t cell2 =
+            p[linearise(laby, murs[mur_idx].i2, murs[mur_idx].j2)];
+        if (uf_find_no(cell1)->elem != uf_find_no(cell2)->elem) {
+            casse_mur(laby, murs[mur_idx].i1, murs[mur_idx].j1,
+                            murs[mur_idx].i2, murs[mur_idx].j2);
+            uf_union(cell1, cell2);
+            mur_counter++;
+        }
+        mur_idx++;
+    }
+    uf_free(p, w*h);
+    free(murs);
+}
+

@@ -27,7 +27,6 @@ void uf_free(uf_partition_t p, int size);
 uf_elem_t uf_find_no(uf_elem_t x);
 uf_elem_t uf_find(uf_elem_t x);
 void uf_union(uf_elem_t x, uf_elem_t y);
-uf_elem_t uf_find_no(uf_elem_t x);
 
 /* --------------- bonus --------------- */
 int find_idx_parent(uf_partition_t part, int i, int size);
