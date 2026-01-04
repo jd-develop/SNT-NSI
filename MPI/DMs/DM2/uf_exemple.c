@@ -31,5 +31,5 @@ uf_partition_t exemple() {
 int main() {
     uf_partition_t ex = exemple();
     print_uf_partition_verbose(ex, 11);
-    // à compléter... indice : valgrind peut vous aider
+    uf_free(ex, 11);
 }
