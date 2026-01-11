@@ -174,6 +174,7 @@ let kosaraju (g: graph) : int array =
 
   let gt = transpose g in
   let tri_prefixe = prefix_sort gt in
+  (* parcours en choisissant les point de régénération selon tri_prefixe *)
   for i = 0 to (n-1) do
     let t_i = tri_prefixe.(i) in
     explore_depuis t_i t_i
