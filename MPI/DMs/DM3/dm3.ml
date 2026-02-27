@@ -69,7 +69,7 @@ let affiche_qsolution (m: qsolution) =
 
 (* Question 1 *)
 (* Renvoie a/b <= c/d *)
-let (<=.) ((a, b): Q.t) ((c, d): Q.t) =
+let (<=.) ((a, b): int * int) ((c, d): int * int) =
   if (b > 0 && d > 0) || (b < 0 && d < 0) then
     (a*d) <= (c*b)
   else (* s’ils n’ont pas le même signe, le sens de l’inégalité change une fois
@@ -155,15 +155,20 @@ let test_poids_sol : unit =
   assert (poids_sol ex [|false; false; false; false; false; false|] = 0)
 
 (* Question 3 *)
+(* Transforme un masque en solution en gardant les « oui » et les « non »,
+ * mais en transformant les « peut-être » (None) en « non » (false) *)
+let masque_vers_solution (m: masque) : solution =
+  (* On fait ça avec
+   * Option.value, qui prend un argument default de type 'a (utilisé pour le
+   * cas None) et un 'a option. *)
+  Array.map (Option.value ~default: false) m
+
+
 (* Renvoie true si la sous-instance donnée par l’instance sac et le masque
  * m est valide au regard de la capacité du sac. On suppose en entrée que
  * l’instance est valide. *)
 let est_masque_valide (sac: sad) (m: masque) : bool =
-  (* On crée un masque où les « peut-être » sont des « non », i.e. on
-   * transforme les Some(b) en b et les None en false. On fait ça avec
-   * Option.value, qui prend un argument default de type 'a (utilisé pour le
-   * cas None) et un 'a option. *)
-  let m' = Array.map (Option.value ~default: false) m in
+  let m' = masque_vers_solution m in
   let p = poids_sol sac m' in
   p <= sac.p
 
@@ -174,3 +179,86 @@ let test_est_masque_valide : unit =
   assert (not (est_masque_valide ex [|
     Some(false); None; Some(true); Some(true); None; Some(false)
   |]))
+
+
+(* PARTIE 2 *)
+
+(* Question 4 *)
+(* Modifie le tableau de booléens sol pour contenir le prochain tableau de
+ * booléens suivant l’ordre d’énumération de l’énoncé. Si sol est déjà le
+ * dernier tableau possible, cette fonction remet sol à la première des
+ * valeurs. Plante si m et sol n’ont pas la même taille. *)
+let next (m: masque) (sol: solution) : unit =
+  let n = Array.length m in
+  let retenue = ref true in
+  for i = 0 to n-1 do
+    if m.(i) = None && !retenue then
+      if sol.(i) then
+        sol.(i) <- false
+      else begin
+        sol.(i) <- true;
+        retenue := false
+      end
+  done
+
+
+let test_next : unit =
+  let m = [|Some(true); None; None; Some(false); None; None|] in
+  let sol = [|true; false; false; false; false; false|] in
+  next m sol;
+  assert (sol = [|true; true; false; false; false; false|]);
+  next m sol;
+  assert (sol = [|true; false; true; false; false; false|]);
+  next m sol;
+  assert (sol = [|true; true; true; false; false; false|]);
+  next m sol;
+  assert (sol = [|true; false; false; false; true; false|]);
+  next m sol;
+  assert (sol = [|true; true; false; false; true; false|]);
+  next m sol;
+  assert (sol = [|true; false; true; false; true; false|]);
+  next m sol;
+  assert (sol = [|true; true; true; false; true; false|]);
+  next m sol;
+  assert (sol = [|true; false; false; false; false; true|]);
+  next m sol;
+  next m sol;
+  next m sol;
+  next m sol;
+  next m sol;
+  next m sol;
+  next m sol;
+  next m sol;
+  (* On a fait 2⁴ appels à next, on retombe sur la solution de départ *)
+  assert (sol = [|true; false; false; false; false; false|])
+
+
+(* Question 5 *)
+(* Résoud le problème du sac à dos sur la sous-instance donnée par l’instance
+ * sol et le masque m, en donnant une solution optimale ainsi que sa valeur.
+ * On suppose que cette sous-instance admet des solutions. *)
+let brute_force (sac: sad) (m: masque) : (solution * int) =
+  let solution_optimale = ref (masque_vers_solution m) in
+  let valeur_opt = ref (valeur_sol sac !solution_optimale) in
+  let nombre_none_dans_m =
+    Array.fold_left (
+      fun (nb_actuel: int) (suivant: bool option) ->
+        nb_actuel + (if suivant = None then 1 else 0)
+    ) 0 m in
+  let possibilites = 1 lsl nombre_none_dans_m in (* 2^nombre_none *)
+  let sol_courante = masque_vers_solution m in
+
+  for _ = 1 to possibilites do
+    if (
+        poids_sol sac sol_courante <= sac.p &&
+        valeur_sol sac sol_courante > !valeur_opt
+    ) then
+      solution_optimale := sol_courante;
+      valeur_opt := valeur_sol sac sol_courante;
+      next m sol_courante
+  done;
+
+  !solution_optimale, !valeur_opt
+
+
+(* TODO jeu de tests *)
