@@ -263,8 +263,8 @@ let brute_force (sac: sad) (m: masque) : (solution * int) =
 
 
 let test_brute_force : unit =
-  let masque = Array.make ex.n None in
-  let sol, val_sol = brute_force ex masque in
+  let masque1 = Array.make ex.n None in
+  let sol, val_sol = brute_force ex masque1 in
   assert (val_sol = 38);
   assert (valeur_sol ex sol = val_sol);
   assert (poids_sol ex sol <= ex.p);
@@ -349,3 +349,49 @@ let test_prog_dyn : unit =
   assert (sol3 = [|false; false|])
 
 
+(* PARTIE 4 *)
+
+(* Question 8 *)
+(* Tente de résoudre au mieux la sous-instance du problème du sac à dos donnée
+ * par l’instance sac et le masque m, en renvoyant une solution et sa valeur.
+ * Si la sous-instance n’admet pas de solution, renvoie None. *)
+let glouton_n (sac: sad) (m: masque) : (solution * int) option =
+  let sol = masque_vers_solution m in
+  if est_masque_valide sac m then begin
+    let valeur = ref (valeur_sol sac sol) in
+    (* On parcourt chaque objet en ajoutant ceux qu’on peut ajouter *)
+    for i = 0 to sac.n-1 do
+      if m.(i) = None && !valeur + sac.wi.(i) <= sac.p then begin
+        valeur := !valeur + sac.wi.(i);
+        sol.(i) <- true
+      end
+    done;
+    Some (sol, !valeur)
+  end else
+    None
+
+
+let test_glouton : unit =
+  let masque1 = Array.make ex.n None in
+  match glouton_n ex masque1 with
+  | None -> assert false
+  | Some (sol, val_sol) ->
+      assert (sol = [|true; true; false; false; true; false|]);
+      assert (val_sol = 32);
+
+  let masque2 = [|Some false; Some true; Some true; None; None; None|] in
+  match glouton_n ex masque2 with
+  | None -> assert false
+  | Some (sol, val_sol) ->
+      assert (sol = [|false; true; true; false; true; false|]);
+      assert (val_sol = 38);
+
+  let masque3 = [|Some false; Some true; Some true; None; Some true; None|] in
+  match glouton_n ex masque3 with
+  | None -> assert false
+  | Some (sol, val_sol) ->
+      assert (sol = [|false; true; true; false; true; false|]);
+      assert (val_sol = 38);
+
+  let masque4 = [|Some false; Some true; Some true; None; Some true; Some true|]
+  in assert (glouton_n ex masque4 = None)
