@@ -1,3 +1,15 @@
+(* Renvoie le pgcd de a et de b en suivant l’algorithme d’Euclide. *)
+let rec gcd (a: int) (b: int) =
+  if a < 0 then
+    gcd (-a) b
+  else if b < 0 then
+    gcd a (-b)
+  else if b = 0 then
+    a
+  else
+    gcd b (a mod b)
+
+
 module Q = struct
   type t = int * int
   (* (a, b) encode a/b*)
@@ -7,7 +19,69 @@ module Q = struct
   let print ((a, b): t) = Printf.printf "%d/%d" a b
   let dirty_print ((a, b): t) =
     Printf.printf "%.2f" ((float_of_int a) /. (float_of_int b))
+
+  (* Renvoie une représentation de (a, b) satisfaisant l’invariant *)
+  let simplify ((a, b): t) : t =
+    let pgcd = gcd a b in
+    if b < 0 then ((-a)/pgcd, (-b)/pgcd)
+    else (a/pgcd, b/pgcd)
+
+  (* a/b + c/d *)
+  let (+..) ((a, b): t) ((c, d): t) : t =
+    simplify (a*d + c*b, b*d)
+
+  (* a/b - c/d *)
+  let (-..) ((a, b): t) ((c, d): t) : t =
+    (a, b) +.. (-c, d)
+
+  (* -(a/b) *)
+  let oppose ((a, b): t) : t =
+    (-a, b)
+
+  (* (a/b)(c/d) *)
+  let ( *.. ) ((a, b): t) ((c, d): t) : t =
+    simplify (a*c, b*d)
+
+  (* (a/b)/(c/d) *)
+  let (/..) ((a, b): t) ((c, d): t) : t =
+    simplify (a*d, b*c)
+
+  (* convertit un entier en rationnel *)
+  let rational_of_int (a: int) : t =
+    (a, 1)
+
+  (* renvoie le signe (-1, 0 ou 1) de a/b *)
+  let sign ((a, b): t) : int =
+    if a < 0 then -1
+    else if a = 0 then 0
+    else 1
+
+  (* a/b < c/d *)
+  let (<..) ((a, b): t) ((c, d): t) : bool =
+    if (sign (a, b) < sign (c, d)) then
+      true
+    else if (sign (a, b) > sign (c, d)) then
+      false
+    else if c = 0 then
+      (* alors a aussi est nul *)
+      false
+    else
+      (* ici, ils sont de même signe et tous deux non nuls, le résultat du
+       * rapport est donc strictement positif *)
+      let rapport = (a, b) /.. (c, d) in
+      fst rapport < snd rapport
+
+  (* a/b <= c/d *)
+  let (<=..) ((a, b): t) ((c, d): t) : bool =
+    (a, b) = (c, d) || (a, b) <.. (c, d)
+
+  (* a/b est entier *)
+  let is_int ((a, b): t) : bool =
+    b = 1
 end
+
+(* Les tests sont plus loin *)
+
 
 type sad =
   {
@@ -68,17 +142,13 @@ let affiche_qsolution (m: qsolution) =
 (* PARTIE 1 *)
 
 (* Question 1 *)
-(* Renvoie a/b <= c/d *)
-let (<=.) ((a, b): int * int) ((c, d): int * int) =
-  if (b > 0 && d > 0) || (b < 0 && d < 0) then
-    (a*d) <= (c*b)
-  else (* s’ils n’ont pas le même signe, le sens de l’inégalité change une fois
-        * lorsqu’on met sur le même dénominateur *)
-    (a*d) >= (c*b)
-
-
 (* Renvoie true si l’instance `sac` est valide, false sinon *)
 let est_sad_valide (sac: sad) : bool =
+  (* Renvoie a/b <= c/d (fonction réécrite après la partie 5) *)
+  let (<=.) ((a, b): int * int) ((c, d): int * int) =
+    Q.( simplify (a, b) <=.. simplify (c, d) )
+  in
+
   let n = Array.length sac.vi in
   let longueurs_valides = (sac.n = n && n = Array.length sac.wi) in
   let contenance_valide = sac.p >= 0 in
@@ -359,10 +429,12 @@ let glouton_n (sac: sad) (m: masque) : (solution * int) option =
   let sol = masque_vers_solution m in
   if est_masque_valide sac m then begin
     let valeur = ref (valeur_sol sac sol) in
+    let poids = ref (poids_sol sac sol) in
     (* On parcourt chaque objet en ajoutant ceux qu’on peut ajouter *)
     for i = 0 to sac.n-1 do
-      if m.(i) = None && !valeur + sac.wi.(i) <= sac.p then begin
-        valeur := !valeur + sac.wi.(i);
+      if m.(i) = None && !poids + sac.wi.(i) <= sac.p then begin
+        valeur := !valeur + sac.vi.(i);
+        poids := !poids + sac.wi.(i);
         sol.(i) <- true
       end
     done;
@@ -395,3 +467,38 @@ let test_glouton : unit =
 
   let masque4 = [|Some false; Some true; Some true; None; Some true; Some true|]
   in assert (glouton_n ex masque4 = None)
+
+
+(* PARTIE 5 *)
+
+(* Question 9 *)
+let test_Q : unit =
+  Q.(
+    assert ((1, 2) +.. (1, 2) = (1, 1));
+    assert ((1, 4) +.. (1, 4) = (1, 2));
+    assert ((-4, 9) +.. (4, 9) = (0, 1));
+    assert ((97, 100) -.. (11, 50) = (3, 4));
+    assert (oppose (5, 8) = (-5, 8));
+    assert (oppose (rational_of_int 0) = (0, 1));
+    assert ((17, 20) *.. (15, 17) = (3, 4));
+    assert ((-17, 20) *.. (-15, 17) = (3, 4));
+    assert ((15, 31) /.. (-3, 62) = (-10, 1));
+    assert (rational_of_int (-56) = (-56, 1));
+    assert (sign (0, 1) = 0);
+    assert (sign (-56, 29) = -1);
+    assert (sign (35, 2) = 1);
+    assert (sign (rational_of_int 0) = 0);
+    assert ((1, 2) <.. (3, 4));
+    assert ((-3, 4) <.. (1, 2));
+    assert (not ((3, 4) <.. (1, 2)));
+    assert (not ((2, 3) <.. (2, 3)));
+    assert ((1, 2) <=.. (3, 4));
+    assert ((-3, 4) <=.. (1, 2));
+    assert (not ((3, 4) <=.. (1, 2)));
+    assert ((2, 3) <=.. (2, 3));
+    assert (is_int (rational_of_int 0));
+    assert (is_int ((3, 1)));
+    assert (is_int (rational_of_int (-4)));
+    assert (not (is_int (3, 4)));
+    assert (not (is_int (-4, 3)))
+  )
