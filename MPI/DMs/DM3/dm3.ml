@@ -252,13 +252,100 @@ let brute_force (sac: sad) (m: masque) : (solution * int) =
     if (
         poids_sol sac sol_courante <= sac.p &&
         valeur_sol sac sol_courante > !valeur_opt
-    ) then
-      solution_optimale := sol_courante;
-      valeur_opt := valeur_sol sac sol_courante;
-      next m sol_courante
+    ) then begin
+      solution_optimale := Array.copy sol_courante;
+      valeur_opt := valeur_sol sac sol_courante
+    end;
+    next m sol_courante
   done;
 
   !solution_optimale, !valeur_opt
 
 
-(* TODO jeu de tests *)
+let test_brute_force : unit =
+  let masque = Array.make ex.n None in
+  let sol, val_sol = brute_force ex masque in
+  assert (val_sol = 38);
+  assert (valeur_sol ex sol = val_sol);
+  assert (poids_sol ex sol <= ex.p);
+  let masque2 = Array.make 2 None in
+  let ex2 = {
+    n = 2;
+    vi = [|10; 5|];
+    wi = [|1; 1|];
+    p = 10
+  } in
+  let sol2, val_sol2 = brute_force ex2 masque2 in
+  assert (val_sol2 = 15);
+  assert (valeur_sol ex2 sol2 = val_sol2);
+  assert (poids_sol ex2 sol2 = 2);
+  assert (sol2 = [|true; true|]);
+  let sol3, val_sol3 = brute_force {ex2 with wi = [|50; 50|]} masque2 in
+  assert (val_sol3 = 0);
+  assert (sol3 = [|false; false|])
+
+
+(* PARTIE 3 *)
+
+(* Question 6 *)
+(* Génère en complexité pire cas O(nP) le tableau de prog. dyn. décrit
+ * dans l’énoncé pour l’instance sac du problème KNAPSACK. *)
+let prog_dyn_tab (sac: sad) : int array array =
+  let resultat = Array.init (sac.n+1) (fun _ -> Array.make (sac.p+1) 0) in
+  for j = 0 to sac.p do
+    for i = 1 to sac.n do
+      if sac.wi.(i-1) <= j then
+        resultat.(i).(j) <-
+          max resultat.(i-1).(j)
+              (sac.vi.(i-1) + resultat.(i-1).(j-sac.wi.(i-1)))
+      else
+        resultat.(i).(j) <- resultat.(i-1).(j)
+    done;
+  done;
+  resultat
+
+
+(* Question 7 *)
+(* Résoud le problème du sac à dos sur l’instance sac, en donnant une solution
+ * optimale ainsi que sa valeur. *)
+let prog_dyn (sac: sad) : solution * int =
+  let tab = prog_dyn_tab sac in
+  let sol = Array.make sac.n false in
+  (* On parcourt le tableau ligne par ligne, en vérifiant à chaque fois si
+   * on a ou non pris l’objet *)
+  let j = ref sac.p in
+  for i = sac.n downto 1 do
+    if sac.wi.(i-1) > !j then
+      ()  (* on n’a pas pris l’objet i, on reste sur la même colonne *)
+    else if tab.(i-1).(!j) <= sac.vi.(i-1) + tab.(i-1).(!j-sac.wi.(i-1)) then
+    begin
+      (* on a pris l’objet i *)
+      sol.(i-1) <- true;
+      j := !j - sac.wi.(i-1)
+    end else
+      () (* on n’a pas pris l’objet i et on reste sur la même colonne *)
+  done;
+  sol, tab.(sac.n).(sac.p)
+
+
+let test_prog_dyn : unit =
+  let sol, val_sol = prog_dyn ex in
+  assert (val_sol = 38);
+  assert (valeur_sol ex sol = val_sol);
+  assert (poids_sol ex sol <= ex.p);
+  let ex2 = {
+    n = 2;
+    vi = [|10; 5|];
+    wi = [|1; 1|];
+    p = 10
+  } in
+  let sol2, val_sol2 = prog_dyn ex2 in
+  assert (val_sol2 = 15);
+  assert (valeur_sol ex2 sol2 = val_sol2);
+  assert (poids_sol ex2 sol2 = 2);
+  assert (sol2 = [|true; true|]);
+  let sol3, val_sol3 = prog_dyn {ex2 with wi = [|50; 50|]} in
+  assert (val_sol3 = 0);
+  assert (sol3 = [|false; false|])
+
+
