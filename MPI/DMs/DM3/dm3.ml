@@ -197,7 +197,7 @@ let array_fold_left2 (f: 'acc -> 'a -> 'b -> 'acc) (acc: 'acc) (a: 'a array)
 (* Renvoie la somme des éléments de a d’indices i pour lesquels choix.(i) est
  * vrai. Plante avec Invalid_argument si les deux tableaux ne sont pas de même
  * taille. *)
-let somme_select (choix: bool array) (a: int array) =
+let somme_select (choix: bool array) (a: int array) : int =
   array_fold_left2 (
     fun (somme_courante: int) (valeur: int) (a_prendre: bool) ->
       somme_courante + (if a_prendre then valeur else 0)
@@ -228,9 +228,8 @@ let test_poids_sol : unit =
 (* Transforme un masque en solution en gardant les « oui » et les « non »,
  * mais en transformant les « peut-être » (None) en « non » (false) *)
 let masque_vers_solution (m: masque) : solution =
-  (* On fait ça avec
-   * Option.value, qui prend un argument default de type 'a (utilisé pour le
-   * cas None) et un 'a option. *)
+  (* On fait ça avec Option.value, qui prend un argument default de type 'a
+   * (utilisé pour le cas None) et un 'a option. *)
   Array.map (Option.value ~default: false) m
 
 
@@ -502,3 +501,80 @@ let test_Q : unit =
     assert (not (is_int (3, 4)));
     assert (not (is_int (-4, 3)))
   )
+
+
+(* PARTIE 6 *)
+(* Transforme un masque en solution fractionnaire en gardant les « oui » et les
+ * « non », mais en transformant les « peut-être » (None) en « non » (0/1) *)
+let solution_vers_qsolution (sol: solution) : qsolution =
+  Array.map (fun x -> if x then (1, 1) else (0, 1)) sol
+
+(*
+(* Renvoie la somme des éléments de a pondérée par les éléments de p.
+ * Plante avec Invalid_argument si les deux tableaux ne sont pas de même
+ * taille. *)
+let somme_select_r (p: Q.t array) (a: int array) : Q.t =
+  array_fold_left2 Q.(
+    fun (somme_courante: t) (valeur: int) (ponderation: t) ->
+      somme_courante +.. (ponderation *.. (rational_of_int valeur))
+  ) (0, 1) a p
+
+(* Renvoie la valeur de la solution sol sachant l’instance sac. On suppose en
+ * entrée que l’instance est valide. *)
+let valeur_sol_r (sac: sad) (sol: qsolution) : Q.t =
+  somme_select_r sol sac.vi
+
+let test_valeur_sol_r : unit =
+  (* TODO TESTS *) ()
+
+
+(* Renvoie le poids de la solution sol sachant l’instance sac. On suppose en
+ * entrée que l’instance est valide. *)
+let poids_sol_r (sac: sad) (sol: qsolution) : Q.t =
+  somme_select_r sol sac.wi
+
+let test_poids_sol_r : unit =
+  (* TODO TESTS *) ()
+*)
+
+
+(* Résoud le problème du sac à dos fractionnaire sur la sous-instance du
+ * problème donnée par le sac `sac` et le masque `m`. Renvoie une solution
+ * optimale et sa valeur. *)
+let glouton_r (sac: sad) (m: masque) : (qsolution * Q.t) option =
+  let sol = masque_vers_solution m in
+
+  if est_masque_valide sac m then begin
+    let valeur = ref (valeur_sol sac sol) in
+    let poids = ref (poids_sol sac sol) in
+    let exception Stop of int in (* indice de l’objet sur lequel on s’arrête *)
+
+    (* On parcourt chaque objet tant qu’on peut en ajouter *)
+    try (
+      for i = 0 to sac.n-1 do
+        if m.(i) = None && !poids + sac.wi.(i) <= sac.p then begin
+          valeur := !valeur + sac.vi.(i);
+          poids := !poids + sac.wi.(i);
+          sol.(i) <- true
+        end else if m.(i) = None then
+          (* Ici, on ne peut plus ajouter l’objet en entier *)
+          raise (Stop i)
+      done;
+      (* On a pu ajouter tous les objets en entier *)
+      Some (solution_vers_qsolution sol, Q.rational_of_int (!valeur))
+
+    ) with Stop i ->
+      (* On n’a pas pu ajouter tous les objets en entier : l’objet i ne rentre
+       * pas *)
+      let sol' = solution_vers_qsolution sol in
+      let place_restante = sac.p - !poids in
+      let fraction = Q.simplify (place_restante, sac.wi.(i)) in
+      sol'.(i) <- fraction;
+      let nouvelle_valeur = Q.(
+        rational_of_int (!valeur) +.. (fraction *.. rational_of_int sac.vi.(i))
+      ) in
+      Some (sol', nouvelle_valeur)
+  end else
+    None
+
+(* TODO tests *)
