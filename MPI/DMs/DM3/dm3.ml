@@ -75,6 +75,14 @@ module Q = struct
   let (<=..) ((a, b): t) ((c, d): t) : bool =
     (a, b) = (c, d) || (a, b) <.. (c, d)
 
+  (* a/b > (c/d) *)
+  let (>..)  ((a, b): t) ((c, d): t) : bool =
+    not ((a, b) <=.. (c, d))
+
+  (* a/b >= (c/d) *)
+  let (>=..)  ((a, b): t) ((c, d): t) : bool =
+    not ((a, b) <.. (c, d))
+
   (* a/b est entier *)
   let is_int ((a, b): t) : bool =
     b = 1
@@ -243,10 +251,10 @@ let est_masque_valide (sac: sad) (m: masque) : bool =
 
 let test_est_masque_valide : unit =
   assert (est_masque_valide ex [|
-    Some(true); Some(false); Some(true); None; None; None
+    Some true; Some false; Some true; None; None; None
   |]);
   assert (not (est_masque_valide ex [|
-    Some(false); None; Some(true); Some(true); None; Some(false)
+    Some false; None; Some true; Some true; None; Some false
   |]))
 
 
@@ -442,7 +450,7 @@ let glouton_n (sac: sad) (m: masque) : (solution * int) option =
     None
 
 
-let test_glouton : unit =
+let test_glouton_n : unit =
   let masque1 = Array.make ex.n None in
   match glouton_n ex masque1 with
   | None -> assert false
@@ -477,16 +485,20 @@ let test_Q : unit =
     assert ((1, 4) +.. (1, 4) = (1, 2));
     assert ((-4, 9) +.. (4, 9) = (0, 1));
     assert ((97, 100) -.. (11, 50) = (3, 4));
+
     assert (oppose (5, 8) = (-5, 8));
     assert (oppose (rational_of_int 0) = (0, 1));
+
     assert ((17, 20) *.. (15, 17) = (3, 4));
     assert ((-17, 20) *.. (-15, 17) = (3, 4));
     assert ((15, 31) /.. (-3, 62) = (-10, 1));
+
     assert (rational_of_int (-56) = (-56, 1));
     assert (sign (0, 1) = 0);
     assert (sign (-56, 29) = -1);
     assert (sign (35, 2) = 1);
     assert (sign (rational_of_int 0) = 0);
+
     assert ((1, 2) <.. (3, 4));
     assert ((-3, 4) <.. (1, 2));
     assert (not ((3, 4) <.. (1, 2)));
@@ -495,6 +507,14 @@ let test_Q : unit =
     assert ((-3, 4) <=.. (1, 2));
     assert (not ((3, 4) <=.. (1, 2)));
     assert ((2, 3) <=.. (2, 3));
+
+    assert (not ((-3, 4) >.. (1, 2)));
+    assert ((3, 4) >.. (1, 2));
+    assert (not ((1, 2) >=.. (3, 4)));
+    assert (not ((-3, 4) >=.. (1, 2)));
+    assert ((3, 4) >=.. (1, 2));
+    assert ((2, 3) >=.. (2, 3));
+
     assert (is_int (rational_of_int 0));
     assert (is_int ((3, 1)));
     assert (is_int (rational_of_int (-4)));
@@ -508,34 +528,6 @@ let test_Q : unit =
  * « non », mais en transformant les « peut-être » (None) en « non » (0/1) *)
 let solution_vers_qsolution (sol: solution) : qsolution =
   Array.map (fun x -> if x then (1, 1) else (0, 1)) sol
-
-(*
-(* Renvoie la somme des éléments de a pondérée par les éléments de p.
- * Plante avec Invalid_argument si les deux tableaux ne sont pas de même
- * taille. *)
-let somme_select_r (p: Q.t array) (a: int array) : Q.t =
-  array_fold_left2 Q.(
-    fun (somme_courante: t) (valeur: int) (ponderation: t) ->
-      somme_courante +.. (ponderation *.. (rational_of_int valeur))
-  ) (0, 1) a p
-
-(* Renvoie la valeur de la solution sol sachant l’instance sac. On suppose en
- * entrée que l’instance est valide. *)
-let valeur_sol_r (sac: sad) (sol: qsolution) : Q.t =
-  somme_select_r sol sac.vi
-
-let test_valeur_sol_r : unit =
-  (* TODO TESTS *) ()
-
-
-(* Renvoie le poids de la solution sol sachant l’instance sac. On suppose en
- * entrée que l’instance est valide. *)
-let poids_sol_r (sac: sad) (sol: qsolution) : Q.t =
-  somme_select_r sol sac.wi
-
-let test_poids_sol_r : unit =
-  (* TODO TESTS *) ()
-*)
 
 
 (* Résoud le problème du sac à dos fractionnaire sur la sous-instance du
@@ -577,4 +569,144 @@ let glouton_r (sac: sad) (m: masque) : (qsolution * Q.t) option =
   end else
     None
 
-(* TODO tests *)
+let test_glouton_r : unit =
+  let masque1 = Array.make ex.n None in
+  let sol1, val1 = Option.get (glouton_r ex masque1) in
+  assert (sol1 = [|(1, 1); (1, 1); (3, 5); (0, 1); (0, 1); (0, 1)|]);
+  assert (val1 = (202, 5));
+  masque1.(2) <- Some false;
+  masque1.(5) <- Some true;
+  let sol2, val2 = Option.get (glouton_r ex masque1) in
+  assert (sol2 = [|(1, 1); (1, 1); (0, 1); (1, 14); (0, 1); (1, 1)|]);
+  assert Q.(val2 = (13, 1) +.. (16, 1) +.. (12, 7) +.. (5, 1));
+  assert (val2 = (250, 7));
+  masque1.(3) <- Some true;
+  masque1.(4) <- Some true;
+  assert (glouton_r ex masque1 = None)
+
+
+(* PARTIE 7 *)
+
+(* Question 11 *)
+(* Renvoie un nouveau masque, copie de m, dans laquelle l’objet d’indice i
+ * doit ou ne doit pas être pris en fonction de doit_etre_pris *)
+let impose_i (m: masque) (i: int) (doit_etre_pris: bool) : masque =
+  let m' = Array.copy m in
+  m'.(i) <- Some doit_etre_pris;
+  m'
+
+
+let test_impose_i : unit =
+  let masque1 = Array.make ex.n None in
+  masque1.(2) <- Some true;
+  let masque2 = impose_i masque1 3 false in
+  assert (masque2.(3) = Some false);
+  assert (masque1.(3) = None);
+  assert (masque2.(2) = Some true);
+  assert (masque1.(2) = Some true);
+  assert (masque2.(0) = None && masque1.(0) = None);
+  masque2.(2) <- Some false;
+  assert (masque1.(2) = Some true);
+  assert (masque2.(2) = Some false)
+
+(* Question 12 *)
+(* Renvoie l’indice du premier objet pour lequel la fraction indiquée par sol
+ * n’est pas entière. Plante avec Invalid_argument s’il n’existe pas de tel
+ * objet. *)
+let find_i_frac (sol: qsolution) : int =
+  let res = ref (-1) in
+  for i = 0 to Array.length sol do
+    if !res = -1 && not (Q.is_int sol.(i)) then
+      res := i
+  done;
+  if !res = -1 then
+    raise (Invalid_argument "Solution entière !");
+  !res
+
+
+let test_find_i_frac : unit =
+  let sol = [|(1, 1); (1, 1); (0, 1); (1, 14); (0, 1); (1, 1)|] in
+  assert (find_i_frac sol = 3);
+  sol.(4) <- (9, 14);
+  assert (find_i_frac sol = 3);
+  sol.(1) <- (5, 1);
+  assert (find_i_frac sol = 3);
+  sol.(0) <- (1, 5);
+  assert (find_i_frac sol = 0);
+  let sol2 = [|(5, 1); (3, 2)|] in
+  assert (find_i_frac sol2 = 1);
+  sol2.(1) <- Q.rational_of_int (-12);
+  try
+    let _ = find_i_frac sol2 in assert false
+  with
+  | Invalid_argument _ -> ();
+  try
+    let _ = find_i_frac [||] in assert false
+  with
+  | Invalid_argument _ -> ()
+
+
+(* Question 13 *)
+(* Résoud le problème du sac à dos sur l’instance sac en donnant une solution
+ * optimale de la forme (solution, valeur), en utilisant un algorithme de
+ * séparation-évaluation *)
+let branch_and_bound (sac: sad) : solution * int =
+  (* Effectue le branchement sur l’instance inst en fonction de la solution
+   * du relâché fractionnaire sol_frac sur inst, i.e. renvoie deux
+   * sous-instances : celle où on prend l’objet dont une partie a été prise
+   * par sol_frac, et celle où on ne le prend pas *)
+  let branchement (inst: masque) (sol_frac: qsolution) : masque * masque =
+    let i = find_i_frac sol_frac in
+    impose_i inst i true, impose_i inst i false
+  in
+
+  let meilleure_val = ref 0 in
+  let meilleure_sol = ref (Array.make sac.n false) in
+  let instance_init = Array.make sac.n None in
+  let todo = Queue.create () in
+  Queue.push instance_init todo;
+
+  while not (Queue.is_empty todo) do
+    let instance = Queue.pop todo in
+    match glouton_r sac instance with
+    | None -> ()
+    | Some (sol_frac, val_frac) ->
+      if Q.(val_frac >.. rational_of_int !meilleure_val) then begin
+        match glouton_n sac instance with
+        | None -> ()
+        | Some (sol_entiere, val_entiere) ->
+          if val_entiere > !meilleure_val then begin
+            meilleure_val := val_entiere;
+            meilleure_sol := sol_entiere
+          end;
+          if Q.(val_frac >=.. rational_of_int (val_entiere+1)) then begin
+            let i1, i2 = branchement instance sol_frac in
+            Queue.push i1 todo;
+            Queue.push i2 todo
+          end
+        end
+  done;
+
+  !meilleure_sol, !meilleure_val
+
+
+let test_branch_and_bound : unit =
+  let sol, val_sol = branch_and_bound ex in
+  assert (val_sol = 38);
+  assert (valeur_sol ex sol = val_sol);
+  assert (poids_sol ex sol <= ex.p);
+  let ex2 = {
+    n = 2;
+    vi = [|10; 5|];
+    wi = [|1; 1|];
+    p = 10
+  } in
+  let sol2, val_sol2 = branch_and_bound ex2 in
+  assert (val_sol2 = 15);
+  assert (valeur_sol ex2 sol2 = val_sol2);
+  assert (poids_sol ex2 sol2 = 2);
+  assert (sol2 = [|true; true|]);
+  let sol3, val_sol3 = branch_and_bound {ex2 with wi = [|50; 50|]} in
+  assert (val_sol3 = 0);
+  assert (sol3 = [|false; false|])
+
