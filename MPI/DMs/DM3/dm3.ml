@@ -322,7 +322,7 @@ let brute_force (sac: sad) (m: masque) : (solution * int) =
       fun (nb_actuel: int) (suivant: bool option) ->
         nb_actuel + (if suivant = None then 1 else 0)
     ) 0 m in
-  let possibilites = 1 lsl nombre_none_dans_m in (* 2^nombre_none *)
+  let possibilites = 1 lsl nombre_none_dans_m in (* 2^nombre_none_dans_m *)
   let sol_courante = masque_vers_solution m in
 
   for _ = 1 to possibilites do
@@ -366,7 +366,7 @@ let test_brute_force : unit =
 
 (* Question 6 *)
 (* Génère en complexité pire cas O(nP) le tableau de prog. dyn. décrit
- * dans l’énoncé pour l’instance sac du problème KNAPSACK. *)
+ * dans l’énoncé pour l’instance sac du problème du sac à dos. *)
 let prog_dyn_tab (sac: sad) : int array array =
   let resultat = Array.init (sac.n+1) (fun _ -> Array.make (sac.p+1) 0) in
   for j = 0 to sac.p do
@@ -554,7 +554,6 @@ let glouton_r (sac: sad) (m: masque) : (qsolution * Q.t) option =
       done;
       (* On a pu ajouter tous les objets en entier *)
       Some (solution_vers_qsolution sol, Q.rational_of_int (!valeur))
-
     ) with Stop i ->
       (* On n’a pas pu ajouter tous les objets en entier : l’objet i ne rentre
        * pas *)
@@ -620,7 +619,7 @@ let find_i_frac (sol: qsolution) : int =
       res := i
   done;
   if !res = -1 then
-    raise (Invalid_argument "Solution entière !");
+    raise (Invalid_argument "find_i_frac");
   !res
 
 
