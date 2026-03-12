@@ -14,6 +14,6 @@ Some code (`*.pyde` files, in the `sketch_*` folders in
 [Python](https://py.processing.org), but needs
 [Processing 4](https://processing.org) to be executed.
 
-## C and Ocaml
+## C and OCaml
 Some parts (in the [MP2I/](MP2I/) and [MPI/](MPI/) folders) require C and
-[Ocaml](https://ocaml.org/)
+[OCaml](https://ocaml.org/)
