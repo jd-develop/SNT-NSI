@@ -1,0 +1,1000 @@
+ortho	phon	lemme	cgram	genre	nombre	freqlemfilms2	freqlemlivres	freqfilms2	freqlivres	infover	nbhomogr	nbhomoph	islem	nblettres	nbphons	cvcv	p_cvcv	voisorth	voisphon	puorth	puphon	syll	nbsyll	cv-cv	orthrenv	phonrenv	orthosyll	cgramortho	deflem	defobs	old20	pld20	morphoder	nbmorph
+a	a	a	NOM	m		81.36	58.65	81.36	58.65		3	9	1	1	1	V	V	25	20	1	1	a	1	V	a	a	a	NOM,AUX,VER			1	1	a	1
+a	a	avoir	AUX			18559.22	12800.81	6350.91	2926.69	ind:pre:3s;	3	9	0	1	1	V	V	25	20	1	1	a	1	V	a	a	a	NOM,AUX,VER			1	1	avoir	1
+a	a	avoir	VER			13572.40	6426.49	5498.34	1669.39	ind:pre:3s;	3	9	0	1	1	V	V	25	20	1	1	a	1	V	a	a	a	NOM,AUX,VER	93	16	1	1	avoir	1
+a capella	akapEla	a capella	ADV			0.04	0.07	0.04	0.07		1	2	1	9	7	V CVCVCCV	VCVCVCV	0	0	6	5	a-ka-pE-la	4	V-CV-CV-CV	allepac a	alEpaka	a ca-pel-la	ADV			3.85	2.85	a-capella	2
+a cappella	akapEla	a cappella	ADV			0.04	0.07	0.04	0.07		1	2	1	10	7	V CVCCVCCV	VCVCVCV	0	0	6	5	a-ka-pE-la	4	V-CV-CV-CV	alleppac a	alEpaka	a cap-pel-la	ADV			4.6	2.85	a-cappella	2
+a contrario	ak§tRaRjo	a contrario	ADV			0.00	0.27	0.00	0.27		1	1	1	11	9	V CVCCCVCVV	VCVCCVCYV	0	0	4	5	a-k§-tRa-Rjo	4	V-CV-CCV-CYV	oirartnoc a	ojRaRt§ka	a con-tra-rio	ADV			4.3	3.3	a-contrario	2
+a fortiori	afORsjoRi	a fortiori	ADV			0.04	0.88	0.04	0.88		1	2	1	10	9	V CVCCVVCV	VCVCCYVCV	1	0	3	4	a-fOR-sjo-Ri	4	V-CVC-CYV-CV	iroitrof a	iRojsROfa	a for-tio-ri	ADV			4.4	3.95	a-fortiori	2
+a giorno	adZjORno	a giorno	ADV			0.00	0.27	0.00	0.27		1	2	1	8	8	V CVVCCV	VCCYVCCV	1	0	3	4	ad-ZjOR-no	3	VC-CYVC-CV	onroig a	onROjZda	a gior-no	ADV			3.85	3.85	a-giorno	2
+a jeun	aZ1	à jeun	ADV			1.45	3.85	0.18	0.00		1	2	0	6	3	V CVVC	VCV	1	6	0	3	a-Z1	2	V-CV	nuej a	1Za	a jeun	ADV			2.9	1.6	à-jeun	2
+a l'instar	al5staR	a l'instar	PRE			0.26	0.00	0.26	0.00		1	2	1	10	7	V C'VCCCVC	VCVCCVC	1	0	3	4	a-l5s-taR	3	V-CVC-CVC	ratsni'l a	Rats5la	a l'ins-tar	PRE			4.8	3	a-l'instar	2
+a posteriori	apOsteRjoRi	a posteriori	ADV			0.05	0.20	0.01	0.14		1	2	1	12	11	V CVCCVCVVCV	VCVCCVCYVCV	1	0	4	6	a-pOs-te-Rjo-Ri	5	V-CVC-CV-CYV-CV	iroiretsop a	iRojRetsOpa	a pos-te-rio-ri	ADV			4.7	4.8	a-posteriori	2
+a priori	apRijoRi	a priori	ADV			1.04	3.85	0.63	2.57		2	3	1	8	8	V CCVVCV	VCCVYVCV	1	0	4	5	a-pRi-jo-Ri	4	V-CCV-YV-CV	iroirp a	iRojiRpa	a prio-ri	ADV,NOM			3.8	3.25	a-priori	2
+a priori	apRijoRi	a priori	NOM	m		0.41	0.47	0.41	0.47		2	3	1	8	8	V CCVVCV	VCCVYVCV	1	0	4	5	a-pRi-jo-Ri	4	V-CCV-YV-CV	iroirp a	iRojiRpa	a prio-ri	ADV,NOM	93	16	3.8	3.25	a-priori	2
+aa	aa	aa	NOM	m	s	0.01	0.00	0.01	0.00		1	2	1	2	2	VV	VV	20	35	2	2	a-a	2	V-V	aa	aa		NOM			1	1	aa	1
+ab absurdo	abapsuRdo	ab absurdo	ADV			0.00	0.07	0.00	0.07		1	1	1	10	9	VC VCCVCCV	VCVCCVCCV	0	0	4	4	a-bap-suR-do	4	V-CVC-CVC-CV	odrusba ba	odRuspaba	ab ab-sur-do	ADV			5.05	4.45	ab-absurdo	2
+ab initio	abinisjo	ab initio	ADV			0.01	0.07	0.01	0.07		1	1	1	9	8	VC VCVCVV	VCVCVCYV	0	0	4	4	a-bi-ni-sjo	4	V-CV-CV-CYV	oitini ba	ojsiniba	ab i-ni-tio	ADV			4.3	3.1	ab-initio	2
+ab ovo	abovo	ab ovo	ADV			0.00	0.27	0.00	0.27		1	1	1	6	5	VC VCV	VCVCV	0	0	4	4	a-bo-vo	3	V-CV-CV	ovo ba	ovoba	ab o-vo	ADV			3	2.35	ab-ovo	2
+abaca	abaka	abaca	NOM	m	s	0.01	0.00	0.01	0.00		1	1	1	5	5	VCVCV	VCVCV	0	1	4	5	a-ba-ka	3	V-CV-CV	acaba	akaba		NOM			2	1.9	abaca	1
+abaissa	abEsa	abaisser	VER			4.93	18.04	0.00	2.64	ind:pas:3s;	1	1	0	7	5	VCVVCCV	VCVCV	2	5	0	0	a-bE-sa	3	V-CV-CV	assiaba	asEba	a-bais-sa	VER	100	25	1.75	1.55	abaisser	1
+abaissai	abEsE	abaisser	VER			4.93	18.04	0.10	0.07	ind:pas:1s;	1	3	0	8	5	VCVVCCVV	VCVCV	0	5	0	0	a-bE-sE	3	V-CV-CV	iassiaba	EsEba	a-bais-sai	VER	100	25	1.85	1.5	abaisser	1
+abaissaient	abEsE	abaisser	VER			4.93	18.04	0.00	0.41	ind:imp:3p;	1	3	0	11	5	VCVVCCVVVCC	VCVCV	0	5	0	0	a-bE-sE	3	V-CV-CV	tneiassiaba	EsEba	a-bais-saient	VER	100	25	1.9	1.5	abaisser	1
+abaissait	abEsE	abaisser	VER			4.93	18.04	0.02	2.50	ind:imp:3s;	1	3	0	9	5	VCVVCCVVC	VCVCV	1	5	0	0	a-bE-sE	3	V-CV-CV	tiassiaba	EsEba	a-bais-sait	VER	100	25	1.8	1.5	abaisser	1
+abaissant	abEs@	abaissant	ADJ	m	s	0.04	0.27	0.03	0.27		2	2	1	9	5	VCVVCCVCC	VCVCV	2	6	7	5	a-bE-s@	3	V-CV-CV	tnassiaba	@sEba	a-bais-sant	ADJ,VER	100	19	1.75	1.45	a-baissant	2
+abaissant	abEs@	abaisser	VER			4.93	18.04	0.01	2.50	par:pre;	2	2	0	9	5	VCVVCCVCC	VCVCV	2	6	7	5	a-bE-s@	3	V-CV-CV	tnassiaba	@sEba	a-bais-sant	ADJ,VER	100	25	1.75	1.45	abaisser	1
+abaissante	abEs@t	abaissant	ADJ	f	s	0.04	0.27	0.01	0.00		1	1	0	10	6	VCVVCCVCCV	VCVCVC	0	1	0	0	a-bE-s@t	3	V-CV-CVC	etnassiaba	t@sEba		ADJ	100	19	2.5	1.9	a-baissant	2
+abaisse	abEs	abaisse	NOM	f	s	0.02	0.00	0.02	0.00		2	6	1	7	4	VCVVCCV	VCVC	2	4	7	4	a-bEs	2	V-CVC	essiaba	sEba	a-bais-se	NOM,VER	42	21	1.6	1.4	a-baisser	2
+abaisse	abEs	abaisser	VER			4.93	18.04	1.28	3.45	imp:pre:2s;ind:pre:1s;ind:pre:3s;	2	6	0	7	4	VCVVCCV	VCVC	2	4	7	4	a-bEs	2	V-CVC	essiaba	sEba	a-bais-se	NOM,VER	100	25	1.6	1.4	abaisser	1
+abaisse-langue	abEsl@g	abaisse-langue	NOM	m		0.04	0.14	0.04	0.14		1	1	1	14	7	VCVVCCV-CVCCVV	VCVCCVC	0	0	8	5	a-bE-sl@g	3	V-CV-CCVC	eugnal-essiaba	g@lsEba	abaisse-langue	NOM			6.3	2.85	abaisse-langue	2
+abaissement	abEs°m@	abaissement	NOM	m	s	0.31	2.16	0.31	2.16		1	1	1	11	7	VCVVCCVCVCC	VCVCVCV	0	1	8	5	a-bE-s°-m@	4	V-CV-CV-CV	tnemessiaba	@m°sEba	a-bais-se-ment	NOM	100	28	2.25		a-baisser-ment	3
+abaissent	abEs	abaisser	VER			4.93	18.04	0.05	0.95	ind:pre:3p;	1	6	0	9	4	VCVVCCVCC	VCVC	1	4	0	4	a-bEs	2	V-CVC	tnessiaba	sEba	a-bais-sent	VER	100	25	1.85	1.4	abaisser	1
+abaisser	abese	abaisser	VER			4.93	18.04	1.09	2.91	inf;	1	10	1	8	5	VCVVCCVC	VCVCV	2	2	8	5	a-be-se	3	V-CV-CV	ressiaba	eseba	a-bais-ser	VER	100	25	1.7	1.8	abaisser	1
+abaissera	abEs°Ra	abaisser	VER			4.93	18.04	0.19	0.07	ind:fut:3s;	1	1	0	9	7	VCVVCCVCV	VCVCVCV	0	1	0	0	a-bE-s°-Ra	4	V-CV-CV-CV	aressiaba	aR°sEba	a-bais-se-ra	VER	100	25	1.8		abaisser	1
+abaisserai	abEs°RE	abaisser	VER			4.93	18.04	0.10	0.07	ind:fut:1s;	1	4	0	10	7	VCVVCCVCVV	VCVCVCV	0	2	0	0	a-bE-s°-RE	4	V-CV-CV-CV	iaressiaba	ER°sEba	a-bais-se-rai	VER	100	25	2.05		abaisser	1
+abaisseraient	abEs°RE	abaisser	VER			4.93	18.04	0.01	0.07	cnd:pre:3p;	1	4	0	13	7	VCVVCCVCVVVCC	VCVCVCV	0	2	0	0	a-bE-s°-RE	4	V-CV-CV-CV	tneiaressiaba	ER°sEba	a-bais-se-raient	VER	100	25	2.55		abaisser	1
+abaisserais	abEs°RE	abaisser	VER			4.93	18.04	0.13	0.00	cnd:pre:1s;cnd:pre:2s;	1	4	0	11	7	VCVVCCVCVVC	VCVCVCV	1	2	0	0	a-bE-s°-RE	4	V-CV-CV-CV	siaressiaba	ER°sEba	a-bais-se-rais	VER	100	25	2.25		abaisser	1
+abaisserait	abEs°RE	abaisser	VER			4.93	18.04	0.02	0.20	cnd:pre:3s;	1	4	0	11	7	VCVVCCVCVVC	VCVCVCV	1	2	0	0	a-bE-s°-RE	4	V-CV-CV-CV	tiaressiaba	ER°sEba	a-bais-se-rait	VER	100	25	2.15		abaisser	1
+abaisses	abEs	abaisser	VER			4.93	18.04	0.16	0.07	ind:pre:2s;	1	6	0	8	4	VCVVCCVC	VCVC	3	4	0	4	a-bEs	2	V-CVC	sessiaba	sEba	a-bais-ses	VER	100	25	1.65	1.4	abaisser	1
+abaissez	abEse	abaisser	VER			4.93	18.04	0.53	0.07	imp:pre:2p;ind:pre:2p;	1	1	0	8	5	VCVVCCVC	VCVCV	2	5	0	0	a-bE-se	3	V-CV-CV	zessiaba	esEba	a-bais-sez	VER	100	25	1.75	1.6	abaisser	1
+abaissons	abEs§	abaisser	VER			4.93	18.04	0.02	0.00	imp:pre:1p;	1	1	0	9	5	VCVVCCVCC	VCVCV	0	5	0	0	a-bE-s§	3	V-CV-CV	snossiaba	§sEba	a-bais-sons	VER	100	25	1.95	1.65	abaisser	1
+abaissèrent	abEsER	abaisser	VER			4.93	18.04	0.00	0.41	ind:pas:3p;	1	1	0	11	6	VCVVCCVCVCC	VCVCVC	0	1	0	0	a-bE-sER	3	V-CV-CVC	tnerèssiaba	REsEba	a-bais-sè-rent	VER	100	25	2.45	1.85	abaisser	1
+abaissé	abese	abaisser	VER	m	s	4.93	18.04	0.74	1.35	par:pas;	2	10	0	7	5	VCVVCCV	VCVCV	2	2	7	5	a-be-se	3	V-CV-CV	éssiaba	eseba	a-bais-sé	VER,ADJ	100	25	1.7	1.8	abaisser	1
+abaissé	abese	abaissé	ADJ	m	s	0.07	0.74	0.03	0.20		2	10	1	7	5	VCVVCCV	VCVCV	2	2	7	5	a-be-se	3	V-CV-CV	éssiaba	eseba	a-bais-sé	VER,ADJ	100	23	1.7	1.8	a-baissé	2
+abaissée	abese	abaisser	VER	f	s	4.93	18.04	0.17	0.27	par:pas;	2	10	0	8	5	VCVVCCVV	VCVCV	1	2	0	5	a-be-se	3	V-CV-CV	eéssiaba	eseba	a-bais-sée	VER,ADJ	100	25	1.7	1.8	abaisser	1
+abaissée	abese	abaissé	ADJ	f	s	0.07	0.74	0.00	0.20		2	10	0	8	5	VCVVCCVV	VCVCV	1	2	0	5	a-be-se	3	V-CV-CV	eéssiaba	eseba	a-bais-sée	VER,ADJ	100	23	1.7	1.8	a-baissé	2
+abaissées	abese	abaisser	VER	f	p	4.93	18.04	0.01	0.00	par:pas;	2	10	0	9	5	VCVVCCVVC	VCVCV	0	2	0	5	a-be-se	3	V-CV-CV	seéssiaba	eseba	a-bais-sées	VER,ADJ	100	25	1.75	1.8	abaisser	1
+abaissées	abese	abaissé	ADJ	f	p	0.07	0.74	0.02	0.27		2	10	0	9	5	VCVVCCVVC	VCVCV	0	2	0	5	a-be-se	3	V-CV-CV	seéssiaba	eseba	a-bais-sées	VER,ADJ	100	23	1.75	1.8	a-baissé	2
+abaissés	abese	abaisser	VER	m	p	4.93	18.04	0.30	0.07	par:pas;	2	10	0	8	5	VCVVCCVC	VCVCV	2	2	0	5	a-be-se	3	V-CV-CV	séssiaba	eseba	a-bais-sés	VER,ADJ	100	25	1.75	1.8	abaisser	1
+abaissés	abese	abaissé	ADJ	m	p	0.07	0.74	0.01	0.07		2	10	0	8	5	VCVVCCVC	VCVCV	2	2	0	5	a-be-se	3	V-CV-CV	séssiaba	eseba	a-bais-sés	VER,ADJ	100	23	1.75	1.8	a-baissé	2
+abalone	abalOn	abalone	NOM	m	s	0.01	0.07	0.01	0.00		1	2	1	7	6	VCVCVCV	VCVCVC	0	0	4	4	a-ba-lOn	3	V-CV-CVC	enolaba	nOlaba	a-ba-lo-ne	NOM	21	23	2.8	2.15	abalone	1
+abalones	abalOn	abalone	NOM	m	p	0.01	0.07	0.00	0.07		1	2	0	8	6	VCVCVCVC	VCVCVC	0	0	0	4	a-ba-lOn	3	V-CV-CVC	senolaba	nOlaba	a-ba-lo-nes	NOM	21	23	2.75	2.15	abalone	1
+abandon	ab@d§	abandon	NOM	m	s	4.84	27.36	4.77	25.20		1	2	1	7	5	VCVCCVC	VCVCV	0	1	7	5	a-b@-d§	3	V-CV-CV	nodnaba	§d@ba	a-ban-don	NOM	95	22	2.6	1.95	abandonner	1
+abandonna	ab@dona	abandonner	VER			110.87	128.45	0.59	8.92	ind:pas:3s;	1	3	0	9	7	VCVCCVCCV	VCVCVCV	2	4	0	0	a-b@-do-na	4	V-CV-CV-CV	annodnaba	anod@ba	a-ban-don-na	VER	100	16	2	2	abandonner	1
+abandonnai	ab@donE	abandonner	VER			110.87	128.45	0.27	2.16	ind:pas:1s;	1	4	0	10	7	VCVCCVCCVV	VCVCVCV	1	4	0	0	a-b@-do-nE	4	V-CV-CV-CV	iannodnaba	Enod@ba	a-ban-don-nai	VER	100	16	2.1	1.8	abandonner	1
+abandonnaient	ab@donE	abandonner	VER			110.87	128.45	0.07	1.55	ind:imp:3p;	1	4	0	13	7	VCVCCVCCVVVCC	VCVCVCV	0	4	0	0	a-b@-do-nE	4	V-CV-CV-CV	tneiannodnaba	Enod@ba	a-ban-don-naient	VER	100	16	2.85	1.8	abandonner	1
+abandonnais	ab@donE	abandonner	VER			110.87	128.45	0.35	1.49	ind:imp:1s;ind:imp:2s;	1	4	0	11	7	VCVCCVCCVVC	VCVCVCV	1	4	0	0	a-b@-do-nE	4	V-CV-CV-CV	siannodnaba	Enod@ba	a-ban-don-nais	VER	100	16	2.35	1.8	abandonner	1
+abandonnait	ab@donE	abandonner	VER			110.87	128.45	1.04	9.46	ind:imp:3s;	1	4	0	11	7	VCVCCVCCVVC	VCVCVCV	2	4	0	0	a-b@-do-nE	4	V-CV-CV-CV	tiannodnaba	Enod@ba	a-ban-don-nait	VER	100	16	2.35	1.8	abandonner	1
+abandonnant	ab@don@	abandonner	VER			110.87	128.45	1.15	9.93	par:pre;	1	1	0	11	7	VCVCCVCCVCC	VCVCVCV	2	4	0	0	a-b@-do-n@	4	V-CV-CV-CV	tnannodnaba	@nod@ba	a-ban-don-nant	VER	100	16	2.45	2.1	abandonner	1
+abandonnas	ab@dona	abandonner	VER			110.87	128.45	0.00	0.14	ind:pas:2s;	1	3	0	10	7	VCVCCVCCVC	VCVCVCV	3	4	0	0	a-b@-do-na	4	V-CV-CV-CV	sannodnaba	anod@ba	a-ban-don-nas	VER	100	16	1.9	2	abandonner	1
+abandonne	ab@dOn	abandonner	VER			110.87	128.45	24.04	15.54	imp:pre:2s;ind:pre:1s;ind:pre:3s;sub:pre:3s;	1	3	0	9	6	VCVCCVCCV	VCVCVC	2	0	0	0	a-b@-dOn	3	V-CV-CVC	ennodnaba	nOd@ba	a-ban-don-ne	VER	100	16	1.85	2.1	abandonner	1
+abandonnent	ab@dOn	abandonner	VER			110.87	128.45	2.44	2.64	ind:pre:3p;sub:pre:3p;	1	3	0	11	6	VCVCCVCCVCC	VCVCVC	1	0	0	0	a-b@-dOn	3	V-CV-CVC	tnennodnaba	nOd@ba	a-ban-don-nent	VER	100	16	2.35	2.1	abandonner	1
+abandonner	ab@done	abandonner	VER			110.87	128.45	28.37	27.70	ind:pre:2p;inf;	1	10	1	10	7	VCVCCVCCVC	VCVCVCV	2	4	10	7	a-b@-do-ne	4	V-CV-CV-CV	rennodnaba	enod@ba	a-ban-don-ner	VER	100	16	1.85	1.8	abandonner	1
+abandonnera	ab@dOn°Ra	abandonner	VER			110.87	128.45	1.52	0.81	ind:fut:3s;	1	2	0	11	9	VCVCCVCCVCV	VCVCVCVCV	0	3	0	0	a-b@-dO-n°-Ra	5	V-CV-CV-CV-CV	arennodnaba	aR°nOd@ba	a-ban-don-ne-ra	VER	100	16	2.25		abandonner	1
+abandonnerai	ab@dOn°RE	abandonner	VER			110.87	128.45	2.39	0.41	ind:fut:1s;	1	4	0	12	9	VCVCCVCCVCVV	VCVCVCVCV	1	3	0	0	a-b@-dO-n°-RE	5	V-CV-CV-CV-CV	iarennodnaba	ER°nOd@ba	a-ban-don-ne-rai	VER	100	16	2.45		abandonner	1
+abandonneraient	ab@dOn°RE	abandonner	VER			110.87	128.45	0.02	0.14	cnd:pre:3p;	1	4	0	15	9	VCVCCVCCVCVVVCC	VCVCVCVCV	0	3	0	0	a-b@-dO-n°-RE	5	V-CV-CV-CV-CV	tneiarennodnaba	ER°nOd@ba	a-ban-don-ne-raient	VER	100	16	3.4		abandonner	1
+abandonnerais	ab@dOn°RE	abandonner	VER			110.87	128.45	0.93	0.27	cnd:pre:1s;cnd:pre:2s;	1	4	0	13	9	VCVCCVCCVCVVC	VCVCVCVCV	1	3	0	0	a-b@-dO-n°-RE	5	V-CV-CV-CV-CV	siarennodnaba	ER°nOd@ba	a-ban-don-ne-rais	VER	100	16	2.65		abandonner	1
+abandonnerait	ab@dOn°RE	abandonner	VER			110.87	128.45	0.23	0.88	cnd:pre:3s;	1	4	0	13	9	VCVCCVCCVCVVC	VCVCVCVCV	1	3	0	0	a-b@-dO-n°-RE	5	V-CV-CV-CV-CV	tiarennodnaba	ER°nOd@ba	a-ban-don-ne-rait	VER	100	16	2.65		abandonner	1
+abandonneras	ab@dOn°Ra	abandonner	VER			110.87	128.45	0.30	0.20	ind:fut:2s;	1	2	0	12	9	VCVCCVCCVCVC	VCVCVCVCV	1	3	0	0	a-b@-dO-n°-Ra	5	V-CV-CV-CV-CV	sarennodnaba	aR°nOd@ba	a-ban-don-ne-ras	VER	100	16	2.35		abandonner	1
+abandonnerez	ab@dOn°Re	abandonner	VER			110.87	128.45	0.14	0.00	ind:fut:2p;	1	1	0	12	9	VCVCCVCCVCVC	VCVCVCVCV	0	3	0	0	a-b@-dO-n°-Re	5	V-CV-CV-CV-CV	zerennodnaba	eR°nOd@ba	a-ban-don-ne-rez	VER	100	16	2.6		abandonner	1
+abandonneriez	ab@dOn°Rje	abandonner	VER			110.87	128.45	0.23	0.20	cnd:pre:2p;	1	1	0	13	10	VCVCCVCCVCVVC	VCVCVCVCYV	0	1	0	0	a-b@-dO-n°-Rje	5	V-CV-CV-CV-CYV	zeirennodnaba	ejR°nOd@ba	a-ban-don-ne-riez	VER	100	16	3.15	3.5	abandonner	1
+abandonnerions	ab@dOn°Rj§	abandonner	VER			110.87	128.45	0.01	0.00	cnd:pre:1p;	1	1	0	14	10	VCVCCVCCVCVVCC	VCVCVCVCYV	0	1	0	0	a-b@-dO-n°-Rj§	5	V-CV-CV-CV-CYV	snoirennodnaba	§jR°nOd@ba	a-ban-don-ne-rions	VER	100	16	3.4	3.5	abandonner	1
+abandonnerons	ab@dOn°R§	abandonner	VER			110.87	128.45	0.39	0.14	ind:fut:1p;	1	2	0	13	9	VCVCCVCCVCVCC	VCVCVCVCV	1	3	0	0	a-b@-dO-n°-R§	5	V-CV-CV-CV-CV	snorennodnaba	§R°nOd@ba	a-ban-don-ne-rons	VER	100	16	2.75		abandonner	1
+abandonneront	ab@dOn°R§	abandonner	VER			110.87	128.45	0.41	0.27	ind:fut:3p;	1	2	0	13	9	VCVCCVCCVCVCC	VCVCVCVCV	1	3	0	0	a-b@-dO-n°-R§	5	V-CV-CV-CV-CV	tnorennodnaba	§R°nOd@ba	a-ban-don-ne-ront	VER	100	16	2.8		abandonner	1
+abandonnes	ab@dOn	abandonner	VER			110.87	128.45	4.13	0.14	ind:pre:2s;sub:pre:2s;	1	3	0	10	6	VCVCCVCCVC	VCVCVC	4	0	0	0	a-b@-dOn	3	V-CV-CVC	sennodnaba	nOd@ba	a-ban-don-nes	VER	100	16	1.7	2.1	abandonner	1
+abandonneurs	ab@don9R	abandonneur	NOM	m	p	0.00	0.07	0.00	0.07		1	1	0	12	8	VCVCCVCCVVCC	VCVCVCVC	0	1	0	0	a-b@-do-n9R	4	V-CV-CV-CVC	sruennodnaba	R9nod@ba	a-ban-don-neurs	NOM			2.75	2.4	abandonneur	1
+abandonnez	ab@done	abandonner	VER			110.87	128.45	5.72	0.88	imp:pre:2p;ind:pre:2p;	1	10	0	10	7	VCVCCVCCVC	VCVCVCV	2	4	0	7	a-b@-do-ne	4	V-CV-CV-CV	zennodnaba	enod@ba	a-ban-don-nez	VER	100	16	2	1.8	abandonner	1
+abandonniez	ab@donje	abandonner	VER			110.87	128.45	0.14	0.14	ind:imp:2p;	1	1	0	11	8	VCVCCVCCVVC	VCVCVCYV	0	1	0	0	a-b@-do-nje	4	V-CV-CV-CYV	zeinnodnaba	ejnod@ba	a-ban-don-niez	VER	100	16	2.55	2.35	abandonner	1
+abandonnions	ab@donj§	abandonner	VER			110.87	128.45	0.06	0.54	ind:imp:1p;	1	1	0	12	8	VCVCCVCCVVCC	VCVCVCYV	0	1	0	0	a-b@-do-nj§	4	V-CV-CV-CYV	snoinnodnaba	§jnod@ba	a-ban-don-nions	VER	100	16	2.85	2.25	abandonner	1
+abandonnique	ab@donik	abandonnique	ADJ		s	0.00	0.07	0.00	0.07		1	1	1	12	8	VCVCCVCCVCVV	VCVCVCVC	0	0	9	7	a-b@-do-nik	4	V-CV-CV-CVC	euqinnodnaba	kinod@ba	a-ban-don-ni-que	ADJ	15	26	3.8	2.5	abandonner-ique	2
+abandonnons	ab@don§	abandonner	VER			110.87	128.45	1.06	0.68	imp:pre:1p;ind:pre:1p;	1	1	0	11	7	VCVCCVCCVCC	VCVCVCV	0	4	0	0	a-b@-do-n§	4	V-CV-CV-CV	snonnodnaba	§nod@ba	a-ban-don-nons	VER	100	16	2.5	2.05	abandonner	1
+abandonnâmes	ab@donam	abandonner	VER			110.87	128.45	0.00	0.27	ind:pas:1p;	1	1	0	12	8	VCVCCVCCVCVC	VCVCVCVC	0	0	0	0	a-b@-do-nam	4	V-CV-CV-CVC	semânnodnaba	manod@ba	a-ban-don-nâ-mes	VER	100	16	3.1	2.45	abandonner	1
+abandonnât	ab@dona	abandonner	VER			110.87	128.45	0.00	0.34	sub:imp:3s;	1	3	0	10	7	VCVCCVCCVC	VCVCVCV	0	4	0	0	a-b@-do-na	4	V-CV-CV-CV	tânnodnaba	anod@ba	a-ban-don-nât	VER	100	16	2.35	2	abandonner	1
+abandonnèrent	ab@donER	abandonner	VER			110.87	128.45	0.16	1.42	ind:pas:3p;	1	1	0	13	8	VCVCCVCCVCVCC	VCVCVCVC	0	1	0	0	a-b@-do-nER	4	V-CV-CV-CVC	tnerènnodnaba	REnod@ba	a-ban-don-nè-rent	VER	100	16	3.3	2.4	abandonner	1
+abandonné	ab@done	abandonner	VER	m	s	110.87	128.45	22.56	23.92	par:pas;	2	10	0	9	7	VCVCCVCCV	VCVCVCV	2	4	9	7	a-b@-do-ne	4	V-CV-CV-CV	énnodnaba	enod@ba	a-ban-don-né	VER,ADJ	100	16	2.15	1.8	abandonner	1
+abandonné	ab@done	abandonné	ADJ	m	s	8.27	24.39	3.84	8.45		2	10	1	9	7	VCVCCVCCV	VCVCVCV	2	4	9	7	a-b@-do-ne	4	V-CV-CV-CV	énnodnaba	enod@ba	a-ban-don-né	VER,ADJ	100	25	2.15	1.8	abandonné	1
+abandonnée	ab@done	abandonner	VER	f	s	110.87	128.45	7.34	9.66	par:pas;	2	10	0	10	7	VCVCCVCCVV	VCVCVCV	1	4	0	7	a-b@-do-ne	4	V-CV-CV-CV	eénnodnaba	enod@ba	a-ban-don-née	VER,ADJ	100	16	2.15	1.8	abandonner	1
+abandonnée	ab@done	abandonné	ADJ	f	s	8.27	24.39	2.94	8.24		2	10	0	10	7	VCVCCVCCVV	VCVCVCV	1	4	0	7	a-b@-do-ne	4	V-CV-CV-CV	eénnodnaba	enod@ba	a-ban-don-née	VER,ADJ	100	25	2.15	1.8	abandonné	1
+abandonnées	ab@done	abandonner	VER	f	p	110.87	128.45	1.27	2.70	par:pas;	2	10	0	11	7	VCVCCVCCVVC	VCVCVCV	0	4	0	7	a-b@-do-ne	4	V-CV-CV-CV	seénnodnaba	enod@ba	a-ban-don-nées	VER,ADJ	100	16	2.2	1.8	abandonner	1
+abandonnées	ab@done	abandonné	ADJ	f	p	8.27	24.39	0.44	2.97		2	10	0	11	7	VCVCCVCCVVC	VCVCVCV	0	4	0	7	a-b@-do-ne	4	V-CV-CV-CV	seénnodnaba	enod@ba	a-ban-don-nées	VER,ADJ	100	25	2.2	1.8	abandonné	1
+abandonnés	ab@done	abandonner	VER	m	p	110.87	128.45	3.55	4.93	par:pas;	2	10	0	10	7	VCVCCVCCVC	VCVCVCV	3	4	0	7	a-b@-do-ne	4	V-CV-CV-CV	sénnodnaba	enod@ba	a-ban-don-nés	VER,ADJ	100	16	2.05	1.8	abandonner	1
+abandonnés	ab@done	abandonné	ADJ	m	p	8.27	24.39	1.05	4.73		2	10	0	10	7	VCVCCVCCVC	VCVCVCV	3	4	0	7	a-b@-do-ne	4	V-CV-CV-CV	sénnodnaba	enod@ba	a-ban-don-nés	VER,ADJ	100	25	2.05	1.8	abandonné	1
+abandons	ab@d§	abandon	NOM	m	p	4.84	27.36	0.07	2.16		1	2	0	8	5	VCVCCVCC	VCVCV	0	1	0	5	a-b@-d§	3	V-CV-CV	snodnaba	§d@ba	a-ban-dons	NOM	95	22	2.3	1.95	abandonner	1
+abaque	abak	abaque	NOM	m	s	0.00	0.07	0.00	0.07		1	1	1	6	4	VCVCVV	VCVC	0	6	4	4	a-bak	2	V-CVC	euqaba	kaba	a-ba-que	NOM	63	19	2	1.55	abaque	1
+abasourdi	abazuRdi	abasourdi	ADJ	m	s	0.40	2.64	0.24	2.03		2	6	1	9	8	VCVCVVCCV	VCVCVCCV	0	0	9	8	a-ba-zuR-di	4	V-CV-CVC-CV	idruosaba	idRuzaba	a-ba-sour-di	ADJ,VER	100	11	2.95	3.1	abasourdi	1
+abasourdi	abazuRdi	abasourdir	VER	m	s	0.55	2.97	0.35	2.09	par:pas;	2	6	0	9	8	VCVCVVCCV	VCVCVCCV	0	0	9	8	a-ba-zuR-di	4	V-CV-CVC-CV	idruosaba	idRuzaba	a-ba-sour-di	ADJ,VER	100	18	2.95	3.1	abasourdir	1
+abasourdie	abazuRdi	abasourdi	ADJ	f	s	0.40	2.64	0.14	0.54		2	6	0	10	8	VCVCVVCCVV	VCVCVCCV	2	0	0	8	a-ba-zuR-di	4	V-CV-CVC-CV	eidruosaba	idRuzaba	a-ba-sour-die	ADJ,VER	100	11	2.95	3.1	abasourdi	1
+abasourdie	abazuRdi	abasourdir	VER	f	s	0.55	2.97	0.12	0.54	par:pas;	2	6	0	10	8	VCVCVVCCVV	VCVCVCCV	2	0	0	8	a-ba-zuR-di	4	V-CV-CVC-CV	eidruosaba	idRuzaba	a-ba-sour-die	ADJ,VER	100	18	2.95	3.1	abasourdir	1
+abasourdir	abazuRdiR	abasourdir	VER			0.55	2.97	0.01	0.14	inf;	1	1	1	10	9	VCVCVVCCVC	VCVCVCCVC	2	0	10	9	a-ba-zuR-diR	4	V-CV-CVC-CVC	ridruosaba	RidRuzaba	a-ba-sour-dir	VER	100	18	3.2	3.35	abasourdir	1
+abasourdis	abazuRdi	abasourdi	ADJ	m	p	0.40	2.64	0.02	0.07		2	6	0	10	8	VCVCVVCCVC	VCVCVCCV	2	0	0	8	a-ba-zuR-di	4	V-CV-CVC-CV	sidruosaba	idRuzaba	a-ba-sour-dis	ADJ,VER	100	11	3	3.1	abasourdi	1
+abasourdis	abazuRdi	abasourdir	VER	m	p	0.55	2.97	0.07	0.20	par:pas;	2	6	0	10	8	VCVCVVCCVC	VCVCVCCV	2	0	0	8	a-ba-zuR-di	4	V-CV-CVC-CV	sidruosaba	idRuzaba	a-ba-sour-dis	ADJ,VER	100	18	3	3.1	abasourdir	1
+abasourdissant	abazuRdis@	abasourdissant	ADJ	m	s	0.01	0.07	0.01	0.00		1	2	1	14	10	VCVCVVCCVCCVCC	VCVCVCCVCV	0	0	10	9	a-ba-zuR-di-s@	5	V-CV-CVC-CV-CV	tnassidruosaba	@sidRuzaba		ADJ			3.5	3.6	abasourdissant	1
+abasourdissants	abazuRdis@	abasourdissant	ADJ	m	p	0.01	0.07	0.00	0.07		1	2	0	15	10	VCVCVVCCVCCVCCC	VCVCVCCVCV	0	0	0	9	a-ba-zuR-di-s@	5	V-CV-CVC-CV-CV	stnassidruosaba	@sidRuzaba	a-ba-sour-dis-sants	ADJ			4.1	3.6	abasourdissant	1
+abat	aba	abat	NOM	m	s	0.65	1.01	0.13	0.20		2	4	1	4	3	VCVC	VCV	1	20	4	3	a-ba	2	V-CV	taba	aba	a-bat	NOM,VER	92	13	1.8	1	abat	1
+abat	aba	abattre	VER			43.47	50.61	2.15	4.93	ind:pre:3s;	2	4	0	4	3	VCVC	VCV	1	20	4	3	a-ba	2	V-CV	taba	aba	a-bat	NOM,VER	93	15	1.8	1	abattre	1
+abat-jour	abaZuR	abat-jour	NOM	m		0.51	8.24	0.51	8.24		1	1	1	9	6	VCVC-CVVC	VCVCVC	0	0	6	4	a-ba-ZuR	3	V-CV-CVC	ruoj-taba	RuZaba	abat-jour	NOM			3.8	2.45	abat-jour	2
+abat-son	abas§	abat-son	NOM	m		0.00	0.27	0.00	0.27		1	1	1	8	5	VCVC-CVC	VCVCV	0	3	6	5	a-ba-s§	3	V-CV-CV	nos-taba	§saba	abat-son	NOM			3.4	1.75	abat-son	2
+abatage	abataZ	abatage	NOM	m	s	0.00	0.07	0.00	0.07		1	3	1	7	6	VCVCVCV	VCVCVC	0	0	5	6	a-ba-taZ	3	V-CV-CVC	egataba	Zataba	a-ba-ta-ge	NOM	76	30	2.1	1.95	abat-age	2
+abatis	abati	abatis	NOM	m		0.00	0.88	0.00	0.88		1	4	1	6	5	VCVCVC	VCVCV	1	11	5	5	a-ba-ti	3	V-CV-CV	sitaba	itaba	a-ba-tis	NOM	68	19	1.85	1.25	abatis	1
+abats	aba	abat	NOM	m	p	0.65	1.01	0.52	0.81		2	4	0	5	3	VCVCC	VCV	1	20	0	3	a-ba	2	V-CV	staba	aba	a-bats	NOM,VER	92	13	1.75	1	abat	1
+abats	aba	abattre	VER			43.47	50.61	1.79	0.54	imp:pre:2s;ind:pre:1s;ind:pre:2s;	2	4	0	5	3	VCVCC	VCV	1	20	0	3	a-ba	2	V-CV	staba	aba	a-bats	NOM,VER	93	15	1.75	1	abattre	1
+abattage	abataZ	abattage	NOM	m	s	0.65	1.28	0.63	1.15		1	3	1	8	6	VCVCCVCV	VCVCVC	0	0	7	6	a-ba-taZ	3	V-CV-CVC	egattaba	Zataba	a-bat-ta-ge	NOM	100	13	2.2	1.95	abattre-age	2
+abattages	abataZ	abattage	NOM	m	p	0.65	1.28	0.02	0.14		1	3	0	9	6	VCVCCVCVC	VCVCVC	0	0	0	6	a-ba-taZ	3	V-CV-CVC	segattaba	Zataba	a-bat-ta-ges	NOM	100	13	2.35	1.95	abattre-age	2
+abattaient	abatE	abattre	VER			43.47	50.61	0.06	2.36	ind:imp:3p;	1	3	0	10	5	VCVCCVVVCC	VCVCV	1	10	0	0	a-ba-tE	3	V-CV-CV	tneiattaba	Etaba	a-bat-taient	VER	93	15	1.95	1.3	abattre	1
+abattais	abatE	abattre	VER			43.47	50.61	0.02	0.27	ind:imp:1s;	1	3	0	8	5	VCVCCVVC	VCVCV	1	10	0	0	a-ba-tE	3	V-CV-CV	siattaba	Etaba	a-bat-tais	VER	93	15	1.75	1.3	abattre	1
+abattait	abatE	abattre	VER			43.47	50.61	0.42	3.45	ind:imp:3s;	1	3	0	8	5	VCVCCVVC	VCVCV	3	10	0	0	a-ba-tE	3	V-CV-CV	tiattaba	Etaba	a-bat-tait	VER	93	15	1.65	1.3	abattre	1
+abattant	abat@	abattant	NOM	m	s	0.07	0.61	0.05	0.54		2	3	1	8	5	VCVCCVCC	VCVCV	3	9	7	5	a-ba-t@	3	V-CV-CV	tnattaba	@taba	a-bat-tant	NOM,VER	76	21	1.7	1.35	a-battant	2
+abattant	abat@	abattre	VER			43.47	50.61	0.31	1.96	par:pre;	2	3	0	8	5	VCVCCVCC	VCVCV	3	9	7	5	a-ba-t@	3	V-CV-CV	tnattaba	@taba	a-bat-tant	NOM,VER	93	15	1.7	1.35	abattre	1
+abattants	abat@	abattant	NOM	m	p	0.07	0.61	0.01	0.07		1	3	0	9	5	VCVCCVCCC	VCVCV	0	9	0	5	a-ba-t@	3	V-CV-CV	stnattaba	@taba	a-bat-tants	NOM	76	21	2.3	1.35	a-battant	2
+abatte	abat	abattre	VER			43.47	50.61	0.58	0.61	sub:pre:1s;sub:pre:3s;	1	3	0	6	4	VCVCCV	VCVC	1	6	0	0	a-bat	2	V-CVC	ettaba	taba	a-bat-te	VER	93	15	1.65	1.2	abattre	1
+abattement	abat°m@	abattement	NOM	m	s	0.18	2.64	0.17	2.36		1	2	1	10	7	VCVCCVCVCC	VCVCVCV	0	1	7	5	a-ba-t°-m@	4	V-CV-CV-CV	tnemettaba	@m°taba	a-bat-te-ment	NOM	90	20	2.5		abattre-ment	2
+abattements	abat°m@	abattement	NOM	m	p	0.18	2.64	0.01	0.27		1	2	0	11	7	VCVCCVCVCCC	VCVCVCV	1	1	0	5	a-ba-t°-m@	4	V-CV-CV-CV	stnemettaba	@m°taba	a-bat-te-ments	NOM	90	20	2.6		abattre-ment	2
+abattent	abat	abattre	VER			43.47	50.61	0.69	2.03	ind:pre:3p;	1	3	0	8	4	VCVCCVCC	VCVC	2	6	0	0	a-bat	2	V-CVC	tnettaba	taba	a-bat-tent	VER	93	15	1.8	1.2	abattre	1
+abattes	abat	abattre	VER			43.47	50.61	0.11	0.00	sub:pre:2s;	1	3	0	7	4	VCVCCVC	VCVC	3	6	0	0	a-bat	2	V-CVC	settaba	taba	a-bat-tes	VER	93	15	1.7	1.2	abattre	1
+abatteur	abat9R	abatteur	NOM	m	s	0.14	0.27	0.14	0.20		1	2	1	8	6	VCVCCVVC	VCVCVC	0	3	7	5	a-ba-t9R	3	V-CV-CVC	ruettaba	R9taba	a-bat-teur	NOM	64	17	1.9	1.7	abattre-eur	2
+abatteurs	abat9R	abatteur	NOM	m	p	0.14	0.27	0.00	0.07		1	2	0	9	6	VCVCCVVCC	VCVCVC	0	3	0	5	a-ba-t9R	3	V-CV-CVC	sruettaba	R9taba	a-bat-teurs	NOM	64	17	2.15	1.7	abattre-eur	2
+abattez	abate	abattre	VER			43.47	50.61	2.21	0.00	imp:pre:2p;ind:pre:2p;	1	1	0	7	5	VCVCCVC	VCVCV	1	8	0	0	a-ba-te	3	V-CV-CV	zettaba	etaba	a-bat-tez	VER	93	15	1.7	1.35	abattre	1
+abattiez	abatje	abattre	VER			43.47	50.61	0.06	0.00	ind:imp:2p;	1	1	0	8	6	VCVCCVVC	VCVCYV	1	3	0	0	a-ba-tje	3	V-CV-CYV	zeittaba	ejtaba	a-bat-tiez	VER	93	15	1.9	1.75	abattre	1
+abattions	abatj§	abattre	VER			43.47	50.61	0.00	0.07	ind:imp:1p;	1	1	0	9	6	VCVCCVVCC	VCVCYV	1	3	0	0	a-ba-tj§	3	V-CV-CYV	snoittaba	§jtaba	a-bat-tions	VER	93	15	1.95	1.7	abattre	1
+abattirent	abatiR	abattre	VER			43.47	50.61	0.03	0.95	ind:pas:3p;	1	1	0	10	6	VCVCCVCVCC	VCVCVC	0	4	0	0	a-ba-tiR	3	V-CV-CVC	tnerittaba	Ritaba	a-bat-ti-rent	VER	93	15	2.45	1.6	abattre	1
+abattis	abati	abattis	NOM	m		0.14	1.08	0.14	1.08		2	4	1	7	5	VCVCCVC	VCVCV	3	11	6	5	a-ba-ti	3	V-CV-CV	sittaba	itaba	a-bat-tis	NOM,VER	51	27	1.65	1.25	abattis	1
+abattis	abati	abattre	VER			43.47	50.61	0.00	0.27	ind:pas:1s;	2	4	0	7	5	VCVCCVC	VCVCV	3	11	6	5	a-ba-ti	3	V-CV-CV	sittaba	itaba	a-bat-tis	NOM,VER	93	15	1.65	1.25	abattre	1
+abattit	abati	abattre	VER			43.47	50.61	0.34	5.07	ind:pas:3s;	1	4	0	7	5	VCVCCVC	VCVCV	2	11	0	5	a-ba-ti	3	V-CV-CV	tittaba	itaba	a-bat-tit	VER	93	15	1.75	1.25	abattre	1
+abattoir	abatwaR	abattoir	NOM	m	s	3.16	4.66	2.67	2.36		1	2	1	8	7	VCVCCVVC	VCVCYVC	0	1	6	5	a-ba-twaR	3	V-CV-CYVC	riottaba	Rawtaba	a-bat-toir	NOM	100	25	2.35	1.9	abattoir	1
+abattoirs	abatwaR	abattoir	NOM	m	p	3.16	4.66	0.48	2.30		1	2	0	9	7	VCVCCVVCC	VCVCYVC	0	1	0	5	a-ba-twaR	3	V-CV-CYVC	sriottaba	Rawtaba	a-bat-toirs	NOM	100	25	2.45	1.9	abattoir	1
+abattons	abat§	abattre	VER			43.47	50.61	0.33	0.00	imp:pre:1p;ind:pre:1p;	1	1	0	8	5	VCVCCVCC	VCVCV	1	12	0	0	a-ba-t§	3	V-CV-CV	snottaba	§taba	a-bat-tons	VER	93	15	1.8	1.2	abattre	1
+abattra	abatRa	abattre	VER			43.47	50.61	1.51	0.61	ind:fut:3s;	1	2	0	7	6	VCVCCCV	VCVCCV	1	3	0	0	a-ba-tRa	3	V-CV-CCV	arttaba	aRtaba	a-bat-tra	VER	93	15	1.75	1.6	abattre	1
+abattrai	abatRE	abattre	VER			43.47	50.61	0.39	0.00	ind:fut:1s;	1	4	0	8	6	VCVCCCVV	VCVCCV	1	3	0	0	a-ba-tRE	3	V-CV-CCV	iarttaba	ERtaba	a-bat-trai	VER	93	15	1.95	1.55	abattre	1
+abattraient	abatRE	abattre	VER			43.47	50.61	0.03	0.07	cnd:pre:3p;	1	4	0	11	6	VCVCCCVVVCC	VCVCCV	0	3	0	0	a-ba-tRE	3	V-CV-CCV	tneiarttaba	ERtaba	a-bat-traient	VER	93	15	2.45	1.55	abattre	1
+abattrais	abatRE	abattre	VER			43.47	50.61	0.10	0.07	cnd:pre:1s;cnd:pre:2s;	1	4	0	9	6	VCVCCCVVC	VCVCCV	1	3	0	0	a-ba-tRE	3	V-CV-CCV	siarttaba	ERtaba	a-bat-trais	VER	93	15	1.85	1.55	abattre	1
+abattrait	abatRE	abattre	VER			43.47	50.61	0.63	0.41	cnd:pre:3s;	1	4	0	9	6	VCVCCCVVC	VCVCCV	1	3	0	0	a-ba-tRE	3	V-CV-CCV	tiarttaba	ERtaba	a-bat-trait	VER	93	15	1.75	1.55	abattre	1
+abattras	abatRa	abattre	VER			43.47	50.61	0.03	0.00	ind:fut:2s;	1	2	0	8	6	VCVCCCVC	VCVCCV	1	3	0	0	a-ba-tRa	3	V-CV-CCV	sarttaba	aRtaba	a-bat-tras	VER	93	15	1.75	1.6	abattre	1
+abattre	abatR	abattre	VER			43.47	50.61	14.43	14.32	inf;	1	1	1	7	5	VCVCCCV	VCVCC	3	7	6	5	a-batR	2	V-CVCC	erttaba	Rtaba	a-bat-tre	VER	93	15	1.65	1.1	abattre	1
+abattrez	abatRe	abattre	VER			43.47	50.61	0.26	0.00	ind:fut:2p;	1	1	0	8	6	VCVCCCVC	VCVCCV	1	4	0	0	a-ba-tRe	3	V-CV-CCV	zerttaba	eRtaba	a-bat-trez	VER	93	15	1.75	1.55	abattre	1
+abattriez	abatRie	abattre	VER			43.47	50.61	0.02	0.00	cnd:pre:2p;	1	1	0	9	7	VCVCCCVVC	VCVCCVV	0	0	0	0	a-ba-tRi-e	4	V-CV-CCV-V	zeirttaba	eiRtaba	a-bat-triez	VER	93	15	2.5	2	abattre	1
+abattrons	abatR§	abattre	VER			43.47	50.61	0.11	0.00	ind:fut:1p;	1	2	0	9	6	VCVCCCVCC	VCVCCV	2	4	0	0	a-ba-tR§	3	V-CV-CCV	snorttaba	§Rtaba	a-bat-trons	VER	93	15	2.05	1.55	abattre	1
+abattront	abatR§	abattre	VER			43.47	50.61	0.34	0.07	ind:fut:3p;	1	2	0	9	6	VCVCCCVCC	VCVCCV	1	4	0	0	a-ba-tR§	3	V-CV-CCV	tnorttaba	§Rtaba	a-bat-tront	VER	93	15	2.4	1.55	abattre	1
+abattu	abaty	abattre	VER	m	s	43.47	50.61	11.48	7.43	par:pas;	3	10	0	6	5	VCVCCV	VCVCV	1	7	6	5	a-ba-ty	3	V-CV-CV	uttaba	ytaba	a-bat-tu	VER,ADJ,NOM	93	15	1.75	1.45	abattre	1
+abattu	abaty	abattu	ADJ	m	s	2.51	7.09	1.82	3.78		3	10	1	6	5	VCVCCV	VCVCV	1	7	6	5	a-ba-ty	3	V-CV-CV	uttaba	ytaba	a-bat-tu	VER,ADJ,NOM	100	19	1.75	1.45	a-battu	2
+abattu	abaty	abattu	NOM	m	s	0.53	1.42	0.18	1.22		3	10	1	6	5	VCVCCV	VCVCV	1	7	6	5	a-ba-ty	3	V-CV-CV	uttaba	ytaba	a-bat-tu	VER,ADJ,NOM	83	24	1.75	1.45	a-battu	2
+abattue	abaty	abattre	VER	f	s	43.47	50.61	2.19	2.43	par:pas;	2	10	0	7	5	VCVCCVV	VCVCV	2	7	0	5	a-ba-ty	3	V-CV-CV	euttaba	ytaba	a-bat-tue	VER,ADJ	93	15	1.65	1.45	abattre	1
+abattue	abaty	abattu	ADJ	f	s	2.51	7.09	0.18	1.55		2	10	0	7	5	VCVCCVV	VCVCV	2	7	0	5	a-ba-ty	3	V-CV-CV	euttaba	ytaba	a-bat-tue	VER,ADJ	100	19	1.65	1.45	a-battu	2
+abattues	abaty	abattre	VER	f	p	43.47	50.61	0.44	0.27	par:pas;	2	10	0	8	5	VCVCCVVC	VCVCV	0	7	0	5	a-ba-ty	3	V-CV-CV	seuttaba	ytaba	a-bat-tues	VER,ADJ	93	15	1.7	1.45	abattre	1
+abattues	abaty	abattu	ADJ	f	p	2.51	7.09	0.04	0.68		2	10	0	8	5	VCVCCVVC	VCVCV	0	7	0	5	a-ba-ty	3	V-CV-CV	seuttaba	ytaba	a-bat-tues	VER,ADJ	100	19	1.7	1.45	a-battu	2
+abattures	abatyR	abatture	NOM	f	p	0.00	0.14	0.00	0.14		1	1	0	9	6	VCVCCVCVC	VCVCVC	0	2	0	0	a-ba-tyR	3	V-CV-CVC	seruttaba	Rytaba	a-bat-tu-res	NOM			2.4	1.8	abatture	1
+abattus	abaty	abattre	VER	m	p	43.47	50.61	2.42	2.43	par:pas;	3	10	0	7	5	VCVCCVC	VCVCV	3	7	0	5	a-ba-ty	3	V-CV-CV	suttaba	ytaba	a-bat-tus	VER,ADJ,NOM	93	15	1.65	1.45	abattre	1
+abattus	abaty	abattu	ADJ	m	p	2.51	7.09	0.47	1.08		3	10	0	7	5	VCVCCVC	VCVCV	3	7	0	5	a-ba-ty	3	V-CV-CV	suttaba	ytaba	a-bat-tus	VER,ADJ,NOM	100	19	1.65	1.45	a-battu	2
+abattus	abaty	abattu	NOM	m	p	0.53	1.42	0.35	0.20		3	10	0	7	5	VCVCCVC	VCVCV	3	7	0	5	a-ba-ty	3	V-CV-CV	suttaba	ytaba	a-bat-tus	VER,ADJ,NOM	83	24	1.65	1.45	a-battu	2
+abbatial	abasjal	abbatial	ADJ	m	s	0.00	0.61	0.00	0.27		1	4	1	8	7	VCCVCVVC	VCVCYVC	0	0	8	5	a-ba-sjal	3	V-CV-CYVC	laitabba	lajsaba	ab-ba-tial	ADJ	75	24	3.5	2.5	abbatial	1
+abbatiale	abasjal	abbatial	ADJ	f	s	0.00	0.61	0.00	0.27		2	4	0	9	7	VCCVCVVCV	VCVCYVC	0	0	9	5	a-ba-sjal	3	V-CV-CYVC	elaitabba	lajsaba	ab-ba-tia-le	ADJ,NOM	75	24	3.4	2.5	abbatial	1
+abbatiale	abasjal	abbatiale	NOM	f	s	0.00	0.14	0.00	0.14		2	4	1	9	7	VCCVCVVCV	VCVCYVC	0	0	9	5	a-ba-sjal	3	V-CV-CYVC	elaitabba	lajsaba	ab-ba-tia-le	ADJ,NOM	60	28	3.4	2.5	abbatiale	1
+abbatiales	abasjal	abbatial	ADJ	f	p	0.00	0.61	0.00	0.07		1	4	0	10	7	VCCVCVVCVC	VCVCYVC	0	0	0	5	a-ba-sjal	3	V-CV-CYVC	selaitabba	lajsaba	ab-ba-tia-les	ADJ	75	24	3.5	2.5	abbatial	1
+abbaye	abei	abbaye	NOM	f	s	3.94	3.78	3.66	3.31		1	2	1	6	4	VCCVVV	VCVV	0	2	5	4	a-be-i	3	V-CV-V	eyabba	ieba	ab-baye	NOM	100	23	2.65	1.75	abbaye	1
+abbayes	abei	abbaye	NOM	f	p	3.94	3.78	0.28	0.47		1	2	0	7	4	VCCVVVC	VCVV	0	2	0	4	a-be-i	3	V-CV-V	seyabba	ieba	ab-bayes	NOM	100	23	2.75	1.75	abbaye	1
+abbesse	abEs	abbé	NOM	f	s	4.46	33.51	0.26	0.41		1	6	0	7	4	VCCVCCV	VCVC	0	4	0	4	a-bEs	2	V-CVC	essebba	sEba	ab-bes-se	NOM	90	22	2.5	1.4	abbé	1
+abbesses	abEs	abbé	NOM	f	p	4.46	33.51	0.00	0.61		1	6	0	8	4	VCCVCCVC	VCVC	0	4	0	4	a-bEs	2	V-CVC	sessebba	sEba	ab-bes-ses	NOM	90	22	2.65	1.4	abbé	1
+abbé	abe	abbé	NOM	m	s	4.46	33.51	4.19	31.28		1	3	1	4	3	VCCV	VCV	0	15	4	3	a-be	2	V-CV	ébba	eba	ab-bé	NOM	90	22	1.95	1.15	abbé	1
+abbés	abe	abbé	NOM	m	p	4.46	33.51	0.02	1.22		1	3	0	5	3	VCCVC	VCV	0	15	0	3	a-be	2	V-CV	sébba	eba	ab-bés	NOM	90	22	1.95	1.15	abbé	1
+abc	abese	abc	NOM	m		0.04	0.00	0.04	0.00		1	10	1	3	5	VCC	VCVCV	1	2	3	5	a-be-se	3	V-CV-CV	cba	eseba	abc	NOM			1.95	1.8	abc	1
+abcès	apsE	abcès	NOM	m		1.79	3.31	1.79	3.31		1	1	1	5	4	VCCVC	VCCV	1	5	4	4	ap-sE	2	VC-CV	sècba	Espa	ab-cès	NOM	90	32	2.05	1.65	abcès	1
+abdication	abdikasj§	abdication	NOM	f	s	0.05	1.96	0.05	1.82		1	2	1	10	9	VCCVCVCVVC	VCCVCVCYV	0	0	5	6	ab-di-ka-sj§	4	VC-CV-CV-CYV	noitacidba	§jsakidba	ab-di-ca-tion	NOM	70	20	2.65	2.55	abdiquer-ion	2
+abdications	abdikasj§	abdication	NOM	f	p	0.05	1.96	0.00	0.14		1	2	0	11	9	VCCVCVCVVCC	VCCVCVCYV	0	0	0	6	ab-di-ka-sj§	4	VC-CV-CV-CYV	snoitacidba	§jsakidba	ab-di-ca-tions	NOM	70	20	2.75	2.55	abdiquer-ion	2
+abdiqua	abdika	abdiquer	VER			0.47	2.77	0.00	0.20	ind:pas:3s;	1	1	0	7	6	VCCVCVV	VCCVCV	2	3	0	0	ab-di-ka	3	VC-CV-CV	auqidba	akidba	ab-di-qua	VER	100	25	2.15	1.75	abdiquer	1
+abdiquai	abdikE	abdiquer	VER			0.47	2.77	0.00	0.07	ind:pas:1s;	1	4	0	8	6	VCCVCVVV	VCCVCV	0	3	0	0	ab-di-kE	3	VC-CV-CV	iauqidba	Ekidba	ab-di-quai	VER	100	25	2.3	1.75	abdiquer	1
+abdiquaient	abdikE	abdiquer	VER			0.47	2.77	0.00	0.07	ind:imp:3p;	1	4	0	11	6	VCCVCVVVVCC	VCCVCV	0	3	0	0	ab-di-kE	3	VC-CV-CV	tneiauqidba	Ekidba	ab-di-quaient	VER	100	25	2.65	1.75	abdiquer	1
+abdiquais	abdikE	abdiquer	VER			0.47	2.77	0.00	0.14	ind:imp:1s;	1	4	0	9	6	VCCVCVVVC	VCCVCV	1	3	0	0	ab-di-kE	3	VC-CV-CV	siauqidba	Ekidba	ab-di-quais	VER	100	25	2.45	1.75	abdiquer	1
+abdiquait	abdikE	abdiquer	VER			0.47	2.77	0.00	0.20	ind:imp:3s;	1	4	0	9	6	VCCVCVVVC	VCCVCV	2	3	0	0	ab-di-kE	3	VC-CV-CV	tiauqidba	Ekidba	ab-di-quait	VER	100	25	2.3	1.75	abdiquer	1
+abdiquant	abdik@	abdiquer	VER			0.47	2.77	0.00	0.07	par:pre;	1	1	0	9	6	VCCVCVVCC	VCCVCV	1	3	0	0	ab-di-k@	3	VC-CV-CV	tnauqidba	@kidba	ab-di-quant	VER	100	25	2.45	1.8	abdiquer	1
+abdique	abdik	abdiquer	VER			0.47	2.77	0.23	0.41	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	1	0	7	5	VCCVCVV	VCCVC	2	1	0	0	ab-dik	2	VC-CVC	euqidba	kidba	ab-di-que	VER	100	25	1.75	1.75	abdiquer	1
+abdiquer	abdike	abdiquer	VER			0.47	2.77	0.08	0.41	inf;	1	4	1	8	6	VCCVCVVC	VCCVCV	1	3	5	6	ab-di-ke	3	VC-CV-CV	reuqidba	ekidba	ab-di-quer	VER	100	25	2.25	1.8	abdiquer	1
+abdiquera	abdik°Ra	abdiquer	VER			0.47	2.77	0.01	0.07	ind:fut:3s;	1	1	0	9	8	VCCVCVVCV	VCCVCVCV	0	1	0	0	ab-di-k°-Ra	4	VC-CV-CV-CV	areuqidba	aR°kidba	ab-di-que-ra	VER	100	25	2.5		abdiquer	1
+abdiquerais	abdik°RE	abdiquer	VER			0.47	2.77	0.00	0.07	cnd:pre:1s;	1	2	0	11	8	VCCVCVVCVVC	VCCVCVCV	1	1	0	0	ab-di-k°-RE	4	VC-CV-CV-CV	siareuqidba	ER°kidba	ab-di-que-rais	VER	100	25	2.7		abdiquer	1
+abdiquerait	abdik°RE	abdiquer	VER			0.47	2.77	0.00	0.07	cnd:pre:3s;	1	2	0	11	8	VCCVCVVCVVC	VCCVCVCV	1	1	0	0	ab-di-k°-RE	4	VC-CV-CV-CV	tiareuqidba	ER°kidba	ab-di-que-rait	VER	100	25	2.65		abdiquer	1
+abdiquez	abdike	abdiquer	VER			0.47	2.77	0.03	0.00	imp:pre:2p;ind:pre:2p;	1	4	0	8	6	VCCVCVVC	VCCVCV	1	3	0	6	ab-di-ke	3	VC-CV-CV	zeuqidba	ekidba	ab-di-quez	VER	100	25	2.3	1.8	abdiquer	1
+abdiqué	abdike	abdiquer	VER	m	s	0.47	2.77	0.11	0.95	par:pas;	1	4	0	7	6	VCCVCVV	VCCVCV	2	3	0	6	ab-di-ke	3	VC-CV-CV	éuqidba	ekidba	ab-di-qué	VER	100	25	2.3	1.8	abdiquer	1
+abdiquée	abdike	abdiquer	VER	f	s	0.47	2.77	0.00	0.07	par:pas;	1	4	0	8	6	VCCVCVVV	VCCVCV	0	3	0	6	ab-di-ke	3	VC-CV-CV	eéuqidba	ekidba	ab-di-quée	VER	100	25	2.4	1.8	abdiquer	1
+abdomen	abdomEn	abdomen	NOM	m	s	2.76	1.55	2.76	1.55		1	1	1	7	7	VCCVCVC	VCCVCVC	0	0	6	6	ab-do-mEn	3	VC-CV-CVC	nemodba	nEmodba	ab-do-men	NOM	100	24	3	2.85	abdomen	1
+abdominal	abdominal	abdominal	ADJ	m	s	2.56	0.74	0.50	0.00		1	3	1	9	9	VCCVCVCVC	VCCVCVCVC	0	0	6	6	ab-do-mi-nal	4	VC-CV-CV-CVC	lanimodba	lanimodba	ab-do-mi-nal	ADJ	92	27	3.3	3.5	abdomin-al	2
+abdominale	abdominal	abdominal	ADJ	f	s	2.56	0.74	1.30	0.61		1	3	0	10	9	VCCVCVCVCV	VCCVCVCVC	0	0	0	6	ab-do-mi-nal	4	VC-CV-CV-CVC	elanimodba	lanimodba	ab-do-mi-na-le	ADJ	92	27	3.3	3.5	abdomin-al	2
+abdominales	abdominal	abdominal	ADJ	f	p	2.56	0.74	0.70	0.00		1	3	0	11	9	VCCVCVCVCVC	VCCVCVCVC	0	0	0	6	ab-do-mi-nal	4	VC-CV-CV-CVC	selanimodba	lanimodba	ab-do-mi-na-les	ADJ	92	27	3.45	3.5	abdomin-al	2
+abdominaux	abdomino	abdominal	ADJ	m	p	2.56	0.74	0.06	0.14		2	2	0	10	8	VCCVCVCVVC	VCCVCVCV	0	0	0	0	ab-do-mi-no	4	VC-CV-CV-CV	xuanimodba	onimodba	ab-do-mi-naux	ADJ,NOM	92	27	3.7	3	abdomin-al	2
+abdominaux	abdomino	abdominal	NOM	m	p	0.09	0.68	0.09	0.68		2	2	0	10	8	VCCVCVCVVC	VCCVCVCV	0	0	0	0	ab-do-mi-no	4	VC-CV-CV-CV	xuanimodba	onimodba	ab-do-mi-naux	ADJ,NOM			3.7	3	abdominal	1
+abdos	abdo	abdos	NOM	m	p	0.86	0.00	0.86	0.00		1	1	1	5	4	VCCVC	VCCV	0	1	5	4	ab-do	2	VC-CV	sodba	odba	ab-dos	NOM	91	24	1.95	1.9	abdos	1
+abducteur	abdykt9R	abducteur	ADJ	m	s	0.01	0.00	0.01	0.00		1	1	1	9	8	VCCVCCVVC	VCCVCCVC	1	0	7	6	ab-dyk-t9R	3	VC-CVC-CVC	ruetcudba	R9tkydba	ab-duc-teur	ADJ	57	28	2.65	2.65	abducteur	1
+abduction	abdyksj§	abduction	NOM	f	s	0.05	0.00	0.05	0.00		1	1	1	9	8	VCCVCCVVC	VCCVCCYV	1	0	7	6	ab-dyk-sj§	3	VC-CVC-CYV	noitcudba	§jskydba		NOM			2.45	2.4	abduct-ion	2
+abeille	abEj	abeille	NOM	f	s	9.11	9.86	3.53	3.18		1	2	1	7	4	VCVVCCV	VCVY	0	3	4	4	a-bEj	2	V-CVY	ellieba	jEba	a-beil-le	NOM	100	26	1.95	1.85	abeille	1
+abeilles	abEj	abeille	NOM	f	p	9.11	9.86	5.59	6.69		1	2	0	8	4	VCVVCCVC	VCVY	0	3	0	4	a-bEj	2	V-CVY	sellieba	jEba	a-beil-les	NOM	100	26	2	1.85	abeille	1
+aber	abe	aber	NOM	m	s	0.25	0.00	0.25	0.00		1	3	1	4	3	VCVC	VCV	2	15	4	3	a-be	2	V-CV	reba	eba	a-ber	NOM	30	26	1.85	1.15	a-ber	2
+aberrant	abER@	aberrant	ADJ	m	s	0.84	2.50	0.58	1.08		2	3	1	8	5	VCVCCVCC	VCVCV	0	4	7	5	a-bE-R@	3	V-CV-CV	tnarreba	@REba	a-ber-rant	ADJ,VER	100	16	2.05	1.75	aberrant	1
+aberrant	abER@	aberrer	VER			0.00	0.20	0.00	0.20	par:pre;	2	3	0	8	5	VCVCCVCC	VCVCV	0	4	7	5	a-bE-R@	3	V-CV-CV	tnarreba	@REba	a-ber-rant	ADJ,VER			2.05	1.75	aberrer	1
+aberrante	abER@t	aberrant	ADJ	f	s	0.84	2.50	0.04	0.61		1	2	0	9	6	VCVCCVCCV	VCVCVC	1	2	0	0	a-bE-R@t	3	V-CV-CVC	etnarreba	t@REba	a-ber-ran-te	ADJ	100	16	2.55	1.85	aberrant	1
+aberrantes	abER@t	aberrant	ADJ	f	p	0.84	2.50	0.20	0.34		1	2	0	10	6	VCVCCVCCVC	VCVCVC	0	2	0	0	a-bE-R@t	3	V-CV-CVC	setnarreba	t@REba	a-ber-ran-tes	ADJ	100	16	2.7	1.85	aberrant	1
+aberrants	abER@	aberrant	ADJ	m	p	0.84	2.50	0.02	0.47		1	3	0	9	5	VCVCCVCCC	VCVCV	1	4	0	5	a-bE-R@	3	V-CV-CV	stnarreba	@REba	a-ber-rants	ADJ	100	16	2.65	1.75	aberrant	1
+aberration	abERasj§	aberration	NOM	f	s	1.16	4.46	0.89	3.31		1	2	1	10	8	VCVCCVCVVC	VCVCVCYV	0	0	7	5	a-bE-Ra-sj§	4	V-CV-CV-CYV	noitarreba	§jsaREba	a-ber-ra-tion	NOM	95	21	2.85	2.4	a-ber-ion	3
+aberrations	abERasj§	aberration	NOM	f	p	1.16	4.46	0.27	1.15		1	2	0	11	8	VCVCCVCVVCC	VCVCVCYV	0	0	0	5	a-bE-Ra-sj§	4	V-CV-CV-CYV	snoitarreba	§jsaREba	a-ber-ra-tions	NOM	95	21	2.9	2.4	a-ber-ion	3
+abhorrais	abORE	abhorrer	VER			0.27	1.35	0.01	0.07	ind:imp:1s;	1	2	0	9	5	VCCVCCVVC	VCVCV	1	3	0	0	a-bO-RE	3	V-CV-CV	siarrohba	EROba	ab-hor-rais	VER	80	20	2.7	1.75	abhorrer	1
+abhorrait	abORE	abhorrer	VER			0.27	1.35	0.01	0.68	ind:imp:3s;	1	2	0	9	5	VCCVCCVVC	VCVCV	2	3	0	0	a-bO-RE	3	V-CV-CV	tiarrohba	EROba	ab-hor-rait	VER	80	20	2.7	1.75	abhorrer	1
+abhorrant	abOR@	abhorrer	VER			0.27	1.35	0.01	0.07	par:pre;	1	1	0	9	5	VCCVCCVCC	VCVCV	1	5	0	0	a-bO-R@	3	V-CV-CV	tnarrohba	@ROba	ab-hor-rant	VER	80	20	2.7	1.65	abhorrer	1
+abhorre	abOR	abhorrer	VER			0.27	1.35	0.20	0.00	ind:pre:1s;ind:pre:3s;	1	3	0	7	4	VCCVCCV	VCVC	1	5	0	4	a-bOR	2	V-CVC	errohba	ROba	ab-hor-re	VER	80	20	2.45	1.25	abhorrer	1
+abhorrer	abORe	abhorrer	VER			0.27	1.35	0.00	0.14	inf;	1	7	1	8	5	VCCVCCVC	VCVCV	1	3	7	5	a-bO-Re	3	V-CV-CV	rerrohba	eROba	ab-hor-rer	VER	80	20	2.55	1.7	abhorrer	1
+abhorrez	abORe	abhorrer	VER			0.27	1.35	0.03	0.00	ind:pre:2p;	1	7	0	8	5	VCCVCCVC	VCVCV	1	3	0	5	a-bO-Re	3	V-CV-CV	zerrohba	eROba	ab-hor-rez	VER	80	20	2.55	1.7	abhorrer	1
+abhorré	abORe	abhorrer	VER	m	s	0.27	1.35	0.01	0.27	par:pas;	2	7	0	7	5	VCCVCCV	VCVCV	1	3	7	5	a-bO-Re	3	V-CV-CV	érrohba	eROba	ab-hor-ré	VER,ADJ	80	20	2.5	1.7	abhorrer	1
+abhorré	abORe	abhorré	ADJ	m	s	0.01	0.27	0.00	0.20		2	7	1	7	5	VCCVCCV	VCVCV	1	3	7	5	a-bO-Re	3	V-CV-CV	érrohba	eROba	ab-hor-ré	VER,ADJ	70	17	2.5	1.7	abhorré	1
+abhorrée	abORe	abhorrer	VER	f	s	0.27	1.35	0.00	0.07	par:pas;	2	7	0	8	5	VCCVCCVV	VCVCV	1	3	0	5	a-bO-Re	3	V-CV-CV	eérrohba	eROba	ab-hor-rée	VER,ADJ	80	20	2.5	1.7	abhorrer	1
+abhorrée	abORe	abhorré	ADJ	f	s	0.01	0.27	0.01	0.07		2	7	0	8	5	VCCVCCVV	VCVCV	1	3	0	5	a-bO-Re	3	V-CV-CV	eérrohba	eROba	ab-hor-rée	VER,ADJ	70	17	2.5	1.7	abhorré	1
+abhorrés	abORe	abhorrer	VER	m	p	0.27	1.35	0.00	0.07	par:pas;	1	7	0	8	5	VCCVCCVC	VCVCV	1	3	0	5	a-bO-Re	3	V-CV-CV	sérrohba	eROba	ab-hor-rés	VER	80	20	2.5	1.7	abhorrer	1
+abject	abZEkt	abject	ADJ	m	s	2.19	3.92	1.40	1.69		1	4	1	6	6	VCCVCC	VCCVCC	0	1	6	6	ab-ZEkt	2	VC-CVCC	tcejba	tkEZba	ab-ject	ADJ	90	22	2.4	2.45	abject	1
+abjecte	abZEkt	abject	ADJ	f	s	2.19	3.92	0.69	1.49		1	4	0	7	6	VCCVCCV	VCCVCC	2	1	0	6	ab-ZEkt	2	VC-CVCC	etcejba	tkEZba	ab-jec-te	ADJ	90	22	2.1	2.45	abject	1
+abjectement	abZEkt°m@	abjectement	ADV			0.10	0.07	0.10	0.07		1	1	1	11	9	VCCVCCVCVCC	VCCVCCVCV	0	0	7	7	ab-ZEk-t°-m@	4	VC-CVC-CV-CV	tnemetcejba	@m°tkEZba	ab-jec-te-ment	ADV			3.45	3.6	abjectement	1
+abjectes	abZEkt	abject	ADJ	f	p	2.19	3.92	0.05	0.20		1	4	0	8	6	VCCVCCVC	VCCVCC	0	1	0	6	ab-ZEkt	2	VC-CVCC	setcejba	tkEZba	ab-jec-tes	ADJ	90	22	2.45	2.45	abject	1
+abjection	abZEksj§	abjection	NOM	f	s	0.51	2.30	0.37	2.16		1	2	1	9	8	VCCVCCVVC	VCCVCCYV	1	1	7	6	ab-ZEk-sj§	3	VC-CVC-CYV	noitcejba	§jskEZba	ab-jec-tion	NOM	85	21	2.5	2.5	abjection	1
+abjections	abZEksj§	abjection	NOM	f	p	0.51	2.30	0.14	0.14		1	2	0	10	8	VCCVCCVVCC	VCCVCCYV	1	1	0	6	ab-ZEk-sj§	3	VC-CVC-CYV	snoitcejba	§jskEZba	ab-jec-tions	NOM	85	21	2.55	2.5	abjection	1
+abjects	abZEkt	abject	ADJ	m	p	2.19	3.92	0.05	0.54		1	4	0	7	6	VCCVCCC	VCCVCC	1	1	0	6	ab-ZEkt	2	VC-CVCC	stcejba	tkEZba	ab-jects	ADJ	90	22	2.4	2.45	abject	1
+abjurant	abZyR@	abjurer	VER			1.53	1.28	0.14	0.00	par:pre;	1	1	0	8	6	VCCVCVCC	VCCVCV	1	3	0	0	ab-Zy-R@	3	VC-CV-CV	tnarujba	@RyZba		VER	82	17	2.35	1.8	abjurer	1
+abjuration	abZyRasj§	abjuration	NOM	f	s	0.00	0.47	0.00	0.41		1	2	1	10	9	VCCVCVCVVC	VCCVCVCYV	1	1	6	6	ab-Zy-Ra-sj§	4	VC-CV-CV-CYV	noitarujba	§jsaRyZba	ab-ju-ra-tion	NOM	72	18	2.6	2.75	abjurer-ion	2
+abjurations	abZyRasj§	abjuration	NOM	f	p	0.00	0.47	0.00	0.07		1	2	0	11	9	VCCVCVCVVCC	VCCVCVCYV	1	1	0	6	ab-Zy-Ra-sj§	4	VC-CV-CV-CYV	snoitarujba	§jsaRyZba	ab-ju-ra-tions	NOM	72	18	2.65	2.75	abjurer-ion	2
+abjure	abZyR	abjurer	VER			1.53	1.28	0.77	0.14	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	1	0	6	5	VCCVCV	VCCVC	2	1	0	0	ab-ZyR	2	VC-CVC	erujba	RyZba	ab-ju-re	VER	82	17	1.8	1.8	abjurer	1
+abjurer	abZyRe	abjurer	VER			1.53	1.28	0.22	0.68	inf;	1	3	1	7	6	VCCVCVC	VCCVCV	2	3	6	6	ab-Zy-Re	3	VC-CV-CV	rerujba	eRyZba	ab-ju-rer	VER	82	17	1.95	1.8	abjurer	1
+abjurez	abZyRe	abjurer	VER			1.53	1.28	0.40	0.00	imp:pre:2p;ind:pre:2p;	1	3	0	7	6	VCCVCVC	VCCVCV	1	3	0	6	ab-Zy-Re	3	VC-CV-CV	zerujba	eRyZba	ab-ju-rez	VER	82	17	2.3	1.8	abjurer	1
+abjurons	abZyR§	abjurer	VER			1.53	1.28	0.00	0.07	ind:pre:1p;	1	1	0	8	6	VCCVCVCC	VCCVCV	0	2	0	0	ab-Zy-R§	3	VC-CV-CV	snorujba	§RyZba	ab-ju-rons	VER	82	17	2.65	1.9	abjurer	1
+abjuré	abZyRe	abjurer	VER	m	s	1.53	1.28	0.00	0.41	par:pas;	1	3	0	6	6	VCCVCV	VCCVCV	2	3	0	6	ab-Zy-Re	3	VC-CV-CV	érujba	eRyZba	ab-ju-ré	VER	82	17	1.95	1.8	abjurer	1
+abkhaze	abkaz	abkhaze	ADJ	f	s	0.00	0.07	0.00	0.07		1	1	1	7	5	VCCCVCV	VCCVC	0	0	3	3	ab-kaz	2	VC-CVC	ezahkba	zakba	ab-kha-ze	ADJ	10	29	3.75	2	abkhaze	1
+ablatif	ablatif	ablatif	NOM	m	s	0.00	0.14	0.00	0.14		1	1	1	7	7	VCCVCVC	VCCVCVC	1	1	7	5	a-bla-tif	3	V-CCV-CVC	fitalba	fitalba	a-bla-tif	NOM	77	22	2.4	2.4	ablation-if	2
+ablation	ablasj§	ablation	NOM	f	s	0.45	1.35	0.43	1.28		1	2	1	8	7	VCCVCVVC	VCCVCYV	2	2	7	5	a-bla-sj§	3	V-CCV-CYV	noitalba	§jsalba	a-bla-tion	NOM	91	23	2.15	1.9	ablation	1
+ablations	ablasj§	ablation	NOM	f	p	0.45	1.35	0.03	0.07		1	2	0	9	7	VCCVCVVCC	VCCVCYV	1	2	0	5	a-bla-sj§	3	V-CCV-CYV	snoitalba	§jsalba	a-bla-tions	NOM	91	23	2.2	1.9	ablation	1
+able	abl	able	NOM	m	s	0.68	0.14	0.68	0.14		1	1	1	4	3	VCCV	VCC	1	9	4	3	abl	1	VCC	elba	lba	a-ble	NOM	13	22	1.6	1.05	able	1
+ablette	ablEt	ablette	NOM	f	s	0.14	0.95	0.00	0.41		1	2	1	7	5	VCCVCCV	VCCVC	1	1	5	4	a-blEt	2	V-CCVC	ettelba	tElba	a-blet-te	NOM	50	34	1.8	1.8	able-ette	2
+ablettes	ablEt	ablette	NOM	f	p	0.14	0.95	0.14	0.54		1	2	0	8	5	VCCVCCVC	VCCVC	1	1	0	4	a-blEt	2	V-CCVC	settelba	tElba	a-blet-tes	NOM	50	34	1.8	1.8	able-ette	2
+ablution	ablysj§	ablution	NOM	f	s	0.48	1.55	0.01	0.14		1	2	1	8	7	VCCVCVVC	VCCVCYV	1	1	4	4	a-bly-sj§	3	V-CCV-CYV	noitulba	§jsylba	a-blu-tion	NOM	73	23	2.35	2.4	ablution	1
+ablutions	ablysj§	ablution	NOM	f	p	0.48	1.55	0.47	1.42		1	2	0	9	7	VCCVCVVCC	VCCVCYV	1	1	0	4	a-bly-sj§	3	V-CCV-CYV	snoitulba	§jsylba	a-blu-tions	NOM	73	23	2.3	2.4	ablution	1
+abnégation	abnegasj§	abnégation	NOM	f	s	0.91	3.58	0.91	3.58		1	1	1	10	9	VCCVCVCVVC	VCCVCVCYV	0	0	3	3	ab-ne-ga-sj§	4	VC-CV-CV-CYV	noitagénba	§jsagenba	ab-né-ga-tion	NOM	95	20	2.75	2.7	abnégation	1
+aboi	abwa	aboi	NOM	m	s	0.78	3.58	0.00	0.88		1	5	1	4	4	VCVV	VCYV	2	5	4	4	a-bwa	2	V-CYV	ioba	awba	a-boi	NOM	66	30	1.75	1.6	aboi	1
+aboie	abwa	aboyer	VER			7.43	11.82	2.91	2.03	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	5	0	5	4	VCVVV	VCYV	1	5	0	4	a-bwa	2	V-CYV	eioba	awba	a-boie	VER	100	20	1.8	1.6	aboyer	1
+aboiement	abwam@	aboiement	NOM	m	s	1.79	5.95	0.44	2.36		1	2	1	9	6	VCVVVCVCC	VCYVCV	0	1	5	5	a-bwa-m@	3	V-CYV-CV	tnemeioba	@mawba	a-boie-ment	NOM	100	11	2.55	1.95	aboyer-ment	2
+aboiements	abwam@	aboiement	NOM	m	p	1.79	5.95	1.35	3.58		1	2	0	10	6	VCVVVCVCCC	VCYVCV	0	1	0	5	a-bwa-m@	3	V-CYV-CV	stnemeioba	@mawba	a-boie-ments	NOM	100	11	2.8	1.95	aboyer-ment	2
+aboient	abwa	aboyer	VER			7.43	11.82	0.54	0.81	ind:pre:3p;	1	5	0	7	4	VCVVVCC	VCYV	1	5	0	4	a-bwa	2	V-CYV	tneioba	awba	a-boient	VER	100	20	1.95	1.6	aboyer	1
+aboiera	abwaRa	aboyer	VER			7.43	11.82	0.21	0.00	ind:fut:3s;	1	1	0	7	6	VCVVVCV	VCYVCV	0	4	0	0	a-bwa-Ra	3	V-CYV-CV	areioba	aRawba	a-boie-ra	VER	100	20	2.15	1.75	aboyer	1
+aboierait	abwaRE	aboyer	VER			7.43	11.82	0.01	0.07	cnd:pre:3s;	1	1	0	9	6	VCVVVCVVC	VCYVCV	0	4	0	0	a-bwa-RE	3	V-CYV-CV	tiareioba	ERawba	a-boie-rait	VER	100	20	2.25	1.75	aboyer	1
+aboieront	abwaR§	aboyer	VER			7.43	11.82	0.01	0.07	ind:fut:3p;	1	1	0	9	6	VCVVVCVCC	VCYVCV	0	4	0	0	a-bwa-R§	3	V-CYV-CV	tnoreioba	§Rawba	a-boie-ront	VER	100	20	2.4	1.75	aboyer	1
+aboies	abwa	aboyer	VER			7.43	11.82	0.42	0.00	ind:pre:2s;	1	5	0	6	4	VCVVVC	VCYV	0	5	0	4	a-bwa	2	V-CYV	seioba	awba	a-boies	VER	100	20	1.85	1.6	aboyer	1
+abois	abwa	aboi	NOM	m	p	0.78	3.58	0.78	2.70		1	5	0	5	4	VCVVC	VCYV	2	5	0	4	a-bwa	2	V-CYV	sioba	awba	a-bois	NOM	66	30	1.65	1.6	aboi	1
+aboli	aboli	aboli	ADJ	m	s	0.08	2.57	0.02	1.28		2	9	1	5	5	VCVCV	VCVCV	1	4	5	5	a-bo-li	3	V-CV-CV	iloba	iloba	a-bo-li	ADJ,VER	90	21	1.7	1.7	aboli	1
+aboli	aboli	abolir	VER	m	s	3.08	9.32	1.10	1.42	par:pas;	2	9	0	5	5	VCVCV	VCVCV	1	4	5	5	a-bo-li	3	V-CV-CV	iloba	iloba	a-bo-li	ADJ,VER	100	20	1.7	1.7	abolir	1
+abolie	aboli	aboli	ADJ	f	s	0.08	2.57	0.06	0.61		2	9	0	6	5	VCVCVV	VCVCV	3	4	0	5	a-bo-li	3	V-CV-CV	eiloba	iloba	a-bo-lie	ADJ,VER	90	21	1.65	1.7	aboli	1
+abolie	aboli	abolir	VER	f	s	3.08	9.32	0.06	0.54	par:pas;	2	9	0	6	5	VCVCVV	VCVCV	3	4	0	5	a-bo-li	3	V-CV-CV	eiloba	iloba	a-bo-lie	ADJ,VER	100	20	1.65	1.7	abolir	1
+abolies	aboli	aboli	ADJ	f	p	0.08	2.57	0.00	0.27		2	9	0	7	5	VCVCVVC	VCVCV	0	4	0	5	a-bo-li	3	V-CV-CV	seiloba	iloba	a-bo-lies	ADJ,VER	90	21	1.85	1.7	aboli	1
+abolies	aboli	abolir	VER	f	p	3.08	9.32	0.11	0.34	par:pas;	2	9	0	7	5	VCVCVVC	VCVCV	0	4	0	5	a-bo-li	3	V-CV-CV	seiloba	iloba	a-bo-lies	ADJ,VER	100	20	1.85	1.7	abolir	1
+abolir	aboliR	abolir	VER			3.08	9.32	1.08	2.97	inf;	1	1	1	6	6	VCVCVC	VCVCVC	3	2	6	6	a-bo-liR	3	V-CV-CVC	riloba	Riloba	a-bo-lir	VER	100	20	1.75	1.75	abolir	1
+abolira	aboliRa	abolir	VER			3.08	9.32	0.01	0.34	ind:fut:3s;	1	2	0	7	7	VCVCVCV	VCVCVCV	0	1	0	0	a-bo-li-Ra	4	V-CV-CV-CV	ariloba	aRiloba	a-bo-li-ra	VER	100	20	2.35	2.2	abolir	1
+abolirait	aboliRE	abolir	VER			3.08	9.32	0.00	0.07	cnd:pre:3s;	1	1	0	9	7	VCVCVCVVC	VCVCVCV	0	2	0	0	a-bo-li-RE	4	V-CV-CV-CV	tiariloba	ERiloba	a-bo-li-rait	VER	100	20	2.7	2.1	abolir	1
+aboliras	aboliRa	abolir	VER			3.08	9.32	0.01	0.00	ind:fut:2s;	1	2	0	8	7	VCVCVCVC	VCVCVCV	0	1	0	0	a-bo-li-Ra	4	V-CV-CV-CV	sariloba	aRiloba	a-bo-li-ras	VER	100	20	2.55	2.2	abolir	1
+abolis	aboli	aboli	ADJ	m	p	0.08	2.57	0.00	0.41		2	9	0	6	5	VCVCVC	VCVCV	3	4	0	5	a-bo-li	3	V-CV-CV	siloba	iloba	a-bo-lis	ADJ,VER	90	21	1.7	1.7	aboli	1
+abolis	aboli	abolir	VER	m	p	3.08	9.32	0.14	0.41	ind:pre:1s;par:pas;	2	9	0	6	5	VCVCVC	VCVCV	3	4	0	5	a-bo-li	3	V-CV-CV	siloba	iloba	a-bo-lis	ADJ,VER	100	20	1.7	1.7	abolir	1
+abolissaient	abolisE	abolir	VER			3.08	9.32	0.00	0.41	ind:imp:3p;	1	3	0	12	7	VCVCVCCVVVCC	VCVCVCV	0	4	0	0	a-bo-li-sE	4	V-CV-CV-CV	tneiassiloba	Esiloba	a-bo-lis-saient	VER	100	20	2.65	1.75	abolir	1
+abolissais	abolisE	abolir	VER			3.08	9.32	0.00	0.07	ind:imp:1s;	1	3	0	10	7	VCVCVCCVVC	VCVCVCV	1	4	0	0	a-bo-li-sE	4	V-CV-CV-CV	siassiloba	Esiloba	a-bo-lis-sais	VER	100	20	2.75	1.75	abolir	1
+abolissait	abolisE	abolir	VER			3.08	9.32	0.00	0.74	ind:imp:3s;	1	3	0	10	7	VCVCVCCVVC	VCVCVCV	2	4	0	0	a-bo-li-sE	4	V-CV-CV-CV	tiassiloba	Esiloba	a-bo-lis-sait	VER	100	20	2.2	1.75	abolir	1
+abolissant	abolis@	abolir	VER			3.08	9.32	0.25	0.54	par:pre;	1	1	0	10	7	VCVCVCCVCC	VCVCVCV	2	3	0	0	a-bo-li-s@	4	V-CV-CV-CV	tnassiloba	@siloba	a-bo-lis-sant	VER	100	20	2.35	1.85	abolir	1
+abolissent	abolis	abolir	VER			3.08	9.32	0.00	0.14	ind:pre:3p;	1	1	0	10	6	VCVCVCCVCC	VCVCVC	1	2	0	0	a-bo-lis	3	V-CV-CVC	tnessiloba	siloba	a-bo-lis-sent	VER	100	20	2.5	1.7	abolir	1
+abolissions	abolisj§	abolir	VER			3.08	9.32	0.00	0.07	ind:imp:1p;	1	2	0	11	8	VCVCVCCVVCC	VCVCVCYV	0	0	0	8	a-bo-li-sj§	4	V-CV-CV-CYV	snoissiloba	§jsiloba	a-bo-lis-sions	VER	100	20	2.85	2.45	abolir	1
+abolissons	abolis§	abolir	VER			3.08	9.32	0.02	0.00	imp:pre:1p;ind:pre:1p;	1	1	0	10	7	VCVCVCCVCC	VCVCVCV	0	2	0	0	a-bo-li-s§	4	V-CV-CV-CV	snossiloba	§siloba	a-bo-lis-sons	VER	100	20	2.6	2.15	abolir	1
+abolit	aboli	abolir	VER			3.08	9.32	0.29	1.28	ind:pre:3s;ind:pas:3s;	1	9	0	6	5	VCVCVC	VCVCV	3	4	0	5	a-bo-li	3	V-CV-CV	tiloba	iloba	a-bo-lit	VER	100	20	1.8	1.7	abolir	1
+abolition	abolisj§	abolition	NOM	f	s	0.45	1.49	0.45	1.49		1	2	1	9	8	VCVCVCVVC	VCVCVCYV	0	0	9	8	a-bo-li-sj§	4	V-CV-CV-CYV	noitiloba	§jsiloba	a-bo-li-tion	NOM	94	18	2.8	2.45	abolir-ion	2
+abolitionniste	abolisjonist	abolitionniste	ADJ	m	s	0.03	0.07	0.03	0.00		2	4	1	14	12	VCVCVCVVCCVCCV	VCVCVCYVCVCC	0	0	10	8	a-bo-li-sjo-nist	5	V-CV-CV-CYV-CVCC	etsinnoitiloba	tsinojsiloba	a-bo-li-tion-nis-te	ADJ,NOM	90	21	4.45	4.5	abolitionniste	1
+abolitionniste	abolisjonist	abolitionniste	NOM		s	0.17	0.07	0.07	0.00		2	4	1	14	12	VCVCVCVVCCVCCV	VCVCVCYVCVCC	0	0	10	8	a-bo-li-sjo-nist	5	V-CV-CV-CYV-CVCC	etsinnoitiloba	tsinojsiloba	a-bo-li-tion-nis-te	ADJ,NOM	94	17	4.45	4.5	abolitionniste	1
+abolitionnistes	abolisjonist	abolitionniste	ADJ		p	0.03	0.07	0.00	0.07		2	4	0	15	12	VCVCVCVVCCVCCVC	VCVCVCYVCVCC	0	0	0	8	a-bo-li-sjo-nist	5	V-CV-CV-CYV-CVCC	setsinnoitiloba	tsinojsiloba	a-bo-li-tion-nis-tes	ADJ,NOM	90	21	4.75	4.5	abolitionniste	1
+abolitionnistes	abolisjonist	abolitionniste	NOM		p	0.17	0.07	0.10	0.07		2	4	0	15	12	VCVCVCVVCCVCCVC	VCVCVCYVCVCC	0	0	0	8	a-bo-li-sjo-nist	5	V-CV-CV-CYV-CVCC	setsinnoitiloba	tsinojsiloba	a-bo-li-tion-nis-tes	ADJ,NOM	94	17	4.75	4.5	abolitionniste	1
+abominable	abominabl	abominable	ADJ		s	5.39	11.22	4.78	8.99		1	2	1	10	9	VCVCVCVCCV	VCVCVCVCC	0	0	10	9	a-bo-mi-nabl	4	V-CV-CV-CVCC	elbanimoba	lbanimoba	a-bo-mi-na-ble	ADJ	93	31	3.35	3.4	abominer-able	2
+abominablement	abominabl°m@	abominablement	ADV			0.01	0.68	0.01	0.68		1	1	1	14	12	VCVCVCVCCVCVCC	VCVCVCVCCVCV	0	0	11	10	a-bo-mi-na-bl°-m@	6	V-CV-CV-CV-CCV-CV	tnemelbanimoba	@m°lbanimoba	a-bo-mi-na-ble-ment	ADV			4.3	4.55	abominablement	1
+abominables	abominabl	abominable	ADJ		p	5.39	11.22	0.62	2.23		1	2	0	11	9	VCVCVCVCCVC	VCVCVCVCC	0	0	0	9	a-bo-mi-nabl	4	V-CV-CV-CVCC	selbanimoba	lbanimoba	a-bo-mi-na-bles	ADJ	93	31	3.5	3.4	abominer-able	2
+abominaient	abominE	abominer	VER			0.00	0.54	0.00	0.07	ind:imp:3p;	1	1	0	11	7	VCVCVCVVVCC	VCVCVCV	0	1	0	0	a-bo-mi-nE	4	V-CV-CV-CV	tneianimoba	Enimoba	a-bo-mi-naient	VER	68	29	2.9	2.4	abominer	1
+abomination	abominasj§	abomination	NOM	f	s	1.94	4.53	1.24	3.04		1	2	1	11	10	VCVCVCVCVVC	VCVCVCVCYV	0	0	8	8	a-bo-mi-na-sj§	5	V-CV-CV-CV-CYV	noitanimoba	§jsanimoba	a-bo-mi-na-tion	NOM	89	19	3	2.9	abominer-ion	2
+abominations	abominasj§	abomination	NOM	f	p	1.94	4.53	0.69	1.49		1	2	0	12	10	VCVCVCVCVVCC	VCVCVCVCYV	0	0	0	8	a-bo-mi-na-sj§	5	V-CV-CV-CV-CYV	snoitanimoba	§jsanimoba	a-bo-mi-na-tions	NOM	89	19	3.05	2.9	abominer-ion	2
+abomine	abomin	abominer	VER			0.00	0.54	0.00	0.41	ind:pre:1s;ind:pre:3s;	1	1	0	7	6	VCVCVCV	VCVCVC	0	0	0	0	a-bo-min	3	V-CV-CVC	enimoba	nimoba	a-bo-mi-ne	VER	68	29	2.15	1.9	abominer	1
+abominer	abomine	abominer	VER			0.00	0.54	0.00	0.07	inf;	1	1	1	8	7	VCVCVCVC	VCVCVCV	0	1	7	7	a-bo-mi-ne	4	V-CV-CV-CV	renimoba	enimoba	a-bo-mi-ner	VER	68	29	2.6	2.2	abominer	1
+abonda	ab§da	abonder	VER			1.13	4.59	0.00	0.27	ind:pas:3s;	1	1	0	6	5	VCVCCV	VCVCV	3	3	0	0	a-b§-da	3	V-CV-CV	adnoba	ad§ba	a-bon-da	VER	88	27	1.8	1.75	abonder	1
+abondai	ab§dE	abonder	VER			1.13	4.59	0.00	0.07	ind:pas:1s;	1	4	0	7	5	VCVCCVV	VCVCV	2	3	0	0	a-b§-dE	3	V-CV-CV	iadnoba	Ed§ba	a-bon-dai	VER	88	27	1.8	1.75	abonder	1
+abondaient	ab§dE	abonder	VER			1.13	4.59	0.12	1.42	ind:imp:3p;	1	4	0	10	5	VCVCCVVVCC	VCVCV	1	3	0	0	a-b§-dE	3	V-CV-CV	tneiadnoba	Ed§ba	a-bon-daient	VER	88	27	2.1	1.75	abonder	1
+abondais	ab§dE	abonder	VER			1.13	4.59	0.01	0.14	ind:imp:1s;	1	4	0	8	5	VCVCCVVC	VCVCV	2	3	0	0	a-b§-dE	3	V-CV-CV	siadnoba	Ed§ba	a-bon-dais	VER	88	27	1.95	1.75	abonder	1
+abondait	ab§dE	abonder	VER			1.13	4.59	0.02	0.47	ind:imp:3s;	1	4	0	8	5	VCVCCVVC	VCVCV	3	3	0	0	a-b§-dE	3	V-CV-CV	tiadnoba	Ed§ba	a-bon-dait	VER	88	27	1.75	1.75	abonder	1
+abondamment	ab§dam@	abondamment	ADV			0.30	4.93	0.30	4.93		1	1	1	11	7	VCVCCVCCVCC	VCVCVCV	0	0	7	5	a-b§-da-m@	4	V-CV-CV-CV	tnemmadnoba	@mad§ba	a-bon-dam-ment	ADV			3.45	2.75	abondamment	1
+abondance	ab§d@s	abondance	NOM	f	s	2.76	9.39	2.76	9.39		1	1	1	9	6	VCVCCVCCV	VCVCVC	1	2	8	6	a-b§-d@s	3	V-CV-CVC	ecnadnoba	s@d§ba	a-bon-dan-ce	NOM	100	26	2.75	2.25	abondance	1
+abondant	ab§d@	abondant	ADJ	m	s	1.36	7.03	0.09	1.42		2	3	1	8	5	VCVCCVCC	VCVCV	4	3	8	5	a-b§-d@	3	V-CV-CV	tnadnoba	@d§ba	a-bon-dant	ADJ,VER	100	20	1.7	1.7	abondant	1
+abondant	ab§d@	abonder	VER			1.13	4.59	0.02	0.07	par:pre;	2	3	0	8	5	VCVCCVCC	VCVCV	4	3	8	5	a-b§-d@	3	V-CV-CV	tnadnoba	@d§ba	a-bon-dant	ADJ,VER	88	27	1.7	1.7	abonder	1
+abondante	ab§d@t	abondant	ADJ	f	s	1.36	7.03	0.89	3.45		1	2	0	9	6	VCVCCVCCV	VCVCVC	2	1	0	0	a-b§-d@t	3	V-CV-CVC	etnadnoba	t@d§ba	a-bon-dan-te	ADJ	100	20	2.15	2.15	abondant	1
+abondantes	ab§d@t	abondant	ADJ	f	p	1.36	7.03	0.33	1.22		1	2	0	10	6	VCVCCVCCVC	VCVCVC	0	1	0	0	a-b§-d@t	3	V-CV-CVC	setnadnoba	t@d§ba	a-bon-dan-tes	ADJ	100	20	2.6	2.15	abondant	1
+abondants	ab§d@	abondant	ADJ	m	p	1.36	7.03	0.05	0.95		1	3	0	9	5	VCVCCVCCC	VCVCV	1	3	0	5	a-b§-d@	3	V-CV-CV	stnadnoba	@d§ba	a-bon-dants	ADJ	100	20	2.25	1.7	abondant	1
+abondassent	ab§das	abonder	VER			1.13	4.59	0.00	0.07	sub:imp:3p;	1	1	0	11	6	VCVCCVCCVCC	VCVCVC	0	1	0	0	a-b§-das	3	V-CV-CVC	tnessadnoba	sad§ba	a-bon-das-sent	VER	88	27	3	2.1	abonder	1
+abonde	ab§d	abonder	VER			1.13	4.59	0.28	0.81	ind:pre:1s;ind:pre:3s;	1	2	0	6	4	VCVCCV	VCVC	5	1	0	0	a-b§d	2	V-CVC	ednoba	d§ba	a-bon-de	VER	88	27	1.65	1.7	abonder	1
+abondent	ab§d	abonder	VER			1.13	4.59	0.63	0.47	ind:pre:3p;	1	2	0	8	4	VCVCCVCC	VCVC	2	1	0	0	a-b§d	2	V-CVC	tnednoba	d§ba	a-bon-dent	VER	88	27	1.9	1.7	abonder	1
+abonder	ab§de	abonder	VER			1.13	4.59	0.03	0.61	inf;	1	2	1	7	5	VCVCCVC	VCVCV	2	3	6	5	a-b§-de	3	V-CV-CV	rednoba	ed§ba	a-bon-der	VER	88	27	1.8	1.75	abonder	1
+abondé	ab§de	abonder	VER	m	s	1.13	4.59	0.01	0.20	par:pas;	1	2	0	6	5	VCVCCV	VCVCV	4	3	0	5	a-b§-de	3	V-CV-CV	édnoba	ed§ba	a-bon-dé	VER	88	27	1.75	1.75	abonder	1
+abonnai	abonE	abonner	VER			1.10	2.09	0.00	0.07	ind:pas:1s;	1	1	0	7	5	VCVCCVV	VCVCV	2	4	0	0	a-bo-nE	3	V-CV-CV	iannoba	Enoba	a-bon-nai	VER	100	30	1.9	1.7	abonner	1
+abonnant	abOn@	abonner	VER			1.10	2.09	0.01	0.00	par:pre;	1	1	0	8	5	VCVCCVCC	VCVCV	2	1	0	0	a-bO-n@	3	V-CV-CV	tnannoba	@nOba		VER	100	30	1.9	1.85	abonner	1
+abonne	abOn	abonner	VER			1.10	2.09	0.18	0.07	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	1	0	6	4	VCVCCV	VCVC	3	4	0	0	a-bOn	2	V-CVC	ennoba	nOba	a-bon-ne	VER	100	30	1.65	1.7	abonner	1
+abonnement	abOn°m@	abonnement	NOM	m	s	4.82	1.62	3.37	1.55		1	2	1	10	7	VCVCCVCVCC	VCVCVCV	1	1	7	4	a-bO-n°-m@	4	V-CV-CV-CV	tnemennoba	@m°nOba	a-bon-ne-ment	NOM	100	26	2.4		abonner-ment	2
+abonnements	abOn°m@	abonnement	NOM	m	p	4.82	1.62	1.45	0.07		1	2	0	11	7	VCVCCVCVCCC	VCVCVCV	0	1	0	4	a-bO-n°-m@	4	V-CV-CV-CV	stnemennoba	@m°nOba	a-bon-ne-ments	NOM	100	26	2.6		abonner-ment	2
+abonner	abone	abonner	VER			1.10	2.09	0.27	0.14	inf;	1	13	1	7	5	VCVCCVC	VCVCV	3	4	7	4	a-bo-ne	3	V-CV-CV	rennoba	enoba	a-bon-ner	VER	100	30	1.8	1.8	abonner	1
+abonnez	abone	abonner	VER			1.10	2.09	0.03	0.07	imp:pre:2p;ind:pre:2p;	1	13	0	7	5	VCVCCVC	VCVCV	2	4	0	4	a-bo-ne	3	V-CV-CV	zennoba	enoba	a-bon-nez	VER	100	30	1.85	1.8	abonner	1
+abonnât	abona	abonner	VER			1.10	2.09	0.00	0.07	sub:imp:3s;	1	1	0	7	5	VCVCCVC	VCVCV	0	5	0	0	a-bo-na	3	V-CV-CV	tânnoba	anoba	a-bon-nât	VER	100	30	2.3	1.75	abonner	1
+abonné	abone	abonner	VER	m	s	1.10	2.09	0.30	0.88	par:pas;	3	13	0	6	5	VCVCCV	VCVCV	3	4	6	4	a-bo-ne	3	V-CV-CV	énnoba	enoba	a-bon-né	VER,ADJ,NOM	100	30	1.75	1.8	abonner	1
+abonné	abone	abonné	ADJ	m	s	0.47	0.00	0.30	0.00		3	13	1	6	5	VCVCCV	VCVCV	3	4	6	4	a-bo-ne	3	V-CV-CV	énnoba	enoba	a-bon-né	VER,ADJ,NOM	96	26	1.75	1.8	abonné	1
+abonné	abone	abonné	NOM	m	s	0.87	2.23	0.30	0.34		3	13	1	6	5	VCVCCV	VCVCV	3	4	6	4	a-bo-ne	3	V-CV-CV	énnoba	enoba	a-bon-né	VER,ADJ,NOM	100	29	1.75	1.8	abonné	1
+abonnée	abone	abonner	VER	f	s	1.10	2.09	0.15	0.68	par:pas;	3	13	0	7	5	VCVCCVV	VCVCV	2	4	0	4	a-bo-ne	3	V-CV-CV	eénnoba	enoba	a-bon-née	VER,ADJ,NOM	100	30	1.75	1.8	abonner	1
+abonnée	abone	abonné	ADJ	f	s	0.47	0.00	0.01	0.00		3	13	0	7	5	VCVCCVV	VCVCV	2	4	0	4	a-bo-ne	3	V-CV-CV	eénnoba	enoba	a-bon-née	VER,ADJ,NOM	96	26	1.75	1.8	abonné	1
+abonnée	abone	abonné	NOM	f	s	0.87	2.23	0.04	0.14		3	13	0	7	5	VCVCCVV	VCVCV	2	4	0	4	a-bo-ne	3	V-CV-CV	eénnoba	enoba	a-bon-née	VER,ADJ,NOM	100	29	1.75	1.8	abonné	1
+abonnées	abone	abonner	VER	f	p	1.10	2.09	0.01	0.00	par:pas;	2	13	0	8	5	VCVCCVVC	VCVCV	1	4	0	4	a-bo-ne	3	V-CV-CV	seénnoba	enoba	a-bon-nées	VER,NOM	100	30	1.85	1.8	abonner	1
+abonnées	abone	abonné	NOM	f	p	0.87	2.23	0.02	0.20		2	13	0	8	5	VCVCCVVC	VCVCV	1	4	0	4	a-bo-ne	3	V-CV-CV	seénnoba	enoba	a-bon-nées	VER,NOM	100	29	1.85	1.8	abonné	1
+abonnés	abone	abonner	VER	m	p	1.10	2.09	0.16	0.14	par:pas;	3	13	0	7	5	VCVCCVC	VCVCV	2	4	0	4	a-bo-ne	3	V-CV-CV	sénnoba	enoba	a-bon-nés	VER,ADJ,NOM	100	30	1.8	1.8	abonner	1
+abonnés	abone	abonné	ADJ	m	p	0.47	0.00	0.16	0.00		3	13	0	7	5	VCVCCVC	VCVCV	2	4	0	4	a-bo-ne	3	V-CV-CV	sénnoba	enoba	a-bon-nés	VER,ADJ,NOM	96	26	1.8	1.8	abonné	1
+abonnés	abone	abonné	NOM	m	p	0.87	2.23	0.52	1.55		3	13	0	7	5	VCVCCVC	VCVCV	2	4	0	4	a-bo-ne	3	V-CV-CV	sénnoba	enoba	a-bon-nés	VER,ADJ,NOM	100	29	1.8	1.8	abonné	1
+abord	abOR	abord	NOM	m	s	2.22	19.05	0.89	7.30		1	3	1	5	4	VCVCC	VCVC	0	5	5	4	a-bOR	2	V-CVC	droba	ROba	a-bord	NOM	95	22	1.7	1.25	abord	1
+aborda	abORda	aborder	VER			12.55	33.18	0.16	3.99	ind:pas:3s;	1	1	0	6	6	VCVCCV	VCVCCV	4	5	0	0	a-bOR-da	3	V-CVC-CV	adroba	adROba	a-bor-da	VER	100	17	1.65	1.55	aborder	1
+abordable	abORdabl	abordable	ADJ		s	0.47	0.20	0.34	0.20		1	2	1	9	8	VCVCCVCCV	VCVCCVCC	0	0	7	7	a-bOR-dabl	3	V-CVC-CVCC	elbadroba	lbadROba	a-bor-da-ble	ADJ	96	26	2.75	2.8	a-bord-able	3
+abordables	abORdabl	abordable	ADJ		p	0.47	0.20	0.13	0.00		1	2	0	10	8	VCVCCVCCVC	VCVCCVCC	0	0	0	7	a-bOR-dabl	3	V-CVC-CVCC	selbadroba	lbadROba	a-bor-da-bles	ADJ	96	26	2.75	2.8	a-bord-able	3
+abordage	abORdaZ	abordage	NOM	m	s	1.22	1.49	1.17	1.42		1	2	1	8	7	VCVCCVCV	VCVCCVC	0	1	7	7	a-bOR-daZ	3	V-CVC-CVC	egadroba	ZadROba	a-bor-da-ge	NOM	90	30	1.95	1.8	a-bord-age	3
+abordages	abORdaZ	abordage	NOM	m	p	1.22	1.49	0.05	0.07		1	2	0	9	7	VCVCCVCVC	VCVCCVC	0	1	0	7	a-bOR-daZ	3	V-CVC-CVC	segadroba	ZadROba	a-bor-da-ges	NOM	90	30	2.3	1.8	a-bord-age	3
+abordai	abORdE	aborder	VER			12.55	33.18	0.00	0.61	ind:pas:1s;	1	4	0	7	6	VCVCCVV	VCVCCV	1	5	0	0	a-bOR-dE	3	V-CVC-CV	iadroba	EdROba	a-bor-dai	VER	100	17	1.75	1.5	aborder	1
+abordaient	abORdE	aborder	VER			12.55	33.18	0.03	1.28	ind:imp:3p;	1	4	0	10	6	VCVCCVVVCC	VCVCCV	1	5	0	0	a-bOR-dE	3	V-CVC-CV	tneiadroba	EdROba	a-bor-daient	VER	100	17	1.9	1.5	aborder	1
+abordais	abORdE	aborder	VER			12.55	33.18	0.00	0.54	ind:imp:1s;	1	4	0	8	6	VCVCCVVC	VCVCCV	2	5	0	0	a-bOR-dE	3	V-CVC-CV	siadroba	EdROba	a-bor-dais	VER	100	17	1.85	1.5	aborder	1
+abordait	abORdE	aborder	VER			12.55	33.18	0.47	2.50	ind:imp:3s;	1	4	0	8	6	VCVCCVVC	VCVCCV	3	5	0	0	a-bOR-dE	3	V-CVC-CV	tiadroba	EdROba	a-bor-dait	VER	100	17	1.7	1.5	aborder	1
+abordant	abORd@	aborder	VER			12.55	33.18	0.03	1.42	par:pre;	1	1	0	8	6	VCVCCVCC	VCVCCV	3	5	0	0	a-bOR-d@	3	V-CVC-CV	tnadroba	@dROba	a-bor-dant	VER	100	17	1.8	1.6	aborder	1
+aborde	abORd	aborder	VER			12.55	33.18	1.76	2.36	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	3	0	6	5	VCVCCV	VCVCC	4	4	0	0	a-bORd	2	V-CVCC	edroba	dROba	a-bor-de	VER	100	17	1.45	1.4	aborder	1
+abordent	abORd	aborder	VER			12.55	33.18	0.09	0.54	ind:pre:3p;	1	3	0	8	5	VCVCCVCC	VCVCC	2	4	0	0	a-bORd	2	V-CVCC	tnedroba	dROba	a-bor-dent	VER	100	17	1.8	1.4	aborder	1
+aborder	abORde	aborder	VER			12.55	33.18	5.65	12.91	inf;	1	9	1	7	6	VCVCCVC	VCVCCV	3	5	6	6	a-bOR-de	3	V-CVC-CV	redroba	edROba	a-bor-der	VER	100	17	1.65	1.5	aborder	1
+abordera	abORd°Ra	aborder	VER			12.55	33.18	0.20	0.34	ind:fut:3s;	1	1	0	8	8	VCVCCVCV	VCVCCVCV	0	3	0	0	a-bOR-d°-Ra	4	V-CVC-CV-CV	aredroba	aR°dROba	a-bor-de-ra	VER	100	17	1.85	1.9	aborder	1
+aborderai	abORd°RE	aborder	VER			12.55	33.18	0.08	0.14	ind:fut:1s;	1	4	0	9	8	VCVCCVCVV	VCVCCVCV	0	3	0	0	a-bOR-d°-RE	4	V-CVC-CV-CV	iaredroba	ER°dROba	a-bor-de-rai	VER	100	17	2.2	1.8	aborder	1
+aborderaient	abORd°RE	aborder	VER			12.55	33.18	0.00	0.07	cnd:pre:3p;	1	4	0	12	8	VCVCCVCVVVCC	VCVCCVCV	0	3	0	0	a-bOR-d°-RE	4	V-CVC-CV-CV	tneiaredroba	ER°dROba	a-bor-de-raient	VER	100	17	2.65	1.8	aborder	1
+aborderais	abORd°RE	aborder	VER			12.55	33.18	0.02	0.07	cnd:pre:1s;	1	4	0	10	8	VCVCCVCVVC	VCVCCVCV	1	3	0	0	a-bOR-d°-RE	4	V-CVC-CV-CV	siaredroba	ER°dROba	a-bor-de-rais	VER	100	17	2.45	1.8	aborder	1
+aborderait	abORd°RE	aborder	VER			12.55	33.18	0.02	0.14	cnd:pre:3s;	1	4	0	10	8	VCVCCVCVVC	VCVCCVCV	1	3	0	0	a-bOR-d°-RE	4	V-CVC-CV-CV	tiaredroba	ER°dROba	a-bor-de-rait	VER	100	17	1.95	1.8	aborder	1
+aborderiez	abORd°Rje	aborder	VER			12.55	33.18	0.01	0.00	cnd:pre:2p;	1	1	0	10	9	VCVCCVCVVC	VCVCCVCYV	0	2	0	0	a-bOR-d°-Rje	4	V-CVC-CV-CYV	zeiredroba	ejR°dROba	a-bor-de-riez	VER	100	17	2.65	2.3	aborder	1
+aborderions	abORd°Rj§	aborder	VER			12.55	33.18	0.00	0.14	cnd:pre:1p;	1	1	0	11	9	VCVCCVCVVCC	VCVCCVCYV	0	1	0	0	a-bOR-d°-Rj§	4	V-CVC-CV-CYV	snoiredroba	§jR°dROba	a-bor-de-rions	VER	100	17	3	2.45	aborder	1
+aborderons	abORd°R§	aborder	VER			12.55	33.18	0.09	0.07	ind:fut:1p;	1	2	0	10	8	VCVCCVCVCC	VCVCCVCV	1	3	0	0	a-bOR-d°-R§	4	V-CVC-CV-CV	snoredroba	§R°dROba	a-bor-de-rons	VER	100	17	2.5	2	aborder	1
+aborderont	abORd°R§	aborder	VER			12.55	33.18	0.04	0.14	ind:fut:3p;	1	2	0	10	8	VCVCCVCVCC	VCVCCVCV	1	3	0	0	a-bOR-d°-R§	4	V-CVC-CV-CV	tnoredroba	§R°dROba	a-bor-de-ront	VER	100	17	2.55	2	aborder	1
+abordes	abORd	aborder	VER			12.55	33.18	0.36	0.07	ind:pre:2s;	1	3	0	7	5	VCVCCVC	VCVCC	3	4	0	0	a-bORd	2	V-CVCC	sedroba	dROba	a-bor-des	VER	100	17	1.65	1.4	aborder	1
+abordez	abORde	aborder	VER			12.55	33.18	0.75	0.00	imp:pre:2p;ind:pre:2p;	1	9	0	7	6	VCVCCVC	VCVCCV	2	5	0	6	a-bOR-de	3	V-CVC-CV	zedroba	edROba	a-bor-dez	VER	100	17	1.7	1.5	aborder	1
+abordiez	abORdje	aborder	VER			12.55	33.18	0.02	0.07	ind:imp:2p;	1	1	0	8	7	VCVCCVVC	VCVCCYV	0	2	0	0	a-bOR-dje	3	V-CVC-CYV	zeidroba	ejdROba	a-bor-diez	VER	100	17	2.25	1.8	aborder	1
+abordions	abORdj§	aborder	VER			12.55	33.18	0.04	0.34	ind:imp:1p;	1	1	0	9	7	VCVCCVVCC	VCVCCYV	0	2	0	0	a-bOR-dj§	3	V-CVC-CYV	snoidroba	§jdROba	a-bor-dions	VER	100	17	2.45	1.85	aborder	1
+abordons	abORd§	aborder	VER			12.55	33.18	0.72	0.41	imp:pre:1p;ind:pre:1p;	1	1	0	8	6	VCVCCVCC	VCVCCV	0	5	0	0	a-bOR-d§	3	V-CVC-CV	snodroba	§dROba	a-bor-dons	VER	100	17	1.95	1.65	aborder	1
+abords	abOR	abord	NOM	m	p	2.22	19.05	1.33	11.76		1	3	0	6	4	VCVCCC	VCVC	3	5	0	4	a-bOR	2	V-CVC	sdroba	ROba	a-bord-s	NOM	95	22	1.6	1.25	abord	1
+abordâmes	abORdam	aborder	VER			12.55	33.18	0.00	0.27	ind:pas:1p;	1	1	0	9	7	VCVCCVCVC	VCVCCVC	0	1	0	0	a-bOR-dam	3	V-CVC-CVC	semâdroba	madROba	a-bor-dâ-mes	VER	100	17	2.85	2	aborder	1
+abordèrent	abORdER	aborder	VER			12.55	33.18	0.01	0.68	ind:pas:3p;	1	1	0	10	7	VCVCCVCVCC	VCVCCVC	0	1	0	0	a-bOR-dER	3	V-CVC-CVC	tnerèdroba	REdROba	a-bor-dè-rent	VER	100	17	2.3	1.85	aborder	1
+abordé	abORde	aborder	VER	m	s	12.55	33.18	1.36	2.97	par:pas;	2	9	0	6	6	VCVCCV	VCVCCV	4	5	6	6	a-bOR-de	3	V-CVC-CV	édroba	edROba	a-bor-dé	VER,ADJ	100	17	1.55	1.5	aborder	1
+abordé	abORde	abordé	ADJ	m	s	0.15	0.20	0.03	0.14		2	9	1	6	6	VCVCCV	VCVCCV	4	5	6	6	a-bOR-de	3	V-CVC-CV	édroba	edROba	a-bor-dé	VER,ADJ	92	25	1.55	1.5	a-bordé	2
+abordée	abORde	aborder	VER	f	s	12.55	33.18	0.34	0.54	par:pas;	1	9	0	7	6	VCVCCVV	VCVCCV	1	5	0	6	a-bOR-de	3	V-CVC-CV	eédroba	edROba	a-bor-dée	VER	100	17	1.7	1.5	aborder	1
+abordées	abORde	aborder	VER	f	p	12.55	33.18	0.05	0.20	par:pas;	2	9	0	8	6	VCVCCVVC	VCVCCV	0	5	0	6	a-bOR-de	3	V-CVC-CV	seédroba	edROba	a-bor-dées	VER,ADJ	100	17	1.8	1.5	aborder	1
+abordées	abORde	abordé	ADJ	f	p	0.15	0.20	0.00	0.07		2	9	0	8	6	VCVCCVVC	VCVCCV	0	5	0	6	a-bOR-de	3	V-CVC-CV	seédroba	edROba	a-bor-dées	VER,ADJ	92	25	1.8	1.5	a-bordé	2
+abordés	abORde	aborder	VER	m	p	12.55	33.18	0.26	0.41	par:pas;	2	9	0	7	6	VCVCCVC	VCVCCV	2	5	0	6	a-bOR-de	3	V-CVC-CV	sédroba	edROba	a-bor-dés	VER,ADJ	100	17	1.65	1.5	aborder	1
+abordés	abORde	abordé	ADJ	m	p	0.15	0.20	0.12	0.00		2	9	0	7	6	VCVCCVC	VCVCCV	2	5	0	6	a-bOR-de	3	V-CVC-CV	sédroba	edROba	a-bor-dés	VER,ADJ	92	25	1.65	1.5	a-bordé	2
+aborigène	aboRiZEn	aborigène	ADJ		s	0.17	0.07	0.10	0.00		2	4	1	9	8	VCVCVCVCV	VCVCVCVC	0	0	5	4	a-bo-Ri-ZEn	4	V-CV-CV-CVC	enègiroba	nEZiRoba	a-bo-ri-gè-ne	ADJ,NOM	87	24	3.5	3.15	aborigène	1
+aborigène	aboRiZEn	aborigène	NOM		s	0.60	0.14	0.21	0.00		2	4	1	9	8	VCVCVCVCV	VCVCVCVC	0	0	5	4	a-bo-Ri-ZEn	4	V-CV-CV-CVC	enègiroba	nEZiRoba	a-bo-ri-gè-ne	ADJ,NOM	87	16	3.5	3.15	aborigène	1
+aborigènes	aboRiZEn	aborigène	ADJ		p	0.17	0.07	0.07	0.07		2	4	0	10	8	VCVCVCVCVC	VCVCVCVC	0	0	0	4	a-bo-Ri-ZEn	4	V-CV-CV-CVC	senègiroba	nEZiRoba	a-bo-ri-gè-nes	ADJ,NOM	87	24	3.6	3.15	aborigène	1
+aborigènes	aboRiZEn	aborigène	NOM		p	0.60	0.14	0.39	0.14		2	4	0	10	8	VCVCVCVCVC	VCVCVCVC	0	0	0	4	a-bo-Ri-ZEn	4	V-CV-CV-CVC	senègiroba	nEZiRoba	a-bo-ri-gè-nes	ADJ,NOM	87	16	3.6	3.15	aborigène	1
+abornement	abORn°m@	abornement	NOM	m	s	0.00	0.07	0.00	0.07		1	1	1	10	8	VCVCCVCVCC	VCVCCVCV	1	0	5	5	a-bOR-n°-m@	4	V-CVC-CV-CV	tnemenroba	@m°nROba	a-bor-ne-ment	NOM	12	16	2.55	2.7	a-borne-ment	3
+abortif	abORtif	abortif	ADJ	m	s	0.04	0.34	0.01	0.00		1	1	1	7	7	VCVCCVC	VCVCCVC	0	1	5	5	a-bOR-tif	3	V-CVC-CVC	fitroba	fitROba		ADJ			2.3	2.35	abort-if	2
+abortive	abORtiv	abortif	ADJ	f	s	0.04	0.34	0.01	0.14		1	2	0	8	7	VCVCCVCV	VCVCCVC	0	1	0	0	a-bOR-tiv	3	V-CVC-CVC	evitroba	vitROba	a-bor-ti-ve	ADJ			2.65	2.45	abort-if	2
+abortives	abORtiv	abortif	ADJ	f	p	0.04	0.34	0.02	0.20		1	2	0	9	7	VCVCCVCVC	VCVCCVC	0	1	0	0	a-bOR-tiv	3	V-CVC-CVC	sevitroba	vitROba	a-bor-ti-ves	ADJ			2.75	2.45	abort-if	2
+abouchaient	abuSE	aboucher	VER			0.00	0.81	0.00	0.07	ind:imp:3p;	1	3	0	11	5	VCVVCCVVVCC	VCVCV	0	4	0	0	a-bu-SE	3	V-CV-CV	tneiahcuoba	ESuba	a-bou-chaient	VER	23	26	2.4	1.75	aboucher	1
+abouchais	abuSE	aboucher	VER			0.00	0.81	0.00	0.07	ind:imp:1s;	1	3	0	9	5	VCVVCCVVC	VCVCV	1	4	0	0	a-bu-SE	3	V-CV-CV	siahcuoba	ESuba	a-bou-chais	VER	23	26	2.2	1.75	aboucher	1
+abouchait	abuSE	aboucher	VER			0.00	0.81	0.00	0.07	ind:imp:3s;	1	3	0	9	5	VCVVCCVVC	VCVCV	2	4	0	0	a-bu-SE	3	V-CV-CV	tiahcuoba	ESuba	a-bou-chait	VER	23	26	1.9	1.75	aboucher	1
+abouchant	abuS@	aboucher	VER			0.00	0.81	0.00	0.07	par:pre;	1	1	0	9	5	VCVVCCVCC	VCVCV	1	5	0	0	a-bu-S@	3	V-CV-CV	tnahcuoba	@Suba	a-bou-chant	VER	23	26	2	1.65	aboucher	1
+abouchements	abuS°m@	abouchement	NOM	m	p	0.00	0.07	0.00	0.07		1	1	0	12	7	VCVVCCVCVCCC	VCVCVCV	0	2	0	0	a-bu-S°-m@	4	V-CV-CV-CV	stnemehcuoba	@m°Suba	a-bou-che-ments	NOM			3.15		abouchement	1
+aboucher	abuSe	aboucher	VER			0.00	0.81	0.00	0.34	inf;	1	4	1	8	5	VCVVCCVC	VCVCV	0	5	8	4	a-bu-Se	3	V-CV-CV	rehcuoba	eSuba	a-bou-cher	VER	23	26	1.95	1.7	aboucher	1
+abouché	abuSe	aboucher	VER	m	s	0.00	0.81	0.00	0.07	par:pas;	1	4	0	7	5	VCVVCCV	VCVCV	0	5	0	4	a-bu-Se	3	V-CV-CV	éhcuoba	eSuba	a-bou-ché	VER	23	26	1.85	1.7	aboucher	1
+abouchée	abuSe	aboucher	VER	f	s	0.00	0.81	0.00	0.07	par:pas;	1	4	0	8	5	VCVVCCVV	VCVCV	1	5	0	4	a-bu-Se	3	V-CV-CV	eéhcuoba	eSuba	a-bou-chée	VER	23	26	1.85	1.7	aboucher	1
+abouchés	abuSe	aboucher	VER	m	p	0.00	0.81	0.00	0.07	par:pas;	1	4	0	8	5	VCVVCCVC	VCVCV	1	5	0	4	a-bu-Se	3	V-CV-CV	séhcuoba	eSuba	a-bou-chés	VER	23	26	1.85	1.7	aboucher	1
+aboule	abul	abouler	VER			1.80	0.61	1.43	0.34	imp:pre:2s;ind:pre:3s;	1	2	0	6	4	VCVVCV	VCVC	1	2	0	0	a-bul	2	V-CVC	eluoba	luba	a-bou-le	VER	63	19	1.6	1.5	abouler	1
+abouler	abule	abouler	VER			1.80	0.61	0.11	0.14	inf;	1	2	1	7	5	VCVVCVC	VCVCV	3	3	6	5	a-bu-le	3	V-CV-CV	reluoba	eluba	a-bou-ler	VER	63	19	1.65	1.6	abouler	1
+aboules	abul	abouler	VER			1.80	0.61	0.01	0.00	ind:pre:2s;	1	2	0	7	4	VCVVCVC	VCVC	2	2	0	0	a-bul	2	V-CVC	seluoba	luba	a-bou-les	VER	63	19	1.75	1.5	abouler	1
+aboulez	abule	abouler	VER			1.80	0.61	0.25	0.14	imp:pre:2p;	1	2	0	7	5	VCVVCVC	VCVCV	2	3	0	5	a-bu-le	3	V-CV-CV	zeluoba	eluba	a-bou-lez	VER	63	19	1.85	1.6	abouler	1
+aboulie	abuli	aboulie	NOM	f	s	0.00	0.14	0.00	0.14		1	1	1	7	5	VCVVCVV	VCVCV	1	4	7	5	a-bu-li	3	V-CV-CV	eiluoba	iluba	a-bou-lie	NOM	35	20	1.85	1.7	aboulie	1
+aboulique	abulik	aboulique	NOM		s	0.00	0.07	0.00	0.07		1	2	1	9	6	VCVVCVCVV	VCVCVC	0	0	7	6	a-bu-lik	3	V-CV-CVC	euqiluoba	kiluba	a-bou-li-que	NOM	0	23	2.7	1.95	aboulie-ique	2
+abouliques	abulik	aboulique	ADJ		p	0.00	0.14	0.00	0.14		1	2	0	10	6	VCVVCVCVVC	VCVCVC	0	0	0	6	a-bu-lik	3	V-CV-CVC	seuqiluoba	kiluba	a-bou-li-ques	ADJ			2.85	1.95	aboulie-ique	2
+abounas	abuna	abouna	NOM	m	p	0.00	0.07	0.00	0.07		1	1	0	7	5	VCVVCVC	VCVCV	0	1	0	0	a-bu-na	3	V-CV-CV	sanuoba	anuba	a-bou-nas	NOM			2.75	1.95	abouna	1
+about	abu	about	NOM	m	s	5.94	0.47	5.94	0.47		1	1	1	5	3	VCVVC	VCV	2	12	5	3	a-bu	2	V-CV	tuoba	uba	a-bout	NOM	10	20	1.75	1.2	about	1
+aboutait	abutE	abouter	VER			0.00	0.14	0.00	0.07	ind:imp:3s;	1	1	0	8	5	VCVVCVVC	VCVCV	1	6	0	0	a-bu-tE	3	V-CV-CV	tiatuoba	Etuba	a-bou-tait	VER			1.9	1.7	abouter	1
+abouti	abuti	abouti	ADJ	m	s	0.11	0.20	0.04	0.14		2	7	1	6	5	VCVVCV	VCVCV	2	7	6	5	a-bu-ti	3	V-CV-CV	ituoba	ituba	a-bou-ti	ADJ,VER	91	24	1.65	1.5	abouti	1
+abouti	abuti	aboutir	VER	m	s	5.34	25.81	1.24	2.84	par:pas;	2	7	0	6	5	VCVVCV	VCVCV	2	7	6	5	a-bu-ti	3	V-CV-CV	ituoba	ituba	a-bou-ti	ADJ,VER	100	19	1.65	1.5	aboutir	1
+aboutie	abuti	abouti	ADJ	f	s	0.11	0.20	0.04	0.07		2	7	0	7	5	VCVVCVV	VCVCV	5	7	0	5	a-bu-ti	3	V-CV-CV	eituoba	ituba	a-bou-tie	ADJ,VER	91	24	1.7	1.5	abouti	1
+aboutie	abuti	aboutir	VER	f	s	5.34	25.81	0.04	0.00	par:pas;	2	7	0	7	5	VCVVCVV	VCVCV	5	7	0	5	a-bu-ti	3	V-CV-CV	eituoba	ituba	a-bou-tie	ADJ,VER	100	19	1.7	1.5	aboutir	1
+aboutir	abutiR	aboutir	VER			5.34	25.81	1.34	9.80	inf;	1	2	1	7	6	VCVVCVC	VCVCVC	4	5	7	6	a-bu-tiR	3	V-CV-CVC	rituoba	Rituba	a-bou-tir	VER	100	19	1.7	1.55	aboutir	1
+aboutira	abutiRa	aboutir	VER			5.34	25.81	0.29	0.41	ind:fut:3s;	1	2	0	8	7	VCVVCVCV	VCVCVCV	1	2	0	0	a-bu-ti-Ra	4	V-CV-CV-CV	arituoba	aRituba	a-bou-ti-ra	VER	100	19	2.1	1.85	aboutir	1
+aboutirai	abutiRE	aboutir	VER			5.34	25.81	0.00	0.07	ind:fut:1s;	1	4	0	9	7	VCVVCVCVV	VCVCVCV	1	3	0	0	a-bu-ti-RE	4	V-CV-CV-CV	iarituoba	ERituba	a-bou-ti-rai	VER	100	19	2.45	1.8	aboutir	1
+aboutiraient	abutiRE	aboutir	VER			5.34	25.81	0.01	0.14	cnd:pre:3p;	1	4	0	12	7	VCVVCVCVVVCC	VCVCVCV	0	3	0	0	a-bu-ti-RE	4	V-CV-CV-CV	tneiarituoba	ERituba	a-bou-ti-raient	VER	100	19	2.75	1.8	aboutir	1
+aboutirais	abutiRE	aboutir	VER			5.34	25.81	0.00	0.14	cnd:pre:1s;	1	4	0	10	7	VCVVCVCVVC	VCVCVCV	1	3	0	0	a-bu-ti-RE	4	V-CV-CV-CV	siarituoba	ERituba	a-bou-ti-rais	VER	100	19	2.5	1.8	aboutir	1
+aboutirait	abutiRE	aboutir	VER			5.34	25.81	0.05	0.61	cnd:pre:3s;	1	4	0	10	7	VCVVCVCVVC	VCVCVCV	1	3	0	0	a-bu-ti-RE	4	V-CV-CV-CV	tiarituoba	ERituba	a-bou-ti-rait	VER	100	19	2.3	1.8	aboutir	1
+aboutiras	abutiRa	aboutir	VER			5.34	25.81	0.00	0.07	ind:fut:2s;	1	2	0	9	7	VCVVCVCVC	VCVCVCV	1	2	0	0	a-bu-ti-Ra	4	V-CV-CV-CV	sarituoba	aRituba	a-bou-ti-ras	VER	100	19	2.35	1.85	aboutir	1
+aboutirent	abutiR	aboutir	VER			5.34	25.81	0.00	0.68	ind:pas:3p;	1	2	0	10	6	VCVVCVCVCC	VCVCVC	1	5	0	6	a-bu-tiR	3	V-CV-CVC	tnerituoba	Rituba	a-bou-ti-rent	VER	100	19	2.45	1.55	aboutir	1
+aboutirons	abutiR§	aboutir	VER			5.34	25.81	0.01	0.00	ind:fut:1p;	1	2	0	10	7	VCVVCVCVCC	VCVCVCV	1	2	0	0	a-bu-ti-R§	4	V-CV-CV-CV	snorituoba	§Rituba	a-bou-ti-rons	VER	100	19	2.55	1.85	aboutir	1
+aboutiront	abutiR§	aboutir	VER			5.34	25.81	0.04	0.27	ind:fut:3p;	1	2	0	10	7	VCVVCVCVCC	VCVCVCV	2	2	0	0	a-bu-ti-R§	4	V-CV-CV-CV	tnorituoba	§Rituba	a-bou-ti-ront	VER	100	19	2.65	1.85	aboutir	1
+aboutis	abuti	abouti	ADJ	m	p	0.11	0.20	0.03	0.00		2	7	0	7	5	VCVVCVC	VCVCV	5	7	0	5	a-bu-ti	3	V-CV-CV	situoba	ituba	a-bou-tis	ADJ,VER	91	24	1.7	1.5	abouti	1
+aboutis	abuti	aboutir	VER	m	p	5.34	25.81	0.07	0.34	ind:pre:1s;ind:pre:2s;par:pas;	2	7	0	7	5	VCVVCVC	VCVCV	5	7	0	5	a-bu-ti	3	V-CV-CV	situoba	ituba	a-bou-tis	ADJ,VER	100	19	1.7	1.5	aboutir	1
+aboutissaient	abutisE	aboutir	VER			5.34	25.81	0.15	1.15	ind:imp:3p;	1	2	0	13	7	VCVVCVCCVVVCC	VCVCVCV	1	4	0	0	a-bu-ti-sE	4	V-CV-CV-CV	tneiassituoba	Esituba	a-bou-tis-saient	VER	100	19	2.5	1.75	aboutir	1
+aboutissait	abutisE	aboutir	VER			5.34	25.81	0.03	2.50	ind:imp:3s;	1	2	0	11	7	VCVVCVCCVVC	VCVCVCV	2	4	0	0	a-bu-ti-sE	4	V-CV-CV-CV	tiassituoba	Esituba	a-bou-tis-sait	VER	100	19	2.3	1.75	aboutir	1
+aboutissant	abutis@	aboutir	VER			5.34	25.81	0.00	1.15	par:pre;	2	3	0	11	7	VCVVCVCCVCC	VCVCVCV	3	3	9	7	a-bu-ti-s@	4	V-CV-CV-CV	tnassituoba	@situba	a-bou-tis-sant	VER,NOM	100	19	2.15	1.75	aboutir	1
+aboutissant	abutis@	aboutissant	NOM	m	s	0.09	0.95	0.00	0.14		2	3	1	11	7	VCVVCVCCVCC	VCVCVCV	3	3	9	7	a-bu-ti-s@	4	V-CV-CV-CV	tnassituoba	@situba	a-bou-tis-sant	VER,NOM	90	21	2.15	1.75	aboutissant	1
+aboutissants	abutis@	aboutissant	NOM	m	p	0.09	0.95	0.09	0.81		1	3	0	12	7	VCVVCVCCVCCC	VCVCVCV	1	3	0	7	a-bu-ti-s@	4	V-CV-CV-CV	stnassituoba	@situba	a-bou-tis-sants	NOM	90	21	2.55	1.75	aboutissant	1
+aboutisse	abutis	aboutir	VER			5.34	25.81	0.08	0.41	sub:pre:1s;sub:pre:3s;	1	2	0	9	6	VCVVCVCCV	VCVCVC	0	2	0	0	a-bu-tis	3	V-CV-CVC	essituoba	situba	a-bou-tis-se	VER	100	19	2.5	1.65	aboutir	1
+aboutissement	abutis°m@	aboutissement	NOM	m	s	0.50	4.05	0.50	4.05		1	1	1	13	9	VCVVCVCCVCVCC	VCVCVCVCV	1	1	9	7	a-bu-ti-s°-m@	5	V-CV-CV-CV-CV	tnemessituoba	@m°situba	a-bou-tis-se-ment	NOM	95	23	2.65		a-bout-ment	3
+aboutissent	abutis	aboutir	VER			5.34	25.81	0.47	1.49	ind:pre:3p;	1	2	0	11	6	VCVVCVCCVCC	VCVCVC	2	2	0	0	a-bu-tis	3	V-CV-CVC	tnessituoba	situba	a-bou-tis-sent	VER	100	19	2.2	1.65	aboutir	1
+aboutissez	abutise	aboutir	VER			5.34	25.81	0.02	0.07	ind:pre:2p;	1	1	0	10	7	VCVVCVCCVC	VCVCVCV	0	2	0	0	a-bu-ti-se	4	V-CV-CV-CV	zessituoba	esituba	a-bou-tis-sez	VER	100	19	2.65	1.85	aboutir	1
+aboutissiez	abutisje	aboutir	VER			5.34	25.81	0.00	0.07	ind:imp:2p;	1	1	0	11	8	VCVVCVCCVVC	VCVCVCYV	0	1	0	0	a-bu-ti-sje	4	V-CV-CV-CYV	zeissituoba	ejsituba	a-bou-tis-siez	VER	100	19	3.35	2.5	aboutir	1
+aboutissions	abutisj§	aboutir	VER			5.34	25.81	0.00	0.07	ind:imp:1p;	1	1	0	12	8	VCVVCVCCVVCC	VCVCVCYV	1	1	0	0	a-bu-ti-sj§	4	V-CV-CV-CYV	snoissituoba	§jsituba	a-bou-tis-sions	VER	100	19	3.15	2.4	aboutir	1
+aboutit	abuti	aboutir	VER			5.34	25.81	1.50	3.45	ind:pre:3s;ind:pas:3s;	1	7	0	7	5	VCVVCVC	VCVCV	4	7	0	5	a-bu-ti	3	V-CV-CV	tituoba	ituba	a-bou-tit	VER	100	19	1.7	1.5	aboutir	1
+aboutonnai	abutonE	aboutonner	VER			0.00	0.07	0.00	0.07	ind:pas:1s;	1	1	0	10	7	VCVVCVCCVV	VCVCVCV	0	0	0	0	a-bu-to-nE	4	V-CV-CV-CV	iannotuoba	Enotuba	a-bou-ton-nai	VER			2.85	1.95	aboutonner	1
+aboutons	abut§	abouter	VER			0.00	0.14	0.00	0.07	imp:pre:1p;	1	1	0	8	5	VCVVCVCC	VCVCV	1	5	0	0	a-bu-t§	3	V-CV-CV	snotuoba	§tuba	a-bou-tons	VER			1.9	1.7	abouter	1
+aboutîmes	abutim	aboutir	VER			5.34	25.81	0.00	0.14	ind:pas:1p;	1	1	0	9	6	VCVVCVCVC	VCVCVC	0	2	0	0	a-bu-tim	3	V-CV-CVC	semîtuoba	mituba	a-bou-tî-mes	VER	100	19	3	1.85	aboutir	1
+aboya	abwaja	aboyer	VER			7.43	11.82	0.00	1.42	ind:pas:3s;	1	1	0	5	6	VCVVV	VCYVYV	1	5	0	0	a-bwa-ja	3	V-CYV-YV	ayoba	ajawba	a-boya	VER	100	20	1.95	1.75	aboyer	1
+aboyaient	abwajE	aboyer	VER			7.43	11.82	0.05	0.68	ind:imp:3p;	1	2	0	9	6	VCVVVVVCC	VCYVYV	0	6	0	0	a-bwa-jE	3	V-CYV-YV	tneiayoba	Ejawba	a-boyaient	VER	100	20	2.05	1.65	aboyer	1
+aboyait	abwajE	aboyer	VER			7.43	11.82	0.33	1.55	ind:imp:3s;	1	2	0	7	6	VCVVVVC	VCYVYV	1	6	0	0	a-bwa-jE	3	V-CYV-YV	tiayoba	Ejawba	a-boyait	VER	100	20	1.95	1.65	aboyer	1
+aboyant	abwaj@	aboyant	ADJ	m	s	0.01	0.20	0.01	0.14		2	2	1	7	6	VCVVVCC	VCYVYV	1	5	5	6	a-bwa-j@	3	V-CYV-YV	tnayoba	@jawba	a-boyant	ADJ,VER	100	13	1.9	1.7	aboyant	1
+aboyant	abwaj@	aboyer	VER			7.43	11.82	0.18	1.28	par:pre;	2	2	0	7	6	VCVVVCC	VCYVYV	1	5	5	6	a-bwa-j@	3	V-CYV-YV	tnayoba	@jawba	a-boyant	ADJ,VER	100	20	1.9	1.7	aboyer	1
+aboyante	abwaj@t	aboyant	ADJ	f	s	0.01	0.20	0.00	0.07		1	1	0	8	7	VCVVVCCV	VCYVYVC	0	0	0	0	a-bwa-j@t	3	V-CYV-YVC	etnayoba	t@jawba	a-boyan-te	ADJ	100	13	2.55	2.2	aboyant	1
+aboyer	abwaje	aboyer	VER			7.43	11.82	2.39	3.04	inf;	1	2	1	6	6	VCVVVC	VCYVYV	1	6	6	6	a-bwa-je	3	V-CYV-YV	reyoba	ejawba	a-boyer	VER	100	20	1.9	1.7	aboyer	1
+aboyeur	abwaj9R	aboyeur	ADJ	m	s	0.03	0.14	0.03	0.00		2	4	1	7	7	VCVVVVC	VCYVYVC	0	1	6	6	a-bwa-j9R	3	V-CYV-YVC	rueyoba	R9jawba	a-boyeur	ADJ,NOM	85	20	2.3	2.1	aboyer-eur	2
+aboyeur	abwaj9R	aboyeur	NOM	m	s	0.06	0.61	0.05	0.34		2	4	1	7	7	VCVVVVC	VCYVYVC	0	1	6	6	a-bwa-j9R	3	V-CYV-YVC	rueyoba	R9jawba	a-boyeur	ADJ,NOM	92	27	2.3	2.1	aboyer-eur	2
+aboyeurs	abwaj9R	aboyeur	ADJ	m	p	0.03	0.14	0.00	0.14		2	4	0	8	7	VCVVVVCC	VCYVYVC	0	1	0	6	a-bwa-j9R	3	V-CYV-YVC	srueyoba	R9jawba	a-boyeurs	ADJ,NOM	85	20	2.6	2.1	aboyer-eur	2
+aboyeurs	abwaj9R	aboyeur	NOM	m	p	0.06	0.61	0.01	0.27		2	4	0	8	7	VCVVVVCC	VCYVYVC	0	1	0	6	a-bwa-j9R	3	V-CYV-YVC	srueyoba	R9jawba	a-boyeurs	ADJ,NOM	92	27	2.6	2.1	aboyer-eur	2
+aboyons	abwaj§	aboyer	VER			7.43	11.82	0.10	0.07	ind:pre:1p;	1	1	0	7	6	VCVVVCC	VCYVYV	0	6	0	0	a-bwa-j§	3	V-CYV-YV	snoyoba	§jawba	a-boyons	VER	100	20	2	1.7	aboyer	1
+aboyèrent	abwajER	aboyer	VER			7.43	11.82	0.00	0.27	ind:pas:3p;	1	1	0	9	7	VCVVVCVCC	VCYVYVC	0	1	0	0	a-bwa-jER	3	V-CYV-YVC	tnerèyoba	REjawba	a-boyè-rent	VER	100	20	2.6	2	aboyer	1
+aboyé	abwaje	aboyer	VER	m	s	7.43	11.82	0.28	0.54	par:pas;	1	2	0	5	6	VCVVV	VCYVYV	1	6	0	6	a-bwa-je	3	V-CYV-YV	éyoba	ejawba	a-boyé	VER	100	20	1.95	1.7	aboyer	1
+abracadabra	abRakadabRa	abracadabra	NOM	m	s	0.98	0.27	0.98	0.27		1	1	1	11	11	VCCVCVCVCCV	VCCVCVCVCCV	1	2	11	11	a-bRa-ka-da-bRa	5	V-CCV-CV-CV-CCV	arbadacarba	aRbadakaRba	a-bra-ca-da-bra	NOM	86	15	4.65	4.7	abracadabra	1
+abracadabrant	abRakadabR@	abracadabrant	ADJ	m	s	0.26	0.68	0.03	0.20		1	2	1	13	11	VCCVCVCVCCVCC	VCCVCVCVCCV	0	2	12	11	a-bRa-ka-da-bR@	5	V-CCV-CV-CV-CCV	tnarbadacarba	@RbadakaRba	a-bra-ca-da-brant	ADJ	100	24	4.9	5.05	abracadabrant	1
+abracadabrante	abRakadabR@t	abracadabrant	ADJ	f	s	0.26	0.68	0.13	0.00		1	2	0	14	12	VCCVCVCVCCVCCV	VCCVCVCVCCVC	1	0	0	0	a-bRa-ka-da-bR@t	5	V-CCV-CV-CV-CCVC	etnarbadacarba	t@RbadakaRba	a-bra-ca-da-bran-te	ADJ	100	24	5.5	5.75	abracadabrant	1
+abracadabrantes	abRakadabR@t	abracadabrant	ADJ	f	p	0.26	0.68	0.10	0.34		1	2	0	15	12	VCCVCVCVCCVCCVC	VCCVCVCVCCVC	0	0	0	0	a-bRa-ka-da-bR@t	5	V-CCV-CV-CV-CCVC	setnarbadacarba	t@RbadakaRba	a-bra-ca-da-bran-tes	ADJ	100	24	5.75	5.75	abracadabrant	1
+abracadabrants	abRakadabR@	abracadabrant	ADJ	m	p	0.26	0.68	0.00	0.14		1	2	0	14	11	VCCVCVCVCCVCCC	VCCVCVCVCCV	1	2	0	11	a-bRa-ka-da-bR@	5	V-CCV-CV-CV-CCV	stnarbadacarba	@RbadakaRba	a-bra-ca-da-brants	ADJ	100	24	5.55	5.05	abracadabrant	1
+abracadabré	abRakadabRe	abracadabrer	VER	m	s	0.01	0.00	0.01	0.00	par:pas;	1	1	0	11	11	VCCVCVCVCCV	VCCVCVCVCCV	1	2	0	0	a-bRa-ka-da-bRe	5	V-CCV-CV-CV-CCV	érbadacarba	eRbadakaRba	a-bra-ca-da-bré	VER			5.25	4.95	abracadabrer	1
+abrasif	abRazif	abrasif	ADJ	m	s	0.09	0.27	0.04	0.27		2	4	1	7	7	VCCVCVC	VCCVCVC	0	1	7	6	a-bRa-zif	3	V-CCV-CVC	fisarba	fizaRba	a-bra-sif	ADJ,NOM	95	22	2.6	2.6	abraser-ion-if	3
+abrasif	abRazif	abrasif	NOM	m	s	0.15	0.41	0.13	0.34		2	4	1	7	7	VCCVCVC	VCCVCVC	0	1	7	6	a-bRa-zif	3	V-CCV-CVC	fisarba	fizaRba	a-bra-sif	ADJ,NOM	85	20	2.6	2.6	abraser-ion-if	3
+abrasifs	abRazif	abrasif	ADJ	m	p	0.09	0.27	0.01	0.00		2	4	0	8	7	VCCVCVCC	VCCVCVC	0	1	0	6	a-bRa-zif	3	V-CCV-CVC	sfisarba	fizaRba	a-bra-sif-s	ADJ,NOM	95	22	2.7	2.6	abraser-ion-if	3
+abrasifs	abRazif	abrasif	NOM	m	p	0.15	0.41	0.03	0.07		2	4	0	8	7	VCCVCVCC	VCCVCVC	0	1	0	6	a-bRa-zif	3	V-CCV-CVC	sfisarba	fizaRba	a-bra-sif-s	ADJ,NOM	85	20	2.7	2.6	abraser-ion-if	3
+abrasion	abRazj§	abrasion	NOM	f	s	0.19	0.14	0.19	0.14		1	1	1	8	7	VCCVCVVC	VCCVCYV	0	0	7	6	a-bRa-zj§	3	V-CCV-CYV	noisarba	§jzaRba	a-bra-sion	NOM	82	17	2.75	2.1	abraser-ion	2
+abrasive	abRaziv	abrasif	ADJ	f	s	0.09	0.27	0.04	0.00		1	1	0	8	7	VCCVCVCV	VCCVCVC	0	1	0	0	a-bRa-ziv	3	V-CCV-CVC	evisarba	vizaRba		ADJ	95	22	2.8	2.7	abraser-ion-if	3
+abrasé	abRaze	abraser	VER	m	s	0.00	0.07	0.00	0.07	par:pas;	1	1	0	6	6	VCCVCV	VCCVCV	0	1	0	0	a-bRa-ze	3	V-CCV-CV	ésarba	ezaRba	a-bra-sé	VER			2	1.85	abraser	1
+abraxas	abRaksas	abraxas	NOM	m		0.29	0.00	0.29	0.00		1	1	1	7	8	VCCVCVC	VCCVCCVC	0	0	5	6	a-bRak-sas	3	V-CCVC-CVC	saxarba	saskaRba		NOM			3	3.1	abraxas	1
+abreuva	abR9va	abreuver	VER			1.13	6.22	0.00	0.27	ind:pas:3s;	1	1	0	7	6	VCCVVCV	VCCVCV	2	4	0	0	a-bR9-va	3	V-CCV-CV	avuerba	av9Rba	a-breu-va	VER	100	24	2.4	1.85	abreuver	1
+abreuvage	abR9vaZ	abreuvage	NOM	m	s	0.00	0.07	0.00	0.07		1	1	1	9	7	VCCVVCVCV	VCCVCVC	0	0	7	6	a-bR9-vaZ	3	V-CCV-CVC	egavuerba	Zav9Rba	a-breu-va-ge	NOM	65	23	2.6	2.35	abreuver-age	2
+abreuvaient	abR9vE	abreuver	VER			1.13	6.22	0.00	0.27	ind:imp:3p;	1	2	0	11	6	VCCVVCVVVCC	VCCVCV	0	4	0	0	a-bR9-vE	3	V-CCV-CV	tneiavuerba	Ev9Rba	a-breu-vaient	VER	100	24	2.8	1.95	abreuver	1
+abreuvait	abR9vE	abreuver	VER			1.13	6.22	0.03	0.47	ind:imp:3s;	1	2	0	9	6	VCCVVCVVC	VCCVCV	1	4	0	0	a-bR9-vE	3	V-CCV-CV	tiavuerba	Ev9Rba	a-breu-vait	VER	100	24	2.65	1.95	abreuver	1
+abreuvant	abR9v@	abreuver	VER			1.13	6.22	0.01	0.34	par:pre;	1	1	0	9	6	VCCVVCVCC	VCCVCV	2	4	0	0	a-bR9-v@	3	V-CCV-CV	tnavuerba	@v9Rba	a-breu-vant	VER	100	24	2.6	2.05	abreuver	1
+abreuve	abR9v	abreuver	VER			1.13	6.22	0.23	1.08	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	2	0	7	5	VCCVVCV	VCCVC	2	0	0	0	a-bR9v	2	V-CCVC	evuerba	v9Rba	a-breu-ve	VER	100	24	2.2	1.75	abreuver	1
+abreuvent	abR9v	abreuver	VER			1.13	6.22	0.04	0.34	ind:pre:3p;	1	2	0	9	5	VCCVVCVCC	VCCVC	1	0	0	0	a-bR9v	2	V-CCVC	tnevuerba	v9Rba	a-breu-vent	VER	100	24	2.55	1.75	abreuver	1
+abreuver	abR9ve	abreuver	VER			1.13	6.22	0.48	2.09	inf;	1	7	1	8	6	VCCVVCVC	VCCVCV	1	4	7	6	a-bR9-ve	3	V-CCV-CV	revuerba	ev9Rba	a-breu-ver	VER	100	24	2.4	1.95	abreuver	1
+abreuvera	abR9v°Ra	abreuver	VER			1.13	6.22	0.11	0.00	ind:fut:3s;	1	1	0	9	8	VCCVVCVCV	VCCVCVCV	0	1	0	0	a-bR9-v°-Ra	4	V-CCV-CV-CV	arevuerba	aR°v9Rba	a-breu-ve-ra	VER	100	24	2.7		abreuver	1
+abreuveraient	abR9v°RE	abreuver	VER			1.13	6.22	0.00	0.07	cnd:pre:3p;	1	1	0	13	8	VCCVVCVCVVVCC	VCCVCVCV	0	1	0	0	a-bR9-v°-RE	4	V-CCV-CV-CV	tneiarevuerba	ER°v9Rba	a-breu-ve-raient	VER	100	24	3.4		abreuver	1
+abreuvez	abR9ve	abreuver	VER			1.13	6.22	0.03	0.00	imp:pre:2p;ind:pre:2p;	1	7	0	8	6	VCCVVCVC	VCCVCV	1	4	0	6	a-bR9-ve	3	V-CCV-CV	zevuerba	ev9Rba	a-breu-vez	VER	100	24	2.5	1.95	abreuver	1
+abreuvoir	abR9vwaR	abreuvoir	NOM	m	s	0.35	3.92	0.34	3.24		1	2	1	9	8	VCCVVCVVC	VCCVCYVC	0	0	7	6	a-bR9-vwaR	3	V-CCV-CYVC	riovuerba	Rawv9Rba	a-breu-voir	NOM	100	18	2.9	2.85	abreuvoir	1
+abreuvoirs	abR9vwaR	abreuvoir	NOM	m	p	0.35	3.92	0.01	0.68		1	2	0	10	8	VCCVVCVVCC	VCCVCYVC	0	0	0	6	a-bR9-vwaR	3	V-CCV-CYVC	sriovuerba	Rawv9Rba	a-breu-voirs	NOM	100	18	3.55	2.85	abreuvoir	1
+abreuvons	abR9v§	abreuver	VER			1.13	6.22	0.01	0.07	imp:pre:1p;	1	1	0	9	6	VCCVVCVCC	VCCVCV	0	4	0	0	a-bR9-v§	3	V-CCV-CV	snovuerba	§v9Rba	a-breu-vons	VER	100	24	2.75	2.05	abreuver	1
+abreuvé	abR9ve	abreuver	VER	m	s	1.13	6.22	0.04	0.68	par:pas;	2	7	0	7	6	VCCVVCV	VCCVCV	2	4	7	6	a-bR9-ve	3	V-CCV-CV	évuerba	ev9Rba	a-breu-vé	VER,ADJ	100	24	2.5	1.95	abreuver	1
+abreuvé	abR9ve	abreuvé	ADJ	m	s	0.01	0.14	0.00	0.14		2	7	1	7	6	VCCVVCV	VCCVCV	2	4	7	6	a-bR9-ve	3	V-CCV-CV	évuerba	ev9Rba	a-breu-vé	VER,ADJ	71	7	2.5	1.95	abreuvé	1
+abreuvée	abR9ve	abreuver	VER	f	s	1.13	6.22	0.10	0.27	par:pas;	1	7	0	8	6	VCCVVCVV	VCCVCV	1	4	0	6	a-bR9-ve	3	V-CCV-CV	eévuerba	ev9Rba	a-breu-vée	VER	100	24	2.5	1.95	abreuver	1
+abreuvés	abR9ve	abreuver	VER	m	p	1.13	6.22	0.04	0.27	par:pas;	2	7	0	8	6	VCCVVCVC	VCCVCV	1	4	0	6	a-bR9-ve	3	V-CCV-CV	sévuerba	ev9Rba	a-breu-vés	VER,ADJ	100	24	2.55	1.95	abreuver	1
+abreuvés	abR9ve	abreuvé	ADJ	m	p	0.01	0.14	0.01	0.00		2	7	0	8	6	VCCVVCVC	VCCVCV	1	4	0	6	a-bR9-ve	3	V-CCV-CV	sévuerba	ev9Rba	a-breu-vés	VER,ADJ	71	7	2.55	1.95	abreuvé	1
+abri	abRi	abri	NOM	m	s	25.90	56.76	22.70	51.08		1	2	1	4	4	VCCV	VCCV	1	3	4	4	a-bRi	2	V-CCV	irba	iRba	a-bri	NOM	100	17	1.75	1.55	abri	1
+abri-refuge	abRiR°fyZ	abri-refuge	NOM	m	s	0.00	0.07	0.00	0.07		1	1	1	11	9	VCCV-CVCVCV	VCCVCVCVC	0	0	5	5	a-bRi-R°-fyZ	4	V-CCV-CV-CVC	egufer-irba	Zyf°RiRba	abri-refuge	NOM			5.25	4.45	abri-refuge	2
+abribus	abRibys	abribus	NOM	m		0.04	0.14	0.04	0.14		1	1	1	7	7	VCCVCVC	VCCVCVC	0	0	5	5	a-bRi-bys	3	V-CCV-CVC	subirba	sybiRba	a-bri-bus	NOM	81	22	2.65	2.8	abribus	1
+abricot	abRiko	abricot	ADJ			0.08	0.68	0.08	0.68		2	3	1	7	6	VCCVCVC	VCCVCV	0	0	7	6	a-bRi-ko	3	V-CCV-CV	tocirba	okiRba	a-bri-cot	ADJ,NOM	91	23	2.6	1.95	abricot	1
+abricot	abRiko	abricot	NOM	m	s	1.24	2.50	0.50	1.15		2	3	1	7	6	VCCVCVC	VCCVCV	0	0	7	6	a-bRi-ko	3	V-CCV-CV	tocirba	okiRba	a-bri-cot	ADJ,NOM	100	26	2.6	1.95	abricot	1
+abricotez	abRikote	abricoter	VER			0.01	0.00	0.01	0.00	imp:pre:2p;	1	1	0	9	8	VCCVCVCVC	VCCVCVCV	0	0	0	0	a-bRi-ko-te	4	V-CCV-CV-CV	zetocirba	etokiRba	a-bri-co-tez	VER			2.6	2.5	abricoter	1
+abricotier	abRikotje	abricotier	NOM	m	s	0.02	0.41	0.02	0.14		1	2	1	10	9	VCCVCVCVVC	VCCVCVCYV	0	0	9	8	a-bRi-ko-tje	4	V-CCV-CV-CYV	reitocirba	ejtokiRba	a-bri-co-tier	NOM	95	20	3.15	2.8	abricotier	1
+abricotiers	abRikotje	abricotier	NOM	m	p	0.02	0.41	0.00	0.27		1	2	0	11	9	VCCVCVCVVCC	VCCVCVCYV	0	0	0	8	a-bRi-ko-tje	4	V-CCV-CV-CYV	sreitocirba	ejtokiRba	a-bri-co-tiers	NOM	95	20	3.7	2.8	abricotier	1
+abricotine	abRikotin	abricotine	NOM	f	s	0.00	0.07	0.00	0.07		1	1	1	10	9	VCCVCVCVCV	VCCVCVCVC	0	0	9	8	a-bRi-ko-tin	4	V-CCV-CV-CVC	enitocirba	nitokiRba	a-bri-co-ti-ne	NOM	38	18	3.6	3.6	abricotine	1
+abricots	abRiko	abricot	NOM	m	p	1.24	2.50	0.74	1.35		1	3	0	8	6	VCCVCVCC	VCCVCV	0	0	0	6	a-bRi-ko	3	V-CCV-CV	stocirba	okiRba	a-bri-cots	NOM	100	26	2.55	1.95	abricot	1
+abris	abRi	abri	NOM	m	p	25.90	56.76	3.20	5.68		1	2	0	5	4	VCCVC	VCCV	1	3	0	4	a-bRi	2	V-CCV	sirba	iRba	a-bris	NOM	100	17	1.75	1.55	abri	1
+abrita	abRita	abriter	VER			7.92	26.22	0.02	0.68	ind:pas:3s;	1	1	0	6	6	VCCVCV	VCCVCV	2	4	0	0	a-bRi-ta	3	V-CCV-CV	atirba	atiRba	a-bri-ta	VER	100	21	1.85	1.6	abriter	1
+abritai	abRitE	abriter	VER			7.92	26.22	0.00	0.07	ind:pas:1s;	1	4	0	7	6	VCCVCVV	VCCVCV	0	4	0	0	a-bRi-tE	3	V-CCV-CV	iatirba	EtiRba	a-bri-tai	VER	100	21	1.85	1.6	abriter	1
+abritaient	abRitE	abriter	VER			7.92	26.22	0.14	1.49	ind:imp:3p;	1	4	0	10	6	VCCVCVVVCC	VCCVCV	0	4	0	0	a-bRi-tE	3	V-CCV-CV	tneiatirba	EtiRba	a-bri-taient	VER	100	21	2.25	1.6	abriter	1
+abritais	abRitE	abriter	VER			7.92	26.22	0.01	0.14	ind:imp:1s;	1	4	0	8	6	VCCVCVVC	VCCVCV	1	4	0	0	a-bRi-tE	3	V-CCV-CV	siatirba	EtiRba	a-bri-tais	VER	100	21	1.9	1.6	abriter	1
+abritait	abRitE	abriter	VER			7.92	26.22	0.23	4.53	ind:imp:3s;	1	4	0	8	6	VCCVCVVC	VCCVCV	2	4	0	0	a-bRi-tE	3	V-CCV-CV	tiatirba	EtiRba	a-bri-tait	VER	100	21	1.85	1.6	abriter	1
+abritant	abRit@	abritant	ADJ	m	s	0.01	0.00	0.01	0.00		2	2	1	8	6	VCCVCVCC	VCCVCV	2	4	6	6	a-bRi-t@	3	V-CCV-CV	tnatirba	@tiRba	a-bri-tant	ADJ,VER	88	17	1.95	1.7	abritant	1
+abritant	abRit@	abriter	VER			7.92	26.22	0.25	1.82	par:pre;	2	2	0	8	6	VCCVCVCC	VCCVCV	2	4	6	6	a-bRi-t@	3	V-CCV-CV	tnatirba	@tiRba	a-bri-tant	ADJ,VER	100	21	1.95	1.7	abriter	1
+abrite	abRit	abriter	VER			7.92	26.22	2.09	2.70	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	3	0	6	5	VCCVCV	VCCVC	2	0	0	0	a-bRit	2	V-CCVC	etirba	tiRba	a-bri-te	VER	100	21	1.7	1.65	abriter	1
+abritent	abRit	abriter	VER			7.92	26.22	0.33	1.15	ind:pre:3p;	1	3	0	8	5	VCCVCVCC	VCCVC	1	0	0	0	a-bRit	2	V-CCVC	tnetirba	tiRba	a-bri-tent	VER	100	21	1.95	1.65	abriter	1
+abriter	abRite	abriter	VER			7.92	26.22	2.37	6.96	inf;;inf;;inf;;	1	9	1	7	6	VCCVCVC	VCCVCV	2	4	6	6	a-bRi-te	3	V-CCV-CV	retirba	etiRba	a-bri-ter	VER	100	21	1.8	1.65	abriter	1
+abritera	abRit°Ra	abriter	VER			7.92	26.22	0.10	0.07	ind:fut:3s;	1	1	0	8	8	VCCVCVCV	VCCVCVCV	0	2	0	0	a-bRi-t°-Ra	4	V-CCV-CV-CV	aretirba	aR°tiRba	a-bri-te-ra	VER	100	21	1.95		abriter	1
+abriterait	abRit°RE	abriter	VER			7.92	26.22	0.04	0.20	cnd:pre:3s;	1	1	0	10	8	VCCVCVCVVC	VCCVCVCV	0	2	0	0	a-bRi-t°-RE	4	V-CCV-CV-CV	tiaretirba	ER°tiRba	a-bri-te-rait	VER	100	21	2.25		abriter	1
+abriterons	abRit°R§	abriter	VER			7.92	26.22	0.03	0.00	ind:fut:1p;	1	2	0	10	8	VCCVCVCVCC	VCCVCVCV	1	2	0	0	a-bRi-t°-R§	4	V-CCV-CV-CV	snoretirba	§R°tiRba	a-bri-te-rons	VER	100	21	2.55		abriter	1
+abriteront	abRit°R§	abriter	VER			7.92	26.22	0.01	0.07	ind:fut:3p;	1	2	0	10	8	VCCVCVCVCC	VCCVCVCV	1	2	0	0	a-bRi-t°-R§	4	V-CCV-CV-CV	tnoretirba	§R°tiRba	a-bri-te-ront	VER	100	21	2.35		abriter	1
+abrites	abRit	abriter	VER			7.92	26.22	0.14	0.07	ind:pre:2s;	1	3	0	7	5	VCCVCVC	VCCVC	3	0	0	0	a-bRit	2	V-CCVC	setirba	tiRba	a-bri-tes	VER	100	21	1.75	1.65	abriter	1
+abritez	abRite	abriter	VER			7.92	26.22	1.08	0.20	imp:pre:2p;ind:pre:2p;	1	9	0	7	6	VCCVCVC	VCCVCV	2	4	0	6	a-bRi-te	3	V-CCV-CV	zetirba	etiRba	a-bri-tez	VER	100	21	1.8	1.65	abriter	1
+abritiez	abRitje	abriter	VER			7.92	26.22	0.01	0.00	ind:imp:2p;	1	1	0	8	7	VCCVCVVC	VCCVCYV	0	1	0	0	a-bRi-tje	3	V-CCV-CYV	zeitirba	ejtiRba	a-bri-tiez	VER	100	21	2.2	1.85	abriter	1
+abritions	abRitj§	abriter	VER			7.92	26.22	0.01	0.14	ind:imp:1p;	1	1	0	9	7	VCCVCVVCC	VCCVCYV	0	1	0	0	a-bRi-tj§	3	V-CCV-CYV	snoitirba	§jtiRba	a-bri-tions	VER	100	21	2.15	1.8	abriter	1
+abritons	abRit§	abriter	VER			7.92	26.22	0.40	0.00	imp:pre:1p;ind:pre:1p;	1	1	0	8	6	VCCVCVCC	VCCVCV	0	4	0	0	a-bRi-t§	3	V-CCV-CV	snotirba	§tiRba	a-bri-tons	VER	100	21	1.95	1.6	abriter	1
+abritâmes	abRitam	abriter	VER			7.92	26.22	0.01	0.00	ind:pas:1p;	1	1	0	9	7	VCCVCVCVC	VCCVCVC	0	0	0	0	a-bRi-tam	3	V-CCV-CVC	semâtirba	matiRba	a-bri-tâ-mes	VER	100	21	2.8	2.1	abriter	1
+abritèrent	abRitER	abriter	VER			7.92	26.22	0.00	0.07	ind:pas:3p;	1	1	0	10	7	VCCVCVCVCC	VCCVCVC	0	0	0	0	a-bRi-tER	3	V-CCV-CVC	tnerètirba	REtiRba	a-bri-tè-rent	VER	100	21	2.5	1.9	abriter	1
+abrité	abRite	abriter	VER	m	s	7.92	26.22	0.35	3.11	par:pas;	2	9	0	6	6	VCCVCV	VCCVCV	2	4	6	6	a-bRi-te	3	V-CCV-CV	étirba	etiRba	a-bri-té	VER,ADJ	100	21	1.8	1.65	abriter	1
+abrité	abRite	abrité	ADJ	m	s	0.17	1.08	0.13	0.68		2	9	1	6	6	VCCVCV	VCCVCV	2	4	6	6	a-bRi-te	3	V-CCV-CV	étirba	etiRba	a-bri-té	VER,ADJ	100	21	1.8	1.65	abrité	1
+abritée	abRite	abriter	VER	f	s	7.92	26.22	0.04	1.15	par:pas;	2	9	0	7	6	VCCVCVV	VCCVCV	1	4	0	6	a-bRi-te	3	V-CCV-CV	eétirba	etiRba	a-bri-tée	VER,ADJ	100	21	1.8	1.65	abriter	1
+abritée	abRite	abrité	ADJ	f	s	0.17	1.08	0.02	0.34		2	9	0	7	6	VCCVCVV	VCCVCV	1	4	0	6	a-bRi-te	3	V-CCV-CV	eétirba	etiRba	a-bri-tée	VER,ADJ	100	21	1.8	1.65	abrité	1
+abritées	abRite	abriter	VER	f	p	7.92	26.22	0.24	0.54	par:pas;	1	9	0	8	6	VCCVCVVC	VCCVCV	0	4	0	6	a-bRi-te	3	V-CCV-CV	seétirba	etiRba	a-bri-tées	VER	100	21	1.85	1.65	abriter	1
+abrités	abRite	abriter	VER	m	p	7.92	26.22	0.02	1.08	par:pas;	2	9	0	7	6	VCCVCVC	VCCVCV	2	4	0	6	a-bRi-te	3	V-CCV-CV	sétirba	etiRba	a-bri-tés	VER,ADJ	100	21	1.8	1.65	abriter	1
+abrités	abRite	abrité	ADJ	m	p	0.17	1.08	0.03	0.07		2	9	0	7	6	VCCVCVC	VCCVCV	2	4	0	6	a-bRi-te	3	V-CCV-CV	sétirba	etiRba	a-bri-tés	VER,ADJ	100	21	1.8	1.65	abrité	1
+abrogation	abRogasj§	abrogation	NOM	f	s	0.16	0.14	0.16	0.14		1	1	1	10	9	VCCVCVCVVC	VCCVCVCYV	0	0	6	5	a-bRo-ga-sj§	4	V-CCV-CV-CYV	noitagorba	§jsagoRba	a-bro-ga-tion	NOM	90	20	2.8	2.65	abroger-ion	2
+abrogent	abROZ	abroger	VER			0.71	0.34	0.23	0.00	ind:pre:3p;	1	1	0	8	5	VCCVCVCC	VCCVC	2	1	0	0	a-bROZ	2	V-CCVC	tnegorba	ZORba	a-bro-gent	VER	77	22	2.1	1.9	abroger	1
+abroger	abRoZe	abroger	VER			0.71	0.34	0.09	0.07	inf;	1	6	1	7	6	VCCVCVC	VCCVCV	2	1	6	5	a-bRo-Ze	3	V-CCV-CV	regorba	eZoRba	a-bro-ger	VER	77	22	1.9	1.9	abroger	1
+abrogé	abRoZe	abroger	VER	m	s	0.71	0.34	0.11	0.00	par:pas;	2	6	0	6	6	VCCVCV	VCCVCV	2	1	6	5	a-bRo-Ze	3	V-CCV-CV	égorba	eZoRba	a-bro-gé	VER,ADJ	77	22	1.8	1.9	abroger	1
+abrogé	abRoZe	abrogé	ADJ	m	s	0.01	0.00	0.01	0.00		2	6	1	6	6	VCCVCV	VCCVCV	2	1	6	5	a-bRo-Ze	3	V-CCV-CV	égorba	eZoRba	a-bro-gé	VER,ADJ	87	24	1.8	1.9	abrogé	1
+abrogée	abRoZe	abroger	VER	f	s	0.71	0.34	0.28	0.00	par:pas;	1	6	0	7	6	VCCVCVV	VCCVCV	3	1	0	5	a-bRo-Ze	3	V-CCV-CV	eégorba	eZoRba	a-bro-gée	VER	77	22	1.85	1.9	abroger	1
+abrogées	abRoZe	abroger	VER	f	p	0.71	0.34	0.00	0.14	par:pas;	1	6	0	8	6	VCCVCVVC	VCCVCV	0	1	0	5	a-bRo-Ze	3	V-CCV-CV	seégorba	eZoRba	a-bro-gées	VER	77	22	2.3	1.9	abroger	1
+abrogés	abRoZe	abroger	VER	m	p	0.71	0.34	0.01	0.14	par:pas;	1	6	0	7	6	VCCVCVC	VCCVCV	2	1	0	5	a-bRo-Ze	3	V-CCV-CV	ségorba	eZoRba	a-bro-gés	VER	77	22	2.1	1.9	abroger	1
+abrupt	abRypt	abrupt	ADJ	m	s	1.36	7.43	0.54	2.23		2	6	1	6	6	VCCVCC	VCCVCC	0	0	6	6	a-bRypt	2	V-CCVCC	tpurba	tpyRba	a-brupt	ADJ,NOM	94	18	2.5	2.85	abrupt	1
+abrupt	abRypt	abrupt	NOM	m	s	0.00	0.47	0.00	0.34		2	6	1	6	6	VCCVCC	VCCVCC	0	0	6	6	a-bRypt	2	V-CCVCC	tpurba	tpyRba	a-brupt	ADJ,NOM	85	28	2.5	2.85	abrupt	1
+abrupte	abRypt	abrupt	ADJ	f	s	1.36	7.43	0.43	2.84		1	6	0	7	6	VCCVCCV	VCCVCC	1	0	0	6	a-bRypt	2	V-CCVCC	etpurba	tpyRba	a-brup-te	ADJ	94	18	2.45	2.85	abrupt	1
+abruptement	abRypt°m@	abruptement	ADV			0.07	2.03	0.07	2.03		1	1	1	11	9	VCCVCCVCVCC	VCCVCCVCV	0	0	7	7	a-bRyp-t°-m@	4	V-CCVC-CV-CV	tnemetpurba	@m°tpyRba	a-brup-te-ment	ADV			3.7	3.7	abruptement	1
+abruptes	abRypt	abrupt	ADJ	f	p	1.36	7.43	0.24	1.55		1	6	0	8	6	VCCVCCVC	VCCVCC	0	0	0	6	a-bRypt	2	V-CCVCC	setpurba	tpyRba	a-brup-tes	ADJ	94	18	2.55	2.85	abrupt	1
+abrupts	abRypt	abrupt	ADJ	m	p	1.36	7.43	0.14	0.81		2	6	0	7	6	VCCVCCC	VCCVCC	1	0	0	6	a-bRypt	2	V-CCVCC	stpurba	tpyRba	a-brupts	ADJ,NOM	94	18	2.5	2.85	abrupt	1
+abrupts	abRypt	abrupt	NOM	m	p	0.00	0.47	0.00	0.14		2	6	0	7	6	VCCVCCC	VCCVCC	1	0	0	6	a-bRypt	2	V-CCVCC	stpurba	tpyRba	a-brupts	ADJ,NOM	85	28	2.5	2.85	abrupt	1
+abruti	abRyti	abruti	ADJ	m	s	6.13	4.66	5.24	3.04		3	13	1	6	6	VCCVCV	VCCVCV	1	0	6	6	a-bRy-ti	3	V-CCV-CV	iturba	ityRba	a-bru-ti	ADJ,NOM,VER	96	26	1.75	1.9	abruti	1
+abruti	abRyti	abruti	NOM	m	s	25.64	6.69	19.13	4.39		3	13	1	6	6	VCCVCV	VCCVCV	1	0	6	6	a-bRy-ti	3	V-CCV-CV	iturba	ityRba	a-bru-ti	ADJ,NOM,VER	100	26	1.75	1.9	abruti	1
+abruti	abRyti	abrutir	VER	m	s	2.56	6.01	1.75	1.76	par:pas;	3	13	0	6	6	VCCVCV	VCCVCV	1	0	6	6	a-bRy-ti	3	V-CCV-CV	iturba	ityRba	a-bru-ti	ADJ,NOM,VER	90	22	1.75	1.9	abrutir	1
+abrutie	abRyti	abruti	ADJ	f	s	6.13	4.66	0.27	0.68		3	13	0	7	6	VCCVCVV	VCCVCV	4	0	0	6	a-bRy-ti	3	V-CCV-CV	eiturba	ityRba	a-bru-tie	ADJ,NOM,VER	96	26	1.75	1.9	abruti	1
+abrutie	abRyti	abruti	NOM	f	s	25.64	6.69	0.38	0.47		3	13	0	7	6	VCCVCVV	VCCVCV	4	0	0	6	a-bRy-ti	3	V-CCV-CV	eiturba	ityRba	a-bru-tie	ADJ,NOM,VER	100	26	1.75	1.9	abruti	1
+abrutie	abRyti	abrutir	VER	f	s	2.56	6.01	0.06	0.34	par:pas;	3	13	0	7	6	VCCVCVV	VCCVCV	4	0	0	6	a-bRy-ti	3	V-CCV-CV	eiturba	ityRba	a-bru-tie	ADJ,NOM,VER	90	22	1.75	1.9	abrutir	1
+abruties	abRyti	abruti	ADJ	f	p	6.13	4.66	0.03	0.07		3	13	0	8	6	VCCVCVVC	VCCVCV	0	0	0	6	a-bRy-ti	3	V-CCV-CV	seiturba	ityRba	a-bru-ties	ADJ,NOM,VER	96	26	2.1	1.9	abruti	1
+abruties	abRyti	abruti	NOM	f	p	25.64	6.69	0.03	0.00		3	13	0	8	6	VCCVCVVC	VCCVCV	0	0	0	6	a-bRy-ti	3	V-CCV-CV	seiturba	ityRba	a-bru-ties	ADJ,NOM,VER	100	26	2.1	1.9	abruti	1
+abruties	abRyti	abrutir	VER	f	p	2.56	6.01	0.02	0.07	par:pas;	3	13	0	8	6	VCCVCVVC	VCCVCV	0	0	0	6	a-bRy-ti	3	V-CCV-CV	seiturba	ityRba	a-bru-ties	ADJ,NOM,VER	90	22	2.1	1.9	abrutir	1
+abrutir	abRytiR	abrutir	VER			2.56	6.01	0.11	0.95	inf;	1	1	1	7	7	VCCVCVC	VCCVCVC	4	1	7	7	a-bRy-tiR	3	V-CCV-CVC	riturba	RityRba	a-bru-tir	VER	90	22	1.95	2.3	abrutir	1
+abrutira	abRytiRa	abrutir	VER			2.56	6.01	0.00	0.07	ind:fut:3s;	1	1	0	8	8	VCCVCVCV	VCCVCVCV	1	0	0	0	a-bRy-ti-Ra	4	V-CCV-CV-CV	ariturba	aRityRba	a-bru-ti-ra	VER	90	22	2.35	2.6	abrutir	1
+abrutis	abRyti	abruti	ADJ	m	p	6.13	4.66	0.60	0.88		3	13	0	7	6	VCCVCVC	VCCVCV	4	0	0	6	a-bRy-ti	3	V-CCV-CV	siturba	ityRba	a-bru-tis	ADJ,NOM,VER	96	26	1.7	1.9	abruti	1
+abrutis	abRyti	abruti	NOM	m	p	25.64	6.69	6.10	1.82		3	13	0	7	6	VCCVCVC	VCCVCV	4	0	0	6	a-bRy-ti	3	V-CCV-CV	siturba	ityRba	a-bru-tis	ADJ,NOM,VER	100	26	1.7	1.9	abruti	1
+abrutis	abRyti	abrutir	VER	m	p	2.56	6.01	0.13	1.55	imp:pre:2s;ind:pre:1s;ind:pre:2s;par:pas;	3	13	0	7	6	VCCVCVC	VCCVCV	4	0	0	6	a-bRy-ti	3	V-CCV-CV	siturba	ityRba	a-bru-tis	ADJ,NOM,VER	90	22	1.7	1.9	abrutir	1
+abrutissaient	abRytisE	abrutir	VER			2.56	6.01	0.00	0.20	ind:imp:3p;	1	3	0	13	8	VCCVCVCCVVVCC	VCCVCVCV	1	1	0	0	a-bRy-ti-sE	4	V-CCV-CV-CV	tneiassiturba	EsityRba	a-bru-tis-saient	VER	90	22	2.6	2.3	abrutir	1
+abrutissais	abRytisE	abrutir	VER			2.56	6.01	0.00	0.07	ind:imp:1s;	1	3	0	11	8	VCCVCVCCVVC	VCCVCVCV	1	1	0	0	a-bRy-ti-sE	4	V-CCV-CV-CV	siassiturba	EsityRba	a-bru-tis-sais	VER	90	22	2.75	2.3	abrutir	1
+abrutissait	abRytisE	abrutir	VER			2.56	6.01	0.14	0.27	ind:imp:3s;	1	3	0	11	8	VCCVCVCCVVC	VCCVCVCV	3	1	0	0	a-bRy-ti-sE	4	V-CCV-CV-CV	tiassiturba	EsityRba	a-bru-tis-sait	VER	90	22	2.35	2.3	abrutir	1
+abrutissant	abRytis@	abrutir	VER			2.56	6.01	0.00	0.27	par:pre;	2	3	0	11	8	VCCVCVCCVCC	VCCVCVCV	3	1	9	8	a-bRy-ti-s@	4	V-CCV-CV-CV	tnassiturba	@sityRba	a-bru-tis-sant	VER,ADJ	90	22	2.15	2.3	abrutir	1
+abrutissant	abRytis@	abrutissant	ADJ	m	s	0.19	0.41	0.14	0.14		2	3	1	11	8	VCCVCVCCVCC	VCCVCVCV	3	1	9	8	a-bRy-ti-s@	4	V-CCV-CV-CV	tnassiturba	@sityRba	a-bru-tis-sant	VER,ADJ	88	27	2.15	2.3	abrutissant	1
+abrutissante	abRytis@t	abrutissant	ADJ	f	s	0.19	0.41	0.00	0.27		1	2	0	12	9	VCCVCVCCVCCV	VCCVCVCVC	1	0	0	0	a-bRy-ti-s@t	4	V-CCV-CV-CVC	etnassiturba	t@sityRba	a-bru-tis-san-te	ADJ	88	27	2.45	2.75	abrutissant	1
+abrutissantes	abRytis@t	abrutissant	ADJ	f	p	0.19	0.41	0.02	0.00		1	2	0	13	9	VCCVCVCCVCCVC	VCCVCVCVC	0	0	0	0	a-bRy-ti-s@t	4	V-CCV-CV-CVC	setnassiturba	t@sityRba	a-bru-tis-san-tes	ADJ	88	27	2.9	2.75	abrutissant	1
+abrutissants	abRytis@	abrutissant	ADJ	m	p	0.19	0.41	0.03	0.00		1	3	0	12	8	VCCVCVCCVCCC	VCCVCVCV	2	1	0	8	a-bRy-ti-s@	4	V-CCV-CV-CV	stnassiturba	@sityRba	a-bru-tis-sants	ADJ	88	27	2.4	2.3	abrutissant	1
+abrutissement	abRytis°m@	abrutissement	NOM	m	s	0.13	1.42	0.13	1.42		1	1	1	13	10	VCCVCVCCVCVCC	VCCVCVCVCV	1	0	10	8	a-bRy-ti-s°-m@	5	V-CCV-CV-CV-CV	tnemessiturba	@m°sityRba	a-bru-tis-se-ment	NOM	83	24	2.85		a-brute-ment	3
+abrutissent	abRytis	abrutir	VER			2.56	6.01	0.16	0.00	ind:pre:3p;	1	1	0	11	7	VCCVCVCCVCC	VCCVCVC	2	1	0	0	a-bRy-tis	3	V-CCV-CVC	tnessiturba	sityRba	a-bru-tis-sent	VER	90	22	2.35	2.25	abrutir	1
+abrutisseur	abRytis9R	abrutisseur	NOM	m	s	0.00	0.07	0.00	0.07		1	1	1	11	9	VCCVCVCCVVC	VCCVCVCVC	0	0	10	8	a-bRy-ti-s9R	4	V-CCV-CV-CVC	ruessiturba	R9sityRba	a-bru-tis-seur	NOM	74	27	3.2	2.65	a-brute-eur	3
+abrutissions	abRytisj§	abrutir	VER			2.56	6.01	0.00	0.07	ind:imp:1p;	1	1	0	12	9	VCCVCVCCVVCC	VCCVCVCYV	1	0	0	0	a-bRy-ti-sj§	4	V-CCV-CV-CYV	snoissiturba	§jsityRba	a-bru-tis-sions	VER	90	22	3.45	2.65	abrutir	1
+abrutit	abRyti	abrutir	VER			2.56	6.01	0.19	0.41	ind:pre:3s;ind:pas:3s;	1	13	0	7	6	VCCVCVC	VCCVCV	4	0	0	6	a-bRy-ti	3	V-CCV-CV	titurba	ityRba	a-bru-tit	VER	90	22	1.85	1.9	abrutir	1
+abrège	abREZ	abréger	VER			4.21	4.86	1.25	1.28	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	2	0	6	5	VCCVCV	VCCVC	1	2	0	0	a-bREZ	2	V-CCVC	egèrba	ZERba	a-brè-ge	VER	100	16	1.95	1.9	abréger	1
+abrègent	abREZ	abréger	VER			4.21	4.86	0.22	0.34	ind:pre:3p;	1	2	0	8	5	VCCVCVCC	VCCVC	2	2	0	0	a-bREZ	2	V-CCVC	tnegèrba	ZERba	a-brè-gent	VER	100	16	2.35	1.9	abréger	1
+abrégea	abReZa	abréger	VER			4.21	4.86	0.02	0.14	ind:pas:3s;	1	2	0	7	6	VCCVCVV	VCCVCV	2	4	0	0	a-bRe-Za	3	V-CCV-CV	aegérba	aZeRba	a-bré-gea	VER	100	16	2.05	1.75	abréger	1
+abrégeai	abReZE	abréger	VER			4.21	4.86	0.00	0.07	ind:pas:1s;	1	3	0	8	6	VCCVCVVV	VCCVCV	0	5	0	0	a-bRe-ZE	3	V-CCV-CV	iaegérba	EZeRba	a-bré-geai	VER	100	16	2.35	1.7	abréger	1
+abrégeaient	abReZE	abréger	VER			4.21	4.86	0.00	0.07	ind:imp:3p;	1	3	0	11	6	VCCVCVVVVCC	VCCVCV	1	5	0	0	a-bRe-ZE	3	V-CCV-CV	tneiaegérba	EZeRba	a-bré-geaient	VER	100	16	2.7	1.7	abréger	1
+abrégeait	abReZE	abréger	VER			4.21	4.86	0.00	0.20	ind:imp:3s;	1	3	0	9	6	VCCVCVVVC	VCCVCV	2	5	0	0	a-bRe-ZE	3	V-CCV-CV	tiaegérba	EZeRba	a-bré-geait	VER	100	16	2.3	1.7	abréger	1
+abrégeant	abReZ@	abréger	VER			4.21	4.86	0.00	0.07	par:pre;	1	1	0	9	6	VCCVCVVCC	VCCVCV	1	4	0	0	a-bRe-Z@	3	V-CCV-CV	tnaegérba	@ZeRba	a-bré-geant	VER	100	16	2.35	1.8	abréger	1
+abrégeons	abReZ§	abréger	VER			4.21	4.86	0.12	0.07	imp:pre:1p;	1	1	0	9	6	VCCVCVVCC	VCCVCV	0	4	0	0	a-bRe-Z§	3	V-CCV-CV	snoegérba	§ZeRba	a-bré-geons	VER	100	16	2.95	2.05	abréger	1
+abréger	abReZe	abréger	VER			4.21	4.86	1.61	1.82	inf;	1	9	1	7	6	VCCVCVC	VCCVCV	4	6	6	5	a-bRe-Ze	3	V-CCV-CV	regérba	eZeRba	a-bré-ger	VER	100	16	1.95	1.7	abréger	1
+abrégera	abReZ°Ra	abréger	VER			4.21	4.86	0.01	0.00	ind:fut:3s;	1	1	0	8	8	VCCVCVCV	VCCVCVCV	0	1	0	0	a-bRe-Z°-Ra	4	V-CCV-CV-CV	aregérba	aR°ZeRba	a-bré-ge-ra	VER	100	16	2.25		abréger	1
+abrégerai	abReZ°RE	abréger	VER			4.21	4.86	0.01	0.00	ind:fut:1s;	1	2	0	9	8	VCCVCVCVV	VCCVCVCV	0	1	0	0	a-bRe-Z°-RE	4	V-CCV-CV-CV	iaregérba	ER°ZeRba	a-bré-ge-rai	VER	100	16	2.55		abréger	1
+abrégerait	abReZ°RE	abréger	VER			4.21	4.86	0.00	0.07	cnd:pre:3s;	1	2	0	10	8	VCCVCVCVVC	VCCVCVCV	0	1	0	0	a-bRe-Z°-RE	4	V-CCV-CV-CV	tiaregérba	ER°ZeRba	a-bré-ge-rait	VER	100	16	2.45		abréger	1
+abrégez	abReZe	abréger	VER			4.21	4.86	0.73	0.07	imp:pre:2p;	1	9	0	7	6	VCCVCVC	VCCVCV	2	6	0	5	a-bRe-Ze	3	V-CCV-CV	zegérba	eZeRba	a-bré-gez	VER	100	16	2.2	1.7	abréger	1
+abrégeât	abReZa	abréger	VER			4.21	4.86	0.00	0.07	sub:imp:3s;	1	2	0	8	6	VCCVCVVC	VCCVCV	0	4	0	0	a-bRe-Za	3	V-CCV-CV	tâegérba	aZeRba	a-bré-geât	VER	100	16	2.55	1.75	abréger	1
+abrégé	abReZe	abréger	VER	m	s	4.21	4.86	0.19	0.41	par:pas;	3	9	0	6	6	VCCVCV	VCCVCV	2	6	6	5	a-bRe-Ze	3	V-CCV-CV	égérba	eZeRba	a-bré-gé	VER,ADJ,NOM	100	16	1.85	1.7	abréger	1
+abrégé	abReZe	abrégé	ADJ	m	s	0.20	0.41	0.06	0.14		3	9	1	6	6	VCCVCV	VCCVCV	2	6	6	5	a-bRe-Ze	3	V-CCV-CV	égérba	eZeRba	a-bré-gé	VER,ADJ,NOM	100	19	1.85	1.7	abrégé	1
+abrégé	abReZe	abrégé	NOM	m	s	0.12	0.54	0.11	0.47		3	9	1	6	6	VCCVCV	VCCVCV	2	6	6	5	a-bRe-Ze	3	V-CCV-CV	égérba	eZeRba	a-bré-gé	VER,ADJ,NOM	92	28	1.85	1.7	abrégé	1
+abrégée	abReZe	abréger	VER	f	s	4.21	4.86	0.05	0.20	par:pas;	2	9	0	7	6	VCCVCVV	VCCVCV	3	6	0	5	a-bRe-Ze	3	V-CCV-CV	eégérba	eZeRba	a-bré-gée	VER,ADJ	100	16	1.9	1.7	abréger	1
+abrégée	abReZe	abrégé	ADJ	f	s	0.20	0.41	0.13	0.20		2	9	0	7	6	VCCVCVV	VCCVCV	3	6	0	5	a-bRe-Ze	3	V-CCV-CV	eégérba	eZeRba	a-bré-gée	VER,ADJ	100	19	1.9	1.7	abrégé	1
+abrégés	abReZe	abrégé	ADJ	m	p	0.20	0.41	0.01	0.07		2	9	0	7	6	VCCVCVC	VCCVCV	3	6	0	5	a-bRe-Ze	3	V-CCV-CV	ségérba	eZeRba	a-bré-gés	ADJ,NOM	100	19	2	1.7	abrégé	1
+abrégés	abReZe	abrégé	NOM	m	p	0.12	0.54	0.01	0.07		2	9	0	7	6	VCCVCVC	VCCVCV	3	6	0	5	a-bRe-Ze	3	V-CCV-CV	ségérba	eZeRba	a-bré-gés	ADJ,NOM	92	28	2	1.7	abrégé	1
+abréviatif	abRevjatif	abréviatif	ADJ	m	s	0.00	0.07	0.00	0.07		1	1	1	10	10	VCCVCVVCVC	VCCVCYVCVC	0	0	10	8	a-bRe-vja-tif	4	V-CCV-CYV-CVC	fitaivérba	fitajveRba	a-bré-via-tif	ADJ	48	25	3.95	4.1	abréviat-ion-if	3
+abréviation	abRevjasj§	abréviation	NOM	f	s	0.46	0.95	0.37	0.41		1	2	1	11	10	VCCVCVVCVVC	VCCVCYVCYV	0	0	10	8	a-bRe-vja-sj§	4	V-CCV-CYV-CYV	noitaivérba	§jsajveRba	a-bré-via-tion	NOM	100	23	3.45	3.55	abréviat-ion	2
+abréviations	abRevjasj§	abréviation	NOM	f	p	0.46	0.95	0.09	0.54		1	2	0	12	10	VCCVCVVCVVCC	VCCVCYVCYV	0	0	0	8	a-bRe-vja-sj§	4	V-CCV-CYV-CYV	snoitaivérba	§jsajveRba	a-bré-via-tions	NOM	100	23	3.6	3.55	abréviat-ion	2
+abscisse	apsis	abscisse	NOM	f	s	0.02	0.00	0.02	0.00		1	1	1	8	5	VCCCVCCV	VCCVC	0	4	8	5	ap-sis	2	VC-CVC	essicsba	sispa		NOM			2.9	1.75	abscisse	1
+abscission	apsisj§	abscission	NOM	f	s	0.00	0.07	0.00	0.07		1	1	1	10	7	VCCCVCCVVC	VCCVCYV	0	0	8	6	ap-si-sj§	3	VC-CV-CYV	noissicsba	§jsispa	abs-cis-sion	NOM	4	22	3.5	2	abscission	1
+abscons	apsk§	abscons	ADJ	m		0.12	0.68	0.12	0.54		1	1	1	7	5	VCCCVCC	VCCCV	0	0	5	4	ap-sk§	2	VC-CCV	snocsba	§kspa	abs-cons	ADJ	60	28	2.55	1.95	abscons	1
+absconse	apsk§s	abscons	ADJ	f	s	0.12	0.68	0.00	0.07		1	2	0	8	6	VCCCVCCV	VCCCVC	0	0	0	0	ap-sk§s	2	VC-CCVC	esnocsba	s§kspa	abs-con-se	ADJ	60	28	2.7	2.65	abscons	1
+absconses	apsk§s	abscons	ADJ	f	p	0.12	0.68	0.00	0.07		1	2	0	9	6	VCCCVCCVC	VCCCVC	0	0	0	0	ap-sk§s	2	VC-CCVC	sesnocsba	s§kspa	abs-con-ses	ADJ	60	28	3.05	2.65	abscons	1
+absence	aps@s	absence	NOM	f	s	22.86	76.28	22.02	72.50		1	2	1	7	5	VCCVCCV	VCCVC	1	2	6	5	ap-s@s	2	VC-CVC	ecnesba	s@spa	ab-sen-ce	NOM	97	46	2.2	1.85	absence	1
+absences	aps@s	absence	NOM	f	p	22.86	76.28	0.84	3.78		1	2	0	8	5	VCCVCCVC	VCCVC	1	2	0	5	ap-s@s	2	VC-CVC	secnesba	s@spa	ab-sen-ces	NOM	97	46	2.35	1.85	absence	1
+absent	aps@	absent	ADJ	m	s	14.91	29.80	9.46	18.18		2	4	1	6	4	VCCVCC	VCCV	0	5	6	4	ap-s@	2	VC-CV	tnesba	@spa	ab-sent	ADJ,NOM	100	23	1.75	1.5	absent	1
+absent	aps@	absent	NOM	m	s	1.96	5.81	0.82	2.16		2	4	1	6	4	VCCVCC	VCCV	0	5	6	4	ap-s@	2	VC-CV	tnesba	@spa	ab-sent	ADJ,NOM	100	14	1.75	1.5	absent	1
+absenta	aps@ta	absenter	VER			6.14	6.01	0.00	0.34	ind:pas:3s;	1	1	0	7	6	VCCVCCV	VCCVCV	3	3	0	0	ap-s@-ta	3	VC-CV-CV	atnesba	at@spa	ab-sen-ta	VER	95	22	1.85	1.75	absenter	1
+absentai	aps@tE	absenter	VER			6.14	6.01	0.00	0.07	ind:pas:1s;	1	4	0	8	6	VCCVCCVV	VCCVCV	0	3	0	0	ap-s@-tE	3	VC-CV-CV	iatnesba	Et@spa	ab-sen-tai	VER	95	22	2.1	1.7	absenter	1
+absentaient	aps@tE	absenter	VER			6.14	6.01	0.00	0.14	ind:imp:3p;	1	4	0	11	6	VCCVCCVVVCC	VCCVCV	0	3	0	0	ap-s@-tE	3	VC-CV-CV	tneiatnesba	Et@spa	ab-sen-taient	VER	95	22	2.65	1.7	absenter	1
+absentais	aps@tE	absenter	VER			6.14	6.01	0.04	0.14	ind:imp:1s;ind:imp:2s;	1	4	0	9	6	VCCVCCVVC	VCCVCV	1	3	0	0	ap-s@-tE	3	VC-CV-CV	siatnesba	Et@spa	ab-sen-tais	VER	95	22	2.3	1.7	absenter	1
+absentait	aps@tE	absenter	VER			6.14	6.01	0.16	1.15	ind:imp:3s;	1	4	0	9	6	VCCVCCVVC	VCCVCV	2	3	0	0	ap-s@-tE	3	VC-CV-CV	tiatnesba	Et@spa	ab-sen-tait	VER	95	22	2.25	1.7	absenter	1
+absentant	aps@t@	absenter	VER			6.14	6.01	0.00	0.07	par:pre;	1	1	0	9	6	VCCVCCVCC	VCCVCV	1	4	0	0	ap-s@-t@	3	VC-CV-CV	tnatnesba	@t@spa	ab-sen-tant	VER	95	22	2.4	1.75	absenter	1
+absente	aps@t	absent	ADJ	f	s	14.91	29.80	3.49	6.22		3	6	0	7	5	VCCVCCV	VCCVC	4	3	0	0	ap-s@t	2	VC-CVC	etnesba	t@spa	ab-sen-te	ADJ,NOM,VER	100	23	1.6	1.6	absent	1
+absente	aps@t	absent	NOM	f	s	1.96	5.81	0.47	1.49		3	6	0	7	5	VCCVCCV	VCCVC	4	3	0	0	ap-s@t	2	VC-CVC	etnesba	t@spa	ab-sen-te	ADJ,NOM,VER	100	14	1.6	1.6	absent	1
+absente	aps@t	absenter	VER			6.14	6.01	1.46	1.69	ind:pre:1s;ind:pre:3s;sub:pre:3s;	3	6	0	7	5	VCCVCCV	VCCVC	4	3	0	0	ap-s@t	2	VC-CVC	etnesba	t@spa	ab-sen-te	ADJ,NOM,VER	95	22	1.6	1.6	absenter	1
+absenter	aps@te	absenter	VER			6.14	6.01	2.90	1.49	inf;	1	4	1	8	6	VCCVCCVC	VCCVCV	1	3	7	6	ap-s@-te	3	VC-CV-CV	retnesba	et@spa	ab-sen-ter	VER	95	22	2.05	1.8	absenter	1
+absentera	aps@t°Ra	absenter	VER			6.14	6.01	0.03	0.14	ind:fut:3s;	1	1	0	9	8	VCCVCCVCV	VCCVCVCV	0	1	0	0	ap-s@-t°-Ra	4	VC-CV-CV-CV	aretnesba	aR°t@spa	ab-sen-te-ra	VER	95	22	2.6		absenter	1
+absenterai	aps@t°RE	absenter	VER			6.14	6.01	0.03	0.07	ind:fut:1s;	1	2	0	10	8	VCCVCCVCVV	VCCVCVCV	0	1	0	0	ap-s@-t°-RE	4	VC-CV-CV-CV	iaretnesba	ER°t@spa	ab-sen-te-rai	VER	95	22	2.6		absenter	1
+absenterait	aps@t°RE	absenter	VER			6.14	6.01	0.00	0.07	cnd:pre:3s;	1	2	0	11	8	VCCVCCVCVVC	VCCVCVCV	0	1	0	0	ap-s@-t°-RE	4	VC-CV-CV-CV	tiaretnesba	ER°t@spa	ab-sen-te-rait	VER	95	22	2.75		absenter	1
+absentes	aps@t	absent	ADJ	f	p	14.91	29.80	0.06	0.61		3	6	0	8	5	VCCVCCVC	VCCVC	3	3	0	0	ap-s@t	2	VC-CVC	setnesba	t@spa	ab-sen-tes	ADJ,NOM,VER	100	23	1.75	1.6	absent	1
+absentes	aps@t	absent	NOM	f	p	1.96	5.81	0.01	0.20		3	6	0	8	5	VCCVCCVC	VCCVC	3	3	0	0	ap-s@t	2	VC-CVC	setnesba	t@spa	ab-sen-tes	ADJ,NOM,VER	100	14	1.75	1.6	absent	1
+absentes	aps@t	absenter	VER			6.14	6.01	0.07	0.00	ind:pre:2s;	3	6	0	8	5	VCCVCCVC	VCCVC	3	3	0	0	ap-s@t	2	VC-CVC	setnesba	t@spa	ab-sen-tes	ADJ,NOM,VER	95	22	1.75	1.6	absenter	1
+absents	aps@	absent	ADJ	m	p	14.91	29.80	1.91	4.80		2	4	0	7	4	VCCVCCC	VCCV	3	5	0	4	ap-s@	2	VC-CV	stnesba	@spa	ab-sents	ADJ,NOM	100	23	1.7	1.5	absent	1
+absents	aps@	absent	NOM	m	p	1.96	5.81	0.66	1.96		2	4	0	7	4	VCCVCCC	VCCV	3	5	0	4	ap-s@	2	VC-CV	stnesba	@spa	ab-sents	ADJ,NOM	100	14	1.7	1.5	absent	1
+absentèrent	aps@tER	absenter	VER			6.14	6.01	0.00	0.07	ind:pas:3p;	1	1	0	11	7	VCCVCCVCVCC	VCCVCVC	0	0	0	0	ap-s@-tER	3	VC-CV-CVC	tnerètnesba	REt@spa	ab-sen-tè-rent	VER	95	22	2.9	2	absenter	1
+absenté	aps@te	absenter	VER	m	s	6.14	6.01	0.89	0.34	par:pas;	1	4	0	7	6	VCCVCCV	VCCVCV	3	3	0	6	ap-s@-te	3	VC-CV-CV	étnesba	et@spa	ab-sen-té	VER	95	22	1.95	1.8	absenter	1
+absentée	aps@te	absenter	VER	f	s	6.14	6.01	0.42	0.20	par:pas;	1	4	0	8	6	VCCVCCVV	VCCVCV	1	3	0	6	ap-s@-te	3	VC-CV-CV	eétnesba	et@spa	ab-sen-tée	VER	95	22	2.15	1.8	absenter	1
+absentéisme	aps@teizm	absentéisme	NOM	m	s	0.14	0.20	0.14	0.20		1	1	1	11	9	VCCVCCVVCCV	VCCVCVVCC	1	0	10	8	ap-s@-te-izm	4	VC-CV-CV-VCC	emsiétnesba	mziet@spa	ab-sen-téis-me	NOM	97	34	3.65	3.6	absentéisme	1
+absentéiste	aps@teist	absentéiste	ADJ	m	s	0.01	0.00	0.01	0.00		2	2	1	11	9	VCCVCCVVCCV	VCCVCVVCC	1	0	10	8	ap-s@-te-ist	4	VC-CV-CV-VCC	etsiétnesba	tsiet@spa	ab-sen-téis-te	ADJ,NOM	90	21	3.55	3.5	absentéiste	1
+absentéiste	aps@teist	absentéiste	NOM		s	0.01	0.00	0.01	0.00		2	2	1	11	9	VCCVCCVVCCV	VCCVCVVCC	1	0	10	8	ap-s@-te-ist	4	VC-CV-CV-VCC	etsiétnesba	tsiet@spa	ab-sen-téis-te	ADJ,NOM			3.55	3.5	absentéiste	1
+absentés	aps@te	absenter	VER	m	p	6.14	6.01	0.15	0.07	par:pas;	1	4	0	8	6	VCCVCCVC	VCCVCV	2	3	0	6	ap-s@-te	3	VC-CV-CV	sétnesba	et@spa	ab-sen-tés	VER	95	22	2.1	1.8	absenter	1
+abside	apsid	abside	NOM	f	s	0.00	1.62	0.00	1.55		1	2	1	6	5	VCCVCV	VCCVC	0	1	6	5	ap-sid	2	VC-CVC	edisba	dispa	ab-si-de	NOM	50	24	1.95	1.9	abside	1
+absides	apsid	abside	NOM	f	p	0.00	1.62	0.00	0.07		1	2	0	7	5	VCCVCVC	VCCVC	0	1	0	5	ap-sid	2	VC-CVC	sedisba	dispa	ab-si-des	NOM	50	24	2	1.9	abside	1
+absidiales	apsidjal	absidial	ADJ	f	p	0.00	0.14	0.00	0.14		1	1	0	10	8	VCCVCVVCVC	VCCVCYVC	0	1	0	0	ap-si-djal	3	VC-CV-CYVC	selaidisba	lajdispa	ab-si-dia-les	ADJ			3.75	3.3	absidial	1
+absidiole	apsidjOl	absidiole	NOM	f	s	0.00	0.07	0.00	0.07		1	1	1	9	8	VCCVCVVCV	VCCVCYVC	0	1	7	6	ap-si-djOl	3	VC-CV-CYVC	eloidisba	lOjdispa	ab-si-dio-le	NOM	16	25	3.75	3.6	absidiole	1
+absinthant	aps5t@	absinther	VER			0.00	0.07	0.00	0.07	par:pre;	1	1	0	10	6	VCCVCCCVCC	VCCVCV	0	1	0	0	ap-s5-t@	3	VC-CV-CV	tnahtnisba	@t5spa	ab-sin-thant	VER			3.7	1.95	absinther	1
+absinthe	aps5t	absinthe	NOM	f	s	1.28	2.91	1.28	2.91		1	1	1	8	5	VCCVCCCV	VCCVC	0	3	8	4	ap-s5t	2	VC-CVC	ehtnisba	t5spa	ab-sin-the	NOM	95	23	2.9	1.8	absinthe	1
+absolu	apsoly	absolu	ADJ	m	s	17.25	34.39	8.55	16.42		2	6	1	6	6	VCCVCV	VCCVCV	0	0	6	6	ap-so-ly	3	VC-CV-CV	ulosba	ylospa	ab-so-lu	ADJ,NOM	100	15	2.5	2.7	absolu	1
+absolu	apsoly	absolu	NOM	m	s	0.78	7.23	0.74	7.03		2	6	1	6	6	VCCVCV	VCCVCV	0	0	6	6	ap-so-ly	3	VC-CV-CV	ulosba	ylospa	ab-so-lu	ADJ,NOM	100	20	2.5	2.7	absolu	1
+absolue	apsoly	absolu	ADJ	f	s	17.25	34.39	8.44	16.15		1	6	0	7	6	VCCVCVV	VCCVCV	2	0	0	6	ap-so-ly	3	VC-CV-CV	eulosba	ylospa	ab-so-lue	ADJ	100	15	2.25	2.7	absolu	1
+absolues	apsoly	absolu	ADJ	f	p	17.25	34.39	0.20	1.01		1	6	0	8	6	VCCVCVVC	VCCVCV	1	0	0	6	ap-so-ly	3	VC-CV-CV	seulosba	ylospa	ab-so-lues	ADJ	100	15	2.4	2.7	absolu	1
+absolument	apsolym@	absolument	ADV			89.79	63.45	89.79	63.45		1	1	1	10	8	VCCVCVCVCC	VCCVCVCV	0	0	7	7	ap-so-ly-m@	4	VC-CV-CV-CV	tnemulosba	@mylospa	ab-so-lu-ment	ADV			3.1	3.15	absolument	1
+absolus	apsoly	absolu	ADJ	m	p	17.25	34.39	0.06	0.81		2	6	0	7	6	VCCVCVC	VCCVCV	1	0	0	6	ap-so-ly	3	VC-CV-CV	sulosba	ylospa	ab-so-lus	ADJ,NOM	100	15	2.3	2.7	absolu	1
+absolus	apsoly	absolu	NOM	m	p	0.78	7.23	0.04	0.20		2	6	0	7	6	VCCVCVC	VCCVCV	1	0	0	6	ap-so-ly	3	VC-CV-CV	sulosba	ylospa	ab-so-lus	ADJ,NOM	100	20	2.3	2.7	absolu	1
+absolution	apsolysj§	absolution	NOM	f	s	1.06	2.50	1.06	2.50		1	1	1	10	9	VCCVCVCVVC	VCCVCVCYV	0	0	9	7	ap-so-ly-sj§	4	VC-CV-CV-CYV	noitulosba	§jsylospa	ab-so-lu-tion	NOM	90	21	2.75	2.85	absolut-ion	2
+absolutisme	apsolytizm	absolutisme	NOM	m	s	0.12	0.68	0.12	0.68		1	1	1	11	10	VCCVCVCVCCV	VCCVCVCVCC	0	0	9	7	ap-so-ly-tizm	4	VC-CV-CV-CVCC	emsitulosba	mzitylospa	ab-so-lu-tis-me	NOM	85	27	3.85	4.05	absolutisme	1
+absolvaient	apsOlvE	absoudre	VER			2.66	3.72	0.00	0.07	ind:imp:3p;	1	2	0	11	7	VCCVCCVVVCC	VCCVCCV	0	1	0	0	ap-sOl-vE	3	VC-CVC-CV	tneiavlosba	EvlOspa	ab-sol-vaient	VER	100	19	2.75	2.7	absoudre	1
+absolvait	apsOlvE	absoudre	VER			2.66	3.72	0.00	0.27	ind:imp:3s;	1	2	0	9	7	VCCVCCVVC	VCCVCCV	1	1	0	0	ap-sOl-vE	3	VC-CVC-CV	tiavlosba	EvlOspa	ab-sol-vait	VER	100	19	2.7	2.7	absoudre	1
+absolvant	apsOlv@	absolvant	ADJ	m	s	0.00	0.14	0.00	0.14		1	1	1	9	7	VCCVCCVCC	VCCVCCV	2	1	6	5	ap-sOl-v@	3	VC-CVC-CV	tnavlosba	@vlOspa	ab-sol-vant	ADJ	21	19	2.6	2.65	absolvant	1
+absolve	apsOlv	absoudre	VER			2.66	3.72	0.16	0.00	sub:pre:3s;	1	3	0	7	6	VCCVCCV	VCCVCC	1	0	0	0	ap-sOlv	2	VC-CVCC	evlosba	vlOspa	ab-sol-ve	VER	100	19	2.4	2.65	absoudre	1
+absolvent	apsOlv	absoudre	VER			2.66	3.72	0.00	0.20	ind:pre:3p;	1	3	0	9	6	VCCVCCVCC	VCCVCC	1	0	0	0	ap-sOlv	2	VC-CVCC	tnevlosba	vlOspa	ab-sol-vent	VER	100	19	2.55	2.65	absoudre	1
+absolves	apsOlv	absoudre	VER			2.66	3.72	0.01	0.00	sub:pre:2s;	1	3	0	8	6	VCCVCCVC	VCCVCC	1	0	0	0	ap-sOlv	2	VC-CVCC	sevlosba	vlOspa	ab-sol-ves	VER	100	19	2.5	2.65	absoudre	1
+absorba	apsORba	absorber	VER			6.66	28.65	0.11	2.03	ind:pas:3s;	1	1	0	7	7	VCCVCCV	VCCVCCV	2	4	0	0	ap-sOR-ba	3	VC-CVC-CV	abrosba	abROspa	ab-sor-ba	VER	100	16	2.2	2.15	absorber	1
+absorbables	apsORbabl	absorbable	ADJ	m	p	0.00	0.07	0.00	0.07		1	1	0	11	9	VCCVCCVCCVC	VCCVCCVCC	0	0	0	0	ap-sOR-babl	3	VC-CVC-CVCC	selbabrosba	lbabROspa	ab-sor-ba-bles	ADJ			3.35	2.95	absorber-able	2
+absorbai	apsORbE	absorber	VER			6.66	28.65	0.00	0.07	ind:pas:1s;	1	4	0	8	7	VCCVCCVV	VCCVCCV	0	4	0	0	ap-sOR-bE	3	VC-CVC-CV	iabrosba	EbROspa	ab-sor-bai	VER	100	16	2.25	2	absorber	1
+absorbaient	apsORbE	absorber	VER			6.66	28.65	0.04	0.68	ind:imp:3p;	1	4	0	11	7	VCCVCCVVVCC	VCCVCCV	0	4	0	0	ap-sOR-bE	3	VC-CVC-CV	tneiabrosba	EbROspa	ab-sor-baient	VER	100	16	2.6	2	absorber	1
+absorbais	apsORbE	absorber	VER			6.66	28.65	0.00	0.27	ind:imp:1s;	1	4	0	9	7	VCCVCCVVC	VCCVCCV	1	4	0	0	ap-sOR-bE	3	VC-CVC-CV	siabrosba	EbROspa	ab-sor-bais	VER	100	16	2.35	2	absorber	1
+absorbait	apsORbE	absorber	VER			6.66	28.65	0.20	3.11	ind:imp:3s;	1	4	0	9	7	VCCVCCVVC	VCCVCCV	2	4	0	0	ap-sOR-bE	3	VC-CVC-CV	tiabrosba	EbROspa	ab-sor-bait	VER	100	16	2.15	2	absorber	1
+absorbant	apsORb@	absorbant	ADJ	m	s	0.14	1.35	0.08	0.81		3	4	1	9	7	VCCVCCVCC	VCCVCCV	2	4	8	7	ap-sOR-b@	3	VC-CVC-CV	tnabrosba	@bROspa	ab-sor-bant	ADJ,NOM,VER	96	32	2.1	2.15	absorbant	1
+absorbant	apsORb@	absorbant	NOM	m	s	0.01	0.14	0.01	0.14		3	4	1	9	7	VCCVCCVCC	VCCVCCV	2	4	8	7	ap-sOR-b@	3	VC-CVC-CV	tnabrosba	@bROspa	ab-sor-bant	ADJ,NOM,VER	95	23	2.1	2.15	absorbant	1
+absorbant	apsORb@	absorber	VER			6.66	28.65	0.06	0.95	par:pre;	3	4	0	9	7	VCCVCCVCC	VCCVCCV	2	4	8	7	ap-sOR-b@	3	VC-CVC-CV	tnabrosba	@bROspa	ab-sor-bant	ADJ,NOM,VER	100	16	2.1	2.15	absorber	1
+absorbante	apsORb@t	absorbant	ADJ	f	s	0.14	1.35	0.04	0.27		1	2	0	10	8	VCCVCCVCCV	VCCVCCVC	1	0	0	0	ap-sOR-b@t	3	VC-CVC-CVC	etnabrosba	t@bROspa	ab-sor-ban-te	ADJ	96	32	2.6	2.5	absorbant	1
+absorbantes	apsORb@t	absorbant	ADJ	f	p	0.14	1.35	0.01	0.20		1	2	0	11	8	VCCVCCVCCVC	VCCVCCVC	0	0	0	0	ap-sOR-b@t	3	VC-CVC-CVC	setnabrosba	t@bROspa	ab-sor-ban-tes	ADJ	96	32	2.95	2.5	absorbant	1
+absorbants	apsORb@	absorbant	ADJ	m	p	0.14	1.35	0.01	0.07		1	4	0	10	7	VCCVCCVCCC	VCCVCCV	1	4	0	7	ap-sOR-b@	3	VC-CVC-CV	stnabrosba	@bROspa	ab-sor-bants	ADJ	96	32	2.5	2.15	absorbant	1
+absorbe	apsORb	absorber	VER			6.66	28.65	1.61	3.38	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	2	0	7	6	VCCVCCV	VCCVCC	2	0	0	0	ap-sORb	2	VC-CVCC	ebrosba	bROspa	ab-sor-be	VER	100	16	1.85	1.9	absorber	1
+absorbent	apsORb	absorber	VER			6.66	28.65	0.33	0.61	ind:pre:3p;	1	2	0	9	6	VCCVCCVCC	VCCVCC	1	0	0	0	ap-sORb	2	VC-CVCC	tnebrosba	bROspa	ab-sor-bent	VER	100	16	2.2	1.9	absorber	1
+absorber	apsORbe	absorber	VER			6.66	28.65	1.86	4.53	inf;	1	10	1	8	7	VCCVCCVC	VCCVCCV	1	4	8	7	ap-sOR-be	3	VC-CVC-CV	rebrosba	ebROspa	ab-sor-ber	VER	100	16	2.05	2.25	absorber	1
+absorbera	apsORb°Ra	absorber	VER			6.66	28.65	0.23	0.07	ind:fut:3s;	1	1	0	9	9	VCCVCCVCV	VCCVCCVCV	0	1	0	0	ap-sOR-b°-Ra	4	VC-CVC-CV-CV	arebrosba	aR°bROspa	ab-sor-be-ra	VER	100	16	2.45	3	absorber	1
+absorberai	apsORb°RE	absorber	VER			6.66	28.65	0.02	0.00	ind:fut:1s;	1	3	0	10	9	VCCVCCVCVV	VCCVCCVCV	0	1	0	0	ap-sOR-b°-RE	4	VC-CVC-CV-CV	iarebrosba	ER°bROspa	ab-sor-be-rai	VER	100	16	2.65	2.8	absorber	1
+absorberaient	apsORb°RE	absorber	VER			6.66	28.65	0.11	0.07	cnd:pre:3p;	1	3	0	13	9	VCCVCCVCVVVCC	VCCVCCVCV	0	1	0	0	ap-sOR-b°-RE	4	VC-CVC-CV-CV	tneiarebrosba	ER°bROspa	ab-sor-be-raient	VER	100	16	3.15	2.8	absorber	1
+absorberait	apsORb°RE	absorber	VER			6.66	28.65	0.04	0.14	cnd:pre:3s;	1	3	0	11	9	VCCVCCVCVVC	VCCVCCVCV	0	1	0	0	ap-sOR-b°-RE	4	VC-CVC-CV-CV	tiarebrosba	ER°bROspa	ab-sor-be-rait	VER	100	16	2.65	2.8	absorber	1
+absorbeur	apsORb9R	absorbeur	NOM	m	s	0.03	0.00	0.03	0.00		1	1	1	9	8	VCCVCCVVC	VCCVCCVC	0	1	8	7	ap-sOR-b9R	3	VC-CVC-CVC	ruebrosba	R9bROspa		NOM			2.7	2.4	absorber-eur	2
+absorbez	apsORbe	absorber	VER			6.66	28.65	0.06	0.00	imp:pre:2p;ind:pre:2p;	1	10	0	8	7	VCCVCCVC	VCCVCCV	1	4	0	7	ap-sOR-be	3	VC-CVC-CV	zebrosba	ebROspa	ab-sor-bez	VER	100	16	2.25	2.25	absorber	1
+absorbions	apsORbj§	absorber	VER			6.66	28.65	0.00	0.07	ind:imp:1p;	1	1	0	10	8	VCCVCCVVCC	VCCVCCYV	0	0	0	0	ap-sOR-bj§	3	VC-CVC-CYV	snoibrosba	§jbROspa	ab-sor-bions	VER	100	16	2.8	2.4	absorber	1
+absorbons	apsORb§	absorber	VER			6.66	28.65	0.00	0.07	ind:pre:1p;	1	1	0	9	7	VCCVCCVCC	VCCVCCV	0	4	0	0	ap-sOR-b§	3	VC-CVC-CV	snobrosba	§bROspa	ab-sor-bons	VER	100	16	2.55	2.2	absorber	1
+absorbèrent	apsORbER	absorber	VER			6.66	28.65	0.01	0.41	ind:pas:3p;	1	1	0	11	8	VCCVCCVCVCC	VCCVCCVC	0	1	0	0	ap-sOR-bER	3	VC-CVC-CVC	tnerèbrosba	REbROspa	ab-sor-bè-rent	VER	100	16	2.9	2.25	absorber	1
+absorbé	apsORbe	absorber	VER	m	s	6.66	28.65	1.35	7.84	par:pas;	2	10	0	7	7	VCCVCCV	VCCVCCV	2	4	7	7	ap-sOR-be	3	VC-CVC-CV	ébrosba	ebROspa	ab-sor-bé	VER,ADJ	100	16	2.25	2.25	absorber	1
+absorbé	apsORbe	absorbé	ADJ	m	s	0.28	3.72	0.18	2.30		2	10	1	7	7	VCCVCCV	VCCVCCV	2	4	7	7	ap-sOR-be	3	VC-CVC-CV	ébrosba	ebROspa	ab-sor-bé	VER,ADJ	100	12	2.25	2.25	absorbé	1
+absorbée	apsORbe	absorber	VER	f	s	6.66	28.65	0.40	2.30	par:pas;	2	10	0	8	7	VCCVCCVV	VCCVCCV	1	4	0	7	ap-sOR-be	3	VC-CVC-CV	eébrosba	ebROspa	ab-sor-bée	VER,ADJ	100	16	2.25	2.25	absorber	1
+absorbée	apsORbe	absorbé	ADJ	f	s	0.28	3.72	0.06	0.61		2	10	0	8	7	VCCVCCVV	VCCVCCV	1	4	0	7	ap-sOR-be	3	VC-CVC-CV	eébrosba	ebROspa	ab-sor-bée	VER,ADJ	100	12	2.25	2.25	absorbé	1
+absorbées	apsORbe	absorber	VER	f	p	6.66	28.65	0.07	0.41	par:pas;	2	10	0	9	7	VCCVCCVVC	VCCVCCV	0	4	0	7	ap-sOR-be	3	VC-CVC-CV	seébrosba	ebROspa	ab-sor-bées	VER,ADJ	100	16	2.45	2.25	absorber	1
+absorbées	apsORbe	absorbé	ADJ	f	p	0.28	3.72	0.03	0.34		2	10	0	9	7	VCCVCCVVC	VCCVCCV	0	4	0	7	ap-sOR-be	3	VC-CVC-CV	seébrosba	ebROspa	ab-sor-bées	VER,ADJ	100	12	2.45	2.25	absorbé	1
+absorbés	apsORbe	absorber	VER	m	p	6.66	28.65	0.16	1.69	par:pas;	2	10	0	8	7	VCCVCCVC	VCCVCCV	1	4	0	7	ap-sOR-be	3	VC-CVC-CV	sébrosba	ebROspa	ab-sor-bés	VER,ADJ	100	16	2.2	2.25	absorber	1
+absorbés	apsORbe	absorbé	ADJ	m	p	0.28	3.72	0.02	0.47		2	10	0	8	7	VCCVCCVC	VCCVCCV	1	4	0	7	ap-sOR-be	3	VC-CVC-CV	sébrosba	ebROspa	ab-sor-bés	VER,ADJ	100	12	2.2	2.25	absorbé	1
+absorption	apsORpsj§	absorption	NOM	f	s	0.58	2.03	0.58	1.89		1	2	1	10	9	VCCVCCCVVC	VCCVCCCYV	0	0	6	6	ap-sOR-psj§	3	VC-CVC-CCYV	noitprosba	§jspROspa	ab-sorp-tion	NOM	100	24	2.85	3	absorpt-ion	2
+absorptions	apsORpsj§	absorption	NOM	f	p	0.58	2.03	0.00	0.14		1	2	0	11	9	VCCVCCCVVCC	VCCVCCCYV	0	0	0	6	ap-sOR-psj§	3	VC-CVC-CCYV	snoitprosba	§jspROspa	ab-sorp-tions	NOM	100	24	2.8	3	absorpt-ion	2
+absoudrai	apsudRE	absoudre	VER			2.66	3.72	0.01	0.00	ind:fut:1s;	1	2	0	9	7	VCCVVCCVV	VCCVCCV	0	0	0	0	ap-su-dRE	3	VC-CV-CCV	iarduosba	ERduspa	ab-sou-drai	VER	100	19	2.8	2.45	absoudre	1
+absoudrait	apsudRE	absoudre	VER			2.66	3.72	0.14	0.14	cnd:pre:3s;	1	2	0	10	7	VCCVVCCVVC	VCCVCCV	0	0	0	0	ap-su-dRE	3	VC-CV-CCV	tiarduosba	ERduspa	ab-sou-drait	VER	100	19	2.85	2.45	absoudre	1
+absoudre	apsudR	absoudre	VER			2.66	3.72	1.08	1.55	inf;	1	1	1	8	6	VCCVVCCV	VCCVCC	0	0	6	5	ap-sudR	2	VC-CVCC	erduosba	Rduspa	ab-sou-dre	VER	100	19	2.8	2.45	absoudre	1
+absoudriez	apsudRije	absoudre	VER			2.66	3.72	0.01	0.07	cnd:pre:2p;	1	1	0	10	9	VCCVVCCVVC	VCCVCCVYV	0	0	0	0	ap-su-dRi-je	4	VC-CV-CCV-YV	zeirduosba	ejiRduspa	ab-sou-driez	VER	100	19	3.25	3.25	absoudre	1
+absous	apsu	absoudre	VER	m		2.66	3.72	1.15	1.08	imp:pre:2s;ind:pre:1s;par:pas;par:pas;par:pas;	2	3	0	6	4	VCCVVC	VCCV	1	2	6	4	ap-su	2	VC-CV	suosba	uspa	ab-sous	VER,ADJ	100	19	1.9	1.85	absoudre	1
+absous	apsu	absous	ADJ	m	s	0.02	0.68	0.02	0.68		2	3	1	6	4	VCCVVC	VCCV	1	2	6	4	ap-su	2	VC-CV	suosba	uspa	ab-sous	VER,ADJ	79	24	1.9	1.85	absous	1
+absout	apsu	absoudre	VER			2.66	3.72	0.11	0.20	ind:pre:3s;	1	3	0	6	4	VCCVVC	VCCV	1	2	0	4	ap-su	2	VC-CV	tuosba	uspa	ab-sout	VER	100	19	2.05	1.85	absoudre	1
+absoute	apsut	absoudre	VER	f	s	2.66	3.72	0.00	0.07	par:pas;	3	4	0	7	5	VCCVVCV	VCCVC	0	2	6	5	ap-sut	2	VC-CVC	etuosba	tuspa	ab-sou-te	VER,ADJ,NOM	100	19	2.1	1.85	absoudre	1
+absoute	apsut	absoute	ADJ	f	s	0.00	0.07	0.00	0.07		3	4	1	7	5	VCCVVCV	VCCVC	0	2	6	5	ap-sut	2	VC-CVC	etuosba	tuspa	ab-sou-te	VER,ADJ,NOM	87	16	2.1	1.85	absoute	1
+absoute	apsut	absoute	NOM	f	s	0.00	0.14	0.00	0.14		3	4	1	7	5	VCCVVCV	VCCVC	0	2	6	5	ap-sut	2	VC-CVC	etuosba	tuspa	ab-sou-te	VER,ADJ,NOM	61	26	2.1	1.85	absoute	1
+absoutes	apsut	absoudre	VER	f	p	2.66	3.72	0.00	0.07	par:pas;	1	4	0	8	5	VCCVVCVC	VCCVC	0	2	0	5	ap-sut	2	VC-CVC	setuosba	tuspa	ab-sou-tes	VER	100	19	2.4	1.85	absoudre	1
+abstenaient	apst°nE	abstenir	VER			4.52	8.78	0.00	0.07	ind:imp:3p;	1	3	0	11	7	VCCCVCVVVCC	VCCCVCV	0	4	0	0	ap-st°-nE	3	VC-CCV-CV	tneianetsba	En°tspa	abs-te-naient	VER	90	22	2.7	2.15	abstenir	1
+abstenais	apst°nE	abstenir	VER			4.52	8.78	0.01	0.34	ind:imp:1s;	1	3	0	9	7	VCCCVCVVC	VCCCVCV	1	4	0	0	ap-st°-nE	3	VC-CCV-CV	sianetsba	En°tspa	abs-te-nais	VER	90	22	2.4	2.15	abstenir	1
+abstenait	apst°nE	abstenir	VER			4.52	8.78	0.00	0.81	ind:imp:3s;	1	3	0	9	7	VCCCVCVVC	VCCCVCV	2	4	0	0	ap-st°-nE	3	VC-CCV-CV	tianetsba	En°tspa	abs-te-nait	VER	90	22	2.45	2.15	abstenir	1
+abstenant	apst°n@	abstenir	VER			4.52	8.78	0.12	0.41	par:pre;	1	1	0	9	7	VCCCVCVCC	VCCCVCV	1	5	0	0	ap-st°-n@	3	VC-CCV-CV	tnanetsba	@n°tspa	abs-te-nant	VER	90	22	2.45	2	abstenir	1
+abstenez	apst°ne	abstenir	VER			4.52	8.78	0.57	0.07	imp:pre:2p;ind:pre:2p;	1	1	0	8	7	VCCCVCVC	VCCCVCV	0	4	0	0	ap-st°-ne	3	VC-CCV-CV	zenetsba	en°tspa	abs-te-nez	VER	90	22	2.55	2.15	abstenir	1
+absteniez	apst°nje	abstenir	VER			4.52	8.78	0.01	0.00	ind:imp:2p;	1	1	0	9	8	VCCCVCVVC	VCCCVCYV	0	1	0	0	ap-st°-nje	3	VC-CCV-CYV	zeinetsba	ejn°tspa	abs-te-niez	VER	90	22	2.7	2.4	abstenir	1
+abstenions	apst°nj§	abstenir	VER			4.52	8.78	0.00	0.07	ind:imp:1p;	1	1	0	10	8	VCCCVCVVCC	VCCCVCYV	0	1	0	0	ap-st°-nj§	3	VC-CCV-CYV	snoinetsba	§jn°tspa	abs-te-nions	VER	90	22	2.75	2.3	abstenir	1
+abstenir	apst°niR	abstenir	VER			4.52	8.78	1.80	2.77	inf;	1	1	1	8	8	VCCCVCVC	VCCCVCVC	0	0	7	5	ap-st°-niR	3	VC-CCV-CVC	rinetsba	Rin°tspa	abs-te-nir	VER	90	22	2.6	2.55	abstenir	1
+abstenons	apst°n§	abstenir	VER			4.52	8.78	0.02	0.20	imp:pre:1p;ind:pre:1p;	1	1	0	9	7	VCCCVCVCC	VCCCVCV	0	4	0	0	ap-st°-n§	3	VC-CCV-CV	snonetsba	§n°tspa	abs-te-nons	VER	90	22	2.6	2.15	abstenir	1
+abstention	apst@sj§	abstention	NOM	f	s	0.14	1.28	0.14	1.28		1	1	1	10	8	VCCCVCCVVC	VCCCVCYV	0	0	10	8	ap-st@-sj§	3	VC-CCV-CYV	noitnetsba	§js@tspa	abs-ten-tion	NOM	96	26	2.85	2.55	abstention	1
+abstentionniste	apst@sjonist	abstentionniste	NOM		s	0.01	0.14	0.01	0.00		1	2	1	15	12	VCCCVCCVVCCVCCV	VCCCVCYVCVCC	0	0	11	8	ap-st@-sjo-nist	4	VC-CCV-CYV-CVCC	etsinnoitnetsba	tsinojs@tspa		NOM			5	4.35	abstentionniste	1
+abstentionnistes	apst@sjonist	abstentionniste	NOM		p	0.01	0.14	0.00	0.14		1	2	0	16	12	VCCCVCCVVCCVCCVC	VCCCVCYVCVCC	0	0	0	8	ap-st@-sjo-nist	4	VC-CCV-CYV-CVCC	setsinnoitnetsba	tsinojs@tspa	abs-ten-tion-nis-tes	NOM			5.35	4.35	abstentionniste	1
+abstenu	apst°ny	abstenir	VER	m	s	4.52	8.78	0.17	0.81	par:pas;	1	5	0	7	7	VCCCVCV	VCCCVCV	0	4	7	0	ap-st°-ny	3	VC-CCV-CV	unetsba	yn°tspa	abs-te-nu	VER	90	22	2.3	2.25	abstenir	1
+abstenue	apst°ny	abstenir	VER	f	s	4.52	8.78	0.05	0.47	par:pas;	2	5	0	8	7	VCCCVCVV	VCCCVCV	1	4	0	0	ap-st°-ny	3	VC-CCV-CV	eunetsba	yn°tspa	abs-te-nue	VER,ADJ	90	22	2.35	2.25	abstenir	1
+abstenue	apst°ny	abstenu	ADJ	f	s	0.01	0.00	0.01	0.00		2	5	0	8	7	VCCCVCVV	VCCCVCV	1	4	0	0	ap-st°-ny	3	VC-CCV-CV	eunetsba	yn°tspa	abs-te-nue	VER,ADJ			2.35	2.25	abstenu	1
+abstenues	apst°ny	abstenir	VER	f	p	4.52	8.78	0.14	0.00	par:pas;	1	5	0	9	7	VCCCVCVVC	VCCCVCV	0	4	0	0	ap-st°-ny	3	VC-CCV-CV	seunetsba	yn°tspa	abs-te-nues	VER	90	22	2.35	2.25	abstenir	1
+abstenus	apst°ny	abstenir	VER	m	p	4.52	8.78	0.00	0.14	par:pas;	1	5	0	8	7	VCCCVCVC	VCCCVCV	1	4	0	0	ap-st°-ny	3	VC-CCV-CV	sunetsba	yn°tspa	abs-te-nus	VER	90	22	2.25	2.25	abstenir	1
+abstiendrai	apstj5dRE	abstenir	VER			4.52	8.78	0.04	0.00	ind:fut:1s;	1	4	0	11	9	VCCCVVCCCVV	VCCCYVCCV	1	2	0	0	ap-stj5-dRE	3	VC-CCYV-CCV	iardneitsba	ERd5jtspa	abs-tien-drai	VER	90	22	2.75	2.65	abstenir	1
+abstiendraient	apstj5dRE	abstenir	VER			4.52	8.78	0.00	0.07	cnd:pre:3p;	1	4	0	14	9	VCCCVVCCCVVVCC	VCCCYVCCV	0	2	0	0	ap-stj5-dRE	3	VC-CCYV-CCV	tneiardneitsba	ERd5jtspa	abs-tien-draient	VER	90	22	3.15	2.65	abstenir	1
+abstiendrais	apstj5dRE	abstenir	VER			4.52	8.78	0.03	0.00	cnd:pre:1s;	1	4	0	12	9	VCCCVVCCCVVC	VCCCYVCCV	1	2	0	0	ap-stj5-dRE	3	VC-CCYV-CCV	siardneitsba	ERd5jtspa	abs-tien-drais	VER	90	22	2.8	2.65	abstenir	1
+abstiendrait	apstj5dRE	abstenir	VER			4.52	8.78	0.02	0.07	cnd:pre:3s;	1	4	0	12	9	VCCCVVCCCVVC	VCCCYVCCV	1	2	0	0	ap-stj5-dRE	3	VC-CCYV-CCV	tiardneitsba	ERd5jtspa	abs-tien-drait	VER	90	22	2.6	2.65	abstenir	1
+abstiendras	apstj5dRa	abstenir	VER			4.52	8.78	0.01	0.07	ind:fut:2s;	1	1	0	11	9	VCCCVVCCCVC	VCCCYVCCV	1	2	0	0	ap-stj5-dRa	3	VC-CCYV-CCV	sardneitsba	aRd5jtspa	abs-tien-dras	VER	90	22	2.7	2.65	abstenir	1
+abstiendrions	apstj5dRj§	abstenir	VER			4.52	8.78	0.00	0.14	cnd:pre:1p;	1	1	0	13	10	VCCCVVCCCVVCC	VCCCYVCCYV	0	0	0	0	ap-stj5-dRj§	3	VC-CCYV-CCYV	snoirdneitsba	§jRd5jtspa	abs-tien-drions	VER	90	22	3.3	3.5	abstenir	1
+abstiendrons	apstj5dR§	abstenir	VER			4.52	8.78	0.12	0.00	ind:fut:1p;	1	2	0	12	9	VCCCVVCCCVCC	VCCCYVCCV	1	2	0	0	ap-stj5-dR§	3	VC-CCYV-CCV	snordneitsba	§Rd5jtspa	abs-tien-drons	VER	90	22	2.85	2.65	abstenir	1
+abstiendront	apstj5dR§	abstenir	VER			4.52	8.78	0.12	0.00	ind:fut:3p;	1	2	0	12	9	VCCCVVCCCVCC	VCCCYVCCV	1	2	0	0	ap-stj5-dR§	3	VC-CCYV-CCV	tnordneitsba	§Rd5jtspa	abs-tien-dront	VER	90	22	2.85	2.65	abstenir	1
+abstienne	apstjEn	abstenir	VER			4.52	8.78	0.02	0.07	sub:pre:1s;sub:pre:3s;	1	3	0	9	7	VCCCVVCCV	VCCCYVC	0	0	0	0	ap-stjEn	2	VC-CCYVC	enneitsba	nEjtspa	abs-tien-ne	VER	90	22	2.45	2.6	abstenir	1
+abstiennent	apstjEn	abstenir	VER			4.52	8.78	0.02	0.20	ind:pre:3p;	1	3	0	11	7	VCCCVVCCVCC	VCCCYVC	0	0	0	0	ap-stjEn	2	VC-CCYVC	tnenneitsba	nEjtspa	abs-tien-nent	VER	90	22	2.75	2.6	abstenir	1
+abstiennes	apstjEn	abstenir	VER			4.52	8.78	0.02	0.00	sub:pre:2s;	1	3	0	10	7	VCCCVVCCVC	VCCCYVC	0	0	0	0	ap-stjEn	2	VC-CCYVC	senneitsba	nEjtspa	abs-tien-nes	VER	90	22	2.6	2.6	abstenir	1
+abstiens	apstj5	abstenir	VER			4.52	8.78	0.84	0.14	imp:pre:2s;ind:pre:1s;ind:pre:2s;	1	2	0	8	6	VCCCVVCC	VCCCYV	1	0	0	0	ap-stj5	2	VC-CCYV	sneitsba	5jtspa	abs-tiens	VER	90	22	2.4	2.4	abstenir	1
+abstient	apstj5	abstenir	VER			4.52	8.78	0.17	0.34	ind:pre:3s;	1	2	0	8	6	VCCCVVCC	VCCCYV	1	0	0	0	ap-stj5	2	VC-CCYV	tneitsba	5jtspa	abs-tient	VER	90	22	2.05	2.4	abstenir	1
+abstinence	apstin@s	abstinence	NOM	f	s	1.62	1.62	1.60	1.42		1	2	1	10	8	VCCCVCVCCV	VCCCVCVC	1	1	9	8	ap-sti-n@s	3	VC-CCV-CVC	ecnenitsba	s@nitspa	abs-ti-nen-ce	NOM	100	20	2.95	2.7	abstinence	1
+abstinences	apstin@s	abstinence	NOM	f	p	1.62	1.62	0.02	0.20		1	2	0	11	8	VCCCVCVCCVC	VCCCVCVC	0	1	0	8	ap-sti-n@s	3	VC-CCV-CVC	secnenitsba	s@nitspa	abs-ti-nen-ces	NOM	100	20	3.3	2.7	abstinence	1
+abstinent	apstin@	abstinent	ADJ	m	s	0.11	0.00	0.10	0.00		1	1	1	9	7	VCCCVCVCC	VCCCVCV	1	2	9	7	ap-sti-n@	3	VC-CCV-CV	tnenitsba	@nitspa		ADJ			2.2	1.95	abstinent	1
+abstinente	apstin@t	abstinent	ADJ	f	s	0.11	0.00	0.01	0.00		1	1	0	10	8	VCCCVCVCCV	VCCCVCVC	1	1	0	0	ap-sti-n@t	3	VC-CCV-CVC	etnenitsba	t@nitspa	abs-ti-nen-te	ADJ			2.6	2.65	abstinent	1
+abstinrent	apst5R	abstenir	VER			4.52	8.78	0.01	0.07	ind:pas:3p;	1	1	0	10	6	VCCCVCCVCC	VCCCVC	0	0	0	0	ap-st5R	2	VC-CCVC	tnernitsba	R5tspa	abs-tin-rent	VER	90	22	2.6	2.25	abstenir	1
+abstins	apst5	abstenir	VER			4.52	8.78	0.00	0.41	ind:pas:1s;	1	3	0	7	5	VCCCVCC	VCCCV	1	0	0	0	ap-st5	2	VC-CCV	snitsba	5tspa	abs-tins	VER	90	22	1.9	1.9	abstenir	1
+abstint	apst5	abstenir	VER			4.52	8.78	0.20	0.81	ind:pas:3s;	1	3	0	7	5	VCCCVCC	VCCCV	2	0	0	0	ap-st5	2	VC-CCV	tnitsba	5tspa	abs-tint	VER	90	22	2.25	1.9	abstenir	1
+abstraction	apstRaksj§	abstraction	NOM	f	s	0.68	2.97	0.66	2.09		1	2	1	11	10	VCCCCVCCVVC	VCCCCVCCYV	0	0	7	6	ap-stRak-sj§	3	VC-CCCVC-CYV	noitcartsba	§jskaRtspa	abs-trac-tion	NOM	92	25	2.75	2.9	abstraire-ion	2
+abstractions	apstRaksj§	abstraction	NOM	f	p	0.68	2.97	0.03	0.88		1	2	0	12	10	VCCCCVCCVVCC	VCCCCVCCYV	0	0	0	6	ap-stRak-sj§	3	VC-CCCVC-CYV	snoitcartsba	§jskaRtspa	abs-trac-tions	NOM	92	25	2.9	2.9	abstraire-ion	2
+abstraire	apstRER	abstraire	VER			0.27	3.18	0.02	0.74	inf;	1	1	1	9	7	VCCCCVVCV	VCCCCVC	1	1	8	7	ap-stRER	2	VC-CCCVC	eriartsba	RERtspa	abs-trai-re	VER	89	19	2.6	2	abstraire	1
+abstrais	apstRE	abstraire	VER			0.27	3.18	0.00	0.07	ind:pre:1s;	1	7	0	8	6	VCCCCVVC	VCCCCV	1	1	0	6	ap-stRE	2	VC-CCCV	siartsba	ERtspa	abs-trais	VER	89	19	2.25	1.75	abstraire	1
+abstrait	apstRE	abstraire	VER	m	s	0.27	3.18	0.10	1.42	ind:pre:3s;par:pas;	3	7	0	8	6	VCCCCVVC	VCCCCV	1	1	8	6	ap-stRE	2	VC-CCCV	tiartsba	ERtspa	abs-trait	VER,ADJ,NOM	89	19	2.05	1.75	abstraire	1
+abstrait	apstRE	abstrait	ADJ	m	s	1.62	11.35	0.61	3.85		3	7	1	8	6	VCCCCVVC	VCCCCV	1	1	8	6	ap-stRE	2	VC-CCCV	tiartsba	ERtspa	abs-trait	VER,ADJ,NOM	100	30	2.05	1.75	abstrait	1
+abstrait	apstRE	abstrait	NOM	m	s	0.49	1.35	0.49	0.95		3	7	1	8	6	VCCCCVVC	VCCCCV	1	1	8	6	ap-stRE	2	VC-CCCV	tiartsba	ERtspa	abs-trait	VER,ADJ,NOM	94	17	2.05	1.75	abstrait	1
+abstraite	apstREt	abstraire	VER	f	s	0.27	3.18	0.01	0.20	par:pas;	2	4	0	9	7	VCCCCVVCV	VCCCCVC	2	1	0	0	ap-stREt	2	VC-CCCVC	etiartsba	tERtspa	abs-trai-te	VER,ADJ	89	19	2.5	2.15	abstraire	1
+abstraite	apstREt	abstrait	ADJ	f	s	1.62	11.35	0.69	4.80		2	4	0	9	7	VCCCCVVCV	VCCCCVC	2	1	0	0	ap-stREt	2	VC-CCCVC	etiartsba	tERtspa	abs-trai-te	VER,ADJ	100	30	2.5	2.15	abstrait	1
+abstraitement	apstREt°m@	abstraitement	ADV			0.00	0.34	0.00	0.34		1	1	1	13	10	VCCCCVVCVCVCC	VCCCCVCVCV	0	0	9	7	ap-stRE-t°-m@	4	VC-CCCV-CV-CV	tnemetiartsba	@m°tERtspa	abs-trai-te-ment	ADV			3.95		abstraitement	1
+abstraites	apstREt	abstraire	VER	f	p	0.27	3.18	0.11	0.20	par:pas;	2	4	0	10	7	VCCCCVVCVC	VCCCCVC	0	1	0	0	ap-stREt	2	VC-CCCVC	setiartsba	tERtspa	abs-trai-tes	VER,ADJ	89	19	2.6	2.15	abstraire	1
+abstraites	apstREt	abstrait	ADJ	f	p	1.62	11.35	0.07	1.55		2	4	0	10	7	VCCCCVVCVC	VCCCCVC	0	1	0	0	ap-stREt	2	VC-CCCVC	setiartsba	tERtspa	abs-trai-tes	VER,ADJ	100	30	2.6	2.15	abstrait	1
+abstraits	apstRE	abstraire	VER	m	p	0.27	3.18	0.03	0.54	par:pas;	3	7	0	9	6	VCCCCVVCC	VCCCCV	1	1	0	6	ap-stRE	2	VC-CCCV	stiartsba	ERtspa	abs-traits	VER,ADJ,NOM	89	19	2.45	1.75	abstraire	1
+abstraits	apstRE	abstrait	ADJ	m	p	1.62	11.35	0.25	1.15		3	7	0	9	6	VCCCCVVCC	VCCCCV	1	1	0	6	ap-stRE	2	VC-CCCV	stiartsba	ERtspa	abs-traits	VER,ADJ,NOM	100	30	2.45	1.75	abstrait	1
+abstraits	apstRE	abstrait	NOM	m	p	0.49	1.35	0.00	0.41		3	7	0	9	6	VCCCCVVCC	VCCCCV	1	1	0	6	ap-stRE	2	VC-CCCV	stiartsba	ERtspa	abs-traits	VER,ADJ,NOM	94	17	2.45	1.75	abstrait	1
+abstrus	apstRy	abstrus	ADJ	m	p	0.00	0.61	0.00	0.34		1	1	1	7	6	VCCCCVC	VCCCCV	0	2	6	6	ap-stRy	2	VC-CCCV	surtsba	yRtspa	abs-trus	ADJ	24	29	2.3	1.85	abstrus	1
+abstruse	apstRyz	abstrus	ADJ	f	s	0.00	0.61	0.00	0.14		1	2	0	8	7	VCCCCVCV	VCCCCVC	0	0	0	0	ap-stRyz	2	VC-CCCVC	esurtsba	zyRtspa	abs-tru-se	ADJ	24	29	2.7	2.5	abstrus	1
+abstruses	apstRyz	abstrus	ADJ	f	p	0.00	0.61	0.00	0.14		1	2	0	9	7	VCCCCVCVC	VCCCCVC	0	0	0	0	ap-stRyz	2	VC-CCCVC	sesurtsba	zyRtspa	abs-tru-ses	ADJ	24	29	2.8	2.5	abstrus	1
+abstînt	apst5	abstenir	VER			4.52	8.78	0.00	0.27	sub:imp:3s;	1	3	0	7	5	VCCCVCC	VCCCV	1	0	0	0	ap-st5	2	VC-CCV	tnîtsba	5tspa	abs-tînt	VER	90	22	2.65	1.9	abstenir	1
+absurde	apsyRd	absurde	ADJ		s	23.59	30.95	21.56	24.80		2	4	1	7	6	VCCVCCV	VCCVCC	0	0	7	6	ap-syRd	2	VC-CVCC	edrusba	dRyspa	ab-sur-de	ADJ,NOM	100	32	2.55	2.4	absurde	1
+absurde	apsyRd	absurde	NOM	m	s	2.69	4.93	2.67	4.73		2	4	1	7	6	VCCVCCV	VCCVCC	0	0	7	6	ap-syRd	2	VC-CVCC	edrusba	dRyspa	ab-sur-de	ADJ,NOM	100	17	2.55	2.4	absurde	1
+absurdement	apsyRd°m@	absurdement	ADV			0.14	3.72	0.14	3.72		1	1	1	11	9	VCCVCCVCVCC	VCCVCCVCV	0	0	8	7	ap-syR-d°-m@	4	VC-CVC-CV-CV	tnemedrusba	@m°dRyspa	ab-sur-de-ment	ADV			3.5	3.5	absurdement	1
+absurdes	apsyRd	absurde	ADJ		p	23.59	30.95	2.03	6.15		2	4	0	8	6	VCCVCCVC	VCCVCC	0	0	0	6	ap-syRd	2	VC-CVCC	sedrusba	dRyspa	ab-sur-des	ADJ,NOM	100	32	2.65	2.4	absurde	1
+absurdes	apsyRd	absurde	NOM	m	p	2.69	4.93	0.02	0.20		2	4	0	8	6	VCCVCCVC	VCCVCC	0	0	0	6	ap-syRd	2	VC-CVCC	sedrusba	dRyspa	ab-sur-des	ADJ,NOM	100	17	2.65	2.4	absurde	1
+absurdistes	apsyRdist	absurdiste	NOM		p	0.00	0.07	0.00	0.07		1	1	0	11	9	VCCVCCVCCVC	VCCVCCVCC	0	0	0	0	ap-syR-dist	3	VC-CVC-CVCC	setsidrusba	tsidRyspa	ab-sur-dis-tes	NOM			3.7	3.45	absurdiste	1
+absurdité	apsyRdite	absurdité	NOM	f	s	2.34	6.28	1.44	5.54		1	2	1	9	9	VCCVCCVCV	VCCVCCVCV	0	0	8	7	ap-syR-di-te	4	VC-CVC-CV-CV	étidrusba	etidRyspa	ab-sur-di-té	NOM	100	20	3.2	3.55	absurde-ité	2
+absurdités	apsyRdite	absurdité	NOM	f	p	2.34	6.28	0.90	0.74		1	2	0	10	9	VCCVCCVCVC	VCCVCCVCV	0	0	0	7	ap-syR-di-te	4	VC-CVC-CV-CV	sétidrusba	etidRyspa	ab-sur-di-tés	NOM	100	20	3.45	3.55	absurde-ité	2
+abus	aby	abus	NOM	m		4.75	8.58	4.75	8.58		1	1	1	4	3	VCVC	VCV	2	11	4	3	a-by	2	V-CV	suba	yba	a-bus	NOM	95	22	1.65	1.3	abus	1
+abusa	abyza	abuser	VER			20.00	14.26	0.02	0.20	ind:pas:3s;	1	1	0	5	5	VCVCV	VCVCV	3	6	0	0	a-by-za	3	V-CV-CV	asuba	azyba	a-bu-sa	VER	100	29	1.75	1.6	abuser	1
+abusai	abyzE	abuser	VER			20.00	14.26	0.00	0.07	ind:pas:1s;	1	4	0	6	5	VCVCVV	VCVCV	1	6	0	0	a-by-zE	3	V-CV-CV	iasuba	Ezyba	a-bu-sai	VER	100	29	1.8	1.55	abuser	1
+abusaient	abyzE	abuser	VER			20.00	14.26	0.04	0.27	ind:imp:3p;	1	4	0	9	5	VCVCVVVCC	VCVCV	1	6	0	0	a-by-zE	3	V-CV-CV	tneiasuba	Ezyba	a-bu-saient	VER	100	29	1.95	1.55	abuser	1
+abusais	abyzE	abuser	VER			20.00	14.26	0.03	0.27	ind:imp:1s;	1	4	0	7	5	VCVCVVC	VCVCV	2	6	0	0	a-by-zE	3	V-CV-CV	siasuba	Ezyba	a-bu-sais	VER	100	29	1.85	1.55	abuser	1
+abusait	abyzE	abuser	VER			20.00	14.26	0.53	1.82	ind:imp:3s;	1	4	0	7	5	VCVCVVC	VCVCV	3	6	0	0	a-by-zE	3	V-CV-CV	tiasuba	Ezyba	a-bu-sait	VER	100	29	1.8	1.55	abuser	1
+abusant	abyz@	abuser	VER			20.00	14.26	0.24	0.81	par:pre;	1	1	0	7	5	VCVCVCC	VCVCV	3	6	0	0	a-by-z@	3	V-CV-CV	tnasuba	@zyba	a-bu-sant	VER	100	29	1.85	1.65	abuser	1
+abuse	abyz	abuser	VER			20.00	14.26	4.08	1.62	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	3	0	5	4	VCVCV	VCVC	3	2	0	0	a-byz	2	V-CVC	esuba	zyba	a-bu-se	VER	100	29	1.55	1.55	abuser	1
+abusent	abyz	abuser	VER			20.00	14.26	1.02	0.88	ind:pre:3p;	1	3	0	7	4	VCVCVCC	VCVC	2	2	0	0	a-byz	2	V-CVC	tnesuba	zyba	a-bu-sent	VER	100	29	1.85	1.55	abuser	1
+abuser	abyze	abuser	VER			20.00	14.26	5.87	4.12	inf;	1	10	1	6	5	VCVCVC	VCVCV	3	6	6	5	a-by-ze	3	V-CV-CV	resuba	ezyba	a-bu-ser	VER	100	29	1.7	1.55	abuser	1
+abusera	abyz°Ra	abuser	VER			20.00	14.26	0.04	0.00	ind:fut:3s;	1	1	0	7	7	VCVCVCV	VCVCVCV	1	4	0	0	a-by-z°-Ra	4	V-CV-CV-CV	aresuba	aR°zyba	a-bu-se-ra	VER	100	29	1.85		abuser	1
+abuserai	abyz°RE	abuser	VER			20.00	14.26	0.03	0.07	ind:fut:1s;	1	3	0	8	7	VCVCVCVV	VCVCVCV	1	4	0	0	a-by-z°-RE	4	V-CV-CV-CV	iaresuba	ER°zyba	a-bu-se-rai	VER	100	29	1.9		abuser	1
+abuserais	abyz°RE	abuser	VER			20.00	14.26	0.09	0.14	cnd:pre:1s;cnd:pre:2s;	1	3	0	9	7	VCVCVCVVC	VCVCVCV	2	4	0	0	a-by-z°-RE	4	V-CV-CV-CV	siaresuba	ER°zyba	a-bu-se-rais	VER	100	29	2.05		abuser	1
+abuserait	abyz°RE	abuser	VER			20.00	14.26	0.02	0.07	cnd:pre:3s;	1	3	0	9	7	VCVCVCVVC	VCVCVCV	2	4	0	0	a-by-z°-RE	4	V-CV-CV-CV	tiaresuba	ER°zyba	a-bu-se-rait	VER	100	29	2.1		abuser	1
+abuserez	abyz°Re	abuser	VER			20.00	14.26	0.01	0.07	ind:fut:2p;	1	1	0	8	7	VCVCVCVC	VCVCVCV	1	4	0	0	a-by-z°-Re	4	V-CV-CV-CV	zeresuba	eR°zyba	a-bu-se-rez	VER	100	29	2.3		abuser	1
+abuseriez	abyz°Rje	abuser	VER			20.00	14.26	0.02	0.00	cnd:pre:2p;	1	1	0	9	8	VCVCVCVVC	VCVCVCYV	1	2	0	0	a-by-z°-Rje	4	V-CV-CV-CYV	zeiresuba	ejR°zyba	a-bu-se-riez	VER	100	29	2.6	2.55	abuser	1
+abuses	abyz	abuser	VER			20.00	14.26	0.50	0.07	ind:pre:2s;	1	3	0	6	4	VCVCVC	VCVC	4	2	0	0	a-byz	2	V-CVC	sesuba	zyba	a-bu-ses	VER	100	29	1.65	1.55	abuser	1
+abuseur	abyz9R	abuseur	NOM	m	s	0.04	0.00	0.04	0.00		1	1	1	7	6	VCVCVVC	VCVCVC	1	2	6	5	a-by-z9R	3	V-CV-CVC	ruesuba	R9zyba		NOM			2.15	1.9	ab-user-eur	3
+abusez	abyze	abuser	VER			20.00	14.26	1.93	0.34	imp:pre:2p;ind:pre:2p;	1	10	0	6	5	VCVCVC	VCVCV	3	6	0	5	a-by-ze	3	V-CV-CV	zesuba	ezyba	a-bu-sez	VER	100	29	1.75	1.55	abuser	1
+abusiez	abyzje	abuser	VER			20.00	14.26	0.02	0.00	ind:imp:2p;	1	1	0	7	6	VCVCVVC	VCVCYV	1	3	0	0	a-by-zje	3	V-CV-CYV	zeisuba	ejzyba	a-bu-siez	VER	100	29	1.9	1.75	abuser	1
+abusif	abyzif	abusif	ADJ	m	s	0.85	1.82	0.37	0.61		1	2	1	6	6	VCVCVC	VCVCVC	0	2	6	6	a-by-zif	3	V-CV-CVC	fisuba	fizyba	a-bu-sif	ADJ	100	17	2.1	2	abus-if	2
+abusifs	abyzif	abusif	ADJ	m	p	0.85	1.82	0.05	0.14		1	2	0	7	6	VCVCVCC	VCVCVC	0	2	0	6	a-by-zif	3	V-CV-CVC	sfisuba	fizyba	a-bu-sif-s	ADJ	100	17	2.35	2	abus-if	2
+abusive	abyziv	abusif	ADJ	f	s	0.85	1.82	0.39	0.74		1	2	0	7	6	VCVCVCV	VCVCVC	0	2	0	0	a-by-ziv	3	V-CV-CVC	evisuba	vizyba	a-bu-si-ve	ADJ	100	17	2.45	1.95	abus-if	2
+abusivement	abyziv°m@	abusivement	ADV			0.16	1.15	0.16	1.15		1	1	1	11	9	VCVCVCVCVCC	VCVCVCVCV	0	1	6	6	a-by-zi-v°-m@	5	V-CV-CV-CV-CV	tnemevisuba	@m°vizyba	a-bu-si-ve-ment	ADV			3.4		abusivement	1
+abusives	abyziv	abusif	ADJ	f	p	0.85	1.82	0.03	0.34		1	2	0	8	6	VCVCVCVC	VCVCVC	0	2	0	0	a-by-ziv	3	V-CV-CVC	sevisuba	vizyba	a-bu-si-ves	ADJ	100	17	2.6	1.95	abus-if	2
+abusons	abyz§	abuser	VER			20.00	14.26	0.37	0.00	imp:pre:1p;ind:pre:1p;	1	1	0	7	5	VCVCVCC	VCVCV	1	6	0	0	a-by-z§	3	V-CV-CV	snosuba	§zyba	a-bu-sons	VER	100	29	1.95	1.65	abuser	1
+abusèrent	abyzER	abuser	VER			20.00	14.26	0.00	0.07	ind:pas:3p;	1	1	0	9	6	VCVCVCVCC	VCVCVC	1	3	0	0	a-by-zER	3	V-CV-CVC	tnerèsuba	REzyba	a-bu-sè-rent	VER	100	29	2.4	1.8	abuser	1
+abusé	abyze	abuser	VER	m	s	20.00	14.26	4.59	2.70	par:pas;	2	10	0	5	5	VCVCV	VCVCV	3	6	5	5	a-by-ze	3	V-CV-CV	ésuba	ezyba	a-bu-sé	VER,ADJ	100	29	1.7	1.55	abuser	1
+abusé	abyze	abusé	ADJ	m	s	0.20	0.74	0.10	0.41		2	10	1	5	5	VCVCV	VCVCV	3	6	5	5	a-by-ze	3	V-CV-CV	ésuba	ezyba	a-bu-sé	VER,ADJ	88	18	1.7	1.55	abusé	1
+abusée	abyze	abuser	VER	f	s	20.00	14.26	0.29	0.27	par:pas;	2	10	0	6	5	VCVCVV	VCVCV	2	6	0	5	a-by-ze	3	V-CV-CV	eésuba	ezyba	a-bu-sée	VER,ADJ	100	29	1.75	1.55	abuser	1
+abusée	abyze	abusé	ADJ	f	s	0.20	0.74	0.03	0.20		2	10	0	6	5	VCVCVV	VCVCV	2	6	0	5	a-by-ze	3	V-CV-CV	eésuba	ezyba	a-bu-sée	VER,ADJ	88	18	1.75	1.55	abusé	1
+abusées	abyze	abuser	VER	f	p	20.00	14.26	0.03	0.07	par:pas;	2	10	0	7	5	VCVCVVC	VCVCV	1	6	0	5	a-by-ze	3	V-CV-CV	seésuba	ezyba	a-bu-sées	VER,ADJ	100	29	1.8	1.55	abuser	1
+abusées	abyze	abusé	ADJ	f	p	0.20	0.74	0.03	0.00		2	10	0	7	5	VCVCVVC	VCVCV	1	6	0	5	a-by-ze	3	V-CV-CV	seésuba	ezyba	a-bu-sées	VER,ADJ	88	18	1.8	1.55	abusé	1
+abusés	abyze	abuser	VER	m	p	20.00	14.26	0.22	0.34	par:pas;	2	10	0	6	5	VCVCVC	VCVCV	3	6	0	5	a-by-ze	3	V-CV-CV	sésuba	ezyba	a-bu-sés	VER,ADJ	100	29	1.75	1.55	abuser	1
+abusés	abyze	abusé	ADJ	m	p	0.20	0.74	0.04	0.14		2	10	0	6	5	VCVCVC	VCVCV	3	6	0	5	a-by-ze	3	V-CV-CV	sésuba	ezyba	a-bu-sés	VER,ADJ	88	18	1.75	1.55	abusé	1
+abyme	abim	abyme	NOM	m	s	0.04	0.07	0.04	0.07		1	6	1	5	4	VCVCV	VCVC	2	9	4	4	a-bim	2	V-CVC	emyba	miba	a-by-me	NOM	80	30	1.9	1.2	abyme	1
+abyssal	abisal	abyssal	ADJ	m	s	0.11	0.74	0.03	0.34		1	3	1	7	6	VCVCCVC	VCVCVC	0	0	6	5	a-bi-sal	3	V-CV-CVC	lassyba	lasiba	a-bys-sal	ADJ	85	20	2.7	2	abysse-al	2
+abyssale	abisal	abyssal	ADJ	f	s	0.11	0.74	0.05	0.20		1	3	0	8	6	VCVCCVCV	VCVCVC	0	0	0	5	a-bi-sal	3	V-CV-CVC	elassyba	lasiba	a-bys-sa-le	ADJ	85	20	3.1	2	abysse-al	2
+abyssales	abisal	abyssal	ADJ	f	p	0.11	0.74	0.02	0.20		1	3	0	9	6	VCVCCVCVC	VCVCVC	0	0	0	5	a-bi-sal	3	V-CV-CVC	selassyba	lasiba	a-bys-sa-les	ADJ	85	20	3.35	2	abysse-al	2
+abysse	abis	abysse	NOM	m	s	1.07	0.41	0.53	0.07		1	2	1	6	4	VCVCCV	VCVC	1	11	6	4	a-bis	2	V-CVC	essyba	siba	a-bys-se	NOM	96	26	1.9	1.25	abysse	1
+abysses	abis	abysse	NOM	m	p	1.07	0.41	0.54	0.34		1	2	0	7	4	VCVCCVC	VCVC	0	11	0	4	a-bis	2	V-CVC	sessyba	siba	a-bys-ses	NOM	96	26	2.15	1.25	abysse	1
+abyssin	abis5	abyssin	ADJ	m	s	0.00	0.20	0.00	0.14		2	3	1	7	5	VCVCCVC	VCVCV	0	0	7	5	a-bi-s5	3	V-CV-CV	nissyba	5siba	a-bys-sin	ADJ,NOM	38	21	2.7	1.95	abyssin	1
+abyssin	abis5	abyssin	NOM	m	s	0.14	0.14	0.14	0.14		2	3	1	7	5	VCVCCVC	VCVCV	0	0	7	5	a-bi-s5	3	V-CV-CV	nissyba	5siba	a-bys-sin	ADJ,NOM	52	25	2.7	1.95	abyssin	1
+abyssinien	abisinj5	abyssinien	ADJ	m	s	0.10	0.00	0.10	0.00		1	1	1	10	8	VCVCCVCVVC	VCVCVCYV	0	0	8	5	a-bi-si-nj5	4	V-CV-CV-CYV	neinissyba	5jnisiba	a-bys-si-nien	ADJ	56	30	3.8	3.15	abyssin-ien	2
+abyssinienne	abisinjEn	abyssinien	NOM	f	s	0.01	0.00	0.01	0.00		1	1	0	12	9	VCVCCVCVVCCV	VCVCVCYVC	0	0	0	0	a-bi-si-njEn	4	V-CV-CV-CYVC	enneinissyba	nEjnisiba	a-bys-si-nien-ne	NOM			4.3	3.55	abyssinien	1
+abyssins	abis5	abyssin	ADJ	m	p	0.00	0.20	0.00	0.07		1	3	0	8	5	VCVCCVCC	VCVCV	0	0	0	5	a-bi-s5	3	V-CV-CV	snissyba	5siba	a-bys-sins	ADJ	38	21	2.75	1.95	abyssin	1
+abâtardi	abataRdi	abâtardir	VER	m	s	0.14	0.41	0.00	0.20	par:pas;	1	3	0	8	8	VCVCVCCV	VCVCVCCV	0	0	8	0	a-ba-taR-di	4	V-CV-CVC-CV	idratâba	idRataba	a-bâ-tar-di	VER	61	18	2.85	2.6	abâtardir	1
+abâtardie	abataRdi	abâtardi	ADJ	f	s	0.01	0.07	0.01	0.07		1	3	0	9	8	VCVCVCCVV	VCVCVCCV	1	0	0	0	a-ba-taR-di	4	V-CV-CVC-CV	eidratâba	idRataba	a-bâ-tar-die	ADJ			2.95	2.6	abâtardi	1
+abâtardies	abataRdi	abâtardir	VER	f	p	0.14	0.41	0.00	0.07	par:pas;	1	3	0	10	8	VCVCVCCVVC	VCVCVCCV	0	0	0	0	a-ba-taR-di	4	V-CV-CVC-CV	seidratâba	idRataba	a-bâ-tar-dies	VER	61	18	3.2	2.6	abâtardir	1
+abâtardir	abataRdiR	abâtardir	VER			0.14	0.41	0.00	0.07	inf;	1	1	1	9	9	VCVCVCCVC	VCVCVCCVC	1	0	9	6	a-ba-taR-diR	4	V-CV-CVC-CVC	ridratâba	RidRataba	a-bâ-tar-dir	VER	61	18	3.2	2.95	abâtardir	1
+abâtardirai	abataRdiRE	abâtardir	VER			0.14	0.41	0.00	0.07	ind:fut:1s;	1	1	0	11	10	VCVCVCCVCVV	VCVCVCCVCV	0	0	0	0	a-ba-taR-di-RE	5	V-CV-CVC-CV-CV	iaridratâba	ERidRataba	a-bâ-tar-di-rai	VER	61	18	3.7	3.4	abâtardir	1
+abâtardissant	abataRdis@	abâtardir	VER			0.14	0.41	0.14	0.00	par:pre;	1	1	0	13	10	VCVCVCCVCCVCC	VCVCVCCVCV	0	0	0	0	a-ba-taR-di-s@	5	V-CV-CVC-CV-CV	tnassidratâba	@sidRataba		VER	61	18	4.2	3.55	abâtardir	1
+abécédaire	abesedER	abécédaire	NOM	m	s	0.18	0.07	0.18	0.07		1	1	1	10	8	VCVCVCVVCV	VCVCVCVC	0	0	3	6	a-be-se-dER	4	V-CV-CV-CVC	eriadécéba	REdeseba	a-bé-cé-dai-re	NOM	94	17	4.2	3.15	abécédaire	1
+abêti	abeti	abêti	ADJ	m	s	0.00	0.27	0.00	0.14		2	6	1	5	5	VCVCV	VCVCV	0	3	5	5	a-be-ti	3	V-CV-CV	itêba	iteba	a-bê-ti	ADJ,VER	72	29	1.9	1.75	abêti	1
+abêti	abeti	abêtir	VER	m	s	0.01	1.28	0.00	0.47	par:pas;	2	6	0	5	5	VCVCV	VCVCV	0	3	5	5	a-be-ti	3	V-CV-CV	itêba	iteba	a-bê-ti	ADJ,VER	70	10	1.9	1.75	abêtir	1
+abêties	abeti	abêti	ADJ	f	p	0.00	0.27	0.00	0.07		1	6	0	7	5	VCVCVVC	VCVCV	0	3	0	5	a-be-ti	3	V-CV-CV	seitêba	iteba	a-bê-ties	ADJ	72	29	2.2	1.75	abêti	1
+abêtir	abetiR	abêtir	VER			0.01	1.28	0.01	0.54	inf;	1	1	1	6	6	VCVCVC	VCVCVC	2	2	6	6	a-be-tiR	3	V-CV-CVC	ritêba	Riteba	a-bê-tir	VER	70	10	2.35	1.85	abêtir	1
+abêtis	abeti	abêti	ADJ	m	p	0.00	0.27	0.00	0.07		2	6	0	6	5	VCVCVC	VCVCV	3	3	0	5	a-be-ti	3	V-CV-CV	sitêba	iteba	a-bê-tis	ADJ,VER	72	29	1.8	1.75	abêti	1
+abêtis	abeti	abêtir	VER			0.01	1.28	0.00	0.07	ind:pre:2s;	2	6	0	6	5	VCVCVC	VCVCV	3	3	0	5	a-be-ti	3	V-CV-CV	sitêba	iteba	a-bê-tis	ADJ,VER	70	10	1.8	1.75	abêtir	1
+abêtissait	abetisE	abêtir	VER			0.01	1.28	0.00	0.14	ind:imp:3s;	1	1	0	10	7	VCVCVCCVVC	VCVCVCV	0	1	0	0	a-be-ti-sE	4	V-CV-CV-CV	tiassitêba	Esiteba	a-bê-tis-sait	VER	70	10	2.75	2.15	abêtir	1
+abêtissement	abetis°m@	abêtissement	NOM	m	s	0.00	0.54	0.00	0.54		1	1	1	12	9	VCVCVCCVCVCC	VCVCVCVCV	0	1	6	6	a-be-ti-s°-m@	5	V-CV-CV-CV-CV	tnemessitêba	@m°siteba	a-bê-tis-se-ment	NOM	70	17	2.9		a-bête-ment	3
+abêtit	abeti	abêtir	VER			0.01	1.28	0.00	0.07	ind:pas:3s;	1	6	0	6	5	VCVCVC	VCVCV	2	3	0	5	a-be-ti	3	V-CV-CV	titêba	iteba	a-bê-tit	VER	70	10	2.25	1.75	abêtir	1
+abîma	abima	abîmer	VER			15.83	21.69	0.10	0.74	ind:pas:3s;	1	1	0	5	5	VCVCV	VCVCV	2	8	0	0	a-bi-ma	3	V-CV-CV	amîba	amiba	a-bî-ma	VER	96	29	1.9	1.5	abîmer	1
+abîmai	abimE	abîmer	VER			15.83	21.69	0.00	0.14	ind:pas:1s;	1	3	0	6	5	VCVCVV	VCVCV	0	8	0	0	a-bi-mE	3	V-CV-CV	iamîba	Emiba	a-bî-mai	VER	96	29	2.15	1.5	abîmer	1
+abîmaient	abimE	abîmer	VER			15.83	21.69	0.10	0.20	ind:imp:3p;	1	3	0	9	5	VCVCVVVCC	VCVCV	0	8	0	0	a-bi-mE	3	V-CV-CV	tneiamîba	Emiba	a-bî-maient	VER	96	29	2.6	1.5	abîmer	1
+abîmait	abimE	abîmer	VER			15.83	21.69	0.01	1.22	ind:imp:3s;	1	3	0	7	5	VCVCVVC	VCVCV	1	8	0	0	a-bi-mE	3	V-CV-CV	tiamîba	Emiba	a-bî-mait	VER	96	29	2.35	1.5	abîmer	1
+abîmant	abim@	abîmer	VER			15.83	21.69	0.01	0.54	par:pre;	1	1	0	7	5	VCVCVCC	VCVCV	2	9	0	0	a-bi-m@	3	V-CV-CV	tnamîba	@miba	a-bî-mant	VER	96	29	2.3	1.4	abîmer	1
+abîme	abim	abîme	NOM	m	s	6.01	20.61	5.03	14.59		2	6	1	5	4	VCVCV	VCVC	3	9	5	4	a-bim	2	V-CVC	emîba	miba	a-bî-me	NOM,VER	100	24	1.65	1.2	abîme	1
+abîme	abim	abîmer	VER			15.83	21.69	2.21	2.16	imp:pre:2s;ind:pre:1s;ind:pre:3s;	2	6	0	5	4	VCVCV	VCVC	3	9	5	4	a-bim	2	V-CVC	emîba	miba	a-bî-me	NOM,VER	96	29	1.65	1.2	abîmer	1
+abîment	abim	abîmer	VER			15.83	21.69	0.31	0.88	ind:pre:3p;	1	6	0	7	4	VCVCVCC	VCVC	1	9	0	4	a-bim	2	V-CVC	tnemîba	miba	a-bî-ment	VER	96	29	2	1.2	abîmer	1
+abîmer	abime	abîmer	VER			15.83	21.69	5.40	5.95	inf;	1	6	1	6	5	VCVCVC	VCVCV	2	8	6	5	a-bi-me	3	V-CV-CV	remîba	emiba	a-bî-mer	VER	96	29	1.8	1.5	abîmer	1
+abîmera	abim°Ra	abîmer	VER			15.83	21.69	0.04	0.14	ind:fut:3s;	1	2	0	7	7	VCVCVCV	VCVCVCV	0	5	0	0	a-bi-m°-Ra	4	V-CV-CV-CV	aremîba	aR°miba	a-bî-me-ra	VER	96	29	2.15		abîmer	1
+abîmerai	abim°RE	abîmer	VER			15.83	21.69	0.01	0.00	ind:fut:1s;	1	3	0	8	7	VCVCVCVV	VCVCVCV	1	6	0	0	a-bi-m°-RE	4	V-CV-CV-CV	iaremîba	ER°miba	a-bî-me-rai	VER	96	29	2.35		abîmer	1
+abîmerais	abim°RE	abîmer	VER			15.83	21.69	0.02	0.07	cnd:pre:1s;cnd:pre:2s;	1	3	0	9	7	VCVCVCVVC	VCVCVCV	1	6	0	0	a-bi-m°-RE	4	V-CV-CV-CV	siaremîba	ER°miba	a-bî-me-rais	VER	96	29	2.5		abîmer	1
+abîmerait	abim°RE	abîmer	VER			15.83	21.69	0.08	0.20	cnd:pre:3s;	1	3	0	9	7	VCVCVCVVC	VCVCVCV	1	6	0	0	a-bi-m°-RE	4	V-CV-CV-CV	tiaremîba	ER°miba	a-bî-me-rait	VER	96	29	2.4		abîmer	1
+abîmeras	abim°Ra	abîmer	VER			15.83	21.69	0.00	0.14	ind:fut:2s;	1	2	0	8	7	VCVCVCVC	VCVCVCV	1	5	0	0	a-bi-m°-Ra	4	V-CV-CV-CV	saremîba	aR°miba	a-bî-me-ras	VER	96	29	2.45		abîmer	1
+abîmerez	abim°Re	abîmer	VER			15.83	21.69	0.01	0.00	ind:fut:2p;	1	1	0	8	7	VCVCVCVC	VCVCVCV	0	5	0	0	a-bi-m°-Re	4	V-CV-CV-CV	zeremîba	eR°miba	a-bî-me-rez	VER	96	29	2.65		abîmer	1
+abîmeront	abim°R§	abîmer	VER			15.83	21.69	0.02	0.14	ind:fut:3p;	1	1	0	9	7	VCVCVCVCC	VCVCVCV	0	5	0	0	a-bi-m°-R§	4	V-CV-CV-CV	tnoremîba	§R°miba	a-bî-me-ront	VER	96	29	2.75		abîmer	1
+abîmes	abim	abîme	NOM	m	p	6.01	20.61	0.98	6.01		2	6	0	6	4	VCVCVC	VCVC	3	9	0	4	a-bim	2	V-CVC	semîba	miba	a-bî-mes	NOM,VER	100	24	1.75	1.2	abîme	1
+abîmes	abim	abîmer	VER			15.83	21.69	0.72	0.20	ind:pre:2s;	2	6	0	6	4	VCVCVC	VCVC	3	9	0	4	a-bim	2	V-CVC	semîba	miba	a-bî-mes	NOM,VER	96	29	1.75	1.2	abîmer	1
+abîmez	abime	abîmer	VER			15.83	21.69	0.30	0.20	imp:pre:2p;ind:pre:2p;	1	6	0	6	5	VCVCVC	VCVCV	2	8	0	5	a-bi-me	3	V-CV-CV	zemîba	emiba	a-bî-mez	VER	96	29	2.05	1.5	abîmer	1
+abîmions	abimj§	abîmer	VER			15.83	21.69	0.00	0.14	ind:imp:1p;	1	1	0	8	6	VCVCVVCC	VCVCYV	0	2	0	0	a-bi-mj§	3	V-CV-CYV	snoimîba	§jmiba	a-bî-mions	VER	96	29	2.85	1.75	abîmer	1
+abîmons	abim§	abîmer	VER			15.83	21.69	0.00	0.07	ind:pre:1p;	1	1	0	7	5	VCVCVCC	VCVCV	0	6	0	0	a-bi-m§	3	V-CV-CV	snomîba	§miba	a-bî-mons	VER	96	29	2.4	1.55	abîmer	1
+abîmé	abime	abîmer	VER	m	s	15.83	21.69	3.57	4.73	par:pas;	1	6	0	5	5	VCVCV	VCVCV	2	8	0	5	a-bi-me	3	V-CV-CV	émîba	emiba	a-bî-mé	VER	96	29	1.85	1.5	abîmer	1
+abîmée	abime	abîmer	VER	f	s	15.83	21.69	1.73	1.76	par:pas;	1	6	0	6	5	VCVCVV	VCVCV	1	8	0	5	a-bi-me	3	V-CV-CV	eémîba	emiba	a-bî-mée	VER	96	29	2	1.5	abîmer	1
+abîmées	abime	abîmer	VER	f	p	15.83	21.69	0.56	0.74	par:pas;	1	6	0	7	5	VCVCVVC	VCVCV	0	8	0	5	a-bi-me	3	V-CV-CV	seémîba	emiba	a-bî-mées	VER	96	29	2.15	1.5	abîmer	1
+abîmés	abime	abîmer	VER	m	p	15.83	21.69	0.61	1.35	par:pas;	1	6	0	6	5	VCVCVC	VCVCV	2	8	0	5	a-bi-me	3	V-CV-CV	sémîba	emiba	a-bî-més	VER	96	29	2	1.5	abîmer	1
+acabit	akabi	acabit	NOM	m	s	0.17	1.62	0.17	1.55		1	2	1	6	5	VCVCVC	VCVCV	0	1	4	5	a-ka-bi	3	V-CV-CV	tibaca	ibaka	a-ca-bit	NOM	68	19	2.6	1.95	acabit	1
+acabits	akabi	acabit	NOM	m	p	0.17	1.62	0.00	0.07		1	2	0	7	5	VCVCVCC	VCVCV	0	1	0	5	a-ka-bi	3	V-CV-CV	stibaca	ibaka	a-ca-bits	NOM	68	19	2.7	1.95	acabit	1
+acacia	akasja	acacia	NOM	m	s	0.26	6.35	0.05	3.24		1	2	1	6	6	VCVCVV	VCVCYV	0	0	4	5	a-ka-sja	3	V-CV-CYV	aicaca	ajsaka	a-ca-cia	NOM	64	17	2.6	2	acacia	1
+acacias	akasja	acacia	NOM	m	p	0.26	6.35	0.21	3.11		1	2	0	7	6	VCVCVVC	VCVCYV	0	0	0	5	a-ka-sja	3	V-CV-CYV	saicaca	ajsaka	a-ca-cias	NOM	64	17	2.7	2	acacia	1
+acadien	akadj5	acadien	ADJ	m	s	0.01	0.00	0.01	0.00		2	4	1	7	6	VCVCVVC	VCVCYV	0	1	7	6	a-ka-dj5	3	V-CV-CYV	neidaca	5jdaka	a-ca-dien	ADJ,NOM	71	21	2.45	2.4	acadien	1
+acadien	akadj5	acadien	NOM	m	s	0.16	0.07	0.14	0.00		2	4	1	7	6	VCVCVVC	VCVCYV	0	1	7	6	a-ka-dj5	3	V-CV-CYV	neidaca	5jdaka	a-ca-dien	ADJ,NOM	75	16	2.45	2.4	acadien	1
+acadienne	akadjEn	acadienne	NOM	f	s	0.03	0.00	0.03	0.00		1	2	1	9	7	VCVCVVCCV	VCVCYVC	0	0	8	6	a-ka-djEn	3	V-CV-CYVC	enneidaca	nEjdaka	a-ca-dien-ne	NOM	54	24	2.6	2.5	acadienne	1
+acadiens	akadj5	acadien	NOM	m	p	0.16	0.07	0.01	0.07		1	4	0	8	6	VCVCVVCC	VCVCYV	1	1	0	6	a-ka-dj5	3	V-CV-CYV	sneidaca	5jdaka	a-ca-diens	NOM	75	16	2.45	2.4	acadien	1
+académicien	akademisj5	académicien	NOM	m	s	0.35	1.55	0.14	0.74		1	2	1	11	10	VCVCVCVCVVC	VCVCVCVCYV	0	0	8	8	a-ka-de-mi-sj5	5	V-CV-CV-CV-CYV	neicimédaca	5jsimedaka	a-ca-dé-mi-cien	NOM	100	21	4.2	4.25	académicien	1
+académiciens	akademisj5	académicien	NOM	m	p	0.35	1.55	0.21	0.81		1	2	0	12	10	VCVCVCVCVVCC	VCVCVCVCYV	0	0	0	8	a-ka-de-mi-sj5	5	V-CV-CV-CV-CYV	sneicimédaca	5jsimedaka	a-ca-dé-mi-ciens	NOM	100	21	4.35	4.25	académicien	1
+académie	akademi	académie	NOM	f	s	10.03	9.46	9.91	8.31		1	2	1	8	7	VCVCVCVV	VCVCVCV	0	0	8	7	a-ka-de-mi	4	V-CV-CV-CV	eimédaca	imedaka	a-ca-dé-mie	NOM	100	22	2.9	2.75	académie	1
+académies	akademi	académie	NOM	f	p	10.03	9.46	0.12	1.15		1	2	0	9	7	VCVCVCVVC	VCVCVCV	0	0	0	7	a-ka-de-mi	4	V-CV-CV-CV	seimédaca	imedaka	a-ca-dé-mies	NOM	100	22	3.1	2.75	académie	1
+académique	akademik	académique	ADJ		s	1.41	1.15	0.87	0.61		1	2	1	10	8	VCVCVCVCVV	VCVCVCVC	0	0	10	8	a-ka-de-mik	4	V-CV-CV-CVC	euqimédaca	kimedaka	a-ca-dé-mi-que	ADJ	96	26	3.2	3.1	académie-ique	2
+académiquement	akademik°m@	académiquement	ADV			0.01	0.14	0.01	0.14		1	1	1	14	11	VCVCVCVCVVCVCC	VCVCVCVCVCV	0	0	11	9	a-ka-de-mi-k°-m@	6	V-CV-CV-CV-CV-CV	tnemeuqimédaca	@m°kimedaka	a-ca-dé-mi-que-ment	ADV			4.35		académiquement	1
+académiques	akademik	académique	ADJ		p	1.41	1.15	0.54	0.54		1	2	0	11	8	VCVCVCVCVVC	VCVCVCVC	0	0	0	8	a-ka-de-mik	4	V-CV-CV-CVC	seuqimédaca	kimedaka	a-ca-dé-mi-ques	ADJ	96	26	3.3	3.1	académie-ique	2
+académisme	akademizm	académisme	NOM	m	s	0.00	0.27	0.00	0.27		1	1	1	10	9	VCVCVCVCCV	VCVCVCVCC	0	1	9	8	a-ka-de-mizm	4	V-CV-CV-CVCC	emsimédaca	mzimedaka	a-ca-dé-mis-me	NOM	64	17	3.5	3.4	académisme	1
+académisé	akademize	académiser	VER	m	s	0.00	0.07	0.00	0.07	par:pas;	1	1	0	9	9	VCVCVCVCV	VCVCVCVCV	0	1	0	0	a-ka-de-mi-ze	5	V-CV-CV-CV-CV	ésimédaca	ezimedaka	a-ca-dé-mi-sé	VER			3.6	3.45	académiser	1
+acagnardai	akaNaRdE	acagnarder	VER			0.00	0.74	0.00	0.07	ind:pas:1s;	1	2	0	10	8	VCVCCVCCVV	VCVCVCCV	0	1	0	0	a-ka-NaR-dE	4	V-CV-CVC-CV	iadrangaca	EdRaNaka	a-ca-gnar-dai	VER	3	27	3.4	2.65	acagnarder	1
+acagnardait	akaNaRdE	acagnarder	VER			0.00	0.74	0.00	0.14	ind:imp:3s;	1	2	0	11	8	VCVCCVCCVVC	VCVCVCCV	0	1	0	0	a-ka-NaR-dE	4	V-CV-CVC-CV	tiadrangaca	EdRaNaka	a-ca-gnar-dait	VER	3	27	3.5	2.65	acagnarder	1
+acagnarder	akaNaRde	acagnarder	VER			0.00	0.74	0.00	0.14	inf;	1	3	1	10	8	VCVCCVCCVC	VCVCVCCV	0	1	4	4	a-ka-NaR-de	4	V-CV-CVC-CV	redrangaca	edRaNaka	a-ca-gnar-der	VER	3	27	3.2	2.7	acagnarder	1
+acagnardé	akaNaRde	acagnarder	VER	m	s	0.00	0.74	0.00	0.34	par:pas;	1	3	0	9	8	VCVCCVCCV	VCVCVCCV	0	1	0	4	a-ka-NaR-de	4	V-CV-CVC-CV	édrangaca	edRaNaka	a-ca-gnar-dé	VER	3	27	2.8	2.7	acagnarder	1
+acagnardée	akaNaRde	acagnarder	VER	f	s	0.00	0.74	0.00	0.07	par:pas;	1	3	0	10	8	VCVCCVCCVV	VCVCVCCV	0	1	0	4	a-ka-NaR-de	4	V-CV-CVC-CV	eédrangaca	edRaNaka	a-ca-gnar-dée	VER	3	27	3.2	2.7	acagnarder	1
+acajou	akaZu	acajou	ADJ			0.17	1.62	0.17	1.62		2	3	1	6	5	VCVCVV	VCVCV	0	0	4	4	a-ka-Zu	3	V-CV-CV	uojaca	uZaka	a-ca-jou	ADJ,NOM	100	22	2.55	1.95	acajou	1
+acajou	akaZu	acajou	NOM	m	s	0.52	5.95	0.52	5.81		2	3	1	6	5	VCVCVV	VCVCV	0	0	4	4	a-ka-Zu	3	V-CV-CV	uojaca	uZaka	a-ca-jou	ADJ,NOM	100	21	2.55	1.95	acajou	1
+acajous	akaZu	acajou	NOM	m	p	0.52	5.95	0.00	0.14		1	3	0	7	5	VCVCVVC	VCVCV	0	0	0	4	a-ka-Zu	3	V-CV-CV	suojaca	uZaka	a-ca-jous	NOM	100	21	2.7	1.95	acajou	1
+acanthe	ak@t	acanthe	NOM	f	s	0.04	0.61	0.04	0.27		1	2	1	7	4	VCVCCCV	VCVC	0	7	4	3	a-k@t	2	V-CVC	ehtnaca	t@ka	a-can-the	NOM	25	20	2.6	1.5	acanthe	1
+acanthes	ak@t	acanthe	NOM	f	p	0.04	0.61	0.00	0.34		1	2	0	8	4	VCVCCCVC	VCVC	0	7	0	3	a-k@t	2	V-CVC	sehtnaca	t@ka	a-can-thes	NOM	25	20	2.75	1.5	acanthe	1
+acariens	akaRj5	acarien	NOM	m	p	0.07	0.07	0.07	0.07		1	1	0	8	6	VCVCVVCC	VCVCYV	1	1	0	0	a-ka-Rj5	3	V-CV-CYV	sneiraca	5jRaka	a-ca-riens	NOM			2.4	1.9	acarien	1
+acariâtre	akaRjatR	acariâtre	ADJ		s	0.14	1.55	0.13	1.22		1	2	1	9	8	VCVCVVCCV	VCVCYVCC	0	0	6	4	a-ka-RjatR	3	V-CV-CYVCC	ertâiraca	RtajRaka	a-ca-riâ-tre	ADJ	92	14	3.65	2.95	acariâtre	1
+acariâtres	akaRjatR	acariâtre	ADJ	f	p	0.14	1.55	0.01	0.34		1	2	0	10	8	VCVCVVCCVC	VCVCYVCC	0	0	0	4	a-ka-RjatR	3	V-CV-CYVCC	sertâiraca	RtajRaka	a-ca-riâ-tres	ADJ	92	14	3.8	2.95	acariâtre	1
+accabla	akabla	accabler	VER			5.55	21.28	0.14	0.95	ind:pas:3s;	1	2	0	7	6	VCCVCCV	VCVCCV	2	4	0	0	a-ka-bla	3	V-CV-CCV	albacca	albaka	ac-ca-bla	VER	95	20	2.15	1.7	accabler	1
+accablai	akablE	accabler	VER			5.55	21.28	0.00	0.07	ind:pas:1s;	1	4	0	8	6	VCCVCCVV	VCVCCV	0	4	0	0	a-ka-blE	3	V-CV-CCV	ialbacca	Elbaka	ac-ca-blai	VER	95	20	2.25	1.65	accabler	1
+accablaient	akablE	accabler	VER			5.55	21.28	0.03	1.42	ind:imp:3p;	1	4	0	11	6	VCCVCCVVVCC	VCVCCV	0	4	0	0	a-ka-blE	3	V-CV-CCV	tneialbacca	Elbaka	ac-ca-blaient	VER	95	20	2.6	1.65	accabler	1
+accablais	akablE	accabler	VER			5.55	21.28	0.00	0.27	ind:imp:1s;	1	4	0	9	6	VCCVCCVVC	VCVCCV	1	4	0	0	a-ka-blE	3	V-CV-CCV	sialbacca	Elbaka	ac-ca-blais	VER	95	20	2.45	1.65	accabler	1
+accablait	akablE	accabler	VER			5.55	21.28	0.22	3.11	ind:imp:3s;	1	4	0	9	6	VCCVCCVVC	VCVCCV	2	4	0	0	a-ka-blE	3	V-CV-CCV	tialbacca	Elbaka	ac-ca-blait	VER	95	20	2.2	1.65	accabler	1
+accablant	akabl@	accablant	ADJ	m	s	1.41	5.41	0.37	1.42		2	3	1	9	6	VCCVCCVCC	VCVCCV	2	4	7	6	a-ka-bl@	3	V-CV-CCV	tnalbacca	@lbaka	ac-ca-blant	ADJ,VER	100	19	2.15	1.7	accablant	1
+accablant	akabl@	accabler	VER			5.55	21.28	0.05	0.74	par:pre;	2	3	0	9	6	VCCVCCVCC	VCVCCV	2	4	7	6	a-ka-bl@	3	V-CV-CCV	tnalbacca	@lbaka	ac-ca-blant	ADJ,VER	95	20	2.15	1.7	accabler	1
+accablante	akabl@t	accablant	ADJ	f	s	1.41	5.41	0.71	2.43		1	2	0	10	7	VCCVCCVCCV	VCVCCVC	1	0	0	0	a-ka-bl@t	3	V-CV-CCVC	etnalbacca	t@lbaka	ac-ca-blan-te	ADJ	100	19	2.8	2.6	accablant	1
+accablantes	akabl@t	accablant	ADJ	f	p	1.41	5.41	0.29	0.81		1	2	0	11	7	VCCVCCVCCVC	VCVCCVC	0	0	0	0	a-ka-bl@t	3	V-CV-CCVC	setnalbacca	t@lbaka	ac-ca-blan-tes	ADJ	100	19	3.4	2.6	accablant	1
+accablants	akabl@	accablant	ADJ	m	p	1.41	5.41	0.04	0.74		1	3	0	10	6	VCCVCCVCCC	VCVCCV	1	4	0	6	a-ka-bl@	3	V-CV-CCV	stnalbacca	@lbaka	ac-ca-blants	ADJ	100	19	2.65	1.7	accablant	1
+accable	akabl	accabler	VER			5.55	21.28	2.01	1.96	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	2	0	7	5	VCCVCCV	VCVCC	2	4	0	0	a-kabl	2	V-CVCC	elbacca	lbaka	ac-ca-ble	VER	95	20	1.8	1.55	accabler	1
+accablement	akabl°m@	accablement	NOM	m	s	0.23	3.72	0.21	3.58		1	2	1	11	8	VCCVCCVCVCC	VCVCCVCV	0	1	8	6	a-ka-bl°-m@	4	V-CV-CCV-CV	tnemelbacca	@m°lbaka	ac-ca-ble-ment	NOM	81	16	2.6	2.3	accabler-ment	2
+accablements	akabl°m@	accablement	NOM	m	p	0.23	3.72	0.01	0.14		1	2	0	12	8	VCCVCCVCVCCC	VCVCCVCV	0	1	0	6	a-ka-bl°-m@	4	V-CV-CCV-CV	stnemelbacca	@m°lbaka	ac-ca-ble-ments	NOM	81	16	3.3	2.3	accabler-ment	2
+accablent	akabl	accabler	VER			5.55	21.28	0.28	0.74	ind:pre:3p;	1	2	0	9	5	VCCVCCVCC	VCVCC	1	4	0	0	a-kabl	2	V-CVCC	tnelbacca	lbaka	ac-ca-blent	VER	95	20	2.25	1.55	accabler	1
+accabler	akable	accabler	VER			5.55	21.28	0.65	3.58	inf;	1	10	1	8	6	VCCVCCVC	VCVCCV	1	4	8	6	a-ka-ble	3	V-CV-CCV	relbacca	elbaka	ac-ca-bler	VER	95	20	2.15	1.7	accabler	1
+accableraient	akabl°RE	accabler	VER			5.55	21.28	0.00	0.14	cnd:pre:3p;	1	1	0	13	8	VCCVCCVCVVVCC	VCVCCVCV	0	0	0	0	a-ka-bl°-RE	4	V-CV-CCV-CV	tneiarelbacca	ER°lbaka	ac-ca-ble-raient	VER	95	20	3.25	2.4	accabler	1
+accablez	akable	accabler	VER			5.55	21.28	0.17	0.14	imp:pre:2p;ind:pre:2p;	1	10	0	8	6	VCCVCCVC	VCVCCV	1	4	0	6	a-ka-ble	3	V-CV-CCV	zelbacca	elbaka	ac-ca-blez	VER	95	20	2.35	1.7	accabler	1
+accablions	akablij§	accabler	VER			5.55	21.28	0.00	0.07	ind:imp:1p;	1	1	0	10	8	VCCVCCVVCC	VCVCCVYV	0	1	0	0	a-ka-bli-j§	4	V-CV-CCV-YV	snoilbacca	§jilbaka	ac-ca-blions	VER	95	20	3.2	2.85	accabler	1
+accablât	akabla	accabler	VER			5.55	21.28	0.00	0.07	sub:imp:3s;	1	2	0	8	6	VCCVCCVC	VCVCCV	0	4	0	0	a-ka-bla	3	V-CV-CCV	tâlbacca	albaka	ac-ca-blât	VER	95	20	2.4	1.7	accabler	1
+accablèrent	akablER	accabler	VER			5.55	21.28	0.00	0.20	ind:pas:3p;	1	1	0	11	7	VCCVCCVCVCC	VCVCCVC	0	1	0	0	a-ka-blER	3	V-CV-CCVC	tnerèlbacca	RElbaka	ac-ca-blè-rent	VER	95	20	2.7	1.9	accabler	1
+accablé	akable	accabler	VER	m	s	5.55	21.28	0.92	4.05	par:pas;	2	10	0	7	6	VCCVCCV	VCVCCV	2	4	7	6	a-ka-ble	3	V-CV-CCV	élbacca	elbaka	ac-ca-blé	VER,ADJ	95	20	2.2	1.7	accabler	1
+accablé	akable	accablé	ADJ	m	s	0.53	5.47	0.39	3.58		2	10	1	7	6	VCCVCCV	VCVCCV	2	4	7	6	a-ka-ble	3	V-CV-CCV	élbacca	elbaka	ac-ca-blé	VER,ADJ	96	26	2.2	1.7	accablé	1
+accablée	akable	accabler	VER	f	s	5.55	21.28	0.60	2.23	par:pas;	2	10	0	8	6	VCCVCCVV	VCVCCV	1	4	0	6	a-ka-ble	3	V-CV-CCV	eélbacca	elbaka	ac-ca-blée	VER,ADJ	95	20	2.2	1.7	accabler	1
+accablée	akable	accablé	ADJ	f	s	0.53	5.47	0.03	1.08		2	10	0	8	6	VCCVCCVV	VCVCCV	1	4	0	6	a-ka-ble	3	V-CV-CCV	eélbacca	elbaka	ac-ca-blée	VER,ADJ	96	26	2.2	1.7	accablé	1
+accablées	akable	accabler	VER	f	p	5.55	21.28	0.02	0.34	par:pas;	2	10	0	9	6	VCCVCCVVC	VCVCCV	0	4	0	6	a-ka-ble	3	V-CV-CCV	seélbacca	elbaka	ac-ca-blées	VER,ADJ	95	20	2.4	1.7	accabler	1
+accablées	akable	accablé	ADJ	f	p	0.53	5.47	0.00	0.14		2	10	0	9	6	VCCVCCVVC	VCVCCV	0	4	0	6	a-ka-ble	3	V-CV-CCV	seélbacca	elbaka	ac-ca-blées	VER,ADJ	96	26	2.4	1.7	accablé	1
+accablés	akable	accabler	VER	m	p	5.55	21.28	0.47	1.22	par:pas;	2	10	0	8	6	VCCVCCVC	VCVCCV	1	4	0	6	a-ka-ble	3	V-CV-CCV	sélbacca	elbaka	ac-ca-blés	VER,ADJ	95	20	2.2	1.7	accabler	1
+accablés	akable	accablé	ADJ	m	p	0.53	5.47	0.11	0.68		2	10	0	8	6	VCCVCCVC	VCVCCV	1	4	0	6	a-ka-ble	3	V-CV-CCV	sélbacca	elbaka	ac-ca-blés	VER,ADJ	96	26	2.2	1.7	accablé	1
+accalmie	akalmi	accalmie	NOM	f	s	0.50	3.72	0.46	2.97		1	3	1	8	6	VCCVCCVV	VCVCCV	1	0	8	4	a-kal-mi	3	V-CVC-CV	eimlacca	imlaka	ac-cal-mie	NOM	91	24	2.8	1.95	accalmie	1
+accalmies	akalmi	accalmie	NOM	f	p	0.50	3.72	0.04	0.74		1	3	0	9	6	VCCVCCVVC	VCVCCV	0	0	0	4	a-kal-mi	3	V-CVC-CV	seimlacca	imlaka	ac-cal-mies	NOM	91	24	2.9	1.95	accalmie	1
+accalmit	akalmi	accalmir	VER			0.00	0.07	0.00	0.07	ind:pas:3s;	1	3	0	8	6	VCCVCCVC	VCVCCV	1	0	0	4	a-kal-mi	3	V-CVC-CV	timlacca	imlaka	ac-cal-mit	VER			2.7	1.95	accalmir	1
+accapara	akapaRa	accaparer	VER			0.97	3.99	0.01	0.07	ind:pas:3s;	1	1	0	8	7	VCCVCVCV	VCVCVCV	2	3	0	0	a-ka-pa-Ra	4	V-CV-CV-CV	arapacca	aRapaka	ac-ca-pa-ra	VER	100	23	2.5	2.1	accaparer	1
+accaparaient	akapaRE	accaparer	VER			0.97	3.99	0.00	0.34	ind:imp:3p;	1	2	0	12	7	VCCVCVCVVVCC	VCVCVCV	0	3	0	0	a-ka-pa-RE	4	V-CV-CV-CV	tneiarapacca	ERapaka	ac-ca-pa-raient	VER	100	23	3.05	1.95	accaparer	1
+accaparait	akapaRE	accaparer	VER			0.97	3.99	0.01	0.74	ind:imp:3s;	1	2	0	10	7	VCCVCVCVVC	VCVCVCV	1	3	0	0	a-ka-pa-RE	4	V-CV-CV-CV	tiarapacca	ERapaka	ac-ca-pa-rait	VER	100	23	2.7	1.95	accaparer	1
+accaparant	akapaR@	accaparant	ADJ	m	s	0.02	0.07	0.02	0.00		2	2	1	10	7	VCCVCVCVCC	VCVCVCV	1	3	8	7	a-ka-pa-R@	4	V-CV-CV-CV	tnarapacca	@Rapaka	ac-ca-pa-rant	ADJ,VER	100	12	2.7	2.25	accaparant	1
+accaparant	akapaR@	accaparer	VER			0.97	3.99	0.03	0.20	par:pre;	2	2	0	10	7	VCCVCVCVCC	VCVCVCV	1	3	8	7	a-ka-pa-R@	4	V-CV-CV-CV	tnarapacca	@Rapaka	ac-ca-pa-rant	ADJ,VER	100	23	2.7	2.25	accaparer	1
+accaparante	akapaR@t	accaparant	ADJ	f	s	0.02	0.07	0.00	0.07		1	1	0	11	8	VCCVCVCVCCV	VCVCVCVC	0	0	0	0	a-ka-pa-R@t	4	V-CV-CV-CVC	etnarapacca	t@Rapaka	ac-ca-pa-ran-te	ADJ	100	12	3.5	2.55	accaparant	1
+accapare	akapaR	accaparer	VER			0.97	3.99	0.34	0.61	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	1	0	8	6	VCCVCVCV	VCVCVC	2	0	0	0	a-ka-paR	3	V-CV-CVC	erapacca	Rapaka	ac-ca-pa-re	VER	100	23	2.35	1.8	accaparer	1
+accaparer	akapaRe	accaparer	VER			0.97	3.99	0.20	0.68	inf;	1	6	1	9	7	VCCVCVCVC	VCVCVCV	1	3	9	7	a-ka-pa-Re	4	V-CV-CV-CV	rerapacca	eRapaka	ac-ca-pa-rer	VER	100	23	2.6	2.25	accaparer	1
+accaparerait	akapaR°RE	accaparer	VER			0.97	3.99	0.00	0.07	cnd:pre:3s;	1	1	0	12	9	VCCVCVCVCVVC	VCVCVCVCV	0	0	0	0	a-ka-pa-R°-RE	5	V-CV-CV-CV-CV	tiarerapacca	ER°Rapaka	ac-ca-pa-re-rait	VER	100	23	3.65		accaparer	1
+accapareur	akapaR9R	accapareur	ADJ	m	s	0.02	0.00	0.02	0.00		1	1	1	10	8	VCCVCVCVVC	VCVCVCVC	0	0	9	7	a-ka-pa-R9R	4	V-CV-CV-CVC	ruerapacca	R9Rapaka	ac-ca-pa-reur	ADJ	72	18	3.2	2.65	accaparer-eur	2
+accaparez	akapaRe	accaparer	VER			0.97	3.99	0.02	0.00	ind:pre:2p;	1	6	0	9	7	VCCVCVCVC	VCVCVCV	1	3	0	7	a-ka-pa-Re	4	V-CV-CV-CV	zerapacca	eRapaka	ac-ca-pa-rez	VER	100	23	2.5	2.25	accaparer	1
+accaparé	akapaRe	accaparer	VER	m	s	0.97	3.99	0.30	0.68	par:pas;	1	6	0	8	7	VCCVCVCV	VCVCVCV	2	3	0	7	a-ka-pa-Re	4	V-CV-CV-CV	érapacca	eRapaka	ac-ca-pa-ré	VER	100	23	2.55	2.25	accaparer	1
+accaparée	akapaRe	accaparer	VER	f	s	0.97	3.99	0.06	0.34	par:pas;	1	6	0	9	7	VCCVCVCVV	VCVCVCV	1	3	0	7	a-ka-pa-Re	4	V-CV-CV-CV	eérapacca	eRapaka	ac-ca-pa-rée	VER	100	23	2.55	2.25	accaparer	1
+accaparées	akapaRe	accaparer	VER	f	p	0.97	3.99	0.00	0.07	par:pas;	1	6	0	10	7	VCCVCVCVVC	VCVCVCV	0	3	0	7	a-ka-pa-Re	4	V-CV-CV-CV	seérapacca	eRapaka	ac-ca-pa-rées	VER	100	23	2.8	2.25	accaparer	1
+accaparés	akapaRe	accaparer	VER	m	p	0.97	3.99	0.00	0.20	par:pas;	1	6	0	9	7	VCCVCVCVC	VCVCVCV	1	3	0	7	a-ka-pa-Re	4	V-CV-CV-CV	sérapacca	eRapaka	ac-ca-pa-rés	VER	100	23	2.7	2.25	accaparer	1
+accastillage	akastijaZ	accastillage	NOM	m	s	0.04	0.20	0.04	0.14		1	2	1	12	9	VCCVCCVCCVCV	VCVCCVYVC	0	0	5	5	a-kas-ti-jaZ	4	V-CVC-CV-YVC	egallitsacca	Zajitsaka	ac-cas-til-la-ge	NOM	52	17	4.1	3.4	a-castille-age	3
+accastillages	akastijaZ	accastillage	NOM	m	p	0.04	0.20	0.00	0.07		1	2	0	13	9	VCCVCCVCCVCVC	VCVCCVYVC	0	0	0	5	a-kas-ti-jaZ	4	V-CVC-CV-YVC	segallitsacca	Zajitsaka	ac-cas-til-la-ges	NOM	52	17	4.4	3.4	a-castille-age	3
+accelerando	akseleRando	accelerando	ADV			0.00	0.14	0.00	0.14		1	1	1	11	11	VCCVCVCVCCV	VCCVCVCVCCV	0	0	5	9	ak-se-le-Ran-do	5	VC-CV-CV-CVC-CV	odnarelecca	odnaReleska	ac-ce-le-ran-do	ADV			4.8	4.2	accelerando	1
+accent	aks@	accent	NOM	m	s	14.56	45.54	12.98	38.31		1	2	1	6	4	VCCVCC	VCCV	0	5	6	4	ak-s@	2	VC-CV	tnecca	@ska	ac-cent	NOM	100	25	1.95	1.65	accent	1
+accenteur	aks@t9R	accenteur	NOM	m	s	0.01	0.00	0.01	0.00		1	1	1	9	7	VCCVCCVVC	VCCVCVC	0	0	7	6	ak-s@-t9R	3	VC-CV-CVC	ruetnecca	R9t@ska		NOM			2.6	2.15	accenteur	1
+accents	aks@	accent	NOM	m	p	14.56	45.54	1.58	7.23		1	2	0	7	4	VCCVCCC	VCCV	0	5	0	4	ak-s@	2	VC-CV	stnecca	@ska	ac-cents	NOM	100	25	1.95	1.65	accent	1
+accentua	aks@t8a	accentuer	VER			1.28	16.15	0.00	1.96	ind:pas:3s;	1	2	0	8	7	VCCVCCVV	VCCVCYV	2	3	0	0	ak-s@-t8a	3	VC-CV-CYV	autnecca	a8t@ska	ac-cen-tua	VER	81	16	2.1	2.4	accentuer	1
+accentuai	aks@t8E	accentuer	VER			1.28	16.15	0.00	0.07	ind:pas:1s;	1	4	0	9	7	VCCVCCVVV	VCCVCYV	0	3	0	0	ak-s@-t8E	3	VC-CV-CYV	iautnecca	E8t@ska	ac-cen-tuai	VER	81	16	2.25	2.3	accentuer	1
+accentuaient	aks@t8E	accentuer	VER			1.28	16.15	0.00	1.22	ind:imp:3p;	1	4	0	12	7	VCCVCCVVVVCC	VCCVCYV	0	3	0	0	ak-s@-t8E	3	VC-CV-CYV	tneiautnecca	E8t@ska	ac-cen-tuaient	VER	81	16	2.95	2.3	accentuer	1
+accentuais	aks@t8E	accentuer	VER			1.28	16.15	0.00	0.07	ind:imp:1s;	1	4	0	10	7	VCCVCCVVVC	VCCVCYV	1	3	0	0	ak-s@-t8E	3	VC-CV-CYV	siautnecca	E8t@ska	ac-cen-tuais	VER	81	16	2.55	2.3	accentuer	1
+accentuait	aks@t8E	accentuer	VER			1.28	16.15	0.01	4.05	ind:imp:3s;	1	4	0	10	7	VCCVCCVVVC	VCCVCYV	2	3	0	0	ak-s@-t8E	3	VC-CV-CYV	tiautnecca	E8t@ska	ac-cen-tuait	VER	81	16	2.4	2.3	accentuer	1
+accentuant	aks@t8@	accentuer	VER			1.28	16.15	0.03	1.76	par:pre;	1	1	0	10	7	VCCVCCVVCC	VCCVCYV	2	3	0	0	ak-s@-t8@	3	VC-CV-CYV	tnautnecca	@8t@ska	ac-cen-tuant	VER	81	16	2.5	2.45	accentuer	1
+accentuation	aks@t8asj§	accentuation	NOM	f	s	0.06	0.14	0.06	0.14		1	1	1	12	10	VCCVCCVVCVVC	VCCVCYVCYV	0	0	8	7	ak-s@-t8a-sj§	4	VC-CV-CYV-CYV	noitautnecca	§jsa8t@ska	ac-cen-tua-tion	NOM	95	22	3.55	3.6	accentuer-ion	2
+accentue	aks@ty	accentuer	VER			1.28	16.15	0.11	1.76	imp:pre:2s;ind:pre:1s;ind:pre:3s;	1	2	0	8	6	VCCVCCVV	VCCVCV	2	0	0	0	ak-s@-ty	3	VC-CV-CV	eutnecca	yt@ska	ac-cen-tue	VER	81	16	2	2.2	accentuer	1
+accentuent	aks@ty	accentuer	VER			1.28	16.15	0.07	0.54	ind:pre:3p;	1	2	0	10	6	VCCVCCVVCC	VCCVCV	1	0	0	0	ak-s@-ty	3	VC-CV-CV	tneutnecca	yt@ska	ac-cen-tuent	VER	81	16	2.5	2.2	accentuer	1
+accentuer	aks@t8e	accentuer	VER			1.28	16.15	0.67	2.03	inf;	1	9	1	9	7	VCCVCCVVC	VCCVCYV	1	4	8	7	ak-s@-t8e	3	VC-CV-CYV	reutnecca	e8t@ska	ac-cen-tuer	VER	81	16	2.3	2.35	accentuer	1
+accentuerait	aks@tyRE	accentuer	VER			1.28	16.15	0.01	0.07	cnd:pre:3s;	1	1	0	12	8	VCCVCCVVCVVC	VCCVCVCV	0	0	0	0	ak-s@-ty-RE	4	VC-CV-CV-CV	tiareutnecca	ERyt@ska	ac-cen-tue-rait	VER	81	16	3.15	2.7	accentuer	1
+accentuez	aks@tye	accentuer	VER			1.28	16.15	0.12	0.00	imp:pre:2p;ind:pre:2p;	1	1	0	9	7	VCCVCCVVC	VCCVCVV	1	1	0	0	ak-s@-ty-e	4	VC-CV-CV-V	zeutnecca	eyt@ska	ac-cen-tuez	VER	81	16	2.3	2.45	accentuer	1
+accentuât	aks@t8a	accentuer	VER			1.28	16.15	0.00	0.07	sub:imp:3s;	1	2	0	9	7	VCCVCCVVC	VCCVCYV	0	3	0	0	ak-s@-t8a	3	VC-CV-CYV	tâutnecca	a8t@ska	ac-cen-tuât	VER	81	16	2.4	2.4	accentuer	1
+accentuèrent	aks@t8ER	accentuer	VER			1.28	16.15	0.00	0.20	ind:pas:3p;	1	1	0	12	8	VCCVCCVVCVCC	VCCVCYVC	0	0	0	0	ak-s@-t8ER	3	VC-CV-CYVC	tnerèutnecca	RE8t@ska	ac-cen-tuè-rent	VER	81	16	3.3	2.6	accentuer	1
+accentué	aks@t8e	accentuer	VER	m	s	1.28	16.15	0.21	0.81	par:pas;	2	9	0	8	7	VCCVCCVV	VCCVCYV	2	4	8	7	ak-s@-t8e	3	VC-CV-CYV	éutnecca	e8t@ska	ac-cen-tué	VER,ADJ	81	16	2.15	2.35	accentuer	1
+accentué	aks@t8e	accentué	ADJ	m	s	0.02	1.55	0.01	0.81		2	9	1	8	7	VCCVCCVV	VCCVCYV	2	4	8	7	ak-s@-t8e	3	VC-CV-CYV	éutnecca	e8t@ska	ac-cen-tué	VER,ADJ	100	25	2.15	2.35	accentué	1
+accentuée	aks@t8e	accentuer	VER	f	s	1.28	16.15	0.03	0.95	par:pas;	2	9	0	9	7	VCCVCCVVV	VCCVCYV	1	4	0	7	ak-s@-t8e	3	VC-CV-CYV	eéutnecca	e8t@ska	ac-cen-tuée	VER,ADJ	81	16	2.3	2.35	accentuer	1
+accentuée	aks@t8e	accentué	ADJ	f	s	0.02	1.55	0.01	0.47		2	9	0	9	7	VCCVCCVVV	VCCVCYV	1	4	0	7	ak-s@-t8e	3	VC-CV-CYV	eéutnecca	e8t@ska	ac-cen-tuée	VER,ADJ	100	25	2.3	2.35	accentué	1
+accentuées	aks@t8e	accentuer	VER	f	p	1.28	16.15	0.02	0.27	par:pas;	2	9	0	10	7	VCCVCCVVVC	VCCVCYV	0	4	0	7	ak-s@-t8e	3	VC-CV-CYV	seéutnecca	e8t@ska	ac-cen-tuées	VER,ADJ	81	16	2.5	2.35	accentuer	1
+accentuées	aks@t8e	accentué	ADJ	f	p	0.02	1.55	0.00	0.14		2	9	0	10	7	VCCVCCVVVC	VCCVCYV	0	4	0	7	ak-s@-t8e	3	VC-CV-CYV	seéutnecca	e8t@ska	ac-cen-tuées	VER,ADJ	100	25	2.5	2.35	accentué	1
+accentués	aks@t8e	accentuer	VER	m	p	1.28	16.15	0.01	0.34	par:pas;	2	9	0	9	7	VCCVCCVVC	VCCVCYV	1	4	0	7	ak-s@-t8e	3	VC-CV-CYV	séutnecca	e8t@ska	ac-cen-tués	VER,ADJ	81	16	2.25	2.35	accentuer	1
+accentués	aks@t8e	accentué	ADJ	m	p	0.02	1.55	0.00	0.14		2	9	0	9	7	VCCVCCVVC	VCCVCYV	1	4	0	7	ak-s@-t8e	3	VC-CV-CYV	séutnecca	e8t@ska	ac-cen-tués	VER,ADJ	100	25	2.25	2.35	accentué	1
+accepta	aksEpta	accepter	VER			165.84	144.66	0.82	10.54	ind:pas:3s;	1	2	0	7	7	VCCVCCV	VCCVCCV	2	4	0	0	ak-sEp-ta	3	VC-CVC-CV	atpecca	atpEska	ac-cep-ta	VER	100	10	1.9	1.65	accepter	1
+acceptable	aksEptabl	acceptable	ADJ		s	3.96	4.39	3.27	3.51		1	2	1	10	9	VCCVCCVCCV	VCCVCCVCC	0	0	8	8	ak-sEp-tabl	3	VC-CVC-CVCC	elbatpecca	lbatpEska	ac-cep-ta-ble	ADJ	100	8	2.9	2.8	accepter-able	2
+acceptables	aksEptabl	acceptable	ADJ		p	3.96	4.39	0.70	0.88		1	2	0	11	9	VCCVCCVCCVC	VCCVCCVCC	0	0	0	8	ak-sEp-tabl	3	VC-CVC-CVCC	selbatpecca	lbatpEska	ac-cep-ta-bles	ADJ	100	8	3.15	2.8	accepter-able	2
+acceptai	aksEptE	accepter	VER			165.84	144.66	0.03	3.38	ind:pas:1s;	1	4	0	8	7	VCCVCCVV	VCCVCCV	0	5	0	0	ak-sEp-tE	3	VC-CVC-CV	iatpecca	EtpEska	ac-cep-tai	VER	100	10	2.1	1.7	accepter	1
+acceptaient	aksEptE	accepter	VER			165.84	144.66	0.34	2.91	ind:imp:3p;	1	4	0	11	7	VCCVCCVVVCC	VCCVCCV	0	5	0	0	ak-sEp-tE	3	VC-CVC-CV	tneiatpecca	EtpEska	ac-cep-taient	VER	100	10	2.5	1.7	accepter	1
+acceptais	aksEptE	accepter	VER			165.84	144.66	0.94	3.99	ind:imp:1s;ind:imp:2s;	1	4	0	9	7	VCCVCCVVC	VCCVCCV	1	5	0	0	ak-sEp-tE	3	VC-CVC-CV	siatpecca	EtpEska	ac-cep-tais	VER	100	10	2.25	1.7	accepter	1
+acceptait	aksEptE	accepter	VER			165.84	144.66	1.48	10.00	ind:imp:3s;	1	4	0	9	7	VCCVCCVVC	VCCVCCV	2	5	0	0	ak-sEp-tE	3	VC-CVC-CV	tiatpecca	EtpEska	ac-cep-tait	VER	100	10	2.2	1.7	accepter	1
+acceptant	aksEpt@	acceptant	NOM	m	s	0.04	0.14	0.04	0.14		2	2	1	9	7	VCCVCCVCC	VCCVCCV	2	5	8	7	ak-sEp-t@	3	VC-CVC-CV	tnatpecca	@tpEska	ac-cep-tant	NOM,VER	75	28	2.25	1.8	acceptant	1
+acceptant	aksEpt@	accepter	VER			165.84	144.66	1.35	2.97	par:pre;	2	2	0	9	7	VCCVCCVCC	VCCVCCV	2	5	8	7	ak-sEp-t@	3	VC-CVC-CV	tnatpecca	@tpEska	ac-cep-tant	NOM,VER	100	10	2.25	1.8	accepter	1
+acceptassent	aksEptas	accepter	VER			165.84	144.66	0.00	0.07	sub:imp:3p;	1	2	0	12	8	VCCVCCVCCVCC	VCCVCCVC	0	1	0	0	ak-sEp-tas	3	VC-CVC-CVC	tnessatpecca	satpEska	ac-cep-tas-sent	VER	100	10	3.45	2.1	accepter	1
+acceptasses	aksEptas	accepter	VER			165.84	144.66	0.00	0.07	sub:imp:2s;	1	2	0	11	8	VCCVCCVCCVC	VCCVCCVC	0	1	0	0	ak-sEp-tas	3	VC-CVC-CVC	sessatpecca	satpEska	ac-cep-tas-ses	VER	100	10	3.55	2.1	accepter	1
+acceptation	aksEptasj§	acceptation	NOM	f	s	1.24	4.39	1.24	4.19		1	2	1	11	10	VCCVCCVCVVC	VCCVCCVCYV	0	0	8	8	ak-sEp-ta-sj§	4	VC-CVC-CV-CYV	noitatpecca	§jsatpEska	ac-cep-ta-tion	NOM	94	18	2.8	2.8	accepter-ion	2
+acceptations	aksEptasj§	acceptation	NOM	f	p	1.24	4.39	0.00	0.20		1	2	0	12	10	VCCVCCVCVVCC	VCCVCCVCYV	0	0	0	8	ak-sEp-ta-sj§	4	VC-CVC-CV-CYV	snoitatpecca	§jsatpEska	ac-cep-ta-tions	NOM	94	18	2.85	2.8	accepter-ion	2
+accepte	aksEpt	accepter	VER			165.84	144.66	38.41	18.65	imp:pre:2s;ind:pre:1s;ind:pre:3s;sub:pre:1s;sub:pre:3s;	1	3	0	7	6	VCCVCCV	VCCVCC	2	1	0	0	ak-sEpt	2	VC-CVCC	etpecca	tpEska	ac-cep-te	VER	100	10	1.7	1.7	accepter	1
+acceptent	aksEpt	accepter	VER			165.84	144.66	4.45	3.24	ind:pre:3p;	1	3	0	9	6	VCCVCCVCC	VCCVCC	1	1	0	0	ak-sEpt	2	VC-CVCC	tnetpecca	tpEska	ac-cep-tent	VER	100	10	2.2	1.7	accepter	1
+accepter	aksEpte	accepter	VER			165.84	144.66	43.39	36.62	inf;	1	6	1	8	7	VCCVCCVC	VCCVCCV	2	5	7	7	ak-sEp-te	3	VC-CVC-CV	retpecca	etpEska	ac-cep-ter	VER	100	10	1.8	1.7	accepter	1
+acceptera	aksEpt°Ra	accepter	VER			165.84	144.66	3.98	1.96	ind:fut:3s;	1	2	0	9	9	VCCVCCVCV	VCCVCCVCV	0	3	0	0	ak-sEp-t°-Ra	4	VC-CVC-CV-CV	aretpecca	aR°tpEska	ac-cep-te-ra	VER	100	10	2.3		accepter	1
+accepterai	aksEpt°RE	accepter	VER			165.84	144.66	2.73	1.22	ind:fut:1s;	1	4	0	10	9	VCCVCCVCVV	VCCVCCVCV	1	3	0	0	ak-sEp-t°-RE	4	VC-CVC-CV-CV	iaretpecca	ER°tpEska	ac-cep-te-rai	VER	100	10	2.45		accepter	1
+accepteraient	aksEpt°RE	accepter	VER			165.84	144.66	0.57	0.95	cnd:pre:3p;	1	4	0	13	9	VCCVCCVCVVVCC	VCCVCCVCV	0	3	0	0	ak-sEp-t°-RE	4	VC-CVC-CV-CV	tneiaretpecca	ER°tpEska	ac-cep-te-raient	VER	100	10	2.9		accepter	1
+accepterais	aksEpt°RE	accepter	VER			165.84	144.66	2.25	1.96	cnd:pre:1s;cnd:pre:2s;	1	4	0	11	9	VCCVCCVCVVC	VCCVCCVCV	1	3	0	0	ak-sEp-t°-RE	4	VC-CVC-CV-CV	siaretpecca	ER°tpEska	ac-cep-te-rais	VER	100	10	2.55		accepter	1
+accepterait	aksEpt°RE	accepter	VER			165.84	144.66	1.54	4.05	cnd:pre:3s;	1	4	0	11	9	VCCVCCVCVVC	VCCVCCVCV	1	3	0	0	ak-sEp-t°-RE	4	VC-CVC-CV-CV	tiaretpecca	ER°tpEska	ac-cep-te-rait	VER	100	10	2.5		accepter	1
+accepteras	aksEpt°Ra	accepter	VER			165.84	144.66	0.65	0.27	ind:fut:2s;	1	2	0	10	9	VCCVCCVCVC	VCCVCCVCV	1	3	0	0	ak-sEp-t°-Ra	4	VC-CVC-CV-CV	saretpecca	aR°tpEska	ac-cep-te-ras	VER	100	10	2.45		accepter	1
+accepterez	aksEpt°Re	accepter	VER			165.84	144.66	0.94	0.20	ind:fut:2p;	1	1	0	10	9	VCCVCCVCVC	VCCVCCVCV	0	3	0	0	ak-sEp-t°-Re	4	VC-CVC-CV-CV	zeretpecca	eR°tpEska	ac-cep-te-rez	VER	100	10	2.55		accepter	1
+accepteriez	aksEpt°Rje	accepter	VER			165.84	144.66	2.01	0.54	cnd:pre:2p;	1	1	0	11	10	VCCVCCVCVVC	VCCVCCVCYV	0	1	0	0	ak-sEp-t°-Rje	4	VC-CVC-CV-CYV	zeiretpecca	ejR°tpEska	ac-cep-te-riez	VER	100	10	2.95	3	accepter	1
+accepterions	aksEpt°Rj§	accepter	VER			165.84	144.66	0.03	0.34	cnd:pre:1p;	1	1	0	12	10	VCCVCCVCVVCC	VCCVCCVCYV	0	1	0	0	ak-sEp-t°-Rj§	4	VC-CVC-CV-CYV	snoiretpecca	§jR°tpEska	ac-cep-te-rions	VER	100	10	3	3.05	accepter	1
+accepterons	aksEpt°R§	accepter	VER			165.84	144.66	0.31	0.14	ind:fut:1p;	1	2	0	11	9	VCCVCCVCVCC	VCCVCCVCV	1	3	0	0	ak-sEp-t°-R§	4	VC-CVC-CV-CV	snoretpecca	§R°tpEska	ac-cep-te-rons	VER	100	10	2.55		accepter	1
+accepteront	aksEpt°R§	accepter	VER			165.84	144.66	1.34	0.20	ind:fut:3p;	1	2	0	11	9	VCCVCCVCVCC	VCCVCCVCV	1	3	0	0	ak-sEp-t°-R§	4	VC-CVC-CV-CV	tnoretpecca	§R°tpEska	ac-cep-te-ront	VER	100	10	2.7		accepter	1
+acceptes	aksEpt	accepter	VER			165.84	144.66	6.79	1.28	ind:pre:2s;	1	3	0	8	6	VCCVCCVC	VCCVCC	3	1	0	0	ak-sEpt	2	VC-CVCC	setpecca	tpEska	ac-cep-tes	VER	100	10	1.75	1.7	accepter	1
+acceptez	aksEpte	accepter	VER			165.84	144.66	12.53	2.16	imp:pre:2p;ind:pre:2p;	1	6	0	8	7	VCCVCCVC	VCCVCCV	2	5	0	7	ak-sEp-te	3	VC-CVC-CV	zetpecca	etpEska	ac-cep-tez	VER	100	10	1.95	1.7	accepter	1
+acceptiez	aksEptje	accepter	VER			165.84	144.66	1.00	0.54	ind:imp:2p;	1	1	0	9	8	VCCVCCVVC	VCCVCCYV	0	1	0	0	ak-sEp-tje	3	VC-CVC-CYV	zeitpecca	ejtpEska	ac-cep-tiez	VER	100	10	2.35	1.95	accepter	1
+acception	aksEpsj§	acception	NOM	f	s	0.15	0.47	0.15	0.27		1	2	1	9	8	VCCVCCVVC	VCCVCCYV	0	3	7	6	ak-sEp-sj§	3	VC-CVC-CYV	noitpecca	§jspEska	ac-cep-tion	NOM	53	26	2.5	2.1	accepter-ion	2
+acceptions	aksEpsj§	acception	NOM	f	p	0.15	0.47	0.00	0.20		2	2	0	10	8	VCCVCCVVCC	VCCVCCYV	0	3	0	6	ak-sEp-sj§	3	VC-CVC-CYV	snoitpecca	§jspEska	ac-cep-tions	NOM,VER	53	26	2.45	2.1	accepter-ion	2
+acceptions	aksEptj§	accepter	VER			165.84	144.66	0.21	1.35	ind:imp:1p;	2	1	0	10	8	VCCVCCVVCC	VCCVCCYV	0	3	0	0	ak-sEp-tj§	3	VC-CVC-CYV	snoitpecca	§jtpEska	ac-cep-tions	NOM,VER	100	10	2.45	1.75	accepter	1
+acceptons	aksEpt§	accepter	VER			165.84	144.66	2.72	0.95	imp:pre:1p;ind:pre:1p;	1	1	0	9	7	VCCVCCVCC	VCCVCCV	0	4	0	0	ak-sEp-t§	3	VC-CVC-CV	snotpecca	§tpEska	ac-cep-tons	VER	100	10	2.35	1.65	accepter	1
+acceptâmes	aksEptam	accepter	VER			165.84	144.66	0.00	0.14	ind:pas:1p;	1	1	0	10	8	VCCVCCVCVC	VCCVCCVC	0	1	0	0	ak-sEp-tam	3	VC-CVC-CVC	semâtpecca	matpEska	ac-cep-tâ-mes	VER	100	10	2.85	2.15	accepter	1
+acceptât	aksEpta	accepter	VER			165.84	144.66	0.01	1.42	sub:imp:3s;	1	2	0	8	7	VCCVCCVC	VCCVCCV	0	4	0	0	ak-sEp-ta	3	VC-CVC-CV	tâtpecca	atpEska	ac-cep-tât	VER	100	10	2.3	1.65	accepter	1
+acceptèrent	aksEptER	accepter	VER			165.84	144.66	0.04	0.74	ind:pas:3p;	1	1	0	11	8	VCCVCCVCVCC	VCCVCCVC	0	0	0	0	ak-sEp-tER	3	VC-CVC-CVC	tnerètpecca	REtpEska	ac-ce-ptè-rent	VER	100	10	2.7	2.2	accepter	1
+accepté	aksEpte	accepter	VER	m	s	165.84	144.66	28.46	27.16	par:pas;	1	6	0	7	7	VCCVCCV	VCCVCCV	2	5	0	7	ak-sEp-te	3	VC-CVC-CV	étpecca	etpEska	ac-cep-té	VER	100	10	1.95	1.7	accepter	1
+acceptée	aksEpte	accepter	VER	f	s	165.84	144.66	4.30	3.24	par:pas;	1	6	0	8	7	VCCVCCVV	VCCVCCV	1	5	0	7	ak-sEp-te	3	VC-CVC-CV	eétpecca	etpEska	ac-cep-tée	VER	100	10	1.95	1.7	accepter	1
+acceptées	aksEpte	accepter	VER	f	p	165.84	144.66	0.93	0.68	par:pas;	1	6	0	9	7	VCCVCCVVC	VCCVCCV	0	5	0	7	ak-sEp-te	3	VC-CVC-CV	seétpecca	etpEska	ac-cep-tées	VER	100	10	2.05	1.7	accepter	1
+acceptés	aksEpte	accepter	VER	m	p	165.84	144.66	1.29	0.74	par:pas;	1	6	0	8	7	VCCVCCVC	VCCVCCV	2	5	0	7	ak-sEp-te	3	VC-CVC-CV	sétpecca	etpEska	ac-cep-tés	VER	100	10	1.95	1.7	accepter	1
+accesseurs	aksEs9R	accesseur	NOM	m	p	0.00	0.07	0.00	0.07		1	1	0	10	7	VCCVCCVVCC	VCCVCVC	0	0	0	0	ak-sE-s9R	3	VC-CV-CVC	sruessecca	R9sEska	ac-ces-seurs	NOM			2.8	2.65	accesseur	1
+accessibilité	aksEsibilite	accessibilité	NOM	f	s	0.03	0.00	0.03	0.00		1	1	1	13	12	VCCVCCVCVCVCV	VCCVCVCVCVCV	0	0	9	6	ak-sE-si-bi-li-te	6	VC-CV-CV-CV-CV-CV	étilibissecca	etilibisEska	ac-ces-si-bi-li-té	NOM	93	15	4.3	3.8	accessible-ité	2
+accessible	aksesibl	accessible	ADJ		s	2.06	5.74	1.49	4.12		1	2	1	10	8	VCCVCCVCCV	VCCVCVCC	0	0	9	7	ak-se-sibl	3	VC-CV-CVCC	elbissecca	lbiseska	ac-ces-si-ble	ADJ	95	21	3.4	3.25	accessible	1
+accessibles	aksesibl	accessible	ADJ		p	2.06	5.74	0.57	1.62		1	2	0	11	8	VCCVCCVCCVC	VCCVCVCC	0	0	0	7	ak-se-sibl	3	VC-CV-CVCC	selbissecca	lbiseska	ac-ces-si-bles	ADJ	95	21	3.45	3.25	accessible	1
+accession	aksEsj§	accession	NOM	f	s	0.16	1.22	0.16	1.22		1	1	1	9	7	VCCVCCVVC	VCCVCYV	0	0	8	6	ak-sE-sj§	3	VC-CV-CYV	noissecca	§jsEska	ac-ces-sion	NOM	78	14	2.6	1.95	access-ion	2
+accessit	aksesit	accessit	NOM	m	s	0.02	0.07	0.02	0.07		1	1	1	8	7	VCCVCCVC	VCCVCVC	0	0	8	7	ak-se-sit	3	VC-CV-CVC	tissecca	tiseska	ac-ces-sit	NOM	63	30	2.9	2.8	accessit	1
+accessoire	akseswaR	accessoire	ADJ		s	0.74	2.84	0.12	1.01		2	4	1	10	8	VCCVCCVVCV	VCCVCYVC	0	0	10	8	ak-se-swaR	3	VC-CV-CYVC	eriossecca	Rawseska	ac-ces-soi-re	ADJ,NOM	100	22	3.3	2.95	accessoire	1
+accessoire	akseswaR	accessoire	NOM	m	s	3.87	7.30	1.11	1.08		2	4	1	10	8	VCCVCCVVCV	VCCVCYVC	0	0	10	8	ak-se-swaR	3	VC-CV-CYVC	eriossecca	Rawseska	ac-ces-soi-re	ADJ,NOM	100	31	3.3	2.95	accessoire	1
+accessoirement	akseswaR°m@	accessoirement	ADV			0.17	0.88	0.17	0.88		1	1	1	14	11	VCCVCCVVCVCVCC	VCCVCYVCVCV	0	0	11	9	ak-se-swa-R°-m@	5	VC-CV-CYV-CV-CV	tnemeriossecca	@m°Rawseska	ac-ces-soi-re-ment	ADV			4.55		accessoirement	1
+accessoires	akseswaR	accessoire	ADJ		p	0.74	2.84	0.62	1.82		2	4	0	11	8	VCCVCCVVCVC	VCCVCYVC	0	0	0	8	ak-se-swaR	3	VC-CV-CYVC	seriossecca	Rawseska	ac-ces-soi-res	ADJ,NOM	100	22	3.45	2.95	accessoire	1
+accessoires	akseswaR	accessoire	NOM	m	p	3.87	7.30	2.76	6.22		2	4	0	11	8	VCCVCCVVCVC	VCCVCYVC	0	0	0	8	ak-se-swaR	3	VC-CV-CYVC	seriossecca	Rawseska	ac-ces-soi-res	ADJ,NOM	100	31	3.45	2.95	accessoire	1
+accessoirise	aksEswaRiz	accessoiriser	VER			0.07	0.00	0.01	0.00	ind:pre:1s;	1	1	0	12	10	VCCVCCVVCVCV	VCCVCYVCVC	0	0	0	0	ak-sE-swa-Riz	4	VC-CV-CYV-CVC	esiriossecca	ziRawsEska	ac-ces-soi-ri-se	VER	95	23	4	4.45	accessoiriser	1
+accessoiriser	aksEswaRize	accessoiriser	VER			0.07	0.00	0.07	0.00	inf;	1	1	1	13	11	VCCVCCVVCVCVC	VCCVCYVCVCV	0	0	12	6	ak-sE-swa-Ri-ze	5	VC-CV-CYV-CV-CV	resiriossecca	eziRawsEska	ac-ces-soi-ri-ser	VER	95	23	4.75	4.6	accessoiriser	1
+accessoiriste	akseswaRist	accessoiriste	NOM		s	0.62	0.14	0.51	0.00		1	2	1	13	11	VCCVCCVVCVCCV	VCCVCYVCVCC	0	0	12	9	ak-se-swa-Rist	4	VC-CV-CYV-CVCC	etsiriossecca	tsiRawseska	ac-ces-soi-ris-te	NOM	100	24	4.65	4.45	accessoire-iste	2
+accessoiristes	akseswaRist	accessoiriste	NOM		p	0.62	0.14	0.11	0.14		1	2	0	14	11	VCCVCCVVCVCCVC	VCCVCYVCVCC	0	0	0	9	ak-se-swa-Rist	4	VC-CV-CYV-CVCC	setsiriossecca	tsiRawseska	ac-ces-soi-ris-tes	NOM	100	24	4.9	4.45	accessoire-iste	2
+accident	aksid@	accident	NOM	m	s	108.21	44.80	100.11	36.62		1	2	1	8	6	VCCVCVCC	VCCVCV	2	2	8	6	ak-si-d@	3	VC-CV-CV	tnedicca	@diska	ac-ci-dent	NOM	100	15	1.75	1.85	accident	1
+accidente	aksid@t	accidenter	VER			0.19	0.27	0.01	0.07	ind:pre:3s;	1	1	0	9	7	VCCVCVCCV	VCCVCVC	2	0	0	0	ak-si-d@t	3	VC-CV-CVC	etnedicca	t@diska	ac-ci-den-te	VER			2.1	2.4	accidenter	1
+accidentel	aksid@tEl	accidentel	ADJ	m	s	2.78	3.45	1.09	1.42		1	4	1	10	9	VCCVCVCCVC	VCCVCVCVC	1	0	10	9	ak-si-d@-tEl	4	VC-CV-CV-CVC	letnedicca	lEt@diska	ac-ci-den-tel	ADJ	100	23	2.45	3.35	accident-el	2
+accidentelle	aksid@tEl	accidentel	ADJ	f	s	2.78	3.45	1.44	1.28		1	4	0	12	9	VCCVCVCCVCCV	VCCVCVCVC	0	0	0	9	ak-si-d@-tEl	4	VC-CV-CV-CVC	elletnedicca	lEt@diska	ac-ci-den-tel-le	ADJ	100	23	3.45	3.35	accident-el	2
+accidentellement	aksid@tEl°m@	accidentellement	ADV			3.39	0.81	3.39	0.81		1	1	1	16	12	VCCVCVCCVCCVCVCC	VCCVCVCVCVCV	0	0	11	10	ak-si-d@-tE-l°-m@	6	VC-CV-CV-CV-CV-CV	tnemelletnedicca	@m°lEt@diska	ac-ci-den-tel-le-ment	ADV			5.55		accidentellement	1
+accidentelles	aksid@tEl	accidentel	ADJ	f	p	2.78	3.45	0.17	0.34		1	4	0	13	9	VCCVCVCCVCCVC	VCCVCVCVC	0	0	0	9	ak-si-d@-tEl	4	VC-CV-CV-CVC	selletnedicca	lEt@diska	ac-ci-den-tel-les	ADJ	100	23	3.85	3.35	accident-el	2
+accidentels	aksid@tEl	accidentel	ADJ	m	p	2.78	3.45	0.08	0.41		1	4	0	11	9	VCCVCVCCVCC	VCCVCVCVC	0	0	0	9	ak-si-d@-tEl	4	VC-CV-CV-CVC	sletnedicca	lEt@diska	ac-ci-den-tels	ADJ	100	23	2.8	3.35	accident-el	2
+accidenter	aksid@te	accidenter	VER			0.19	0.27	0.02	0.00	inf;	1	10	1	10	8	VCCVCVCCVC	VCCVCVCV	1	0	10	8	ak-si-d@-te	4	VC-CV-CV-CV	retnedicca	et@diska		VER			2.45	2.7	accidenter	1
+accidents	aksid@	accident	NOM	m	p	108.21	44.80	8.10	8.18		1	2	0	9	6	VCCVCVCCC	VCCVCV	2	2	0	6	ak-si-d@	3	VC-CV-CV	stnedicca	@diska	ac-ci-dents	NOM	100	15	2.15	1.85	accident	1
+accidenté	aksid@te	accidenter	VER	m	s	0.19	0.27	0.12	0.14	par:pas;	3	10	0	9	8	VCCVCVCCV	VCCVCVCV	2	0	9	8	ak-si-d@-te	4	VC-CV-CV-CV	étnedicca	et@diska	ac-ci-den-té	VER,ADJ,NOM			2.25	2.7	accidenter	1
+accidenté	aksid@te	accidenté	ADJ	m	s	0.30	1.42	0.16	0.54		3	10	1	9	8	VCCVCVCCV	VCCVCVCV	2	0	9	8	ak-si-d@-te	4	VC-CV-CV-CV	étnedicca	et@diska	ac-ci-den-té	VER,ADJ,NOM	100	19	2.25	2.7	accidenté	1
+accidenté	aksid@te	accidenté	NOM	m	s	0.57	0.61	0.28	0.34		3	10	1	9	8	VCCVCVCCV	VCCVCVCV	2	0	9	8	ak-si-d@-te	4	VC-CV-CV-CV	étnedicca	et@diska	ac-ci-den-té	VER,ADJ,NOM	92	27	2.25	2.7	accidenté	1
+accidentée	aksid@te	accidenter	VER	f	s	0.19	0.27	0.04	0.07	par:pas;	3	10	0	10	8	VCCVCVCCVV	VCCVCVCV	1	0	0	8	ak-si-d@-te	4	VC-CV-CV-CV	eétnedicca	et@diska	ac-ci-den-tée	VER,ADJ,NOM			2.4	2.7	accidenter	1
+accidentée	aksid@te	accidenté	ADJ	f	s	0.30	1.42	0.08	0.34		3	10	0	10	8	VCCVCVCCVV	VCCVCVCV	1	0	0	8	ak-si-d@-te	4	VC-CV-CV-CV	eétnedicca	et@diska	ac-ci-den-tée	VER,ADJ,NOM	100	19	2.4	2.7	accidenté	1
+accidentée	aksid@te	accidenté	NOM	f	s	0.57	0.61	0.01	0.27		3	10	0	10	8	VCCVCVCCVV	VCCVCVCV	1	0	0	8	ak-si-d@-te	4	VC-CV-CV-CV	eétnedicca	et@diska	ac-ci-den-tée	VER,ADJ,NOM	92	27	2.4	2.7	accidenté	1
+accidentées	aksid@te	accidenté	ADJ	f	p	0.30	1.42	0.02	0.20		1	10	0	11	8	VCCVCVCCVVC	VCCVCVCV	0	0	0	8	ak-si-d@-te	4	VC-CV-CV-CV	seétnedicca	et@diska	ac-ci-den-tées	ADJ	100	19	2.7	2.7	accidenté	1
+accidentés	aksid@te	accidenté	ADJ	m	p	0.30	1.42	0.04	0.34		2	10	0	10	8	VCCVCVCCVC	VCCVCVCV	1	0	0	8	ak-si-d@-te	4	VC-CV-CV-CV	sétnedicca	et@diska	ac-ci-den-tés	ADJ,NOM	100	19	2.35	2.7	accidenté	1
+accidentés	aksid@te	accidenté	NOM	m	p	0.57	0.61	0.28	0.00		2	10	0	10	8	VCCVCVCCVC	VCCVCVCV	1	0	0	8	ak-si-d@-te	4	VC-CV-CV-CV	sétnedicca	et@diska	ac-ci-den-tés	ADJ,NOM	92	27	2.35	2.7	accidenté	1
+acclama	aklama	acclamer	VER			1.75	5.81	0.00	0.34	ind:pas:3s;	1	1	0	7	6	VCCCVCV	VCCVCV	2	4	0	0	a-kla-ma	3	V-CCV-CV	amalcca	amalka	ac-cla-ma	VER	100	25	2.25	1.65	acclamer	1
+acclamaient	aklamE	acclamer	VER			1.75	5.81	0.09	0.68	ind:imp:3p;	1	2	0	11	6	VCCCVCVVVCC	VCCVCV	0	4	0	0	a-kla-mE	3	V-CCV-CV	tneiamalcca	Emalka	ac-cla-maient	VER	100	25	2.6	1.65	acclamer	1
+acclamait	aklamE	acclamer	VER			1.75	5.81	0.04	0.54	ind:imp:3s;	1	2	0	9	6	VCCCVCVVC	VCCVCV	1	4	0	0	a-kla-mE	3	V-CCV-CV	tiamalcca	Emalka	ac-cla-mait	VER	100	25	2.5	1.65	acclamer	1
+acclamant	aklam@	acclamer	VER			1.75	5.81	0.00	0.27	par:pre;	1	1	0	9	6	VCCCVCVCC	VCCVCV	2	4	0	0	a-kla-m@	3	V-CCV-CV	tnamalcca	@malka	ac-cla-mant	VER	100	25	2.45	1.7	acclamer	1
