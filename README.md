@@ -1,5 +1,5 @@
-# SNT/NSI/MP2I/MPI code
- All the code I wrote in SNT, NSI, MP2I and MPI computer science classes.
+# Code written at school
+ All the code I wrote in computer science classes (SNT, NSI, MP2I, MPI and in engineering school).
 
 # Languages and dependencies
 ## Python
