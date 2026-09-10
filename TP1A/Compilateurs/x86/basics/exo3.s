@@ -3,7 +3,6 @@
 
 # The string
 unknown: .string "Chaine de caractères\n"
-null: .string ""  # empty string to compare chars to the null char
 
 .text
 
@@ -16,7 +15,7 @@ _start:
     lea unknown(%rip), %r9
     # We move the current char into r10b to check if it’s 0
     movb (%r9, %r8, 1), %r10b
-    cmp %r10b, null(%rip)
+    cmpb $0, %r10b
     je end
 
 # prints the current char
@@ -31,7 +30,7 @@ nextchar:
     inc %r8
     # checks if the next char is 0
     movb (%r9, %r8, 1), %r10b
-    cmp %r10b, null(%rip)
+    cmp $0, %r10b
     jne nextchar
 
 end:
